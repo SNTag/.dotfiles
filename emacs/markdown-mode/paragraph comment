@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: comment: paragraph
+# contributor: Shayon Tagore <shayontagore@gmail.com>
+# key: pcmt
+# --
+
+<!-- $1 -->

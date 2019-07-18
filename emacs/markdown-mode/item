@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: latex item
+# contributor: Shayon Tagore <shayontagore@gmail.com>
+# key: item
+# expand-env: ((yas-indent-line 'fixed))
+# --
+
+
+    \item $1

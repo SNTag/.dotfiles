@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: global operator
+# key: --1
+# commentator: SNTagore (agenttiny@gmail.com)
+# expand-env: ((yas-indent-line 'fixed))
+# --
+
+<<-  

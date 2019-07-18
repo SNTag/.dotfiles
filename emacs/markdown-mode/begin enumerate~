@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: begin enumerate
+# contributor: Shayon Tagore <shayontagore@gmail.com>
+# key: beginen
+# --
+
+\begin{enumerate}
+    \item $1
+\end{enumerate}

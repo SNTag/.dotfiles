@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: notation: scientific
+# contributor: Shayon Tagore <shayontagore@gmail.com>
+# key: scinote
+# --
+
+\num{$1}

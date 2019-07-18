@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: begin enumerate
+# contributor: Shayon Tagore <shayontagore@gmail.com>
+# key: beginen
+# expand-env: ((yas-indent-line 'fixed))
+# --
+
+\begin{enumerate}
+    \item $1
+\end{enumerate}
