@@ -171,7 +171,7 @@ hc set mouse_recenter_gap 0
 
 #add padding panel
 # - top - - -
-hc pad 0 30 0 0 0
+hc pad 0 20 0 0 0
 
 # rules
 hc unrule -F
