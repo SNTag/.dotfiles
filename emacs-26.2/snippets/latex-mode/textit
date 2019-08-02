@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: textit
+# key: i
+# contributor: SNTagore (agenttiny@gmail.com)
+# --
+\textit{$1}$0

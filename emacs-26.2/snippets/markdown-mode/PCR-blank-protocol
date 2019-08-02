@@ -1,0 +1,20 @@
+# -*- mode: snippet -*-
+# name: Protocol: PCR blank
+# contributor: Shayon Tagore <shayontagore@gmail.com>
+# key: PCR-blank
+# --
+
+**PCR Protocol**
+Step 1: $1 C, $2 min
+Step 2: $3 C, $4 min
+Step 3: $5 C, $6 min
+Step 4: $7 C, $8 min
+Step 5: Goto Step 2, x $9
+Step 6: $10 C, $11 min
+Step 7: $12 C, $13 min
+Step 8: $14 C, $15 min
+
+**Notes**
+
+
+***

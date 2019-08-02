@@ -1,0 +1,30 @@
+# -*- mode: snippet -*-
+# name: Experiments list
+# contributor: Shayon Tagore <shayontagore@gmail.com>
+# key: xpr
+# --
+Recordkeeping
+------
+Teaching
+------
+Thinking
+------
+LabSafety
+------
+QE
+------
+Producing PXPR
+------
+MigrationRunningTime
+------
+### DLG5 Boyden
+### scratch assay
+[scratch assay](../protocols.v2.0/protocols/scratch_assay-nature.pdf)
+qPCR-sgrna
+------
+[RT-qPCR protocol](../protocols.v4/RT-qPCR.pdf)
+Cas9
+------
+### WesternBlotCas9
+### ICE DLG5
+[ICE v1.0](../protocols.v2.0/AAA_CRISPR_edits_v1.0.pdf)

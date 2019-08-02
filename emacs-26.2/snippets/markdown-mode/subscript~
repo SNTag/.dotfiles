@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: subscript
+# contributor: Shayon Tagore <shayontagore@gmail.com>
+# key: sub
+# --
+
+<sub>$1</sub>

@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: begin itemize
+# contributor: Shayon Tagore <shayontagore@gmail.com>
+# key: beginit
+# expand-env: ((yas-indent-line 'fixed))
+# --
+
+\begin{itemize}
+    \item $1
+\end{itemize}

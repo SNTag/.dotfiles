@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: commentator
+# key: cmt
+# commentator: SNTagore (agenttiny@gmail.com)
+# expand-env: ((yas-indent-line 'fixed))
+# --
+
+#----------|$1|----------#
+
+
+$2

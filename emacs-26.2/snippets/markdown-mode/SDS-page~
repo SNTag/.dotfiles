@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: SDS-page blank protocol
+# contributor: Shayon Tagore <shayontagore@gmail.com>
+# key: SDS-blank
+# --
+
+**SDS-page Protocol**
+Constant Voltage/Ampere (loading): $1
+Constant Voltage/Ampere (Running): $2
+Time: $3
+
+**Notes**
+
+
+***
