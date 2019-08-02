@@ -31,15 +31,19 @@
 
 (find-file "/media/PhD/Dropbox/latex journal/resources/QE_paper-Shayon/md-masters_thesis/")  ; Sum product
 (find-file "/media/PhD/Dropbox/latex journal/resources/QE_paper-Shayon/md-masters_thesis/01-Introduction.md")
-;; (find-file "/media/PhD/Dropbox/latex journal/resources/QE_paper-Shayon/md-masters_thesis/02-Technical-Details.md")  ; not in use anymore.  Included in introduction
 (find-file "/media/PhD/Dropbox/latex journal/resources/QE_paper-Shayon/md-masters_thesis/03-Methods-and-Materials.md")
 (find-file "/media/PhD/Dropbox/latex journal/resources/QE_paper-Shayon/md-masters_thesis/04-Results.md")
 (find-file "/media/PhD/Dropbox/latex journal/resources/QE_paper-Shayon/md-masters_thesis/05-Discussion.md")
 (find-file "/media/PhD/Dropbox/latex journal/resources/QE_paper-Shayon/md-masters_thesis/scratch.org")  ; Used for notes
 
-
 ;; (find-file "/media/PhD/Dropbox/latex journal/resources/QE_paper-Shayon/md-conditional pass/QE-Shayon.md")
 ;; (find-file "/media/PhD/Dropbox/latex journal/resources/QE_paper-Shayon/md-masters thesis/QE-Shayon.md")
+
+
+;; ====================
+;; thesis image files
+(find-file "/media/PhD/Dropbox/latex journal/resources/QE_paper-Shayon/tbls/tables-R-script.r")  ; tbls
+
 
 ;; ====================
 ;; For notes

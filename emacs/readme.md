@@ -28,25 +28,33 @@ The windows config is built around my use of:
   - Navigation (helm-buffers-list)
   - Zotero (helm-bibtex and minimal zotxt)
   - git (magit-mode)
-  - latex (AucTeX [**NOTE**: I do not use latex anymore and rely on pandoc.  This remains in the system in case of future use.])
+  - latex (AucTeX [**NOTE**: I do not use latex directly anymore and rely on pandoc with makefile,
+    markdown, and latex.  Latex-modes remains in the system in case of future use.])
 
 It should be possible to find sections where everything related to that mode are found.
 
 
 
-## Current keybinds
+## Current keybinds: User/Init Defined
 
+### Unbound
+C-x C-c - global kill key. Unsets the emacs kill command in GUI in case my clumsy fingers press it.
+
+### User list
 C-c f - helm-bibtex-with-local-bibliography
-C-c f - helm-bibtex-with-local-bibliography (to refresh)
-C-x g - magit-status
+C-u C-c f - helm-bibtex-with-local-bibliography.  To refresh bibtex key list.
 C-c s - helm-buffers-list
+C-c m - compile.  Useful for Makefile commands
+C-c o - browse-file-directory.  Command to open the directory of current file.
+
+C-x g - magit-status
 
 
 
 ## Custom commands
 
 today  -  enters todays date
-browse-file-directory  -  Opens the current files directory
+browse-file-directory  -  Opens the directory of current file.
 
 
 Using Markdown
@@ -55,7 +63,8 @@ Using Markdown
 If interested, my thesis writing approach uses Markdown, lualatex, and pandoc.  The paper can be
 written in markdown notation with latex commands, and processed using pandoc to generate PDFs.
 
-Pandoc Scholar - https://github.com/pandoc-scholar
+[Pandoc scholar](https://github.com/pandoc-scholar) 
+[Pandoc-Latex-NUS-thesis](https://github.com/SNTagore/Pandoc-Latex-NUS-thesis ) 
 
 
 

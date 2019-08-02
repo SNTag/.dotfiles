@@ -4,22 +4,24 @@
 ;;
 ;; Load files specified at the end to prevent possible configuration complications when loading modes.
 
-;; ====================
-;; Dimensions
+;; ;; ====================
+;; ;; Dimensions
+;; ;;
+;; ;; This section can cause emacs to start-up at a pre-configured size.
 
-(setq default-frame-alist '(
-			    (left . 0)
-			    (top . 32)
-			    (height . 62)
-			    (width . 75) ;; 115
-			    ))
+;; (setq default-frame-alist '(
+;; 			    (left . 0)
+;; 			    (top . 32)
+;; 			    (height . 62)
+;; 			    (width . 75) ;; 115
+;; 			    ))
 
 ;; ====================
 ;; Dropbox details
 
 (setq dropbox "/media/PhD/Dropbox/Library/")
 (setq dropbox-elpa "~/Dropbox/Library/Emacs/elpa-26.1")
-(setq default-directory "/media/PhD/Dropbox/")  ; C-x C-f location change
+(setq default-directory "/media/PhD/Dropbox/")  ; C-x C-f location changed
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -31,6 +33,7 @@
  (global-unset-key (kbd "C-x C-c"))
  )  ; unsets the emacs kill command in GUI in case my clumsy fingers press it
 ;; (setq x-select-enable-clipboard nil)  ; Prevents contamination of clipboard from deleting text, but also prevents copy/paste to outside emacs...
+(global-set-key (kbd "C-c o") 'browse-file-directory)
 
 
 ;; ;; ====================
@@ -42,6 +45,42 @@
 ;; (use-package openwith)
 ;; (openwith-mode t)
 ;; (setq openwith-associations '(("\\.pdf\\'" "Foxit Reader.exe" (file))))
+
+
+;; ====================
+;; unfill
+
+(use-package unfill)
+
+(global-set-key (kbd "C-c u") 'unfill-region)
+
+;; ====================
+;; Makefile - personalization
+
+;; set-key for compile
+(global-set-key (kbd "C-c m") 'compile)
+
+;; ;;
+;; (use-package bury-successful-compilation
+;;   :ensure t
+;;   :bind (("C-c m" . 'compile)
+;; 	 ("C-c C-m" . recompile)))
+
+
+
+;; Make the compilation window automatically disappear - from enberg on #emacs
+;; taken from:
+;; https://www.reddit.com/r/emacs/comments/44jwh3/better_compile_buffer/
+(setq compilation-finish-functions
+      (lambda (buf str)
+        (if (null (string-match ".*exited abnormally.*" str))
+            ;;no errors, make the compilation window go away in a few seconds
+            (progn
+              (run-at-time "0.4 sec" nil
+                           (lambda ()
+                             (select-window (get-buffer-window (get-buffer-create "*compilation*")))
+                             (switch-to-buffer nil)))
+              (message "No Compilation Errors!")))))
 
 
 ;; ====================
@@ -122,71 +161,74 @@
 
 
 
-;; if (aspell installed) { use aspell}
-;; else if (hunspell installed) { use hunspell }
-;; whatever spell checker I use, I always use English dictionary
-;; I prefer use aspell because:
-;; 1. aspell is older
-;; 2. looks Kevin Atkinson still get some road map for aspell:
-;; @see http://lists.gnu.org/archive/html/aspell-announce/2011-09/msg00000.html
-(defun flyspell-detect-ispell-args (&optional run-together)
-  "if RUN-TOGETHER is true, spell check the CamelCase words."
-  (let (args)
-    (cond
-     ((string-match  "aspell$" ispell-program-name)
-      ;; Force the English dictionary for aspell
-      ;; Support Camel Case spelling check (tested with aspell 0.6)
-      (setq args (list "--sug-mode=ultra" "--lang=en_US"))
-      (if run-together
-          (setq args (append args '("--run-together"))))
-     ((string-match "hunspell$" ispell-program-name)
-      ;; Force the English dictionary for hunspell
-      (setq args "-d en_US")))
-    args))
+;; ;; ====================
+;; ;; WOOOORRRRKKKKKSSSS
 
-(cond
- ((executable-find "aspell")
-  ;; you may also need `ispell-extra-args'
-  (setq ispell-program-name "aspell"))
- ((executable-find "hunspell")
-  (setq ispell-program-name "hunspell")
+;; ;; if (aspell installed) { use aspell}
+;; ;; else if (hunspell installed) { use hunspell }
+;; ;; whatever spell checker I use, I always use English dictionary
+;; ;; I prefer use aspell because:
+;; ;; 1. aspell is older
+;; ;; 2. looks Kevin Atkinson still get some road map for aspell:
+;; ;; @see http://lists.gnu.org/archive/html/aspell-announce/2011-09/msg00000.html
+;; (defun flyspell-detect-ispell-args (&optional run-together)
+;;   "if RUN-TOGETHER is true, spell check the CamelCase words."
+;;   (let (args)
+;;     (cond
+;;      ((string-match  "aspell$" ispell-program-name)
+;;       ;; Force the English dictionary for aspell
+;;       ;; Support Camel Case spelling check (tested with aspell 0.6)
+;;       (setq args (list "--sug-mode=ultra" "--lang=en_US"))
+;;       (if run-together
+;;           (setq args (append args '("--run-together"))))
+;;      ((string-match "hunspell$" ispell-program-name)
+;;       ;; Force the English dictionary for hunspell
+;;       (setq args "-d en_US")))
+;;     args))
 
-  ;; Please note that `ispell-local-dictionary` itself will be passed to hunspell cli with "-d"
-  ;; it's also used as the key to lookup ispell-local-dictionary-alist
-  ;; if we use different dictionary
-  (setq ispell-local-dictionary "en_US")
-  (setq ispell-local-dictionary-alist
-        '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil ("-d" "en_US") nil utf-8))))
- (t (setq ispell-program-name nil)))
+;; (cond
+;;  ((executable-find "aspell")
+;;   ;; you may also need `ispell-extra-args'
+;;   (setq ispell-program-name "aspell"))
+;;  ((executable-find "hunspell")
+;;   (setq ispell-program-name "hunspell")
 
-;; ispell-cmd-args is useless, it's the list of *extra* arguments we will append to the ispell process when "ispell-word" is called.
-;; ispell-extra-args is the command arguments which will *always* be used when start ispell process
-;; Please note when you use hunspell, ispell-extra-args will NOT be used.
-;; Hack ispell-local-dictionary-alist instead.
-(setq-default ispell-extra-args (flyspell-detect-ispell-args t))
-;; (setq ispell-cmd-args (flyspell-detect-ispell-args))
-(defadvice ispell-word (around my-ispell-word activate)
-  (let ((old-ispell-extra-args ispell-extra-args))
-    (ispell-kill-ispell t)
-    (setq ispell-extra-args (flyspell-detect-ispell-args))
-    ad-do-it
-    (setq ispell-extra-args old-ispell-extra-args)
-    (ispell-kill-ispell t)))
+;;   ;; Please note that `ispell-local-dictionary` itself will be passed to hunspell cli with "-d"
+;;   ;; it's also used as the key to lookup ispell-local-dictionary-alist
+;;   ;; if we use different dictionary
+;;   (setq ispell-local-dictionary "en_US")
+;;   (setq ispell-local-dictionary-alist
+;;         '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil ("-d" "en_US") nil utf-8))))
+;;  (t (setq ispell-program-name nil)))
 
-(defadvice flyspell-auto-correct-word (around my-flyspell-auto-correct-word activate)
-  (let ((old-ispell-extra-args ispell-extra-args))
-    (ispell-kill-ispell t)
-    ;; use emacs original arguments
-    (setq ispell-extra-args (flyspell-detect-ispell-args))
-    ad-do-it
-    ;; restore our own ispell arguments
-    (setq ispell-extra-args old-ispell-extra-args)
-    (ispell-kill-ispell t)))
+;; ;; ispell-cmd-args is useless, it's the list of *extra* arguments we will append to the ispell process when "ispell-word" is called.
+;; ;; ispell-extra-args is the command arguments which will *always* be used when start ispell process
+;; ;; Please note when you use hunspell, ispell-extra-args will NOT be used.
+;; ;; Hack ispell-local-dictionary-alist instead.
+;; (setq-default ispell-extra-args (flyspell-detect-ispell-args t))
+;; ;; (setq ispell-cmd-args (flyspell-detect-ispell-args))
+;; (defadvice ispell-word (around my-ispell-word activate)
+;;   (let ((old-ispell-extra-args ispell-extra-args))
+;;     (ispell-kill-ispell t)
+;;     (setq ispell-extra-args (flyspell-detect-ispell-args))
+;;     ad-do-it
+;;     (setq ispell-extra-args old-ispell-extra-args)
+;;     (ispell-kill-ispell t)))
 
-(defun text-mode-hook-setup ()
-  ;; Turn off RUN-TOGETHER option when spell check text-mode
-  (setq-local ispell-extra-args (flyspell-detect-ispell-args)))
-(add-hook 'text-mode-hook 'text-mode-hook-setup))
+;; (defadvice flyspell-auto-correct-word (around my-flyspell-auto-correct-word activate)
+;;   (let ((old-ispell-extra-args ispell-extra-args))
+;;     (ispell-kill-ispell t)
+;;     ;; use emacs original arguments
+;;     (setq ispell-extra-args (flyspell-detect-ispell-args))
+;;     ad-do-it
+;;     ;; restore our own ispell arguments
+;;     (setq ispell-extra-args old-ispell-extra-args)
+;;     (ispell-kill-ispell t)))
+
+;; (defun text-mode-hook-setup ()
+;;   ;; Turn off RUN-TOGETHER option when spell check text-mode
+;;   (setq-local ispell-extra-args (flyspell-detect-ispell-args)))
+;; (add-hook 'text-mode-hook 'text-mode-hook-setup))
 
 
 ;; ;; ====================

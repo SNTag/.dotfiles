@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: commentator
-# key: cmt
+# key: cmthdr
 # commentator: SNTagore (agenttiny@gmail.com)
 # expand-env: ((yas-indent-line 'fixed))
 # --
