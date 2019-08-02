@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: cell line MCF10a mC-c9 DLG5
-# contributor: Shayon Tagore <agenttiny@gmail.com>
-# key: mcf10a
-# --
-
-MCF10a mC-c9 DLG5-$1

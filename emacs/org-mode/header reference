@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: header reference
-# Contributor: SNTagore (shayontagore@gmail.com)
-# key: mainref
-# --
-
-**1** $1pdf: $2
-keywords:

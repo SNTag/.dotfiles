@@ -1,9 +1,0 @@
-# -*- mode: snippet -*-
-# name: begin general
-# contributor: Shayon Tagore <shayontagore@gmail.com>
-# key: begin
-# --
-
-\begin{${1:}}
-    $2
-\end{$1}
