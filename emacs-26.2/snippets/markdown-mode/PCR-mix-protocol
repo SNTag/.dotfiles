@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: Protocol: PCR mix
+# contributor: Shayon Tagore <shayontagore@gmail.com>
+# key: PCR-mix
+# --
+
+**PCR Protocol**
+Final volume: 10ul
+Polymerase: Type: $1 amount: $2
+Primer: Final concentration: 0.5 micro M   amount: $3      (1:10 for 10mM stock, 0.5ul into 10ul)
+DNA: Tube concentration: $4    amount: $5
+H20: $6
+
+
+**Notes**
+
+
+***

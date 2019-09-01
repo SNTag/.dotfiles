@@ -1,0 +1,30 @@
+#!/bin/bash
+
+function hc() {
+    herbstclient "$@"
+}
+
+Mod=Mod4
+
+if ! hc tag_status | grep "Control" >/dev/null || [[ $1 = -f ]]  ; then
+	TAGS=$(hc tag_status | wc -w)
+	hc add "Control"
+	if [[ $TAGS -ge 9 ]] ; then
+		echo "$0: too many tags; will not get a keybinding" >&2
+	else
+		hc keybind "$Mod-$(( TAGS + 1 ))" use "Control"
+		hc keybind "$Mod-Shift-$(( TAGS + 1 ))" move "Control"
+	fi
+fi
+
+# layout
+hc load Control '
+(split horizontal:0.350000:1 (split
+vertical:0.300000:1 (split vertical:0.300000:1 (clients vertical:0)
+(clients vertical:0) ) (clients vertical:0)) (split
+vertical:0.100000:1 (split horizontal:0.500000:1 (clients vertical:0)
+(clients vertical:0)) (split horizontal:0.700000:1 (clients
+vertical:0) (clients vertical:0 0x8800007)))) '
+
+
+

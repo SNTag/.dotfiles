@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: comment: image
+# contributor: Shayon Tagore <shayontagore@gmail.com>
+# key: imgcmt
+# --
+
+<!-- FIGURE -->
+<!-- $1 -->
+<!-- FIGURE -->

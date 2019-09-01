@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: begin general
+# contributor: Shayon Tagore <shayontagore@gmail.com>
+# key: begin
+# expand-env: ((yas-indent-line 'fixed))
+# --
+
+\begin{${1:}}
+    $2
+\end{$1}

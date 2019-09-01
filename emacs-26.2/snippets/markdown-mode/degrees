@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: degrees Celcius
+# contributor: Shayon Tagore <shayontagore@gmail.com>
+# key: degC
+# --
+
+&deg;C

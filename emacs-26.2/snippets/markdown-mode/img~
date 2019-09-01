@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Image
+# contributor: Peng Deng <dengpeng@gmail.com>
+# modified: Shayon Tagore <shayontagore@gmail.com>
+# key: img
+# --
+![${1:Alt Text}](${2:URL}){${3:Short caption} #fig:${4:img name} width=100%} $0

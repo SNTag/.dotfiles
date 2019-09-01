@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Agarose 8-well gel  layout
+# contributor: Shayon Tagore <shayontagore@gmail.com>
+# key: agarose-8
+# --
+
+W1: $1 | W2: $2 | W3: $3 | W4: $4 | W5: $5 | W6: $6 | W7: $7 | W8: $8

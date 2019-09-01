@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: assignment
+# key: -1
+# commentator: SNTagore (agenttiny@gmail.com)
+# expand-env: ((yas-indent-line 'fixed))
+# --
+
+<- 
