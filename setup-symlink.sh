@@ -34,13 +34,15 @@ function linkDotFile {
     echo "Creating new symlink: ${dest}"
     ln -s ${dotfilesGit}/${1} ${dest}
 #    rm -r ~/.$(2)
+    echo "Moving ${HOME}/${1} to ${HOME}/${2}"
     mv ${HOME}/${1} ${HOME}/${2}
-    echo "${HOME}/${2}"
+
+    echo 'NEW ITEM ==========================================='
 }
 
 
 
-linkDotFile emacs-26.2 .emacs.d
+#linkDotFile emacs-26.2 .emacs.d
 linkDotFile herbstluftwm .config/herbstluftwm
 linkDotFile polybar .config/polybar
 linkDotFile zshrc .zshrc
@@ -48,12 +50,24 @@ linkDotFile bashrc .bashrc
 
 # FOR EMACS - slightly more complicated to prevent accidental symlink of elpa packages, which need to be uniquely installed per computer
 
+#####
 [[ -d ~/.emacs.d ]] || mkdir ~/.emacs.d
+[[ -d ~/.emacs.d/config ]] || mkdir ~/.emacs.d/config
+[[ -d ~/.emacs.d/snippets ]] || mkdir ~/.emacs.d/snippets
+
+##### prevents certain errors
 [[ -d ~/emacs-26.2 ]] || mkdir ~/emacs-26.2
+
+##### Solves the problem of MELPA access
+[[ -d ~/.emacs.d/custom ]] || mkdir ~/.emacs.d/custom && cp -r ~/.dotfiles/emacs-26.2/custom ~/.emacs.d/custom
+
 linkDotFile emacs-26.2/init.el .emacs.d/init.el
-linkDotFile emacs-26.2/config .emacs.d/config
-linkDotFile emacs-26.2/snippets .emacs.d/snippets
+#linkDotFile emacs-26.2/config/ .emacs.d/config/
+#linkDotFile emacs-26.2/snippets .emacs.d/snippets
 linkDotFile emacs-26.2/readme.md .emacs.d/readme.md
+
+##### For the difficult to symlink
+ln -s ~/.dotfiles/emacs-26.2/config/* ~/.emacs.d/config/
 
 ##### Cleaning
 
