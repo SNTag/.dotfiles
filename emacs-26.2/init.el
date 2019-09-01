@@ -36,11 +36,11 @@
 
 ;; (if (display-graphic-p)
 ;;   (progn
-    (setq custom-file "~/.emacs.d/config/custom/linux-manjaro-custom.el")
+    (setq custom-file "~/.emacs.d/custom/linux-manjaro-custom.el")
     (load custom-file 'noerror)
 ;;    )
     ;; (progn
-    ;; (setq custom-file "~/.emacs.d/config/custom/linux-manjaroTerminal-custom.el")
+    ;; (setq custom-file "~/.emacs.d/custom/linux-manjaroTerminal-custom.el")
     ;; (load custom-file 'noerror)
     ;; )
     ;; )
