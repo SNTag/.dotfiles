@@ -59,7 +59,7 @@ linkDotFile bashrc .bashrc
 [[ -d ~/emacs-26.2 ]] || mkdir ~/emacs-26.2
 
 ##### Solves the problem of MELPA access
-[[ -d ~/.emacs.d/custom ]] || mkdir ~/.emacs.d/custom && cp -r ~/.dotfiles/emacs-26.2/custom ~/.emacs.d/custom
+[[ -d ~/.emacs.d/custom ]] || cp -r ~/.dotfiles/emacs-26.2/custom ~/.emacs.d/
 
 linkDotFile emacs-26.2/init.el .emacs.d/init.el
 #linkDotFile emacs-26.2/config/ .emacs.d/config/
@@ -67,7 +67,9 @@ linkDotFile emacs-26.2/init.el .emacs.d/init.el
 linkDotFile emacs-26.2/readme.md .emacs.d/readme.md
 
 ##### For the difficult to symlink
-ln -s ~/.dotfiles/emacs-26.2/config/* ~/.emacs.d/config/
+#$ I will assume theres some sort of confusion when running linkDotFile on earlier commands.  will figure it out later.
+ln -s ~/.dotfiles/emacs-26.2/config/*.el ~/.emacs.d/config/
+ln -s ~/.dotfiles/emacs-26.2/snippets/* ~/.emacs.d/snippets/
 
 ##### Cleaning
 
