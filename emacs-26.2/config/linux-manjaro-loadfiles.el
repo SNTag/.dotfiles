@@ -25,6 +25,10 @@
 
 ;; (filesets-init)
 
+;; ====================
+;; Cover Letter
+
+(find-file "/media/PhD/Dropbox/journal_etc/papers/2019/files/CSHL_02326-R/coverLetter/01-letter.md")
 
 ;; ====================
 ;; thesis files

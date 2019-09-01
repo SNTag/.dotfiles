@@ -42,7 +42,7 @@
 
 ;; ====================
 ;; thesis image files
-(find-file "/media/PhD/Dropbox/latex journal/resources/QE_paper-Shayon/tbls/tables-R-script.R")  ; tbls
+(find-file "/media/PhD/Dropbox/latex journal/resources/QE_paper-Shayon/tbls/tables-R-script.r")  ; tbls
 
 
 ;; ====================
