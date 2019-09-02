@@ -176,9 +176,9 @@ alias eZshrc='emacs ~/.zshrc'
 alias eBashAliases='emacs ~/.bash_aliases'
 alias sZshrc='source ~/.zshrc'
 alias sBashAliases='source ~/.bash_aliases'
-alias settingtheworkdirectoryforzshrc='cd /media/PhD/Dropbox'    # Used to set starting point for zshrc
+alias settingtheworkdirectoryforzshrc='cd $DROPBOX'    # Used to set starting point for zshrc
 settingtheworkdirectoryforzshrc
-alias myPlayground="cs /media/PhD/Dropbox/projects"
+alias myPlayground="cs $DROPBOX/projects"
 alias clearPacmanLock="sudo rm /var/lib/pacman/db.lck"
 alias snakes="conda activate snakes"
 alias endSnakes="conda deactivate"
@@ -191,7 +191,7 @@ termCount() {
 
 alias going="thesisWork && make"
 alias photoCopy="mv -iv /run/media/sntagore/9016-4EF8/DCIM/100CANON/* ./"
-alias jobSearch="cs /media/PhD/Dropbox/journal_etc/papers/2019/"
+alias jobSearch="cs $DROPBOX/journal_etc/papers/2019/"
 alias myDrives="cs /media"
 alias myStorage="cs /media/storageSite/"
 
@@ -203,30 +203,30 @@ alias gitDot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 ###################################################################################################
 # Locations
-alias myDropbox='cs /media/PhD/Dropbox'
-alias myJournal='cs /media/PhD/Dropbox/latex\ journal/'
-alias myProjects='cs /media/PhD/Dropbox/projects'
-alias myScripts='cs /media/PhD/Dropbox/projects/scripts'
+alias myDropbox='cs $DROPBOX'
+alias myJournal='cs $DROPBOX/latex\ journal/'
+alias myProjects='cs $DROPBOX/projects'
+alias myScripts='cs $DROPBOX/projects/scripts'
 alias winDocuments='cs ~/Documents'
 #alias ncbiDownload='cs /media/PhD/Users/shayo/ncbi'
 #alias win_shayon='cs /media/PhD/Users/shayo'
 alias myDownloads='cs ~/Downloads/'
 alias myPrograms="cs ~/Programs"
-alias thesisWork='cs "/media/PhD/Dropbox/latex journal/resources/QE_paper-Shayon/md-masters_thesis"'
-alias maintainScripts='cs /media/PhD/Dropbox/projects/scripts/system-set-up'
-alias myInvesting='cs /media/PhD/Dropbox/projects/scripts/syste\
+alias thesisWork='cs "$DROPBOX/latex journal/resources/QE_paper-Shayon/md-masters_thesis"'
+alias maintainScripts='cs $DROPBOX/projects/scripts/system-set-up'
+alias myInvesting='cs $DROPBOX/projects/scripts/syste\
 m-set-up'
 #alias myStartUp='cs /mnt/c/Users/shayo/AppData/Roaming/Microsoft/Windows/Start\ Menu/Programs/Startup'
 #alias myDesktop="cs /mnt/c/Users/shayo/Desktop"
 
 #### emacs
-alias MJUploadinit='cp -r ~/.emacs.d/config /media/PhD/Dropbox/Work/emacs/elpa-26.1/;
-cp ~/.emacs.d/init.el /media/PhD/Dropbox/Work/emacs/elpa-26.1/MJInit.el;
-cp -r ~/.emacs.d/snippets /media/PhD/Dropbox/Work/emacs/elpa-26.1/' # Upload
+alias MJUploadinit='cp -r ~/.emacs.d/config $DROPBOX/Work/emacs/elpa-26.1/;
+cp ~/.emacs.d/init.el $DROPBOX/Work/emacs/elpa-26.1/MJInit.el;
+cp -r ~/.emacs.d/snippets $DROPBOX/Work/emacs/elpa-26.1/' # Upload
 
-alias MJDownloadinit='cp -r /media/PhD/Dropbox/Work/emacs/elpa-26.1/config ~/.emacs.d/;
-cp /media/PhD/Dropbox/Work/emacs/elpa-26.1/MJInit.el ~/.emacs.d/init.el; 
-cp -r /media/PhD/Dropbox/Work/emacs/elpa-26.1/snippets ~/.emacs.d/' # Download
+alias MJDownloadinit='cp -r $DROPBOX/Work/emacs/elpa-26.1/config ~/.emacs.d/;
+cp $DROPBOX/Work/emacs/elpa-26.1/MJInit.el ~/.emacs.d/init.el; 
+cp -r $DROPBOX/Work/emacs/elpa-26.1/snippets ~/.emacs.d/' # Download
 # alias emacs="emacs -nw"
 alias emacs="emacsclient -nw"
 # alias e="emacs "
@@ -237,11 +237,11 @@ alias MJInit="cd ~/.emacs.d" # Location
 alias MJSnippets="cs ~/.emacs.d/snippets" # Location
 
 #### temp locations
-alias classLSM3241='cs /media/PhD/Dropbox/Work/lsm3241-19-sem2'
+alias classLSM3241='cs $DROPBOX/Work/lsm3241-19-sem2'
 
 ## These commands were used for QE documents
-alias myThesisfolder="cs /media/PhD/Dropbox/latex\ journal/resources/QE_paper-Shayon"
-# alias myQEpresentation="cs '/media/PhD/Dropbox/latex journal/resources/QE_paper-Shayon/QE-presentation conditional pass'"
+alias myThesisfolder="cs $DROPBOX/latex\ journal/resources/QE_paper-Shayon"
+# alias myQEpresentation="cs '$DROPBOX/latex journal/resources/QE_paper-Shayon/QE-presentation conditional pass'"
 
 # ssh
 alias pi="ssh sntagore@192.168.1.87"
@@ -251,10 +251,10 @@ alias pi="ssh sntagore@192.168.1.87"
 ###################################################################################################
 # Universal backing-up
 
-alias downloadZshrcMJ='cp /media/PhD/Dropbox/projects/scripts/terminal-basics/zshrcMJ_v2 ~/.zshrc' # takes from dropbox
-alias uploadZshrcMJ='cp ~/.zshrc /media/PhD/Dropbox/projects/scripts/terminal-basics/zshrcMJ_v2' # adds to dropbox
-alias downloadSsh='cp /media/PhD/Dropbox/projects/scripts/ssh_config_v1 ~/.ssh/config'
-alias uploadSsh='cp ~/.ssh/config /media/PhD/Dropbox/projects/scripts/ssh_config_v1'
+alias downloadZshrcMJ='cp $DROPBOX/projects/scripts/terminal-basics/zshrcMJ_v2 ~/.zshrc' # takes from dropbox
+alias uploadZshrcMJ='cp ~/.zshrc $DROPBOX/projects/scripts/terminal-basics/zshrcMJ_v2' # adds to dropbox
+alias downloadSsh='cp $DROPBOX/projects/scripts/ssh_config_v1 ~/.ssh/config'
+alias uploadSsh='cp ~/.ssh/config $DROPBOX/projects/scripts/ssh_config_v1'
 
 
 
@@ -330,7 +330,7 @@ alias fastqc="/mnt/d/Dropbox/Work/programs/FastQC/fastqc"
 
 # R
 ### windows R
-alias eRPackages="e /media/PhD/Dropbox/projects/scripts/system-set-up/install_R_packages"
+alias eRPackages="e $DROPBOX/projects/scripts/system-set-up/install_R_packages"
 
 
 
@@ -344,7 +344,7 @@ alias beamering="pandoc --pdf-engine=lualatex -t beamer -o slides.pdf 01-Main.md
 alias resumeing="pandoc --pdf-engine=lualatex -o trial-something.pdf cv_4.tex"
 
 source ~/.temp-aliases
-export PATH=${PATH}:/media/PhD/Dropbox/Work/programs/edirect
+export PATH=${PATH}:$DROPBOX/Work/programs/edirect
 
 emacs --daemon &
 
@@ -381,7 +381,7 @@ emacs --daemon &
 (cat ~/.cache/wal/sequences &)
 
 # added by Miniconda3 4.2.12 installer
-# export PATH="/home/sntagore/anaconda3/bin:$PATH"  # commented out by conda initialize
+export PATH="/home/sntagore/anaconda3/bin:$PATH"  # commented out by conda initialize
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -440,3 +440,6 @@ function cdb() {
             ;;
     esac
 }
+
+
+export PATH="/home/sntagore/anaconda3/bin:$PATH"
