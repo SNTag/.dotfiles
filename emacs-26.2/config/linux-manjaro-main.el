@@ -19,9 +19,9 @@
 ;; ====================
 ;; Dropbox details
 
-(setq dropbox "/media/PhD/Dropbox/Library/")
-(setq dropbox-elpa "~/Dropbox/Library/Emacs/elpa-26.1")
-(setq default-directory "/media/PhD/Dropbox/")  ; C-x C-f location changed
+;; (setq dropbox "/media/iDropbox/Dropbox/Library/")
+;; (setq dropbox-elpa "~/Dropbox/Library/Emacs/elpa-26.1")
+;; (setq default-directory "/media/iDropbox/Dropbox/")  ; C-x C-f location changed
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -369,7 +369,8 @@
 ;;
 ;; linter.  Can check writing against grammatical rules.  Vale has a fun ability to add custom rules!
 
-(require 'flycheck-vale)
+(use-package flycheck-vale)
+;; (require 'flycheck-vale)
 (flycheck-vale-setup)
 
 
@@ -507,10 +508,10 @@
 ;; ;; need to add line numbers
 ;; (global-linum-mode t) ;; enable line numbers globally
 
-;; ;; would this be useful?
-;; ;; enable autopep8 formatting on save
-;; (require 'py-autopep8)
-;; (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+;; would this be useful?
+;; enable autopep8 formatting on save
+(require 'py-autopep8)
+(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 
 (use-package elpy
   :ensure t
@@ -522,11 +523,17 @@
       (remove-hook 'elpy-modules 'elpy-module-flymake)
       (remove-hook 'elpy-modules 'elpy-module-yasnippet)
       (remove-hook 'elpy-mode-hook 'elpy-module-highlight-indentation)
-      (add-hook 'elpy-mode-hook 'flycheck-mode))
+      (add-hook 'elpy-mode-hook 'flycheck-mode)
+      (add-hook 'python-mode-hook 'anaconda-mode)
+      (elpy-use-ipython))
     (elpy-enable)
     ;; jedi is great
     (setq elpy-rpc-backend "jedi")))
 
+(add-hook 'python-mode-hook 'anaconda-mode)
+(defun my-python-mode-hook () 
+  (linum-mode 1)) 
+(add-hook 'python-mode-hook 'my-python-mode-hook) 
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -997,7 +1004,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 (use-package helm-bibtex
   :ensure t)
 ;;  bibtex-completion-notes-path "~/Dropbox/OrgMode/Papers.org"
-(setq   bibtex-completion-bibliography '("/media/PhD/Dropbox/latex journal/resources/Greg-Tucker-Kellogg.bib")
+(setq   bibtex-completion-bibliography '("/media/iDropbox/Dropbox/latex journal/resources/Greg-Tucker-Kellogg.bib")
         bibtex-completion-library-path '("~/Zotero/"))
 
 (setq bibtex-completion-pdf-field "file")  ; Uses lower case "file" to work with better-bibtex zotero plugin
