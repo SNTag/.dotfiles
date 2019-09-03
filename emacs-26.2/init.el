@@ -111,7 +111,7 @@ e.g. Sunday, September 17, 2000."
 
 (load-file "~/.emacs.d/config/package.list.el")
 
-(load-file "~/.emacs.d/config/linux-manjaro-main.el")
+(load-file "~/.emacs.d/Borg-Collective/Hive-Mind.el")
 
 ;; ====================
 ;; Themes

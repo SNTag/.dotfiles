@@ -55,7 +55,7 @@ echo Setting up Emacs.d files
 [[ -d ~/.emacs.d/config ]] || mkdir ~/.emacs.d/config
 [[ -d ~/.emacs.d/snippets ]] || mkdir ~/.emacs.d/snippets
 
-echo Accomadating errors
+echo Accommodating errors
 [[ -d ~/emacs-26.2 ]] || mkdir ~/emacs-26.2
 
 echo Solves the problem of MELPA access
@@ -73,5 +73,9 @@ ln -s ~/.dotfiles/emacs-26.2/snippets/* ~/.emacs.d/snippets/
 echo Cleaning
 
 [[ -d ~/emacs-26.2 ]] && rm -r ~/emacs-26.2
+
+echo Setting up the babel links
+
+[[ -d ~/.emacs.d/Borg-Collective/ ]] || mkdir ~/.emacs.d/Borg-Collective & ln -s ~/.dotfiles/emacs-26.2/Borg-Collective/*.el ~/.emacs.d/Borg-Collective/
 
 echo FINISHING ==========================================
