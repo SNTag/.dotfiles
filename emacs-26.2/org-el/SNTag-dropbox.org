@@ -1,0 +1,13 @@
+#+TITLE: Dropbox
+#+OPTIONS: toc:nil num:nil ^:nil
+
+#+begin_src emacs-lisp
+
+;; ====================
+;; Dropbox details
+
+;; (setq dropbox "/media/iDropbox/Dropbox/Library/")
+;; (setq dropbox-elpa "~/Dropbox/Library/Emacs/elpa-26.1")
+;; (setq default-directory "/media/iDropbox/Dropbox/")  ; C-x C-f location changed
+
+#+end_src 

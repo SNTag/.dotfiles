@@ -1,0 +1,6 @@
+#+TITLE: NAME HERE
+#+OPTIONS: toc:nil num:nil ^:nil
+
+#+begin_src emacs-lisp
+
+#+end_src 

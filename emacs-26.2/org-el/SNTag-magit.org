@@ -1,0 +1,19 @@
+#+TITLE: Magit
+#+OPTIONS: toc:nil num:nil ^:nil
+
+#+begin_src emacs-lisp
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Magit
+;;
+;; enables Git cooperation
+
+(use-package magit
+  :ensure t)
+
+;; ====================
+;; magit keybinds
+
+(global-set-key (kbd "C-x g") 'magit-status)
+
+#+end_src 
