@@ -510,7 +510,7 @@
 
 ;; would this be useful?
 ;; enable autopep8 formatting on save
-(require 'py-autopep8)
+(use-package py-autopep8)
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 
 (use-package elpy
@@ -525,7 +525,8 @@
       (remove-hook 'elpy-mode-hook 'elpy-module-highlight-indentation)
       (add-hook 'elpy-mode-hook 'flycheck-mode)
       (add-hook 'python-mode-hook 'anaconda-mode)
-      (elpy-use-ipython))
+      (setq pythong-shell-interpreter "ipython"
+	    python-shell-interpreter-args "-i --simple-prompt"))
     (elpy-enable)
     ;; jedi is great
     (setq elpy-rpc-backend "jedi")))
