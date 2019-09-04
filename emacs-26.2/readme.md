@@ -1,25 +1,30 @@
 # .emacs.d-config
 
 
-OS: Linux (up-to-date), Windows (May have complications)
+Designed for Linux.
 
-Build focus:
-I am a graduate student in molecular biology attempting to make a break into bioinformatics with a
-strong desire for minimalism in my build if possible.  Some things have been tweaked to my design
-preferences.  Let me know if you have advice on design improvements!
+previous commits included windows incase I ever switched back and
+forth.  I'm commiting my self to linux.
 
-I have recently made the switch to Linux Manjaro (yes, I'm now an elitist Arch user), and the
-windows related components may be deprecated.  I'll update them in the future if given a chance.
+Build focus: I am a graduate student in molecular biology attempting
+to make a break into bioinformatics with a strong desire for
+minimalism in my build if possible.  Some things have been tweaked to
+my design preferences.  Let me know if you have advice on design
+improvements!
 
-The Init file has only personal tweaks, and code telling emacs what files to load for the
-configuration based on the system it is on.  Notes are available on how to tweak it where possible
-or I've remembered why I putsomething in.
+I have recently made the switch to Linux Manjaro, and plan to stick
+with it for a long time.
+
+The Init file has only tweaks for improving speed during loading and
+to direct it to the Borg-Collective (my nickname for the style of
+organization for the packages).  Names of the Borg-Collective files
+indicate what it contains.
 
 
 
 ## Build focus
 
-The windows config is built around my use of:
+This config is built around my use of:
   - Markdown (markdown-mode)
   - Pandoc (pandoc-mode)
   - Python (elpy)
@@ -28,11 +33,16 @@ The windows config is built around my use of:
   - Navigation (helm-buffers-list)
   - Zotero (helm-bibtex and minimal zotxt)
   - git (magit-mode)
-  - latex (AucTeX [**NOTE**: I do not use latex directly anymore and rely on pandoc with makefile,
-    markdown, and latex.  Latex-modes remains in the system in case of future use.])
+  - latex (AucTeX [**NOTE**: I do not use latex directly anymore and
+    rely on pandoc with makefile, markdown, and latex.  Latex-modes
+    remains in the system in case of future use.])
 
-It should be possible to find sections where everything related to that mode are found.
+It should be possible to find sections where everything related to that mode are found in the Borg-Collective.
 
+
+# Future Plans
+
+Will attempt to clean things up and introduce an babel literative programming el format if possible.
 
 
 ## Current keybinds: User/Init Defined
@@ -60,8 +70,9 @@ browse-file-directory  -  Opens the directory of current file.
 Using Markdown
 --------------
 
-If interested, my thesis writing approach uses Markdown, lualatex, and pandoc.  The paper can be
-written in markdown notation with latex commands, and processed using pandoc to generate PDFs.
+If interested, my thesis writing approach uses Markdown, lualatex, and
+pandoc.  The paper can be written in markdown notation with latex
+commands, and processed using pandoc to generate PDFs.
 
 [Pandoc scholar](https://github.com/pandoc-scholar) 
 [Pandoc-Latex-NUS-thesis](https://github.com/SNTagore/Pandoc-Latex-NUS-thesis ) 
