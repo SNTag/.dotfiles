@@ -42,3 +42,6 @@
 
 ;; helm-bibtex
 (load-file "~/.dotfiles/emacs-26.2/Borg-Collective/SNTag-helm-bibtex.el")
+
+;; load-files
+(load-file "~/.dotfiles/emacs-26.2/Borg-Collective/SNTag-load-files.el")
