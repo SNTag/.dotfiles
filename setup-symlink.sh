@@ -50,32 +50,44 @@ linkDotFile bashrc .bashrc
 
 # FOR EMACS - slightly more complicated to prevent accidental symlink of elpa packages, which need to be uniquely installed per computer
 
+
 echo Setting up Emacs.d files
 [[ -d ~/.emacs.d ]] || mkdir ~/.emacs.d
 [[ -d ~/.emacs.d/config ]] || mkdir ~/.emacs.d/config
 [[ -d ~/.emacs.d/snippets ]] || mkdir ~/.emacs.d/snippets
 
+
 echo Accommodating errors
 [[ -d ~/emacs-26.2 ]] || mkdir ~/emacs-26.2
 
-echo Solves the problem of MELPA access
-[[ -d ~/.emacs.d/custom ]] || cp -r ~/.dotfiles/emacs-26.2/custom ~/.emacs.d/
 
 echo For simple files
 linkDotFile emacs-26.2/init.el .emacs.d/init.el
 linkDotFile emacs-26.2/readme.md .emacs.d/readme.md
+
 
 echo For items difficult to symlink
 #$ I will assume theres some sort of confusion when running linkDotFile on earlier commands.  will figure it out later.
 ln -s ~/.dotfiles/emacs-26.2/config/*.el ~/.emacs.d/config/
 ln -s ~/.dotfiles/emacs-26.2/snippets/* ~/.emacs.d/snippets/
 
+
 echo Cleaning
 
 [[ -d ~/emacs-26.2 ]] && rm -r ~/emacs-26.2
 
-echo Setting up the babel links
 
-[[ -d ~/.emacs.d/Borg-Collective/ ]] || mkdir ~/.emacs.d/Borg-Collective & ln -s ~/.dotfiles/emacs-26.2/Borg-Collective/*.el ~/.emacs.d/Borg-Collective/
+echo Setting up the Borg Collective.  Resistance is futile.
+
+[[ -d ~/.emacs.d/Borg-Collective/ ]] || mkdir ~/.emacs.d/Borg-Collective
+ln -s ~/.dotfiles/emacs-26.2/Borg-Collective/*.el ~/.emacs.d/Borg-Collective/
+
+
+echo Setting up privacy from Github
+
+[[ -d ~/.emacs.d/privacy/ ]] || mkdir ~/.emacs.d/privacy/
+ln -s $DROPBOX/journal_etc/scripts/privacy/* ~/.emacs.d/privacy/
+[[ -d ~/.emacs.d/custom ]] || mkdir ~/.emacs.d/custom
+ln -s $DROPBOX/journal_etc/scripts/custom/* ~/.emacs.d/custom/
 
 echo FINISHING ==========================================
