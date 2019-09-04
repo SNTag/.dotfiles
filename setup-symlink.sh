@@ -86,7 +86,7 @@ ln -s ~/.dotfiles/emacs-26.2/Borg-Collective/*.el ~/.emacs.d/Borg-Collective/
 echo Setting up privacy from Github
 
 [[ -d ~/.emacs.d/privacy/ ]] || mkdir ~/.emacs.d/privacy/
-ln -s $DROPBOX/journal_etc/scripts/emacs-26.2/privacy/* ~/.emacs.d/privacy/
+ln -s $DROPBOX/journal_etc/scripts/emacs-26.2/privacy/*.el ~/.emacs.d/privacy/
 [[ -d ~/.emacs.d/custom ]] || mkdir ~/.emacs.d/custom
 ln -s $DROPBOX/journal_etc/scripts/emacs-26.2/custom/*.el ~/.emacs.d/custom/
 ln -s $DROPBOX/journal_etc/scripts/emacs-26.2/secret-Borg/*.el ~/.emacs.d/config/
