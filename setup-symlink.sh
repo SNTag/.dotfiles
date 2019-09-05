@@ -1,24 +1,24 @@
 #!/bin/bash
 
 # inspiration taken from tomnomnom
-# Future edit: add correction for individual files (ex., readme.md)
+# Future edit: add correction for individual files (ex., readme.md) and emacs
 
 dotfilesGit=${HOME}/.dotfiles
+
+[[ -d ~/backup ]] || mkdir ~/backup
 
 function linkDotFile {
     dest="${HOME}/${1}"
     dateStr=$(date +%Y-%m-%d-%H%M)
 
-    if [ -h ~/${1} ]; then
+    echo "========================================== ${1} "
+    
+    #  Deals with cleaning/backing up any files/directories at final/priming
+    #+ destination with same name
+    if [ -h "${dest}" ]; then
 	# existing symlink
 	echo "Removing existing symlink: ${dest}"
 	rm ${dest}
-
-    elif [ -d ~/${2} ]; then
-	# existing directory
-	[[ -d ~/backup ]] || mkdir ~/backup
-	echo "Removing existing directory ${2}: ${dest}"
-	mv ${HOME}/${2} ${HOME}/backup/{${dateStr}_${1////-}}
 	
     elif [ -f "${dest}" ]; then
 	# Existing file
@@ -28,30 +28,48 @@ function linkDotFile {
     elif [ -d "${dest}" ]; then
 	# Existing directory
 	echo "Backing up existing directory ${dest}"
-	mv ${dest} ~/backup/{.${dateStr}.${1////-}}
+	mv ${dest} ~/backup/{_${dateStr}_${1////-}}
+
+    echo "Cleaned up ${HOME}/${1} =================="
     fi
+
+    #  Deals with cleaning/backing up configurations involving a ${2}
+    echo "~/${2}/${1}"
+    if [ -h "${HOME}/${2}/${1}" ]; then
+	# existing symlink
+	echo "Removing existing symlink: ~/${2}/${1}"
+	rm ${HOME}/${2}/${1}
+
+    elif [ -f "${HOME}/${2}/${1}" ]; then
+	# Existing file
+	echo "Backing up existing file ~/${2}/${1}"
+	mv ${dest} ~/backup/{${dateStr}_${2////-}_${1////-}}
+
+    elif [ -d "${HOME}/${2}/${1}" ]; then
+    	# existing directory
+    	echo "Backing up existing directory: ~/${2}/${1}"
+    	mv ${HOME}/${2}/${1}/ ${HOME}/backup/{${dateStr}_${2////-}_${1////-}}
+    fi
+
+    echo "Cleaned up ${HOME}/${2}/${1} =============="
 
     echo "Creating new symlink: ${dest}"
     ln -s ${dotfilesGit}/${1} ${dest}
 #    rm -r ~/.$(2)
     echo "Moving ${HOME}/${1} to ${HOME}/${2}"
     mv ${HOME}/${1} ${HOME}/${2}
-
-    echo 'NEW ITEM ==========================================='
 }
 
 
-
 #linkDotFile emacs-26.2 .emacs.d
-linkDotFile herbstluftwm .config/herbstluftwm
-linkDotFile polybar .config/polybar
-linkDotFile zshrc .zshrc
-linkDotFile bashrc .bashrc
+linkDotFile herbstluftwm .config
+linkDotFile polybar .config
 
 # FOR EMACS - slightly more complicated to prevent accidental symlink of elpa packages, which need to be uniquely installed per computer
 
+echo 'Emacs =========================================='
 
-echo Setting up Emacs.d files ===========================
+echo Setting up Emacs.d files
 [[ -d ~/.emacs.d ]] || mkdir ~/.emacs.d
 [[ -d ~/.emacs.d/config ]] || mkdir ~/.emacs.d/config
 [[ -d ~/.emacs.d/snippets ]] || mkdir ~/.emacs.d/snippets
@@ -83,18 +101,12 @@ echo Setting up the Borg Collective.  Resistance is futile.
 ln -s ~/.dotfiles/emacs-26.2/Borg-Collective/*.el ~/.emacs.d/Borg-Collective/
 
 
-echo Setting up private file ============================
+echo Setting up privacy from Github
 
-echo emacs
 [[ -d ~/.emacs.d/privacy/ ]] || mkdir ~/.emacs.d/privacy/
 ln -s $DROPBOX/journal_etc/scripts/emacs-26.2/privacy/*.el ~/.emacs.d/privacy/
 [[ -d ~/.emacs.d/custom ]] || mkdir ~/.emacs.d/custom
 ln -s $DROPBOX/journal_etc/scripts/emacs-26.2/custom/*.el ~/.emacs.d/custom/
 ln -s $DROPBOX/journal_etc/scripts/emacs-26.2/secret-Borg/*.el ~/.emacs.d/config/
 
-echo zshrc and bashrc
-
-ln -s $DROPBOX/journal_etc/scripts/zshrc ~/.zshrc
-ln -s $DROPBOX/journal_etc/scripts/bashrc ~/.bashrc
-
-echo FINISHING ==========================================
+echo ========================================== FINISHING
