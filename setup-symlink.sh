@@ -108,5 +108,6 @@ ln -s $DROPBOX/journal_etc/scripts/emacs-26.2/privacy/*.el ~/.emacs.d/privacy/
 [[ -d ~/.emacs.d/custom ]] || mkdir ~/.emacs.d/custom
 ln -s $DROPBOX/journal_etc/scripts/emacs-26.2/custom/*.el ~/.emacs.d/custom/
 ln -s $DROPBOX/journal_etc/scripts/emacs-26.2/secret-Borg/*.el ~/.emacs.d/config/
+bash $DROPBOX/journal_etc/linux-customization/scripts/setup-symlink-others.sh
 
 echo ========================================== FINISHING
