@@ -8,7 +8,28 @@ This is a collection of my dotfiles used on Manjaro Arch, Linux.  It
 - polybar
 - emacs-26.2.
 
-This is for the For Rapid Prep of Fresh Installation
+This is for a Rapid assimilation of a fresh installation.
+
+THERE ARE BASH FILES REFERENCED IN 'setup-symlink.sh' NOT PRESENT IN
+THESE DOTFILES.
+
+
+Installation Notes
+==================
+
+The following has not yet been automated:
+
+**In Emacs**
+- Installation of *use-package*
+- Installation of *all-the-icons-install-fonts*.  'Install by M-x
+  all-the-icons-install-fonts'
+  
+**In Terminal**
+- Installation of *oh-my-zsh*
+
+**Manjaro Software**
+- Installation of everything.
+
 
 
 Acknowledgments
@@ -39,3 +60,9 @@ $ DROPBOX=/PATH/TO/DRIVE/AND/FOLDER/
 
 This will create a universal enviroment variable as described here: 
 https://linuxize.com/post/how-to-set-and-list-environment-variables-in-linux/
+
+May be relevant to say that out of some geekiness, I have seperated my
+emac sections into different spin off files.  I refer to my approach
+of spin off files as the 'Borg Collective', from the Star Trek species
+known as the Borg.  Like them, I attempt to make it easy for my
+dotfiles to assimilate my systems!
