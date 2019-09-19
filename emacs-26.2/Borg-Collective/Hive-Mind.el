@@ -1,46 +1,46 @@
 ;; quirks and twerks
-(load-file "~/.emacs.d/Borg-Collective/SNTag-quirks-and-twerks.el")
+(load-file "~/.emacs.d/Borg-Collective-Emacs/SNTag-quirks-and-twerks.el")
 
 ;; ;; custom-files
-;; (load-file "~/.emacs.d/Borg-Collective/SNTag-custom-file.el")
+;; (load-file "~/.emacs.d/Borg-Collective-Emacs/SNTag-custom-file.el")
 
 ;; dropbox
-(load-file "~/.emacs.d/Borg-Collective/SNTag-dropbox.el")
+(load-file "~/.emacs.d/Borg-Collective-Emacs/SNTag-dropbox.el")
 
 ;; themes
-(load-file "~/.emacs.d/Borg-Collective/SNTag-themes.el")
+(load-file "~/.emacs.d/Borg-Collective-Emacs/SNTag-themes.el")
 
 ;; dictionary, company, and yasnippet
-(load-file "~/.emacs.d/Borg-Collective/SNTag-dictionary-company-and-yasnippets.el")
+(load-file "~/.emacs.d/Borg-Collective-Emacs/SNTag-dictionary-company-and-yasnippets.el")
 
 ;; jupyter-notebook.el
-(load-file "~/.emacs.d/Borg-Collective/SNTag-jupyter-notebook.el")
+(load-file "~/.emacs.d/Borg-Collective-Emacs/SNTag-jupyter-notebook.el")
 
 ;; elpy-python
-(load-file "~/.emacs.d/Borg-Collective/SNTag-elpy-python.el")
+(load-file "~/.emacs.d/Borg-Collective-Emacs/SNTag-elpy-python.el")
 
 ;; ess
-(load-file "~/.emacs.d/Borg-Collective/SNTag-ess.el")
+(load-file "~/.emacs.d/Borg-Collective-Emacs/SNTag-ess.el")
 
 ;; elpy-python
-(load-file "~/.emacs.d/Borg-Collective/SNTag-markdown.el")
+(load-file "~/.emacs.d/Borg-Collective-Emacs/SNTag-markdown.el")
 
 ;; org-mode
-(load-file "~/.emacs.d/Borg-Collective/SNTag-org-mode.el")
+(load-file "~/.emacs.d/Borg-Collective-Emacs/SNTag-org-mode.el")
 
 ;; magit
-(load-file "~/.emacs.d/Borg-Collective/SNTag-magit.el")
+(load-file "~/.emacs.d/Borg-Collective-Emacs/SNTag-magit.el")
 
 ;; latex
-(load-file "~/.emacs.d/Borg-Collective/SNTag-latex.el")
+(load-file "~/.emacs.d/Borg-Collective-Emacs/SNTag-latex.el")
 
 ;; start-up-config
-(load-file "~/.emacs.d/Borg-Collective/SNTag-start-up-config.el")
+(load-file "~/.emacs.d/Borg-Collective-Emacs/SNTag-start-up-config.el")
 
 ;; helm-bibtex
-(load-file "~/.emacs.d/Borg-Collective/SNTag-helm-bibtex.el")
+(load-file "~/.emacs.d/Borg-Collective-Emacs/SNTag-helm-bibtex.el")
 
 ;; load-files
 (if (display-graphic-p)
-    (load-file "~/.emacs.d/Borg-Collective/SNTag-load-files.el")
+    (load-file "~/.emacs.d/Borg-Collective_Emacs-private/SNTag-load-files.el")
   )
