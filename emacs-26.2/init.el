@@ -122,9 +122,9 @@ e.g. Sunday, September 17, 2000."
     (load-theme 'doom-molokai)
   )
 
-(if (display-graphic-p)
-    (load-file "~/.emacs.d/config/linux-manjaro-loadfiles.el")
-  )
+;; (if (display-graphic-p)
+;;     (load-file "~/.emacs.d/Borg-Collective/SNTag-loadfiles.el")
+;;   )
 
 
 (use-package doom-modeline

@@ -61,7 +61,7 @@ e.g. Sunday, September 17, 2000."
 ;; ====================
 ;; open file directory
 ;;
-;; Used for opening dolphin in the current directory
+;; Used for opening the file manager in the current directory
 
 (defun browse-file-directory ()
   "Open the current file's directory however the OS would."

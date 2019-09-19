@@ -97,17 +97,12 @@ echo Cleaning
 
 echo Setting up the Borg Collective.  Resistance is futile.
 
-[[ -d ~/.emacs.d/Borg-Collective/ ]] || mkdir ~/.emacs.d/Borg-Collective
-ln -s ~/.dotfiles/emacs-26.2/Borg-Collective/*.el ~/.emacs.d/Borg-Collective/
+[[ -d ~/.emacs.d/Borg-Collective_Emacs/ ]] || mkdir ~/.emacs.d/Borg-Collective_Emacs
+ln -s ~/.dotfiles/emacs-26.2/Borg-Collective/*.el ~/.emacs.d/Borg-Collective_Emacs/
 
 
 echo Setting up privacy from Github
 
-[[ -d ~/.emacs.d/privacy/ ]] || mkdir ~/.emacs.d/privacy/
-ln -s $DROPBOX/journal_etc/scripts/emacs-26.2/privacy/*.el ~/.emacs.d/privacy/
-[[ -d ~/.emacs.d/custom ]] || mkdir ~/.emacs.d/custom
-ln -s $DROPBOX/journal_etc/scripts/emacs-26.2/custom/*.el ~/.emacs.d/custom/
-ln -s $DROPBOX/journal_etc/scripts/emacs-26.2/secret-Borg/*.el ~/.emacs.d/config/
 bash $DROPBOX/journal_etc/linux-customization/scripts/setup-symlink_Bash.sh
 
 echo ========================================== FINISHING

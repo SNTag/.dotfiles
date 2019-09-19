@@ -31,3 +31,13 @@
 (defun my-python-mode-hook () 
   (linum-mode 1)) 
 (add-hook 'python-mode-hook 'my-python-mode-hook)
+
+
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;; conda variables - python
+
+;; (use-package conda
+;;   :ensure t
+;;   :init
+;;   (setq conda-anaconda-home (expand-file-name "~/anaconda3"))
+;;   (setq conda-env-home-directory (expand-file-name "~/anaconda3")))
