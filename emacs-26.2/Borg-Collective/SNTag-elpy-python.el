@@ -20,12 +20,13 @@
       (remove-hook 'elpy-modules 'elpy-module-yasnippet)
       (remove-hook 'elpy-mode-hook 'elpy-module-highlight-indentation)
       (add-hook 'elpy-mode-hook 'flycheck-mode)
-      (add-hook 'python-mode-hook 'anaconda-mode)
-      (setq pythong-shell-interpreter "ipython"
-	    python-shell-interpreter-args "-i --simple-prompt"))
+      (add-hook 'python-mode-hook 'anaconda-mode))
     (elpy-enable)
     ;; jedi is great
     (setq elpy-rpc-backend "jedi")))
+
+      (setq pythong-shell-interpreter "ipython"
+	    python-shell-interpreter-args "-i")
 
 (add-hook 'python-mode-hook 'anaconda-mode)
 (defun my-python-mode-hook () 
@@ -36,8 +37,10 @@
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ;; conda variables - python
 
-;; (use-package conda
-;;   :ensure t
-;;   :init
-;;   (setq conda-anaconda-home (expand-file-name "~/anaconda3"))
-;;   (setq conda-env-home-directory (expand-file-name "~/anaconda3")))
+(add-to-list 'exec-path "~/anaconda3/bin")
+
+(use-package conda
+  :ensure t
+  :init
+  (setq conda-anaconda-home (expand-file-name "~/anaconda3"))
+  (setq conda-env-home-directory (expand-file-name "~/anaconda3")))
