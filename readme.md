@@ -21,8 +21,6 @@ The following has not yet been automated:
 
 **In Emacs**
 - Installation of *use-package*
-- Installation of *all-the-icons-install-fonts*.  'Install by M-x
-  all-the-icons-install-fonts'
   
 **In Terminal**
 - Installation of *oh-my-zsh*
