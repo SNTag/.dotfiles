@@ -4,6 +4,9 @@
 ;; ;; need to add line numbers
 ;; (global-linum-mode t) ;; enable line numbers globally
 
+;; ensure anaconda-mode is present
+(use-package anaconda-mode)
+
 ;; would this be useful?
 ;; enable autopep8 formatting on save
 (use-package py-autopep8)
