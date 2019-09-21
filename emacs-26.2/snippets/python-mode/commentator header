@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: commentator header
+# key: cmthdr
+# commentator: SNTagore (agenttiny@gmail.com)
+# expand-env: ((yas-indent-line 'fixed))
+# --
+
+# File: $1
+# Author: SNTagore (agenttiny@gmail.com)
+# Date: $2
+# Description: $3
+# Usage: $4
