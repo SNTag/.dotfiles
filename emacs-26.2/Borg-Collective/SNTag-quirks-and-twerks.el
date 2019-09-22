@@ -21,6 +21,7 @@
 (global-set-key (kbd "C-c <down>") 'enlarge-window)
 (menu-bar-mode -1); menu bar icons present or not.  Value '-1' removes.  Comment out to return tool bar.
 
+
 (setq calendar-week-start-day 1); Calender should start on Monday
 (show-paren-mode 1); parens mode
 (setq inhibit-startup-message t); No splash screen please
@@ -30,19 +31,19 @@
 (setq case-fold-search t); case-insensitive when searching.  value 'nil' makes it sensitive
 
 
+(electric-pair-mode 1)  ; autocomplete paired brackets
+(setq comint-prompt-read-only t)  ; Prevents deleting shell prompt
+(when (display-graphic-p)
+ (global-unset-key (kbd "C-x C-c"))
+ )  ; unsets the emacs kill command in GUI in case my clumsy fingers press it
+;; (setq x-select-enable-clipboard nil)  ; Prevents contamination of clipboard from deleting text, but also prevents copy/paste to outside emacs...
+
+
 ;; ====================
 ;; Custom el
 
-;; (if (display-graphic-p)
-;;   (progn
-    (setq custom-file "~/.emacs.d/custom/linux-manjaro-custom.el")
-    (load custom-file 'noerror)
-;;    )
-    ;; (progn
-    ;; (setq custom-file "~/.emacs.d/custom/linux-manjaroTerminal-custom.el")
-    ;; (load custom-file 'noerror)
-    ;; )
-    ;; )
+(setq custom-file "~/.emacs.d/custom/linux-manjaro-custom.el")
+(load custom-file 'noerror)
 
 
 ;; ====================
@@ -70,47 +71,6 @@ e.g. Sunday, September 17, 2000."
       (browse-url-of-file (expand-file-name default-directory))
     (error "No `default-directory' to open")))
 
-
-
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Further quirks
-
-(load-file "~/.emacs.d/config/package.list.el")
-
-;; (load-file "~/.emacs.d/config/linux-manjaro-main.el")
-
-;; ====================
-;; Themes
-;;
-;; The theme is being set here.  The theme is revised again in the config file.
-(if (display-graphic-p)
-    (load-theme 'leuven)
-    (load-theme 'doom-molokai)
-  )
-
-(if (display-graphic-p)
-    (load-file "~/.emacs.d/config/linux-manjaro-loadfiles.el")
-  )
-
-
-(use-package doom-modeline
-      :ensure t
-      :hook (after-init . doom-modeline-mode))
-
-
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; quirks
-
-(electric-pair-mode 1)  ; autocomplete paired brackets
-(setq comint-prompt-read-only t)  ; Prevents deleting shell prompt
-(when (display-graphic-p)
- (global-unset-key (kbd "C-x C-c"))
- )  ; unsets the emacs kill command in GUI in case my clumsy fingers press it
-;; (setq x-select-enable-clipboard nil)  ; Prevents contamination of clipboard from deleting text, but also prevents copy/paste to outside emacs...
 (global-set-key (kbd "C-c o") 'browse-file-directory)
 
 
@@ -127,13 +87,18 @@ e.g. Sunday, September 17, 2000."
 
 ;; ====================
 ;; unfill
+;;
+;; Useful when copy pasting from emacs to outside programs.
 
 (use-package unfill)
 
 (global-set-key (kbd "C-c u") 'unfill-region)
 
+
 ;; ====================
-;; Makefile - personalization
+;; Makefile
+;;
+;; Enable running makefiles from within emacs!
 
 ;; set-key for compile
 (global-set-key (kbd "C-c m") 'compile)
@@ -143,7 +108,6 @@ e.g. Sunday, September 17, 2000."
 ;;   :ensure t
 ;;   :bind (("C-c m" . 'compile)
 ;; 	 ("C-c C-m" . recompile)))
-
 
 
 ;; Make the compilation window automatically disappear - from enberg on #emacs
@@ -159,14 +123,6 @@ e.g. Sunday, September 17, 2000."
                              (select-window (get-buffer-window (get-buffer-create "*compilation*")))
                              (switch-to-buffer nil)))
               (message "No Compilation Errors!")))))
-
-
-;; ====================
-;; Helm-buffers
-;;
-;; Used to switch between buffers using helm
-
-(global-set-key (kbd "C-c s") 'helm-buffers-list)  ; improves buffer changing
 
 
 ;; ====================

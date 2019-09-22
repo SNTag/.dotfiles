@@ -39,3 +39,9 @@
 ;;     (if (file-exists-p filename)
 ;;         (insert (concat "![](" filename ")"))))
 ;; )
+
+;; ====================
+;; extra markdown functionality packages
+
+(use-package markdown-mode+)  ;; markdown-mode-plus
+(use-package markdown-toc)  ;; markdown table of contents

@@ -28,11 +28,11 @@
 ;; latex
 (load-file "~/.emacs.d/Borg-Collective_Emacs/SNTag-latex.el")
 
-;; start-up-config
-(load-file "~/.emacs.d/Borg-Collective_Emacs/SNTag-start-up-config.el")
+;; ;; start-up-config
+;; (load-file "~/.emacs.d/Borg-Collective_Emacs/SNTag-start-up-config.el")
 
 ;; helm-bibtex
-(load-file "~/.emacs.d/Borg-Collective_Emacs/SNTag-helm-bibtex.el")
+(load-file "~/.emacs.d/Borg-Collective_Emacs/SNTag-helm.el")
 
 ;; load private-files
 (load-file "~/.emacs.d/Borg-Collective_Emacs-private/Hive-Mind_private.el")

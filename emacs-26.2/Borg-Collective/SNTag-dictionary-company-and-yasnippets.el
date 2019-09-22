@@ -273,3 +273,9 @@
 
 ;; (use-package yasnippet-snippets         ; Collection of snippets
 ;;   :ensure t)
+
+
+;; ====================
+;; extra flyspell
+
+(use-package flyspell-correct)

@@ -201,3 +201,9 @@
 
 ;; ;; add to export hook
 ;; (add-hook 'org-export-before-processing-hook 'delete-org-comments)
+
+
+;; ====================
+;; magic-latex-buffer
+
+(use-package magic-latex-buffer)

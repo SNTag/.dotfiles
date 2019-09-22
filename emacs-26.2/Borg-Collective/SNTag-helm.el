@@ -1,4 +1,18 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Helm
+
+(use-package helm)
+
+
+;; ====================
+;; Helm-buffers
+;;
+;; Used to switch between buffers using helm
+
+(global-set-key (kbd "C-c s") 'helm-buffers-list)  ; improves buffer changing
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; helm-bibtex
 ;;
 ;; https://github.com/tmalsburg/helm-bibtex
@@ -19,6 +33,7 @@
 
 (setq bibtex-completion-pdf-field "file")  ; Uses lower case "file" to work with better-bibtex zotero plugin
 
+
 ;; ;; ====================
 ;; ;; For opening PDFs
 
@@ -26,6 +41,10 @@
 ;; (setq   helm-bibtex-open-pdf-function
 ;;         (lambda (fpath)
 ;;           (call-process "open" nil 0 nil "-a" "C:/Program Files (x86)/Foxit Software/Foxit Reader" fpath)))
+
+
+;; ====================
+;; bibtex citation format based on buffer mode
 
 (setq bibtex-completion-format-citation-functions
   '((org-mode      . bibtex-completion-format-citation-org-link-to-PDF)

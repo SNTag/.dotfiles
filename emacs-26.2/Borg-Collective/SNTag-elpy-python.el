@@ -22,7 +22,7 @@
       (remove-hook 'elpy-modules 'elpy-module-flymake)
       (remove-hook 'elpy-modules 'elpy-module-yasnippet)
       (remove-hook 'elpy-mode-hook 'elpy-module-highlight-indentation)
-      (add-hook 'elpy-mode-hook 'flycheck-mode)
+;;      (add-hook 'elpy-mode-hook 'flycheck-mode)  ;; I have a suspicion its slowing elpy down
       (add-hook 'python-mode-hook 'anaconda-mode))
     (elpy-enable)
     ;; jedi is great
