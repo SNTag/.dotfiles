@@ -137,6 +137,18 @@ e.g. Sunday, September 17, 2000."
   ;; If there is more than one, they won't work right.
  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))))
 
+;; Enables tabs
+;;
+;; taken from
+;; http://ergoemacs.org/emacs/emacs_tabs_space_indentation_setup.html
+
+(defun my-insert-tab-char ()
+  "Insert a tab char. (ASCII 9, \t)"
+  (interactive)
+  (insert "\t"))
+
+(global-set-key (kbd "TAB") 'my-insert-tab-char) ; same as Ctrl+i
+
 
 ;; ====================
 ;; mu-display-version
