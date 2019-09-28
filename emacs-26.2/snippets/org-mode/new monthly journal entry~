@@ -1,0 +1,41 @@
+# -*- mode: snippet -*-
+# name: SNTag
+# key: newMonthlyEntry
+# taken from https://cpbotha.net/2019/09/21/note-taking-strategy-2019/
+# --
+
+#+TITLE: 2019-09 September month journal
+
+* Vitals
+** Focus items
+Topics and reminders I would like to spend a few minutes on during every
+morning review: High value time, always be compounding, always be in a focus
+block, etc.
+** Tired list
+A general list of valuable activities for when I have some time, but brain too
+tired to come up with anything.
+** Planning / overview / major done list
+Check lists with books, courses, etc.
+* Projects
+A list of current major projects, with links to each project's dedicated org
+file.
+* Tasks
+A list of Org mode tasks that are not associated with specific projects. This
+list is reviewed at the start of every month, as I have to manually copy across
+those tasks that are still relevant and important.
+* 2019
+** 2019-09 September
+*** 2019-09-19 Thursday
+**** Day planning [2019-09-19 Thu 09:17]
+***** Done list / thoughts / diary
+***** Tasks for today [/]
+***** Tasks that will satisfy end-of-the-day Charl [/]
+***** Focus blocks
+***** Sleep
+***** Review [3/8]
+      - [X] Month vitals
+      - [X] Calendar
+      - [ ] Org tasks
+      - [ ] dropbox mobile inbox
+      
+***** Habits / important [/]
