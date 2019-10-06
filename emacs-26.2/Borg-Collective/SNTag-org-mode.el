@@ -14,6 +14,7 @@
   (add-hook 'org-mode-hook 'visual-line-mode)
   (add-hook 'org-mode-hook 'org-indent-mode)
   (add-hook 'org-mode-hook 'flyspell-mode)
+  (add-hook 'text-mode-hook 'turn-off-auto-fill)
   (setq org-agenda-files '("D:/Dropbox/agenda/"))
   :diminish visual-line-mode
   :diminish org-indent-mode
