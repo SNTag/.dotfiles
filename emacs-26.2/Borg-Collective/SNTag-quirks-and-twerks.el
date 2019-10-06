@@ -27,7 +27,6 @@
 (setq inhibit-startup-message t); No splash screen please
 (global-set-key (kbd "M-p") 'ace-window); shortkeys
 (setq save-interprogram-paste-before-kill t); Kill ring set
-(setq default-tab-width 4)
 (setq case-fold-search t); case-insensitive when searching.  value 'nil' makes it sensitive
 
 
@@ -127,8 +126,13 @@ e.g. Sunday, September 17, 2000."
 
 ;; ====================
 ;; tabs
-;;
+
+;; sets tabs at 4.
+
+(setq default-tab-width 4)
+
 ;; Forgot what this is for
+;; Adds lines to the custom file.  need to edit there to if changes are made here?
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
