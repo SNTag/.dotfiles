@@ -65,3 +65,39 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
                     (org-agenda-overriding-header "ALL normal priority tasks:"))))
          ((org-agenda-compact-blocks t)))))
 )
+
+
+
+
+;; ====================
+;; Org-mode tweaks
+
+(setq org-hide-emphasis-markers t)  ;; For hiding markup elements.
+
+
+;; ====================
+;; Projectile-mode
+;;
+;; requires extra installation.
+;; M-x package-install [RET] projectile [RET]
+;;
+;; See:
+;; https://github.com/bbatsov/projectile
+
+(use-package projectile)
+(projectile-mode +1)
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
+
+;; ====================
+;; helm-projectile
+
+
+(use-package helm-projectile)
+
+
+;; ====================
+;; helm-org-rifle
+
+(use-package helm-org-rifle)
