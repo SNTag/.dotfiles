@@ -37,6 +37,8 @@
  )  ; unsets the emacs kill command in GUI in case my clumsy fingers press it
 ;; (setq x-select-enable-clipboard nil)  ; Prevents contamination of clipboard from deleting text, but also prevents copy/paste to outside emacs...
 
+(setq doc-view-continuous t)  ; enables continous scroll on doc-view
+
 
 ;; ====================
 ;; Custom el
