@@ -75,6 +75,16 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 (setq org-hide-emphasis-markers t)  ;; For hiding markup elements.
 
+;; ====================
+;; Org-babel
+;;
+;; taken from:
+;; https://orgmode.org/worg/org-contrib/babel/languages/ob-doc-python.html
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)))
+
 
 ;; ====================
 ;; Projectile-mode
