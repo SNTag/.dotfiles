@@ -75,6 +75,19 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 
 ;; ====================
+;; Automate TODO DONE states
+;;
+;; Switches all tasks to DONE or TODO by child completion status.
+;; based on chapter 5.5 of org-manual.
+;; Does not work yet.
+(defun org-summary-todo (n-done n-not-done)
+  "Switch entry to DONE when all subentries are done, to TODO otherwise."
+  (let (org-log-done org-log-states)  ; turn off logging
+    (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
+
+(add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
+
+;; ====================
 ;; org-mode link copy
 ;;
 ;; Enables copying of external links for pasting into web browser of choice.

@@ -36,6 +36,48 @@ This config is built around my use of:
 
 It should be possible to find sections where everything related to that mode are found in the Borg-Collective.
 
+## Useful links
+These links are guides that I've found useful in setting up my system.  Useful for developing modifications to this init.  THESE LINKS MOSTLY IGNORE REFERENCES METIONED INSIDE EL FILES.
+
+### Markdown 
+
+markdown-mode
+
+### Pandoc 
+
+pandoc-mode
+
+### Python 
+
+elpy
+
+### R 
+
+ess
+
+### notes and todo list
+
+org-mode
+
+### literative programming
+
+org-mode
+**org-babel** - https://org-babel.readthedocs.io/en/latest/
+
+### Navigation 
+
+helm-buffers-list
+
+### Zotero 
+
+helm-bibtex
+zotxt
+### git 
+
+magit-mode
+
+### latex
+	
 
 # Outline
 
@@ -72,6 +114,7 @@ C-c p - **projectile-command-map** -
 ## Custom commands
 
 **today**  -  enters todays date
+**today-short** - pastes date as DD/MM/YY
 **browse-file-directory**  -  Opens the directory of current file.
 **my-org-export-url** - 
 **my-org-copy-smart-url** - Pull external links into clipboard.

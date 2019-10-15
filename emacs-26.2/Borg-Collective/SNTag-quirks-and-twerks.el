@@ -59,6 +59,11 @@ e.g. Sunday, September 17, 2000."
   (interactive)                 ; permit invocation in minibuffer
   (insert (format-time-string "%A, %B %e, %Y")))
 
+(defun today-short ()
+  "Insert string for today's date nicely formatted as DD/MM/YY"
+  (interactive)                 ; permit invocation in minibuffer
+  (insert (format-time-string "%d/%m/%Y")))
+
 
 ;; ====================
 ;; open file directory
