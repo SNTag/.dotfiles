@@ -1,36 +1,84 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; latex
-;; based on the work here:
-;; https://tex.stackexchange.com/questions/50827/a-simpletons-guide-to-tex-workflow-with-emacs
-;; NOTE:
-;; Keep in mind that 'tex-mode' needs to be start up.  hasn't been automated yet.
 
-(setq TeX-parse-self t); Enable parse on load.
-(setq TeX-auto-save t); Enable parse on save.
-(setq-default TeX-master nil)
 
-(setq TeX-PDF-mode t); PDF mode (rather than DVI-mode)
+;; ====================
+;; auctex
+;;
+;; work in progress
 
-(add-hook 'TeX-mode-hook 'flyspell-mode); Enable Flyspell mode for TeX modes such as AUCTeX. Highlights all misspelled words.
-(add-hook 'emacs-lisp-mode-hook 'flyspell-prog-mode); Enable Flyspell program mode for emacs lisp mode, which highlights all misspelled words in comments and strings.
-;; (setq ispell-dictionary "english"); Default dictionary. To change do M-x ispell-change-dictionary RET.
-(add-hook 'TeX-mode-hook
+(use-package auctex
+    :mode
+    ("\\.tex\\'" . latex-mode)
+    :bind
+    :init
+    :config
+    (setq-default TeX-master nil ; by each new fie AUCTEX will ask for a master fie.
+;                  TeX-PDF-mode t
+                  TeX-engine 'luatex)     ; optional
+
+    (setq TeX-auto-save t
+          TeX-save-query nil       ; don't prompt for saving the .tex file
+          TeX-parse-self t; Enable parse on load.
+	  setq TeX-auto-save t; Enable parse on save.
+          TeX-show-compilation nil         ; if `t`, automatically shows compilation log
+          LaTeX-babel-hyphen nil ; Disable language-specific hyphen insertion.
+          ;; `"` expands into csquotes macros (for this to work, babel pkg must be loaded after csquotes pkg).
+          LaTeX-csquotes-close-quote "}"
+          LaTeX-csquotes-open-quote "\\enquote{"
+          TeX-file-extensions '("Rnw" "rnw" "Snw" "snw" "tex" "sty" "cls" "ltx" "texi" "texinfo" "dtx"))
+
+    ;; Font-lock for AuCTeX
+    ;; ;; Note: '«' and '»' is by pressing 'C-x 8 <' and 'C-x 8 >', respectively
+    ;; (font-lock-add-keywords 'latex-mode (list (list "\\(«\\(.+?\\|\n\\)\\)\\(+?\\)\\(»\\)" '(1 'font-latex-string-face t) '(2 'font-latex-string-face t) '(3 'font-latex-string-face t))))
+    (add-hook 'TeX-mode-hook 'flyspell-mode); Enable Flyspell mode for TeX modes such as AUCTeX. Highlights all misspelled words.
+    ;; (setq ispell-dictionary "english"); Default dictionary. To change do M-x ispell-change-dictionary RET.
+    (add-hook 'TeX-mode-hook
           (lambda () (TeX-fold-mode 1))); Automatically activate TeX-fold-mode.
-(setq LaTeX-babel-hyphen nil); Disable language-specific hyphen insertion.
-
-;; " expands into csquotes macros (for this to work babel must be loaded after csquotes).
-(setq LaTeX-csquotes-close-quote "}"
-      LaTeX-csquotes-open-quote "\\enquote{")
-
-;; LaTeX-math-mode http://www.gnu.org/s/auctex/manual/auctex/Mathematics.html
-(add-hook 'TeX-mode-hook 'LaTeX-math-mode)
-
-;; ;; magic-latex-buffer
-;; (add-hook 'TeX-mode-hook 'magic-latex-buffer)
+    (setq LaTeX-babel-hyphen nil); Disable language-specific hyphen insertion.
+    (add-hook 'TeX-mode-hook 'LaTeX-math-mode)
+    (add-hook 'TeX-mode-hook 'pandoc-mode)
+    (add-hook 'TeX-mode-hook 'LaTeX-math-mode); LaTeX-math-mode http://www.gnu.org/s/auctex/manual/auctex/Mathematics.html
+    (add-hook 'TeX-mode-hook 'turn-on-auto-fill); To enable auto-fill to latex mode
+    )
 
 
-;; To enable auto-fill to latex mode
-(add-hook 'TeX-mode-hook 'turn-on-auto-fill)
+;; ;; ====================
+;; ;; Simple latex
+;; ;;
+;; ;; based on the work here:
+;; ;; https://tex.stackexchange.com/questions/50827/a-simpletons-guide-to-tex-workflow-with-emacs
+;; ;; NOTE:
+;; ;; Keep in mind that 'tex-mode' needs to be start up.  hasn't been automated yet.
+
+;; (setq TeX-parse-self t); Enable parse on load.
+;; (setq TeX-auto-save t); Enable parse on save.
+;; (setq-default TeX-master nil)
+
+;; (setq TeX-PDF-mode t); PDF mode (rather than DVI-mode)
+
+;; (add-hook 'TeX-mode-hook 'flyspell-mode); Enable Flyspell mode for TeX modes such as AUCTeX. Highlights all misspelled words.
+;; (add-hook 'emacs-lisp-mode-hook 'flyspell-prog-mode); Enable Flyspell program mode for emacs lisp mode, which highlights all misspelled words in comments and strings.
+;; ;; (setq ispell-dictionary "english"); Default dictionary. To change do M-x ispell-change-dictionary RET.
+;; (add-hook 'TeX-mode-hook
+;;           (lambda () (TeX-fold-mode 1))); Automatically activate TeX-fold-mode.
+;; (setq LaTeX-babel-hyphen nil); Disable language-specific hyphen insertion.
+
+;; ;; " expands into csquotes macros (for this to work babel must be loaded after csquotes).
+;; (setq LaTeX-csquotes-close-quote "}"
+;;       LaTeX-csquotes-open-quote "\\enquote{")
+
+;; ;; LaTeX-math-mode http://www.gnu.org/s/auctex/manual/auctex/Mathematics.html
+;; (add-hook 'TeX-mode-hook 'LaTeX-math-mode)
+
+;; ;; ;; magic-latex-buffer
+;; ;; (add-hook 'TeX-mode-hook 'magic-latex-buffer)
+
+
+;; ;; To enable auto-fill to latex mode
+;; (add-hook 'TeX-mode-hook 'turn-on-auto-fill)
+
+;; (add-hook 'TeX-mode-hook 'pandoc-mode)
 
 
 

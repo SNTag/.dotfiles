@@ -1,24 +1,21 @@
 # .emacs.d-config
 
 
-Designed for Linux.
+Works on Linux.
+Compatible with emacs 26.1 to 26.3.
 
-previous commits included windows incase I ever switched back and
-forth.  I'm commiting my self to linux.
+While the majority of this system was set up on windows, there are some odd details written with
+linux in mind.  Feel free to use or take details from this set up.  Sources of inspiration are
+mentioned in the code.
 
-Build focus: I am a graduate student in molecular biology attempting
-to make a break into bioinformatics with a strong desire for
-minimalism in my build if possible.  Some things have been tweaked to
-my design preferences.  Let me know if you have advice on design
-improvements!
+**Build focus:** I've been too focused on improving the overall feel of emacs.  Focusing now on using emacs
+as what it is: a tool.
 
-I have recently made the switch to Linux Manjaro, and plan to stick
-with it for a long time.
+I have recently made the switch to Linux Manjaro, and plan to stick with it for a long time.
 
-The Init file has only tweaks for improving speed during loading and
-to direct it to the Borg-Collective (my nickname for the style of
-organization for the packages).  Names of the Borg-Collective files
-indicate what it contains.
+The Init file has only tweaks for improving speed during loading and to direct it to the
+Borg-Collective (my nickname for my mode configuration organization).  Names of the
+Borg-Collective files indicate what it contains.
 
 
 
@@ -30,19 +27,17 @@ This config is built around my use of:
   - Python (elpy)
   - R (ess)
   - notes and todo list (org-mode)
+  - literative programming (org-mode)
   - Navigation (helm-buffers-list)
   - Zotero (helm-bibtex and minimal zotxt)
   - git (magit-mode)
-  - latex (AucTeX [**NOTE**: I do not use latex directly anymore and
-    rely on pandoc with makefile, markdown, and latex.  Latex-modes
-    remains in the system in case of future use.])
+  - latex (AucTeX [**NOTE**: I do not use latex mode often and rely on pandoc with makefile, markdown,
+    and latex.  Latex-mode remains in the system in case of future use.])
 
 It should be possible to find sections where everything related to that mode are found in the Borg-Collective.
 
 
-# Future Plans
-
-Will attempt to clean things up and introduce an babel literative programming el format if possible.
+# Outline
 
 
 ## Current keybinds: User/Init Defined
@@ -69,17 +64,30 @@ browse-file-directory  -  Opens the directory of current file.
 
 Using Markdown
 --------------
+If interested, my thesis writing approach uses Markdown, lualatex, and pandoc.  The paper can be
+written in markdown notation with latex commands, and processed using pandoc to generate PDFs.
 
-If interested, my thesis writing approach uses Markdown, lualatex, and
-pandoc.  The paper can be written in markdown notation with latex
-commands, and processed using pandoc to generate PDFs.
+**NOTE** I have a finished system that has not been uploaded to github yet.  I will do so when I have the time.
 
 [Pandoc scholar](https://github.com/pandoc-scholar) 
 [Pandoc-Latex-NUS-thesis](https://github.com/SNTagore/Pandoc-Latex-NUS-thesis ) 
 
 
 
+# Lisp snippets of interest
+
+## Borg-Collective
+
+Styled after the Star-Trek Borgs (like several packages on git), my emacs files are organized in a
+system I like to call the Borg-Collective.  I have a file called Hive-mind which is used to let
+emacs know where to find all my lisp files of interest.  Each file is written for one mode or
+feature.  This has helped in separating my code into neat digestible chunks, compared to the single
+massive init that I had previously.
+
 ## Customization based on system OS
+
+**NOTE** I do not use these codes anymore.  Use of just linux has made them unnecessary.  Leaving it up
+in case it helps sometime in the future.
 
 ### To load custom el files based on system
 
@@ -121,7 +129,7 @@ commands, and processed using pandoc to generate PDFs.
 
 
 
-### To load files used daily
+### To load files used daily based on system
 
 ``` lisp
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

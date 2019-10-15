@@ -11,10 +11,12 @@
 (use-package all-the-icons)
 
 
-(use-package doom-modeline
-      :ensure t
-      :hook (after-init . doom-modeline-mode))
+;; ====================
+;; mode-line customization
 
+;; (use-package doom-modeline
+;;       :ensure t
+;;       :hook (after-init . doom-modeline-mode))
 
 ;; ====================
 ;; Setting themes
