@@ -15,7 +15,7 @@
   (add-hook 'org-mode-hook 'org-indent-mode)
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'text-mode-hook 'turn-off-auto-fill)
-  (setq org-agenda-files '("D:/Dropbox/agenda/"))
+;;  (setq org-agenda-files '("D:/Dropbox/agenda/"))
   :diminish visual-line-mode
   :diminish org-indent-mode
   :defer t
@@ -68,12 +68,50 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 )
 
 
-
-
 ;; ====================
 ;; Org-mode tweaks
 
 (setq org-hide-emphasis-markers t)  ;; For hiding markup elements.
+
+
+;; ====================
+;; org-mode link copy
+;;
+;; Enables copying of external links for pasting into web browser of choice.
+;;
+;; taken from:
+;; https://emacs.stackexchange.com/questions/3981/how-to-copy-links-out-of-org-mode
+
+(defun my-yank-org-link (text)
+  (if (derived-mode-p 'org-mode)
+      (insert text)
+    (string-match org-bracket-link-regexp text)
+    (insert (substring text (match-beginning 1) (match-end 1)))))
+
+(defun my-org-copy-smart-url ()
+  (interactive)
+  (let* ((link-info (assoc :link (org-context)))
+         (text (when link-info
+                 (buffer-substring-no-properties (or (cadr link-info) (point-min))
+                                                 (or (caddr link-info) (point-max))))))
+    (if (not text)
+        (error "Not in org link")
+      (add-text-properties 0 (length text) '(yank-handler (my-yank-org-link)) text)
+      (kill-new text))))
+;; (global-set-key (kbd "C-c c") 'my-org-copy-smart-url)
+
+(defun my-org-export-url ()
+  (interactive)
+  (let* ((link-info (assoc :link (org-context)))
+         (text (when link-info
+                 (buffer-substring-no-properties (or (cadr link-info) (point-min))
+                                                 (or (caddr link-info) (point-max))))))
+    (if (not text)
+        (error "Not in org link")
+      (string-match org-bracket-link-regexp text)
+      (kill-new (substring text (match-beginning 1) (match-end 1))))))
+(global-set-key (kbd "C-c e") 'my-org-export-url)
+
 
 ;; ====================
 ;; Org-babel

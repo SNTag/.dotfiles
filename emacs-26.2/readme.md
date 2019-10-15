@@ -42,24 +42,39 @@ It should be possible to find sections where everything related to that mode are
 
 ## Current keybinds: User/Init Defined
 
-### Unbound
+### Unbind
 C-x C-c - global kill key. Unsets the emacs kill command in GUI in case my clumsy fingers press it.
 
-### User list
-C-c f - helm-bibtex-with-local-bibliography
-C-u C-c f - helm-bibtex-with-local-bibliography.  To refresh bibtex key list.
-C-c s - helm-buffers-list
-C-c m - compile.  Useful for Makefile commands
-C-c o - browse-file-directory.  Command to open the directory of current file.
+### References managment
+C-c f - **helm-bibtex-with-local-bibliography**
+C-u C-c f - **helm-bibtex-with-local-bibliography** - To refresh bibtex key list.
 
+### Navigation
+C-c s - **helm-buffers-list**
+C-c o - **browse-file-directory** - Command to open the directory of current file.
+
+### File interaction/Managment
+C-c m - compile.  Useful for Makefile commands
 C-x g - magit-status
 
+### Org-mode
+C-c a - **org-agenda** - 
+C-c c - **org-capture** - 
+C-c j - **gs-helm-org-link-to-contact** - 
+C-c e - **my-org-export-url** - Pull external links into clipboard.
+TBS - **my-org-copy-smart-url** - 
+
+### projectile
+s-p - **projectile-command-map** - 
+C-c p - **projectile-command-map** - 
 
 
 ## Custom commands
 
-today  -  enters todays date
-browse-file-directory  -  Opens the directory of current file.
+**today**  -  enters todays date
+**browse-file-directory**  -  Opens the directory of current file.
+**my-org-export-url** - 
+**my-org-copy-smart-url** - Pull external links into clipboard.
 
 
 Using Markdown
