@@ -127,6 +127,11 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 
 ;; ====================
+;; Org-babel pre-requisites
+
+(use-package ob-ipython)
+
+;; ====================
 ;; Org-babel
 ;;
 ;; taken from:
@@ -134,7 +139,16 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((python . t)))
+ '(
+   (python . t)
+   (ipython . t)
+   (shell . t)
+   (R . t)
+   )
+ 
+ )
+
+
 
 
 ;; ====================
