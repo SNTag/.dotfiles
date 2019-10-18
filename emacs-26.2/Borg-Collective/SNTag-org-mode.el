@@ -148,7 +148,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
  
  )
 
-
+(setq python-shell-completion-native-enable nil)  ; prevents an error message about the 'readline'
 
 
 ;; ====================
