@@ -17,6 +17,8 @@ The Init file has only tweaks for improving speed during loading and to direct i
 Borg-Collective (my nickname for my mode configuration organization).  Names of the
 Borg-Collective files indicate what it contains.
 
+**NOTE** Org-babel is currently disabled.  It is a work in progress, and is interfering with non-programming org-mode config settings.
+
 
 
 ## Build focus
