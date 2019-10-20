@@ -23,7 +23,7 @@
 (load-file "~/.emacs.d/Borg-Collective_Emacs/SNTag-org-mode.el")
 
 ;; org-babel
-(load-file "~/.emacs.d/Borg-collective_Emacs/SNTag-org-babel")
+(load-file "~/.emacs.d/Borg-collective_Emacs/SNTag-org-babel.el")
 
 ;; magit
 (load-file "~/.emacs.d/Borg-Collective_Emacs/SNTag-magit.el")
