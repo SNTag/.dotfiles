@@ -1,0 +1,137 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% writeLaTeX Example: A quick guide to LaTeX
+%
+% Source: Dave Richeson (divisbyzero.com), Dickinson College
+% 
+% A one-size-fits-all LaTeX cheat sheet. Kept to two pages, so it 
+% can be printed (double-sided) on one piece of paper
+% 
+% Feel free to distribute this example, but please keep the referral
+% to divisbyzero.com
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% How to use writeLaTeX: 
+%
+% You edit the source code here on the left, and the preview on the
+% right shows you the result within a few seconds.
+%
+% Bookmark this page and share the URL with your co-authors. They can
+% edit at the same time!
+%
+% You can upload figures, bibliographies, custom classes and
+% styles using the files menu.
+%
+% If you're new to LaTeX, the wikibook is a great place to start:
+% http://en.wikibooks.org/wiki/LaTeX
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,landscape]{article}
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{multicol,multirow}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage[landscape]{geometry}
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue]{hyperref}
+
+
+\ifthenelse{\lengthtest { \paperwidth = 11in}}
+    { \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
+	{\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
+		{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+		{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+	}
+\pagestyle{empty}
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%x
+                                {\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}%
+                                {-1explus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%
+                                {\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {1ex plus .2ex}%
+                                {\normalfont\small\bfseries}}
+\makeatother
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus 0.5ex}
+% -----------------------------------------------------------------------
+
+\title{Quick Guide to LaTeX}
+
+\begin{document}
+
+\raggedright
+\footnotesize
+
+\begin{center}
+     \Large{\textbf{A quick guide to \LaTeX}} \\
+\end{center}
+\begin{multicols}{3}
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\multicolsep}{1pt}
+\setlength{\columnsep}{2pt}
+
+
+\section{code}
+These are the personallized code for use of this system.
+\verb!\\!
+\subsection{Changes to Default System}
+
+\begin{center}
+\begin{tabular}{ c c }
+C-x C-c  & unbind kill key 
+\end{tabular}
+\end{center}
+
+\subsection{References Managment}
+\begin{center}
+\begin{tabular}{ c c }
+C-c f & helm-bibtex-with-local-bibliography \\
+C-u C-c f & helm-bibtex-with-local-bibliography - To refresh bibtex key list
+\end{tabular}
+\end{center}
+
+\subsection{Navigation}
+\begin{center}
+\begin{tabular}{ c c }
+C-c s & helm-buffers-list \\
+C-c o & browse-file-directory - Command to open the directory of current file.
+\end{tabular}
+\end{center}
+
+\subsection{File Interaction/Managment}
+\begin{center}
+\begin{tabular}{ c c }
+C-c m & compile. Useful for Makefile commands \\
+C-x g & magit-status
+\end{tabular}
+\end{center}
+
+\subsection{Org-mode}
+\begin{center}
+\begin{tabular}{ c c }
+C-c a & org-agenda - \\
+C-c c & org-capture - \\
+C-c j & gs-helm-org-link-to-contact - \\
+C-c e & my-org-export-url - Pull external links into clipboard. \\
+TBS & my-org-copy-smart-url -
+\end{tabular}
+\end{center}
+
+\subsection{Projectile}
+\begin{center}
+\begin{tabular}{ c c }
+s-p & projectile-command-map - \\
+C-c p & projectile-command-map -
+\end{tabular}
+\end{center}
+
+\end{multicols}
+
+\end{document}
