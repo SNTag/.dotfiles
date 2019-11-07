@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: SNTag
-# key: newMonthlyEntyr
+# key: newMonthlyEntry
 # taken from https://cpbotha.net/2019/09/21/note-taking-strategy-2019/
 # --
 
@@ -19,6 +19,7 @@ Check lists with books, courses, etc.
 * Projects
 A list of current major projects, with links to each project's dedicated org
 file.
+* Journals
 * Tasks
 A list of Org mode tasks that are not associated with specific projects. This
 list is reviewed at the start of every month, as I have to manually copy across

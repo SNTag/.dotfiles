@@ -75,6 +75,23 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 
 ;; ====================
+;; org-mode export
+
+;; markdown
+(eval-after-load "org"
+  '(require 'ox-md nil t))
+
+;; latex
+(require 'ox-latex)
+(unless (boundp 'org-latex-classes)
+  (setq org-latex-classes nil))
+(add-to-list 'org-latex-classes
+             '("article"
+               "\\documentclass{article}"
+               ("\\section{%s}" . "\\section*{%s}")))
+
+
+;; ====================
 ;; Automate TODO DONE states
 ;;
 ;; Switches all tasks to DONE or TODO by child completion status.

@@ -97,12 +97,18 @@ echo Cleaning
 
 echo Setting up the Borg Collective.  Resistance is futile.
 
-[[ -d ~/.emacs.d/Borg-Collective_Emacs/ ]] || mkdir ~/.emacs.d/Borg-Collective_Emacs
+[[ -d ~/.emacs.d/Borg-Collective_Emacs/ ]] || mkdir -p ~/.emacs.d/Borg-Collective_Emacs
 ln -s ~/.dotfiles/emacs-26.2/Borg-Collective/*.el ~/.emacs.d/Borg-Collective_Emacs/
 
 
 echo Setting up privacy from Github
 
-bash $DROPBOX/journal_etc/linux-customization/scripts/setup-symlink_Bash.sh
+bash $DROPBOX/my_journal/linux-customization/scripts/setup-symlink_Bash.sh
+
+echo "Fonts =========================================="
+
+[[ -d ~/.local/share/fonts ]] || mkdir -p ~/.local/share/fonts
+
+ln -s ~/.dotfiles/fonts/* ~/.local/share/fonts/
 
 echo ========================================== FINISHING

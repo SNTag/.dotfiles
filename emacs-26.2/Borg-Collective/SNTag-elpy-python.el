@@ -7,10 +7,10 @@
 ;; ensure anaconda-mode is present
 (use-package anaconda-mode)
 
-;; would this be useful?
-;; enable autopep8 formatting on save
-(use-package py-autopep8)
-(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+;; ;; would this be useful?
+;; ;; enable autopep8 formatting on save
+;; (use-package py-autopep8)
+;; (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 
 (use-package elpy
   :ensure t
@@ -28,13 +28,15 @@
     ;; jedi is great
     (setq elpy-rpc-backend "jedi")))
 
-      (setq pythong-shell-interpreter "ipython"
-	    python-shell-interpreter-args "-i")
+      ;; ;; when enabled, says "WARNING: your terminal doesn't support cursor position requests (CPR)."
+      ;; (setq python-shell-interpreter "ipython"
+      ;; 	    python-shell-interpreter-args "-i")
 
 (add-hook 'python-mode-hook 'anaconda-mode)
 (defun my-python-mode-hook () 
   (linum-mode 1)) 
 (add-hook 'python-mode-hook 'my-python-mode-hook)
+(setq python-shell-completion-native-enable nil)
 
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
