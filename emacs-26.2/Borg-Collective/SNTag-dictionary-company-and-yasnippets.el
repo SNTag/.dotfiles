@@ -197,16 +197,17 @@
 
 
 
-;; ====================
-;; flycheck
-;; not a spell checker
+;; ;; ====================
+;; ;; flycheck
+;; ;; not a spell checker
 
-(use-package flycheck
-  ;; Jun 28 - I like this idea, but sometimes this is too slow.
-  :config
-  (add-hook 'text-mode-hook #'flycheck-mode)
-  (add-hook 'org-mode-hook #'flycheck-mode)
-  (define-key flycheck-mode-map (kbd "s-;") 'flycheck-previous-error))
+;; (use-package flycheck
+;;   ;; Jun 28 - I like this idea, but sometimes this is too slow.
+;;   :config
+;;   (add-hook 'text-mode-hook #'flycheck-mode)
+;;   (add-hook 'org-mode-hook #'flycheck-mode)
+;;   (add-hook 'markdown-hook #'flycheck-mode)
+;;   (define-key flycheck-mode-map (kbd "s-;") 'flycheck-previous-error))
 
 
 ;; ====================
@@ -275,7 +276,36 @@
 ;;   :ensure t)
 
 
-;; ====================
-;; extra flyspell
+;; ;; ====================
+;; ;; extra flyspell
 
-(use-package flyspell-correct)
+;; (use-package flyspell-correct)
+
+
+;; ====================
+;; minimal flyspell
+;;
+;; spell checker
+;; taken from:
+;; https://joelkuiper.eu/spellcheck_emacs
+
+(dolist (hook '(text-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
+
+(dolist (mode '(emacs-lisp-mode-hook
+                inferior-lisp-mode-hook
+                clojure-mode-hook
+                python-mode-hook
+                js-mode-hook
+                R-mode-hook))
+  (add-hook mode
+            '(lambda ()
+               (flyspell-prog-mode))))
+
+(global-set-key (kbd "<f8>") 'ispell-word)
+(defun flyspell-check-next-highlighted-word ()
+  "Custom function to spell check next highlighted word"
+  (interactive)
+  (flyspell-goto-next-error)
+  (ispell-word))
+(global-set-key (kbd "M-<f8>") 'flyspell-check-next-highlighted-word)
