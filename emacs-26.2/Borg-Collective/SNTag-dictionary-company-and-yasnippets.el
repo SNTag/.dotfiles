@@ -286,6 +286,7 @@
 ;; minimal flyspell
 ;;
 ;; spell checker
+;; if it doesn't work, ensure that aspell, aspell-en is installed
 ;; taken from:
 ;; https://joelkuiper.eu/spellcheck_emacs
 
