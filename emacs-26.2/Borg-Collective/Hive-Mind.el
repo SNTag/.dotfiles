@@ -23,7 +23,10 @@
 (load-file "~/.emacs.d/Borg-Collective_Emacs/SNTag-org-mode.el")
 
 ;; ;; org-babel
-;; (load-file "~/.dotfiles/emacs-26.2/Borg-Collective/SNTag-org-babel.el")
+;; (load-file "~/.dotfiles/emacs-26.2/Borg-Collective/SNTag-literative-programming.el")
+
+;; ;; blogging
+;; (load-file "~/.dotfiles/emacs-26.2/Borg-Collective/SNTag-blogging.el")
 
 ;; magit
 (load-file "~/.emacs.d/Borg-Collective_Emacs/SNTag-magit.el")
@@ -36,6 +39,9 @@
 
 ;; helm-bibtex
 (load-file "~/.emacs.d/Borg-Collective_Emacs/SNTag-helm.el")
+
+;; helm-bibtex
+(load-file "~/.emacs.d/Borg-Collective_Emacs/SNTag-elfeed.el")
 
 ;; load private-files
 (load-file "~/.emacs.d/Borg-Collective_Emacs-private/Hive-Mind_private.el")

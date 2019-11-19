@@ -49,3 +49,13 @@
   :init
   (setq conda-anaconda-home (expand-file-name "~/anaconda3"))
   (setq conda-env-home-directory (expand-file-name "~/anaconda3")))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; python mypy
+
+(use-package flycheck-mypy)
+(add-hook 'python-mode-hook 'flycheck-mode)
+
+(add-to-list 'flycheck-disabled-checkers 'python-flake8)
+(add-to-list 'flycheck-disabled-checkers 'python-pylint)

@@ -38,6 +38,14 @@ This config is built around my use of:
 
 It should be possible to find sections where everything related to that mode are found in the Borg-Collective.
 
+
+
+## Requires
+
+- konsole
+
+
+
 ## Useful links
 These links are guides that I've found useful in setting up my system.  Useful for developing modifications to this init.  THESE LINKS MOSTLY IGNORE REFERENCES METIONED INSIDE EL FILES.
 
@@ -100,6 +108,7 @@ C-c o - **browse-file-directory** - Command to open the directory of current fil
 ### File interaction/Managment
 C-c m - compile.  Useful for Makefile commands
 C-x g - magit-status
+C-c t - open-terminal-in-workdir - opens terminal (konsole) set to current dir
 
 ### Org-mode
 C-c a - **org-agenda** - 

@@ -199,6 +199,40 @@ e.g. Sunday, September 17, 2000."
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Adding shell customization
+;;
+;; keys:
+;; C-c t  -  open-terminal-in-workdir
+
+;; ====================
+;; trial 1
+
+;; (start-process "terminal" nil "konsole")
+
+;; ====================
+;; trial 2
+;;
+;; works
+;; should include some way to detect WM and thus main terminal.
+;; ex., xfce = xfce4-terminal, kde = konsole
+
+(defun open-terminal-in-workdir ()
+  (interactive)
+  (call-process-shell-command
+   (concat "xfce4-terminal --working-directory=" default-directory) nil 0))
+
+(global-set-key (kbd "C-c t") 'open-terminal-in-workdir)
+
+;; ====================
+;; trial 3
+
+;; (use-package shell-here)
+;; (global-set-key (kbd "C-c t") 'shell-here)
+;; ;; (define-key (current-global-map) "C-c t" 'shell-here)
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; extras
 
 (use-package ido)  ; Forgot what it does

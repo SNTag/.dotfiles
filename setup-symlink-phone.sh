@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# inspiration taken from tomnomnom
-# Future edit: add correction for individual files (ex., readme.md) and emacs
-
 dotfilesGit=${HOME}/.dotfiles
 
 [[ -d ~/backup ]] || mkdir ~/backup
@@ -60,14 +57,7 @@ function linkDotFile {
     mv ${HOME}/${1} ${HOME}/${2}
 }
 
-
-#linkDotFile emacs-26.2 .emacs.d
-#linkDotFile herbstluftwm .config
-#linkDotFile polybar .config
-
-# FOR EMACS - slightly more complicated to prevent accidental symlink of elpa packages, which need to be uniquely installed per computer
-
-echo 'Emacs general stuff============================='
+echo 'Emacs =========================================='
 
 echo Setting up Emacs.d files
 [[ -d ~/.emacs.d ]] || mkdir ~/.emacs.d
@@ -83,12 +73,10 @@ echo For simple files
 linkDotFile emacs-26.2/init.el .emacs.d/init.el
 linkDotFile emacs-26.2/readme.md .emacs.d/readme.md
 
-
 echo For items difficult to symlink
 #$ I will assume theres some sort of confusion when running linkDotFile on earlier commands.  will figure it out later.
 ln -s ~/.dotfiles/emacs-26.2/config/*.el ~/.emacs.d/config/
 ln -s ~/.dotfiles/emacs-26.2/snippets/* ~/.emacs.d/snippets/
-
 
 echo Cleaning
 
@@ -96,20 +84,11 @@ echo Cleaning
 
 echo 'Emacs: personalization=========================='
 
-echo Setting up the Borg Collective.  Resistance is futile.
+echo Setting up the Borg Collective.  Resistance is futile. PHONE
 
 [[ -d ~/.emacs.d/Borg-Collective_Emacs/ ]] || mkdir -p ~/.emacs.d/Borg-Collective_Emacs
-ln -s ~/.dotfiles/emacs-26.2/Borg-Collective/*.el ~/.emacs.d/Borg-Collective_Emacs/
+ln -s ~/.dotfiles/emacs-26.2/emacs-for-phone/*.el ~/.emacs.d/Borg-Collective_Emacs/
 
+echo '(load-file "~/.emacs.d/Borg-Collective_Emacs/Hive-Mind.el")' >> ~/.emacs.d/init.el
 
-echo Setting up privacy from Github
-
-bash $DROPBOX/my_journal/linux-customization/scripts/setup-symlink_Bash.sh
-
-echo "Fonts =========================================="
-
-[[ -d ~/.local/share/fonts ]] || mkdir -p ~/.local/share/fonts
-
-ln -s ~/.dotfiles/fonts/* ~/.local/share/fonts/
-
-echo ========================================== FINISHING
+echo "========================================== FINISHING"

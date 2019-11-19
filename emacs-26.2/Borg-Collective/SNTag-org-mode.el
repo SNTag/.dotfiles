@@ -72,6 +72,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 ;; Org-mode tweaks
 
 (setq org-hide-emphasis-markers t)  ;; For hiding markup elements.
+(setq org-use-sub-superscripts '{})  ;; prevents _ from always being read as subscript during org-export
 
 
 ;; ====================
