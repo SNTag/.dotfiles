@@ -28,8 +28,10 @@
 (use-package helm-bibtex
   :ensure t)
 ;;  bibtex-completion-notes-path "~/Dropbox/OrgMode/Papers.org"
-(setq   bibtex-completion-bibliography '("/media/iDropbox/Dropbox/latex journal/resources/Greg-Tucker-Kellogg.bib")
-        bibtex-completion-library-path '("~/Zotero/"))
+
+;; ;; The following two lines are run elsewhere. kept here for notes.
+;; (setq   bibtex-completion-bibliography '("/path/to/file.bib")
+;;         bibtex-completion-library-path '("/path/to/zotero"))
 
 (setq bibtex-completion-pdf-field "file")  ; Uses lower case "file" to work with better-bibtex zotero plugin
 

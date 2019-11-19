@@ -87,4 +87,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Begin Borg Assimilation
 
-(load-file "~/.emacs.d/Borg-Collective_Emacs/Hive-Mind.el")
+;; ====================
+;; dotfiles emacs
+(load-file "~/.emacs.d/Borg-Collective-Emacs/Hive-Mind-Main.el")
+
+;; ====================
+;; dropbox files
+(load-file "~/.emacs.d/Borg-Collective-Emacs-private/Hive-Mind-Dropbox.el")
