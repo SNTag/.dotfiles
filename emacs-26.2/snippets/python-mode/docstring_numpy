@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# inspired by: Egor Panfilov <egor.v.panfilov[at]gmail[dot]com>
+# modified by: SNTag <sntagore@protonmail.com
+# name: docstring_numpy
+# key: dn
+# group: definitions
+# --
+\"\"\" ${1:description here}
+Variables: $2
+${2:$(python-args-to-docstring-numpy)}
+\"\"\"
+$0

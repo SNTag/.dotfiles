@@ -17,15 +17,15 @@
 ;; etc
 
 (tool-bar-mode -1); tool bar icons present or not.  Value '-1' removes.  Comment out to return tool bar.
-(global-set-key (kbd "C-c <up>") 'shrink-window)
-(global-set-key (kbd "C-c <down>") 'enlarge-window)
+;;(global-set-key (kbd "C-c <up>") 'shrink-window)  ;; commented out as not in use right now
+;;(global-set-key (kbd "C-c <down>") 'enlarge-window)  ;; commented out.  not in use right now
 (menu-bar-mode -1); menu bar icons present or not.  Value '-1' removes.  Comment out to return tool bar.
 
 
 (setq calendar-week-start-day 1); Calender should start on Monday
 (show-paren-mode 1); parens mode
 (setq inhibit-startup-message t); No splash screen please
-(global-set-key (kbd "M-p") 'ace-window); shortkeys
+;;(global-set-key (kbd "M-p") 'ace-window); shortkeys
 (setq save-interprogram-paste-before-kill t); Kill ring set
 (setq case-fold-search t); case-insensitive when searching.  value 'nil' makes it sensitive
 
@@ -80,6 +80,17 @@ e.g. Sunday, September 17, 2000."
 (global-set-key (kbd "C-c o") 'browse-file-directory)
 
 
+;; ====================
+;; README LOADER
+
+(defun secretary-borg ()
+  "opens the read-me if i forget the self-implemented keys"
+  (interactive)
+  (find-file "~/.emacs.d/readme.md")
+  )
+
+(global-set-key (kbd "C-c h") 'secretary-borg)
+
 ;; ;; ====================
 ;; ;; open pdfs with foxit
 ;; ;;
@@ -89,6 +100,26 @@ e.g. Sunday, September 17, 2000."
 ;; (use-package openwith)
 ;; (openwith-mode t)
 ;; (setq openwith-associations '(("\\.pdf\\'" "Foxit Reader.exe" (file))))
+
+
+;; ;; ====================
+;; ;; previous window
+
+;; (defun back-window ()
+;;   (interactive)
+;;   (other-frame -1))
+
+;; (global-set-key (kbd "C-c p") 'back-window)
+
+
+;; ====================
+;; ace-window
+;;
+;; enables movement between emacs windows
+
+(use-package ace-window)
+
+(global-set-key (kbd "M-l") 'ace-window)
 
 
 ;; ====================
@@ -237,3 +268,14 @@ e.g. Sunday, September 17, 2000."
 
 (use-package ido)  ; Forgot what it does
 (use-package auto-complete)  ; Forgot what it does
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; finding files based on partial names
+
+(defun bar (base prefix)
+  (let ((files (file-expand-wildcards (concat base "/" prefix "*"))))
+    (cond
+     ((= (length files) 1) (find-file (car files)))
+     (t (error "No match, or ambiguous match.")))))

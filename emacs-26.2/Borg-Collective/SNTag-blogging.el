@@ -34,22 +34,22 @@
 (setq org-publish-project-alist
     '(("org-mysite"
        ;; Path to your org files.
-       :base-directory "~/Documents/harappun-files/org"
+       :base-directory "/media/iDropbox/Dropbox/org-files/blog/"
        :base-extension "org"
 
        ;; Path to your Jekyll project.
-       :publishing-directory "~/Documents/harappun-files/"
+       :publishing-directory "~/Documents/harappun-files-v1.1/_posts/"
        :recursive t
-       :publishing-function org-publish-org-to-html
+       :publishing-function org-html-publish-to-html
        :headline-levels 4
        :html-extension "html"
        :body-only t ;; Only export section between <body> </body>
        :table-of-contents nil)
 
       ("org-static-mysite"
-       :base-directory "~/Documents/harappun-files/org/"
+       :base-directory "/media/iDropbox/Dropbox/org-files/blog/"
        :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|php"
-       :publishing-directory "path/to/proj/mysite/"
+       :publishing-directory "~/Documents/harappun-files-v1.1/_posts/"
        :recursive t
        :publishing-function org-publish-attachment
        :table-of-contents nil)
@@ -111,3 +111,20 @@
 ;;                   (insert html))
 ;;                 (get-buffer org-buffer)))))))
 ;;      '(1 2))))
+
+
+
+;; ;; ====================
+;; ;; trial 4
+;; ;;
+;; ;; using blog-admin
+
+;; (use-package blog-admin)
+;; (use-package org-page)
+
+;; (setq blog-admin-backend-type 'org-page)
+;; (setq blog-admin-backend-path "/home/sntagore/Documents/harappun-files-v1.1/")
+;; (setq blog-admin-backend-new-post-in-drafts t)
+;; (setq blog-admin-backend-new-post-with-same-name-dir t)
+;; (setq blog-admin-backend-org-page-drafts "/media/iDropbox/Dropbox/org-files/blog/posts") ;; directory to save draft
+;; ;; (setq blog-admin-backend-org-page-config-file "/path/to/org-page/config.el") ;; if nil init.el is used

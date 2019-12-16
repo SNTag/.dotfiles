@@ -25,9 +25,6 @@
 ;; ;; org-babel
 ;; (load-file "~/.dotfiles/emacs-26.2/Borg-Collective/SNTag-literative-programming.el")
 
-;; ;; blogging
-;; (load-file "~/.dotfiles/emacs-26.2/Borg-Collective/SNTag-blogging.el")
-
 ;; magit
 (load-file "~/.emacs.d/Borg-Collective-Emacs/SNTag-magit.el")
 
@@ -40,4 +37,5 @@
 ;; helm-bibtex
 (load-file "~/.emacs.d/Borg-Collective-Emacs/SNTag-helm.el")
 
-
+;; helm-bibtex
+(load-file "~/.emacs.d/Borg-Collective-Emacs/SNTag-pdf.el")

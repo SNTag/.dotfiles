@@ -11,8 +11,6 @@ mentioned in the code.
 **Build focus:** I've been too focused on improving the overall feel of emacs.  Focusing now on using emacs
 as what it is: a tool.
 
-I have recently made the switch to Linux Manjaro, and plan to stick with it for a long time.
-
 The Init file has only tweaks for improving speed during loading and to direct it to the
 Borg-Collective (my nickname for my mode configuration organization).  Names of the
 Borg-Collective files indicate what it contains.
@@ -42,9 +40,79 @@ It should be possible to find sections where everything related to that mode are
 
 ## Requires
 
-- konsole
+- konsole (see Borg-Collective/SNTag-quirks-and-twerks.el, defun open-terminal-in-workdir)
 
 
+
+# Outline
+
+
+## Current keybinds: User/Init Defined
+
+### Helm Config
+**NOTE:**  Current keybindings for some default emacs functions have been remapped to helm-config.
+M-x - **helm-M-x** -
+C-x C-f - **helm-find-files** -
+C-x b - **helm-occur** - 
+M-y - **helm-show-kill-ring** -
+C-x r b - **helm-filtered-bookmarks** - 
+
+### Emacs Window Management
+M-l - **ace-window** - set up to call ace-window
+C-c h - **borg-secretary** - opens this readme if i forget a custom key bind
+
+### Unbind (disabled keybinds)
+C-x C-c - global kill key. Unsets the emacs kill command in GUI in case my clumsy fingers press it.
+
+### Reference management
+C-c f - **helm-bibtex-with-local-bibliography**
+C-u C-c f - **helm-bibtex-with-local-bibliography** - To refresh bibtex key list.
+
+### Navigation
+C-c s - **helm-buffers-list**
+C-c o - **browse-file-directory** - Command to open the directory of current file.
+
+### File interaction/Management
+C-c m - compile.  Useful for Makefile commands
+C-x g - magit-status
+C-c t - open-terminal-in-workdir - opens terminal (konsole) set to current dir
+
+### Org-mode
+C-c a - **org-agenda** - 
+C-c c - **org-capture** - 
+C-c j - **gs-helm-org-link-to-contact** - 
+C-c e - **my-org-export-url** - Pull external links into clipboard.
+TBS - **my-org-copy-smart-url** - 
+
+### projectile
+s-p - **projectile-command-map** - 
+C-c p - **projectile-command-map** - 
+
+
+## Custom commands
+
+**today**  -  enters todays date
+**today-short** - pastes date as DD/MM/YY
+**browse-file-directory**  -  Opens the directory of current file.
+**my-org-export-url** - 
+**my-org-copy-smart-url** - Pull external links into clipboard.
+**ace-window** - set up to call ace-window
+**borg-secretary** - opens this readme if i forget a custom key bind
+
+
+Using Markdown
+--------------
+If interested, my thesis writing approach uses Markdown, lualatex, and pandoc.  The paper can be
+written in markdown notation with latex commands, and processed using pandoc to generate PDFs.
+
+**NOTE** I have a finished system that has not been uploaded to github yet.  I will do so when I have the time.
+
+[Pandoc scholar](https://github.com/pandoc-scholar) 
+[Pandoc-Latex-NUS-thesis](https://github.com/SNTagore/Pandoc-Latex-NUS-thesis ) 
+
+
+
+# Extra details
 
 ## Useful links
 These links are guides that I've found useful in setting up my system.  Useful for developing modifications to this init.  THESE LINKS MOSTLY IGNORE REFERENCES METIONED INSIDE EL FILES.
@@ -87,59 +155,6 @@ zotxt
 magit-mode
 
 ### latex
-	
-
-# Outline
-
-
-## Current keybinds: User/Init Defined
-
-### Unbind
-C-x C-c - global kill key. Unsets the emacs kill command in GUI in case my clumsy fingers press it.
-
-### References managment
-C-c f - **helm-bibtex-with-local-bibliography**
-C-u C-c f - **helm-bibtex-with-local-bibliography** - To refresh bibtex key list.
-
-### Navigation
-C-c s - **helm-buffers-list**
-C-c o - **browse-file-directory** - Command to open the directory of current file.
-
-### File interaction/Managment
-C-c m - compile.  Useful for Makefile commands
-C-x g - magit-status
-C-c t - open-terminal-in-workdir - opens terminal (konsole) set to current dir
-
-### Org-mode
-C-c a - **org-agenda** - 
-C-c c - **org-capture** - 
-C-c j - **gs-helm-org-link-to-contact** - 
-C-c e - **my-org-export-url** - Pull external links into clipboard.
-TBS - **my-org-copy-smart-url** - 
-
-### projectile
-s-p - **projectile-command-map** - 
-C-c p - **projectile-command-map** - 
-
-
-## Custom commands
-
-**today**  -  enters todays date
-**today-short** - pastes date as DD/MM/YY
-**browse-file-directory**  -  Opens the directory of current file.
-**my-org-export-url** - 
-**my-org-copy-smart-url** - Pull external links into clipboard.
-
-
-Using Markdown
---------------
-If interested, my thesis writing approach uses Markdown, lualatex, and pandoc.  The paper can be
-written in markdown notation with latex commands, and processed using pandoc to generate PDFs.
-
-**NOTE** I have a finished system that has not been uploaded to github yet.  I will do so when I have the time.
-
-[Pandoc scholar](https://github.com/pandoc-scholar) 
-[Pandoc-Latex-NUS-thesis](https://github.com/SNTagore/Pandoc-Latex-NUS-thesis ) 
 
 
 

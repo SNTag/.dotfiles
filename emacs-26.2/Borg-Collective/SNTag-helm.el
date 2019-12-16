@@ -1,15 +1,20 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Helm
 
-(use-package helm)
-
-
-;; ====================
-;; Helm-buffers
-;;
-;; Used to switch between buffers using helm
-
-(global-set-key (kbd "C-c s") 'helm-buffers-list)  ; improves buffer changing
+(use-package helm
+  :ensure t
+  :demand
+  :bind (("M-x" . helm-M-x)
+         ("C-x C-f" . helm-find-files)
+         ("C-x b" . helm-buffers-list)
+         ("C-x c o" . helm-occur) ;SC
+         ("M-y" . helm-show-kill-ring) ;SC
+         ("C-x r b" . helm-filtered-bookmarks) ;SC
+	 ("C-c s" . helm-buffers-list)  ; improves buffer changing
+	 )
+  :preface (require 'helm-config)
+  :config (helm-mode 1)
+  )
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -26,7 +31,9 @@
 ;; C-u C-c f    -  Refresh helm-bibtex
 
 (use-package helm-bibtex
-  :ensure t)
+  :ensure t
+  :bind ("C-c f" . helm-bibtex-with-local-bibliography)  ; allows paper searching rapidly. For refreshing, C-u C-c f
+  )
 ;;  bibtex-completion-notes-path "~/Dropbox/OrgMode/Papers.org"
 
 ;; ;; The following two lines are run elsewhere. kept here for notes.
@@ -62,12 +69,6 @@
 ;; (progn
 ;;   (switch-to-buffer (generate-new-buffer "my_new_bibliography.bib"))
 ;;   (--map (insert (bibtex-completion-make-bibtex it)) (-distinct '("Key1" "Key2"))))
-
-
-;; ====================
-;; keybindings
-
-(global-set-key (kbd "C-c f") 'helm-bibtex-with-local-bibliography)  ; allows paper searching rapidly. For refreshing, C-u C-c f
 
 
 ;; ====================

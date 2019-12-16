@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# contributor: SNTagore
+# name: commentator-function
+# key: cmtfunc
+# commentator: SNTagore (sntagore@protonmail.com)
+# expand-env: ((yas-indent-line 'fixed))
+# --
+
+##### ${1:separator} #####

@@ -2,10 +2,15 @@
 # name: entry
 # key: entry_
 # --
-#+begin_html
+#+Title: about
+:properties:
+#+Options: title:nil
+#+Options: toc:nil
+#+OPTIONS: -:nil
+:end:
 ---
-layout: ${1:default}
+layout: ${1:post}
 title: ${2:title}
 ---
-#+end_html
+
 $0
