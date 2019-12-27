@@ -51,53 +51,60 @@ It should be possible to find sections where everything related to that mode are
 
 ### Helm Config
 **NOTE:**  Current keybindings for some default emacs functions have been remapped to helm-config.
-M-x - **helm-M-x** -
-C-x C-f - **helm-find-files** -
-C-x b - **helm-occur** - 
-M-y - **helm-show-kill-ring** -
-C-x r b - **helm-filtered-bookmarks** - 
+M-x - **helm-M-x** - \n
+C-x C-f - **helm-find-files** - \n
+C-x b - **helm-occur** - \n
+M-y - **helm-show-kill-ring** - \n
+C-x r b - **helm-filtered-bookmarks** - \n
 
 ### Emacs Window Management
-M-l - **ace-window** - set up to call ace-window
-C-c h - **borg-secretary** - opens this readme if i forget a custom key bind
+M-l - **ace-window** - set up to call ace-window \n
+C-c h - **borg-secretary-readme** - opens this readme if i forget a custom key bind \n
+C-c h - **borg-secretary-editconfigs** - opens Hive-Mind files \n
 
 ### Unbind (disabled keybinds)
-C-x C-c - global kill key. Unsets the emacs kill command in GUI in case my clumsy fingers press it.
+C-x C-c - global kill key. Unsets the emacs kill command in GUI in case my clumsy fingers press it. \n
 
 ### Reference management
-C-c f - **helm-bibtex-with-local-bibliography**
-C-u C-c f - **helm-bibtex-with-local-bibliography** - To refresh bibtex key list.
+C-c f - **helm-bibtex-with-local-bibliography** \n
+C-u C-c f - **helm-bibtex-with-local-bibliography** - To refresh bibtex key list. \n
 
 ### Navigation
-C-c s - **helm-buffers-list**
-C-c o - **browse-file-directory** - Command to open the directory of current file.
+C-c s - **helm-buffers-list** \n
+C-c o - **browse-file-directory** - Command to open the directory of current file. \n
 
 ### File interaction/Management
-C-c m - compile.  Useful for Makefile commands
-C-x g - magit-status
-C-c t - open-terminal-in-workdir - opens terminal (konsole) set to current dir
+C-c m - compile.  Useful for Makefile commands \n
+C-x g - magit-status \n
+C-c t - open-terminal-in-workdir - opens terminal (konsole) set to current dir \n
 
 ### Org-mode
-C-c a - **org-agenda** - 
-C-c c - **org-capture** - 
-C-c j - **gs-helm-org-link-to-contact** - 
-C-c e - **my-org-export-url** - Pull external links into clipboard.
-TBS - **my-org-copy-smart-url** - 
+C-c a - **org-agenda** - \n
+C-c c - **org-capture** - \n
+C-c j - **gs-helm-org-link-to-contact** - \n
+C-c e - **my-org-export-url** - Pull external links into clipboard. \n
+TBS - **my-org-copy-smart-url** - \n
 
 ### projectile
-s-p - **projectile-command-map** - 
-C-c p - **projectile-command-map** - 
+s-p - **projectile-command-map** - \n
+C-c p - **projectile-command-map** - \n
+
+### coding
+C-c C-f - **format-all-buffer** - \n
+
+### ess
+C-c C-a - **ess-abort** - \n
 
 
 ## Custom commands
 
-**today**  -  enters todays date
-**today-short** - pastes date as DD/MM/YY
-**browse-file-directory**  -  Opens the directory of current file.
-**my-org-export-url** - 
-**my-org-copy-smart-url** - Pull external links into clipboard.
-**ace-window** - set up to call ace-window
-**borg-secretary** - opens this readme if i forget a custom key bind
+**today**  -  enters todays date \n
+**today-short** - pastes date as DD/MM/YY \n
+**browse-file-directory**  -  Opens the directory of current file. \n
+**my-org-export-url** - \n
+**my-org-copy-smart-url** - Pull external links into clipboard. \n
+**ace-window** - set up to call ace-window \n
+**borg-secretary** - opens this readme if i forget a custom key bind \n
 
 
 Using Markdown
@@ -107,8 +114,8 @@ written in markdown notation with latex commands, and processed using pandoc to 
 
 **NOTE** I have a finished system that has not been uploaded to github yet.  I will do so when I have the time.
 
-[Pandoc scholar](https://github.com/pandoc-scholar) 
-[Pandoc-Latex-NUS-thesis](https://github.com/SNTagore/Pandoc-Latex-NUS-thesis ) 
+[Pandoc scholar](https://github.com/pandoc-scholar)
+[Pandoc-Latex-NUS-thesis](https://github.com/SNTagore/Pandoc-Latex-NUS-thesis )
 
 
 
@@ -117,19 +124,19 @@ written in markdown notation with latex commands, and processed using pandoc to 
 ## Useful links
 These links are guides that I've found useful in setting up my system.  Useful for developing modifications to this init.  THESE LINKS MOSTLY IGNORE REFERENCES METIONED INSIDE EL FILES.
 
-### Markdown 
+### Markdown
 
 markdown-mode
 
-### Pandoc 
+### Pandoc
 
 pandoc-mode
 
-### Python 
+### Python
 
 elpy
 
-### R 
+### R
 
 ess
 
@@ -142,15 +149,15 @@ org-mode
 org-mode
 **org-babel** - https://org-babel.readthedocs.io/en/latest/
 
-### Navigation 
+### Navigation
 
 helm-buffers-list
 
-### Zotero 
+### Zotero
 
 helm-bibtex
 zotxt
-### git 
+### git
 
 magit-mode
 
@@ -252,5 +259,3 @@ a one time installation.
 
 (setq use-package-always-ensure t)
 ```
-
-

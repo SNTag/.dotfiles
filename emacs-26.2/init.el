@@ -26,6 +26,76 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Defining Constants
+;;
+;; taken from:
+;; https://github.com/MatthewZMD/.emacs.d
+
+(defconst *sys/gui*
+  (display-graphic-p)
+  "Are we running on a GUI Emacs?")
+
+(defconst *sys/win32*
+  (eq system-type 'windows-nt)
+  "Are we running on a WinTel system?")
+
+(defconst *sys/linux*
+  (eq system-type 'gnu/linux)
+  "Are we running on a GNU/Linux system?")
+
+(defconst *sys/mac*
+  (eq system-type 'darwin)
+  "Are we running on a Mac system?")
+
+(defconst *sys/root*
+  (string-equal "root" (getenv "USER"))
+  "Are you a ROOT user?")
+
+(defconst *rg*
+  (executable-find "rg")
+  "Do we have ripgrep?")
+
+(defconst *python*
+  (executable-find "python")
+  "Do we have python?")
+
+(defconst *python3*
+  (executable-find "python3")
+  "Do we have python3?")
+
+(defconst *tr*
+  (executable-find "tr")
+  "Do we have tr?")
+
+(defconst *mvn*
+  (executable-find "mvn")
+  "Do we have Maven?")
+
+(defconst *clangd*
+  (or (executable-find "clangd")  ;; usually
+      (executable-find "/usr/local/opt/llvm/bin/clangd"))  ;; macOS
+  "Do we have clangd?")
+
+(defconst *gcc*
+  (executable-find "gcc")
+  "Do we have gcc?")
+
+(defconst *git*
+  (executable-find "git")
+  "Do we have git?")
+
+(defconst *pdflatex*
+  (executable-find "pdflatex")
+  "Do we have pdflatex?")
+
+(defconst *eaf-env*
+  (and *sys/linux* *sys/gui* *python3*
+       (executable-find "pip")
+       (not (equal (shell-command-to-string "pip freeze | grep '^PyQt\\|PyQtWebEngine'") "")))
+  "Check basic requirements for EAF to run.")
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Melpa-packages
 ;;
 ;; load emacs 24's package system. Add MELPA repository.
@@ -70,11 +140,23 @@
 
 ;; ====================
 ;; Use-package
+;;
+;; Install use-package if not installed
+;; taken from M-Emacs
 
-;; uncomment this line when using emacs on a computer for the first time!
-;; (add-to-list 'load-path "~/.emacs.d/site-lisp/use-package")
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
 
-(require 'use-package)
+(eval-and-compile
+  (setq use-package-always-ensure t)
+  (setq use-package-expand-minimally t)
+  (setq use-package-compute-statistics t)
+  (setq use-package-enable-imenu-support t))
+
+(eval-when-compile
+  (require 'use-package)
+  (require 'bind-key))
 
 ;; (with-eval-after-load 'info
 ;;   (info-initialize)
@@ -93,4 +175,4 @@
 
 ;; ====================
 ;; dropbox files
-(load-file "~/.emacs.d/Borg-Collective-Emacs-private/Hive-Mind-Dropbox.el")
+(load-file "~/.emacs.d/Borg-Collective-Emacs-private/Hive-Mind-Personal.el")
