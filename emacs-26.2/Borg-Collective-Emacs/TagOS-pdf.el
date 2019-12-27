@@ -1,3 +1,10 @@
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Doc-view
+
+(setq doc-view-continuous t)  ; enables continous scroll on doc-view
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; PDF-tiiks
 ;;
@@ -18,3 +25,19 @@
 ;;  )
 
 ;; ;; (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)  ; will hopefully load latex-pdf after compilation
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; pdf-tools
+
+(use-package pdf-tools-install
+  :ensure pdf-tools
+  :if (and *sys/gui* (not *sys/win32*))
+  :mode "\\.pdf\\'"
+  :commands (pdf-loader-install)
+  :custom
+  (TeX-view-program-selection '((output-pdf "pdf-tools")))
+  (TeX-view-program-list '(("pdf-tools" "TeX-pdf-tools-sync-view")))
+  :hook
+  (pdf-view-mode . (lambda () (display-line-numbers-mode -1)))
+  :config
+  (pdf-loader-install))

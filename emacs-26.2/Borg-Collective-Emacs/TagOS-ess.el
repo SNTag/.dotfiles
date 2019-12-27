@@ -30,8 +30,10 @@
 (use-package ess
   :ensure t
   :defer t
+  :commands R
   :config
   (require 'ess)
+;;  (load "ess-autoloads")
   (setq ess-describe-at-point-method nil)
   (setq ess-switch-to-end-of-proc-buffer t)
   (setq ess-rutils-keys +1)

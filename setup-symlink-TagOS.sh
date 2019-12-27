@@ -86,7 +86,7 @@ linkDotFile emacs-26.2/readme.md .emacs.d/readme.md
 
 echo For items difficult to symlink
 #$ I will assume theres some sort of confusion when running linkDotFile on earlier commands.  will figure it out later.
-ln -s ~/.dotfiles/emacs-26.2/config/*.el ~/.emacs.d/config/
+#ln -s ~/.dotfiles/emacs-26.2/config/*.el ~/.emacs.d/config/
 ln -s ~/.dotfiles/emacs-26.2/snippets/* ~/.emacs.d/snippets/
 
 
@@ -99,12 +99,18 @@ echo 'Emacs: personalization=========================='
 echo Setting up the Borg Collective.  Resistance is futile.
 
 [[ -d ~/.emacs.d/Borg-Collective-Emacs/ ]] || mkdir -p ~/.emacs.d/Borg-Collective-Emacs
-ln -s ~/.dotfiles/emacs-26.2/Borg-Collective/*.el ~/.emacs.d/Borg-Collective-Emacs/
+ln -s ~/.dotfiles/emacs-26.2/Borg-Collective-Emacs/*.el ~/.emacs.d/Borg-Collective-Emacs/
 
 echo "Fonts =========================================="
 
 [[ -d ~/.local/share/fonts ]] || mkdir -p ~/.local/share/fonts
 
 ln -s ~/.dotfiles/fonts/* ~/.local/share/fonts/
+
+echo "Code Formatters ================================"
+
+pip3 install black --user  # for python
+rscript ./code/r/installation-formatter.r
+#npm install lua-fmt  # for lua
 
 echo ========================================== FINISHING

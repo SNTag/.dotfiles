@@ -13,7 +13,9 @@
 ;; (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 
 (use-package elpy
-  :ensure t
+  :ensure nil
+  :after flycheck
+  :mode "\\.py\\'"
   :defer 2
   :config
   (progn
@@ -39,8 +41,10 @@
 (setq python-shell-completion-native-enable nil)
 
 
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ;; conda variables - python
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; conda variables - STOPPED WORKING ON THIS FOR NOW
+;;
+;; improves compatability with anaconda.
 
 (add-to-list 'exec-path "~/anaconda3/bin")
 
