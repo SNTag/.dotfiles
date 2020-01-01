@@ -209,6 +209,13 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
 
 
 ;; ====================
+;; which-key
+;;
+;; try which-key-posframe
+
+(use-package which-key)
+
+;; ====================
 ;; Makefile
 ;;
 ;; Enable running makefiles from within emacs!
@@ -336,7 +343,7 @@ e.g. Sunday, September 17, 2000."
   (find-file "~/.emacs.d/Borg-Collective-Emacs-private/Hive-Mind-Dropbox.el")
   )
 
-; (global-set-key (kbd "C-l e") #'borg-secretary-editconfigs)
+; (global-set-key (kbd "C-c r") #'borg-secretary-editconfigs)
 
 ;; ;; ====================
 ;; ;; open pdfs with foxit

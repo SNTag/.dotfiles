@@ -1,5 +1,6 @@
 ##1 My notes
 # add: detect previous installation
+# add: make ~/bin folder if not present
 # update: remove versions of package except current version
 # update: paths when I change any version numbers
 

@@ -16,6 +16,18 @@
   :config (helm-mode 1)
   )
 
+;; ====================
+;; helm-posframe
+;;
+;; makes command searches more modern.
+
+(use-package helm-posframe)
+(helm-posframe-enable)
+
+(setq helm-posframe-parameters
+      '((left-fringe . 10)
+        (right-fringe . 10)))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; helm-bibtex
@@ -24,7 +36,7 @@
 ;; helps in interacting with zotero
 ;;
 ;; To make zotero bibliography:
-;; 
+;;
 ;;
 ;; keys of note:
 ;; C-c f        -  activates helm-bibtex search

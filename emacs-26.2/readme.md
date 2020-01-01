@@ -49,62 +49,62 @@ It should be possible to find sections where everything related to that mode are
 
 ## Current keybinds: User/Init Defined
 
+### Unbind (disabled keybinds)
+C-x C-c - **global kill key** - Unsets the emacs kill command in GUI in case my clumsy fingers press it.<br />
+
 ### Helm Config
-**NOTE:**  Current keybindings for some default emacs functions have been remapped to helm-config.
-M-x - **helm-M-x** - \n
-C-x C-f - **helm-find-files** - \n
-C-x b - **helm-occur** - \n
-M-y - **helm-show-kill-ring** - \n
-C-x r b - **helm-filtered-bookmarks** - \n
+**NOTE:**  Current keybindings for some default emacs functions have been remapped to helm-config.<br />
+M-x - **helm-M-x** - calls helm-posframe command search.<br />
+C-x C-f - **helm-find-files** -<br />
+C-x b - **helm-occur** -<br />
+M-y - **helm-show-kill-ring** -<br />
+C-x r b - **helm-filtered-bookmarks** -<br />
 
 ### Emacs Window Management
-M-l - **ace-window** - set up to call ace-window \n
-C-c h - **borg-secretary-readme** - opens this readme if i forget a custom key bind \n
-C-c h - **borg-secretary-editconfigs** - opens Hive-Mind files \n
-
-### Unbind (disabled keybinds)
-C-x C-c - global kill key. Unsets the emacs kill command in GUI in case my clumsy fingers press it. \n
+M-l - **ace-window** - set up to call ace-window.<br />
+C-c h - **borg-secretary-readme** - opens this readme if i forget a custom key bind.<br />
+C-c r - **borg-secretary-editconfigs** - opens Hive-Mind files.<br />
 
 ### Reference management
-C-c f - **helm-bibtex-with-local-bibliography** \n
-C-u C-c f - **helm-bibtex-with-local-bibliography** - To refresh bibtex key list. \n
+C-c f - **helm-bibtex-with-local-bibliography** -<br />
+C-u C-c f - **helm-bibtex-with-local-bibliography** - To refresh bibtex key list.<br />
 
 ### Navigation
-C-c s - **helm-buffers-list** \n
-C-c o - **browse-file-directory** - Command to open the directory of current file. \n
+C-c s - **helm-buffers-list** - <br />
+C-c o - **browse-file-directory** - Command to open the directory of current file.<br />
 
 ### File interaction/Management
-C-c m - compile.  Useful for Makefile commands \n
-C-x g - magit-status \n
-C-c t - open-terminal-in-workdir - opens terminal (konsole) set to current dir \n
+C-c m - **compile** -  Useful for Makefile commands.<br />
+C-x g - **magit-status** - calls magit status.<br />
+C-c t - **open-terminal-in-workdir** - opens terminal (konsole) set to current dir.<br />
 
 ### Org-mode
-C-c a - **org-agenda** - \n
-C-c c - **org-capture** - \n
-C-c j - **gs-helm-org-link-to-contact** - \n
-C-c e - **my-org-export-url** - Pull external links into clipboard. \n
-TBS - **my-org-copy-smart-url** - \n
+C-c a - **org-agenda** - calls org agenda.<br />
+C-c c - **org-capture** - calls org-capture.<br />
+C-c j - **gs-helm-org-link-to-contact** -<br />
+C-c e - **my-org-export-url** - Pull external links into clipboard.<br />
+TBS - **my-org-copy-smart-url** -<br />
 
-### projectile
-s-p - **projectile-command-map** - \n
-C-c p - **projectile-command-map** - \n
+### projectile (UNDER DEVELOPMENT)
+s-p - **projectile-command-map** -<br />
+C-c p - **projectile-command-map** -<br />
 
 ### coding
-C-c C-f - **format-all-buffer** - \n
+C-c C-f - **format-all-buffer** -<br />
 
 ### ess
-C-c C-a - **ess-abort** - \n
+C-c C-a - **ess-abort** - stops the current process.<br />
 
 
 ## Custom commands
 
-**today**  -  enters todays date \n
-**today-short** - pastes date as DD/MM/YY \n
-**browse-file-directory**  -  Opens the directory of current file. \n
-**my-org-export-url** - \n
-**my-org-copy-smart-url** - Pull external links into clipboard. \n
-**ace-window** - set up to call ace-window \n
-**borg-secretary** - opens this readme if i forget a custom key bind \n
+**today**  -  enters todays date
+**today-short** - pastes date as DD/MM/YY
+**browse-file-directory**  -  Opens the directory of current file.
+**my-org-export-url** -
+**my-org-copy-smart-url** - Pull external links into clipboard.
+**ace-window** - set up to call ace-window
+**borg-secretary** - opens this readme if i forget a custom key bind
 
 
 Using Markdown
