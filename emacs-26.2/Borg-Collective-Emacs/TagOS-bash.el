@@ -17,14 +17,13 @@
 ;; aweshell
 ;;
 ;; shell extension base on eshell with better features
-;; taken from M-emacs
+;; modified from M-emacs (changed aweshell-dedicated-open/close to just ...-toggle)
 
 (use-package aweshell
   :load-path (lambda () (expand-file-name "site-elisp/aweshell" user-emacs-directory))
   :commands (aweshell-new aweshell-dedicated-open)
   :bind
-  (("M-#" . aweshell-dedicated-open)
-   (:map eshell-mode-map ("M-#" . aweshell-dedicated-close))))
+  (("M-#" . aweshell-dedicated-toggle)))
 
 ;; ====================
 ;; Shell Here

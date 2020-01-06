@@ -41,6 +41,8 @@ It should be possible to find sections where everything related to that mode are
 ## Requires
 
 - konsole (see Borg-Collective/SNTag-quirks-and-twerks.el, defun open-terminal-in-workdir)
+- multi-term installed from git to ~/.emacs/site-elisp/
+- aweshell installed from git to ~/.emacs/site-elisp/
 
 
 
@@ -48,9 +50,6 @@ It should be possible to find sections where everything related to that mode are
 
 
 ## Current keybinds: User/Init Defined
-
-### Unbind (disabled keybinds)
-C-x C-c - **global kill key** - Unsets the emacs kill command in GUI in case my clumsy fingers press it.<br />
 
 ### Helm Config
 **NOTE:**  Current keybindings for some default emacs functions have been remapped to helm-config.<br />

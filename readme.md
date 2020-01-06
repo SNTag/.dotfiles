@@ -18,9 +18,6 @@ Installation Notes
 ==================
 
 The following has not yet been automated:
-
-**In Emacs**
-- Installation of *use-package*
   
 **In Terminal**
 - Installation of *oh-my-zsh*
