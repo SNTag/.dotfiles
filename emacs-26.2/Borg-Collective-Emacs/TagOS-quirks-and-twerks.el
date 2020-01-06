@@ -26,9 +26,10 @@
 (setq case-fold-search t)  ; case-insensitive when searching.  value 'nil' makes it sensitive
 
 (setq comint-prompt-read-only t)  ; Prevents deleting shell prompt
-(when (display-graphic-p)
- (global-unset-key (kbd "C-x C-c"))
- )  ; unsets the emacs kill command in GUI in case my clumsy fingers press it
+(setq confirm-kill-emacs 'y-or-n-p)  ; requrires confirmation for C-x C-c kill emacs command
+;; (when (display-graphic-p)
+;;  (global-unset-key (kbd "C-x C-c"))
+;;  )  ; unsets the emacs kill command in GUI in case my clumsy fingers press it
 ;; (setq x-select-enable-clipboard nil)  ; Prevents contamination of clipboard from deleting text, but also prevents copy/paste to outside emacs...
 
 (setq ring-bell-function 'ignore)  ; Turn Off Cursor Alarms
@@ -36,6 +37,10 @@
 
 ;; ====================
 ;; optimized editing
+
+;; when reopening a file, go back to the last visited position.
+(setq-default save-place  t)
+(setq save-place-file "~/.emacs.d/etc/saveplace")
 
 ;; Remove useless whitespace before saving a file
 (defun delete-trailing-whitespace-except-current-line ()
@@ -61,41 +66,58 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
 (delete-selection-mode 1)  ; Replace selection on insert
 (setq require-final-newline t)  ; Add a newline automatically at the end of the file upon save.
 
+;; ====================
+;; Automatic backup
+;;
+;; trying a system that will hopefully make it easier to handle back ups
+
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))  ; New location for backups.
+(setq delete-old-versions t)  ; Silently delete execess backup versions
+(setq kept-old-versions 1000)  ; Only keep the last 1000 backups of a file.
+(setq vc-make-backup-files t)  ; Even version controlled files get to be backed up.
+(setq version-control t)  ; Use version numbers for backup files.
+
 
 ;; ====================
-;; smartparens
+;; smartparens - INTERFERING WITH ELPY (and maybe others) FOR NOW
 ;;
 ;; minor mode for dealing with pairs.
 ;; taken from M-emacs
 
-(use-package smartparens
-  :hook (prog-mode . smartparens-mode)
-  :diminish smartparens-mode
-  :bind
-  (:map smartparens-mode-map
-        ("C-M-f" . sp-forward-sexp)
-        ("C-M-b" . sp-backward-sexp)
-        ("C-M-a" . sp-backward-down-sexp)
-        ("C-M-e" . sp-up-sexp)
-        ("C-M-w" . sp-copy-sexp)
-        ("C-M-k" . sp-change-enclosing)
-        ("M-k" . sp-kill-sexp)
-        ("C-M-<backspace>" . sp-splice-sexp-killing-backward)
-        ("C-S-<backspace>" . sp-splice-sexp-killing-around)
-        ("C-]" . sp-select-next-thing-exchange))
-  :custom
-  (sp-escape-quotes-after-insert nil)
-  :config
-  ;; Stop pairing single quotes in elisp
-  (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
-  (sp-local-pair 'org-mode "[" nil :actions nil)
-  ;; Smartparens is broken in `cc-mode' as of Emacs 27. See
-  ;; https://github.com/Fuco1/smartparens/issues/963
-  (unless (version< emacs-version "27")
-    (dolist (fun '(c-electric-paren c-electric-brace))
-      (add-to-list 'sp--special-self-insert-commands fun))))
+;; (use-package smartparens
+;;   :hook (prog-mode . smartparens-mode)
+;;   :diminish smartparens-mode
+;;   :bind
+;;   (:map smartparens-mode-map
+;;         ("C-M-f" . sp-forward-sexp)
+;;         ("C-M-b" . sp-backward-sexp)
+;;         ("C-M-a" . sp-backward-down-sexp)
+;;         ("C-M-e" . sp-up-sexp)
+;;         ("C-M-w" . sp-copy-sexp)
+;;         ("C-M-k" . sp-change-enclosing)
+;;         ("M-k" . sp-kill-sexp)
+;;         ("C-M-<backspace>" . sp-splice-sexp-killing-backward)
+;;         ("C-S-<backspace>" . sp-splice-sexp-killing-around)
+;;         ("C-]" . sp-select-next-thing-exchange))
+;;   :custom
+;;   (sp-escape-quotes-after-insert nil)
+;;   :config
+;;   ;; Stop pairing single quotes in elisp
+;;   (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
+;;   (sp-local-pair 'org-mode "[" nil :actions nil)
+;;   ;; Smartparens is broken in `cc-mode' as of Emacs 27. See
+;;   ;; https://github.com/Fuco1/smartparens/issues/963
+;;   (unless (version< emacs-version "27")
+;;     (dolist (fun '(c-electric-paren c-electric-brace))
+;;       (add-to-list 'sp--special-self-insert-commands fun))))
+
+
+;; ====================
+;; Smartparens
 
 (electric-pair-mode 1)  ; autocomplete paired brackets
+(show-paren-mode 1)  ; highlights the other bracket
+
 
 ;; ;; ====================
 ;; ;; match parenthesis - DOESNT WORK YET
@@ -106,7 +128,6 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
 ;; ;; https://with-emacs.com/posts/ui-hacks/show-matching-lines-when-parentheses-go-off-screen/
 
 ;; ;; Show matching parenthesis
-;; (show-paren-mode 1)
 ;; ;; we will call `blink-matching-open` ourselves...
 ;; (remove-hook 'post-self-insert-hook
 ;;              #'blink-paren-post-self-insert-function)
@@ -183,6 +204,16 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
 (load custom-file 'noerror)
 
 ;; ====================
+;; Buffer reloading
+;;
+;; Auto update buffers that change on disk.
+;; disabling most of the recommended components as, to be honest, i don't understand them.  playing it safe.
+
+(global-set-key [f5] '(lambda () (interactive) (revert-buffer nil t nil)))
+;; (global-auto-revert-mode 1)  ; Will be prompted if there are changes that could be lost.
+;; (diminish 'auto-revert-mode)  ; Don't show me the “ARev” marker in the mode line
+
+;; ====================
 ;; ace-window
 ;;
 ;; enables movement between emacs windows
@@ -213,7 +244,13 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
 ;;
 ;; try which-key-posframe
 
-(use-package which-key)
+(use-package which-key
+  :diminish
+  :custom
+  (which-key-separator " ")
+  (which-key-prefix-prefix "+")
+  :config
+  (which-key-mode))
 
 ;; ====================
 ;; Makefile

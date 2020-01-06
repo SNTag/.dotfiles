@@ -35,8 +35,8 @@
       ;; 	    python-shell-interpreter-args "-i")
 
 (add-hook 'python-mode-hook 'anaconda-mode)
-(defun my-python-mode-hook () 
-  (linum-mode 1)) 
+(defun my-python-mode-hook ()
+  (linum-mode 1))
 (add-hook 'python-mode-hook 'my-python-mode-hook)
 (setq python-shell-completion-native-enable nil)
 
@@ -46,13 +46,13 @@
 ;;
 ;; improves compatability with anaconda.
 
-(add-to-list 'exec-path "~/anaconda3/bin")
+;; (add-to-list 'exec-path "~/anaconda3/bin")
 
-(use-package conda
-  :ensure t
-  :init
-  (setq conda-anaconda-home (expand-file-name "~/anaconda3"))
-  (setq conda-env-home-directory (expand-file-name "~/anaconda3")))
+;; (use-package conda
+;;   :ensure t
+;;   :init
+;;   (setq conda-anaconda-home (expand-file-name "~/anaconda3"))
+;;   (setq conda-env-home-directory (expand-file-name "~/anaconda3")))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
