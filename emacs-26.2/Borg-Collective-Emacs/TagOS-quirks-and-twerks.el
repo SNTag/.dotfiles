@@ -451,17 +451,19 @@ e.g. Sunday, September 17, 2000."
 ;; ====================
 ;; open external shell
 ;;
+;; Will open, if available, an xfce or konsole terminal.
+;;
+;; TODO: [C] i suspect this will open all terminal options if available.  need to make it selective.
+;;
 ;; keys:
 ;; C-c t  -  open-terminal-in-workdir
-;;
-;; future plan:
-;; include some way to detect WM and thus main terminal.
-;; ex., xfce = xfce4-terminal, kde = konsole, etc.
 
 (defun open-terminal-in-workdir ()
   (interactive)
   (call-process-shell-command
-   (concat "xfce4-terminal --working-directory=" default-directory) nil 0))
+   (concat "xfce4-terminal --working-directory=" default-directory) nil 0)
+  (call-process-shell-command
+   (concat "konsole --workdir " default-directory) nil 0))
 
 (global-set-key (kbd "C-c t") 'open-terminal-in-workdir)
 
@@ -471,4 +473,3 @@ e.g. Sunday, September 17, 2000."
 
 (use-package ido)  ; Forgot what it does
 (use-package auto-complete)  ; Forgot what it does
-

@@ -40,7 +40,7 @@ It should be possible to find sections where everything related to that mode are
 
 ## Requires
 
-- konsole (see Borg-Collective/SNTag-quirks-and-twerks.el, defun open-terminal-in-workdir)
+- xfce4 or konsole (see Borg-Collective/SNTag-quirks-and-twerks.el, defun open-terminal-in-workdir) **NOTE** possible complications from using both.
 - multi-term installed from git to ~/.emacs/site-elisp/
 - aweshell installed from git to ~/.emacs/site-elisp/
 
@@ -75,7 +75,7 @@ C-c o - **browse-file-directory** - Command to open the directory of current fil
 ### File interaction/Management
 C-c m - **compile** -  Useful for Makefile commands.<br />
 C-x g - **magit-status** - calls magit status.<br />
-C-c t - **open-terminal-in-workdir** - opens terminal (konsole) set to current dir.<br />
+C-c t - **open-terminal-in-workdir** - opens terminal (xfce or konsole) set to current dir.  **NOTE** may have issues on OS with both terminals.<br />
 
 ### Org-mode
 C-c a - **org-agenda** - calls org agenda.<br />
