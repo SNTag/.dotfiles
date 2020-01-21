@@ -59,8 +59,15 @@ C-x b - **helm-occur** -<br />
 M-y - **helm-show-kill-ring** -<br />
 C-x r b - **helm-filtered-bookmarks** -<br />
 
+### ispell/company/yassnippet
+f8 - **ispell-word** - <br />
+M-f8 - **flyspell-check-next-highlighted-word** - <br />
+<!-- C-c C-n - **yas-expand-from-trigger-key** - <br /> -->
+<!-- C-c l - **company-yasnippet** - <br /> -->
+
 ### Emacs Window Management
 M-l - **ace-window** - set up to call ace-window.<br />
+C-c i - **ace-swap-window** - swaps windows around.<br />
 C-c h - **borg-secretary-readme** - opens this readme if i forget a custom key bind.<br />
 C-c r - **borg-secretary-editconfigs** - opens Hive-Mind files.<br />
 

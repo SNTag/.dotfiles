@@ -168,7 +168,7 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
 
 
 ;; ====================
-;; indentation
+;; indentation - WORK IN PROGRESS
 
 (use-package highlight-indent-guides
   :if *sys/gui*
@@ -180,21 +180,24 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
   (highlight-indent-guides-delay 0)
   (highlight-indent-guides-auto-character-face-perc 7))
 
-(setq-default indent-tabs-mode nil)
-(setq-default indent-line-function 'insert-tab)
-(setq-default tab-width 4)
-(setq-default c-basic-offset 4)
-(setq-default js-switch-indent-offset 4)
-(c-set-offset 'comment-intro 0)
-(c-set-offset 'innamespace 0)
-(c-set-offset 'case-label '+)
-(c-set-offset 'access-label 0)
-(c-set-offset (quote cpp-macro) 0 nil)
-(add-hook 'after-change-major-mode-hook
-          (lambda () (if (equal electric-indent-mode 't)
-                    (when (derived-mode-p 'text-mode)
-                      (electric-indent-mode -1))
-                  (electric-indent-mode 1))))
+;; (setq-default indent-tabs-mode nil)
+;; (setq-default indent-line-function 'insert-tab)
+;; (setq-default tab-width 4)
+;; (setq-default c-basic-offset 4)
+;; (setq-default js-switch-indent-offset 4)
+;; (c-set-offset 'comment-intro 0)
+;; (c-set-offset 'innamespace 0)
+;; (c-set-offset 'case-label '+)
+;; (c-set-offset 'access-label 0)
+;; (c-set-offset (quote cpp-macro) 0 nil)
+;; (add-hook 'after-change-major-mode-hook
+;;           (lambda () (if (equal electric-indent-mode 't)
+;;                     (when (derived-mode-p 'text-mode)
+;;                       (electric-indent-mode -1))
+;;                   (electric-indent-mode 1))))
+
+;; ;; using this to disable some odd indentation beahvior
+;; (when (fboundp 'electric-indent-mode) (electric-indent-mode -1))
 
 
 ;; ====================
@@ -221,6 +224,7 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
 (use-package ace-window)
 
 (global-set-key (kbd "M-l") 'ace-window)
+(global-set-key (kbd "C-c i") 'ace-swap-window)
 
 
 ;; ====================
@@ -287,7 +291,7 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
 
 ;; sets tabs at 4.
 
-(setq default-tab-width 4)
+(setq tab-width 4)
 
 ;; Forgot what this is for
 ;; Adds lines to the custom file.  need to edit there to if changes are made here?
@@ -377,7 +381,7 @@ e.g. Sunday, September 17, 2000."
   (interactive)
   (find-file "~/.emacs.d/init.org")
   (find-file "~/.emacs.d/Borg-Collective-Emacs/Hive-Mind-Main.el")
-  (find-file "~/.emacs.d/Borg-Collective-Emacs-private/Hive-Mind-Dropbox.el")
+  (find-file "~/.emacs.d/Borg-Collective-Emacs-private/Hive-Mind-Personal.el")
   )
 
 ; (global-set-key (kbd "C-c r") #'borg-secretary-editconfigs)
@@ -473,3 +477,11 @@ e.g. Sunday, September 17, 2000."
 
 (use-package ido)  ; Forgot what it does
 (use-package auto-complete)  ; Forgot what it does
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; yaml-mode
+;;
+;; I don't care enough for this for it to have its own .el
+
+(use-package yaml-mode)

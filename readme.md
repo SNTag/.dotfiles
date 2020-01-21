@@ -1,30 +1,33 @@
 Intro
 =====
 
-This is a collection of my dotfiles used on Manjaro Arch, Linux.  It
- makes use of:
- 
-- herbstluftwm
-- polybar
-- emacs-26.2.
+This is a collection of my dotfiles used on Manjaro Arch, Linux.  It *USED* to hold files for herbstluftwm and polybar (amazing programs), but Ricing my system is a little too tiring.  My dotfiles are being streamlined for rapid installation to get down to what I want to do.
+
+This dotfile rapidly prepares:
+
+- fonts
+- emacs
 
 This is for a Rapid assimilation of a fresh installation.
-
-THERE ARE BASH FILES REFERENCED IN 'setup-symlink.sh' NOT PRESENT IN
-THESE DOTFILES.
 
 
 Installation Notes
 ==================
+## Warning
 
 The following has not yet been automated:
-  
+
 **In Terminal**
 - Installation of *oh-my-zsh*
 
 **Manjaro Software**
 - Installation of everything.
 
+## To Use
+
+Rapid install dotfiles through running 'setup-symlink-TagOS.sh'.
+
+If running on Arch system, extra components can be gained by running 'setup-programs-TagOS.sh'
 
 
 Acknowledgments
@@ -32,8 +35,8 @@ Acknowledgments
 
 I took inspiration from several sources;
 
-- tomnomnom
 - reddit
+- M-emacs
 - etc
 
 
@@ -53,7 +56,7 @@ To add Dropbox or other software storage system to bash, add this line to /etc/e
 
 $ DROPBOX=/PATH/TO/DRIVE/AND/FOLDER/
 
-This will create a universal enviroment variable as described here: 
+This will create a universal enviroment variable as described here:
 https://linuxize.com/post/how-to-set-and-list-environment-variables-in-linux/
 
 May be relevant to say that out of some geekiness, I have seperated my

@@ -6,8 +6,8 @@
 ;; ====================
 ;; Ensuring themes and relevant packages are available
 
-(use-package leuven-theme)
-(use-package doom-themes)
+;; (use-package leuven-theme)
+;; (use-package doom-themes)
 (use-package all-the-icons)
 
 
@@ -21,10 +21,13 @@
 ;; ====================
 ;; Setting themes
 
-(if (display-graphic-p)
-    (load-theme 'leuven)
-    (load-theme 'doom-molokai)
-  )
+;; (if (display-graphic-p)
+;;     (load-theme 'leuven-dark)
+;;     (load-theme 'doom-molokai)
+;;     )
+
+(add-to-list 'custom-theme-load-path "~/leuven-dark")
+(load-theme 'leuven t)                  ; For Emacs 24+.
 
 
 ;; ====================
