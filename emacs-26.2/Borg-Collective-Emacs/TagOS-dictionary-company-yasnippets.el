@@ -88,6 +88,8 @@ If failed try to complete the common part with `company-complete-common'"
       (company-complete-common)))
   )
 
+(global-set-key (kbd "C-c l") 'company-yasnippet)  ; enables toggle of company-yasnippets
+
 ;; ;; will modify backends.  see further if useful
 ;; (add-to-list 'company-backends 'company-dabbrev-code)
 ;;   (add-to-list 'company-backends 'company-yasnippet)

@@ -2,7 +2,7 @@
 
 
 Works on Linux.
-Compatible with emacs 26.1 to 26.3.
+Compatible with emacs 26.1 to 26.3.  As I am usually using the latest most stable emacs, I'm rarely checking for backwards compatibility.  Let me know if something breaks.
 
 While the majority of this system was set up on windows, there are some odd details written with
 linux in mind.  Feel free to use or take details from this set up.  Sources of inspiration are
@@ -45,13 +45,19 @@ It should be possible to find sections where everything related to that mode are
 - aweshell installed from git to ~/.emacs/site-elisp/
 
 
+## Why I don't use a literal-el
+
+
 
 # Outline
 
 
 ## Current keybinds: User/Init Defined
 
-### Helm Config
+### unbound
+C-z - **suspend-frame** - Just getting annoying. <br />
+
+### General Helm Config  (Additional helm functions listed elsewhere) (Moving helm-functions to Ivy except for the reference managment)
 **NOTE:**  Current keybindings for some default emacs functions have been remapped to helm-config.<br />
 M-x - **helm-M-x** - calls helm-posframe command search.<br />
 C-x C-f - **helm-find-files** -<br />
@@ -63,7 +69,7 @@ C-x r b - **helm-filtered-bookmarks** -<br />
 f8 - **ispell-word** - <br />
 M-f8 - **flyspell-check-next-highlighted-word** - <br />
 <!-- C-c C-n - **yas-expand-from-trigger-key** - <br /> -->
-<!-- C-c l - **company-yasnippet** - <br /> -->
+C-c l - *company-yasnippet* - will toggle company-yasnippet<br />
 
 ### Emacs Window Management
 M-l - **ace-window** - set up to call ace-window.<br />
@@ -71,7 +77,7 @@ C-c i - **ace-swap-window** - swaps windows around.<br />
 C-c h - **borg-secretary-readme** - opens this readme if i forget a custom key bind.<br />
 C-c r - **borg-secretary-editconfigs** - opens Hive-Mind files.<br />
 
-### Reference management
+### Reference management (Helm based)
 C-c f - **helm-bibtex-with-local-bibliography** -<br />
 C-u C-c f - **helm-bibtex-with-local-bibliography** - To refresh bibtex key list.<br />
 

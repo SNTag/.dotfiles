@@ -33,6 +33,7 @@
 ;; (setq x-select-enable-clipboard nil)  ; Prevents contamination of clipboard from deleting text, but also prevents copy/paste to outside emacs...
 
 (setq ring-bell-function 'ignore)  ; Turn Off Cursor Alarms
+(global-unset-key (kbd "C-z"))  ; unbind the minimize function
 
 
 ;; ====================
