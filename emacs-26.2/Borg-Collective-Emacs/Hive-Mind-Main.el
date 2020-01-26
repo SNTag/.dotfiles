@@ -19,6 +19,9 @@
 ;; ess
 (load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-ess.el")
 
+;; julia
+(load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-julia.el")
+
 ;; elpy-python
 (load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-markdown.el")
 
