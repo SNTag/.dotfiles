@@ -15,23 +15,23 @@
 (use-package elpy
   :ensure nil
   :after flycheck
-  :mode "\\.py\\'"
+  :mode (("\\.py\\'" . python-mode))
   :defer 2
   :config
   (progn
     ;; Use Flycheck instead of Flymake
     (when (require 'flycheck nil t)
-      (remove-hook 'elpy-modules 'elpy-module-flymake)
+      (remove-hook 'elpy-modules 'elpy-module-flymake) ; allows my personal global syntax correction
       (remove-hook 'elpy-modules 'elpy-module-yasnippet)
       (remove-hook 'elpy-mode-hook 'elpy-module-highlight-indentation)
-;;      (add-hook 'elpy-mode-hook 'flycheck-mode)  ;; I have a suspicion its slowing elpy down
+;;      (add-hook 'elpy-mode-hook 'flycheck-mode)  ; I have a suspicion its slowing elpy down
       (add-hook 'python-mode-hook 'anaconda-mode))
     (elpy-enable)
     ;; jedi is great
     (setq elpy-rpc-backend "jedi")
-    (setq-default indent-tabs-mode nil)
+    (setq-default indent-tabs-mode nil) ; should I disable this, let my global settings take over?
 ;;	(setq-default indent-line-function 'insert-tab)
-	(setq-default tab-width 4)
+	(setq-default tab-width 4)          ; should I disable this, let my global settings take over?
 	(setq-default c-basic-offset 4)
 	(setq-default js-switch-indent-offset 4)
 	(c-set-offset 'comment-intro 0)
@@ -51,9 +51,7 @@
       ;; 	    python-shell-interpreter-args "-i")
 
 (add-hook 'python-mode-hook 'anaconda-mode)
-(defun my-python-mode-hook ()
-  (linum-mode 1))
-(add-hook 'python-mode-hook 'my-python-mode-hook)
+(add-hook 'python-mode-hook 'my-linum-mode-hook) ; Introduces lines
 (setq python-shell-completion-native-enable nil)
 
 

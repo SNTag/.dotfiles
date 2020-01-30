@@ -14,8 +14,8 @@
 ;; (use-package ess-smart-underscore)
 ;; (use-package ess-R-data-view)
 ;; (setq ess-use-auto-complete t)
-;; (autoload 'ess-rdired "ess-rdired"  
-;;   "View *R* objects in a dired-like buffer." t)  
+;; (autoload 'ess-rdired "ess-rdired"
+;;   "View *R* objects in a dired-like buffer." t)
 
 
 ;; ====================
@@ -30,6 +30,10 @@
 (use-package ess
   :ensure t
   :defer t
+  :mode (("\\.jl\\'" . ess-mode)
+         ("\\.R\\'" . ess-mode)
+         ("\\.r\\'" . ess-mode))
+  :defer 3
   :commands R
   :config
   (require 'ess)
@@ -48,6 +52,8 @@
   (setq comint-scroll-to-bottom-on-output t)
   (setq comint-move-point-for-output t)
   )
+
+(add-hook 'ess-mode-hook 'my-linum-mode-hook) ; Introduces lines
 
 (use-package ess-view
   :ensure t

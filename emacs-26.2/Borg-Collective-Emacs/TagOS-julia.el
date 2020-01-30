@@ -5,16 +5,18 @@
 ;;
 ;; I will be using either ess or jupyter-emacs, and see how that goes.
 
+;; NOTE: julia is side loaded in SNTag-ess.el through the line :mode "\\.jl\\'"
+;; DOES NOT SEEM TO WORK WITHOUT ESS
+
 
 ;; ====================
 ;; julia major mode
 ;;
 ;; https://github.com/JuliaEditorSupport/julia-emacs
 
-(use-package julia-mode)
-
-
-
+(use-package julia-mode
+  :mode ("\\.jl\\'" . ess-mode)
+  )
 
 
 ;; ;; ====================

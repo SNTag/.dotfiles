@@ -45,10 +45,6 @@ It should be possible to find sections where everything related to that mode are
 - aweshell installed from git to ~/.emacs/site-elisp/
 
 
-## Why I don't use a literal-el
-
-
-
 # Outline
 
 
@@ -132,6 +128,10 @@ written in markdown notation with latex commands, and processed using pandoc to 
 
 
 # Extra details
+
+## Backup Configuration
+
+
 
 ## Useful links
 These links are guides that I've found useful in setting up my system.  Useful for developing modifications to this init.  THESE LINKS MOSTLY IGNORE REFERENCES METIONED INSIDE EL FILES.

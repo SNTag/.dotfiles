@@ -486,3 +486,15 @@ e.g. Sunday, September 17, 2000."
 ;; I don't care enough for this for it to have its own .el
 
 (use-package yaml-mode)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Programming functions
+;;
+;; Functions that will be used to modify programming experience across multiple modes
+
+;; ====================
+;; introduces lines
+
+(defun my-linum-mode-hook ()
+  (linum-mode 1))                       ; adds lines

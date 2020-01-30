@@ -206,7 +206,7 @@
 ;;   '(("Sumatra PDF" ("\"C:/Program Files/SumatraPDF/SumatraPDF.exe\" -reuse-instance"
 ;; 		    )))
 ;;   )
-  
+
 ;;  (eval-after-load 'tex
 ;;    '(progn
 ;;      (assq-delete-all 'output-pdf TeX-view-program-selection)
