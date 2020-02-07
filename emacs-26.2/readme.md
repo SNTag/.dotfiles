@@ -8,15 +8,17 @@ While the majority of this system was set up on windows, there are some odd deta
 linux in mind.  Feel free to use or take details from this set up.  Sources of inspiration are
 mentioned in the code.
 
-**Build focus:** I've been too focused on improving the overall feel of emacs.  Focusing now on using emacs
+**Build focus:** I've been too focused on improving the aesthetics of emacs.  Focusing now on using emacs
 as what it is: a tool.
 
 The Init file has only tweaks for improving speed during loading and to direct it to the
 Borg-Collective (my nickname for my mode configuration organization).  Names of the
 Borg-Collective files indicate what it contains.
 
-**NOTE** Org-babel is currently disabled.  It is a work in progress, and is interfering with non-programming org-mode config settings.
 
+**NOTE** SNTag-org-babel.el is deprecated.  babel is active and integrated into SNTag-org.el
+
+**NOTE2** I have noticed a consistent error with 'compile' from emacs.  I suspect it to be an error with gcc.
 
 
 ## Build focus
@@ -36,6 +38,17 @@ This config is built around my use of:
 
 It should be possible to find sections where everything related to that mode are found in the Borg-Collective.
 
+
+## Why I don't use a literate emacs file (yet)
+
+Literate emacs seems like a great way to make configs accessible to others.  There are many literate
+files that I have used as inspiration for this config, but I cannot adopt it myself just yet.  There
+are too many gaps in my knowledge, and I need the room to make a mess.  My current approach of
+isolating modes into individually loaded files, while inefficient, acts as a way of locking code
+into individual boxes.  Its easier for me to make connections and develop the overall feel.
+Descriptions are also made a minor feature.
+
+I will eventually adopt literate configs, but I'd rather have my modes easy to modify.
 
 
 ## Requires

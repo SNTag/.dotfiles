@@ -22,8 +22,8 @@
   :bind (("\C-c a" . org-agenda)
 	 ("\C-c c" . org-capture)
 	 ("\C-c j" . gs-helm-org-link-to-contact))
-  :config  
-
+  :config
+  ;; org-functions
   (setq org-agenda-custom-commands
       '(("c" "Simple agenda view"
          ((tags "PRIORITY=\"A\""
@@ -34,7 +34,7 @@
                    ((org-agenda-skip-function
                      '(or (air-org-skip-subtree-if-priority ?A)
                           (org-agenda-skip-if nil '(scheduled deadline))))))))))
-  
+
   (defun air-org-skip-subtree-if-priority (priority)
   "Skip an agenda subtree if it has a priority of PRIORITY.
 
@@ -65,14 +65,26 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
                                                    (org-agenda-skip-if nil '(scheduled deadline))))
                     (org-agenda-overriding-header "ALL normal priority tasks:"))))
          ((org-agenda-compact-blocks t)))))
+
+  ;; org-stylistic tweaks
+  (setq org-hide-leading-stars t)       ; disables stars before heading for all levels
+  (setq org-hide-emphasis-markers t)    ; For hiding markup elements.
+  (setq org-use-sub-superscripts '{})   ; prevents _ from always being read as subscript during org-export
+  (setq org-startup-indented t)         ; org document indentation
+
+  ;; org-babel settings
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((python . t)(ipython . t)(shell . t)(R . t))
+   )
 )
 
 
 ;; ====================
 ;; Org-mode tweaks
 
-(setq org-hide-emphasis-markers t)  ;; For hiding markup elements.
-(setq org-use-sub-superscripts '{})  ;; prevents _ from always being read as subscript during org-export
+;; (setq org-hide-emphasis-markers t)  ;; For hiding markup elements.
+;; (setq org-use-sub-superscripts '{})  ;; prevents _ from always being read as subscript during org-export
 
 
 ;; ====================
@@ -170,3 +182,31 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 ;; helm-org-rifle
 
 (use-package helm-org-rifle)
+
+
+;; ====================
+;; org-tanglesync
+;;
+;; org-babel feature.
+;; Causes edits in either org-babel or exported file to be reflected in the other.
+;; see:
+;; https://www.reddit.com/r/emacs/comments/elzcel/ann_significant_update_to_orgtanglesync_a_package/
+
+(use-package org-tanglesync
+  :hook ((org-mode . org-tanglesync-mode)
+         ((prog-mode text-mode) . org-tanglesync-watch-mode))
+  :custom
+  (org-tanglesync-watch-files '("conf.org" "myotherconf.org"))
+  :bind
+  (( "C-c M-i" . org-tanglesync-process-buffer-interactive)
+   ( "C-c M-a" . org-tanglesync-process-buffer-automatic)))
+
+
+;; ====================
+;; Org-babel tweaks
+
+;; disable security warnings
+(defun my-org-confirm-babel-evaluate (lang body)
+  (not (member lang '("python3" "sh"))))
+
+(setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate) ; calls security disabling

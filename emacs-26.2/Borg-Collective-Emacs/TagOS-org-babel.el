@@ -1,12 +1,18 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; org-babel config
 ;;
+;; moving elements to 'TagOS-org.el'.  will deprecate this file soon.
+;; I am increasingly depending on use-package system of setting configs, and have no need for an extra file.
+;;
 ;; in development
 
 ;; ====================
-;; Org-babel pre-requisites
+;; Org-babel pre-requisites.
+;;
+;; requires jupyter kernel
 
 ;;(use-package ob-ipython)
+
 
 ;; ====================
 ;; Org-babel
