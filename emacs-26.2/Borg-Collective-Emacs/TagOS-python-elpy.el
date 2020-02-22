@@ -16,7 +16,6 @@
   :ensure nil
   :after flycheck
   :mode (("\\.py\\'" . python-mode))
-  :defer 2
   :config
   (progn
     ;; Use Flycheck instead of Flymake
@@ -88,7 +87,7 @@
 (use-package pyenv-mode
   :init
   (add-to-list 'exec-path "~/.pyenv/shims")
-  (setenv "WORKON_HOME" "~/.pyenv/versions/")
+  (setenv "WORKON_HOME" "~/my_env/bin")
   :config
   (pyenv-mode)
   :bind
@@ -109,16 +108,32 @@
           (message (concat "Setting virtualenv to " pyenv-current-version))))))
 
 
+;; ;; ====================
+;; ;; sets python-version to global
+
+;; (defvar pyenv-current-version nil nil)
+
+;; (defun pyenv-init()
+;;   "Initialize pyenv's current version to the global one."
+;;   (let ((global-pyenv (replace-regexp-in-string "\n" "" (shell-command-to-string "pyenv global"))))
+;;     (message (concat "Setting pyenv version to " global-pyenv))
+;;     (pyenv-mode-set global-pyenv)
+;;     (setq pyenv-current-version global-pyenv)))
+
+;; (add-hook 'after-init-hook 'pyenv-init)
+
+
 ;; ====================
-;; sets python-version to global
+;; pyvenv
+;;
+;; sets up my virtual environment for elpy, ein, and babel
 
-(defvar pyenv-current-version nil nil)
+(use-package pyvenv
+  :init
+  (pyvenv-activate "~/my_env"))
 
-(defun pyenv-init()
-  "Initialize pyenv's current version to the global one."
-  (let ((global-pyenv (replace-regexp-in-string "\n" "" (shell-command-to-string "pyenv global"))))
-    (message (concat "Setting pyenv version to " global-pyenv))
-    (pyenv-mode-set global-pyenv)
-    (setq pyenv-current-version global-pyenv)))
 
-(add-hook 'after-init-hook 'pyenv-init)
+;; ====================
+;; ob-ipython
+
+(use-package ob-ipython)

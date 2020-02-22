@@ -169,10 +169,23 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Begin Borg Assimilation
 
+(use-package virtualenvwrapper)
+(venv-initialize-interactive-shells) ;; if you want interactive shell support
+(venv-initialize-eshell) ;; if you want eshell support
+;; note that setting `venv-location` is not necessary if you
+;; use the default location (`~/.virtualenvs`), or if the
+;; the environment variable `WORKON_HOME` points to the right place
+(setq venv-location "/home/sntag/my_env/bin/activate")
+
 ;; ====================
 ;; dotfiles emacs
 (load-file "~/.emacs.d/Borg-Collective-Emacs/Hive-Mind-Main.el")
 
 ;; ====================
 ;; dropbox files
+
+;; (when (file-directory-p "~/.emacs.d/Borg-Collective-Emacs-private/Hive-Mind-Personal.el")
+;;     (load-file "~/.emacs.d/Borg-Collective-Emacs-private/Hive-Mind-Personal.el")
+;;     )
+
 (load-file "~/.emacs.d/Borg-Collective-Emacs-private/Hive-Mind-Personal.el")

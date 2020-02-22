@@ -1,9 +1,0 @@
- 	-- ess-view Message --
-
-No spreadsheet software was found.
-
-Please store the path to your spreadsheet software in the ess-view--spreadsheet-program
-variable, eg. write in you .emacs file:
-
-
-(setq ess-view--spreadsheet-program "/path/to/my/software.EXE")

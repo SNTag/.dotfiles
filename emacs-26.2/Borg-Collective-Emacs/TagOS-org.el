@@ -6,6 +6,18 @@
 ;; and
 ;; http://cachestocaches.com/2016/9/my-workflow-org-agenda/
 
+
+;; ====================
+;; ein
+
+(require 'ein)
+(require 'ein-notebook)
+(require 'ein-subpackages)
+
+
+;; ====================
+;; org
+;;
 ;; (load-file "~/.emacs.d/config/init-org-agenda.el")
 
 (use-package org
@@ -75,7 +87,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   ;; org-babel settings
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((python . t)(ipython . t)(shell . t)(R . t))
+   '((python . t)(ein . t)(ipython . t)(shell . t)(R . t))
    )
 )
 

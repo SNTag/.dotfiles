@@ -1,11 +1,11 @@
 # -*- mode: snippet -*-
 # name: commentator
 # key: cmt
-# commentator: SNTagore (agenttiny@gmail.com)
+# commentator: SNTagore (SNTagore@protonmail.com)
 # expand-env: ((yas-indent-line 'fixed))
+# to_folders: python-mode ess-mode
 # --
 
 #----------|$1|----------#
 
 
-$2

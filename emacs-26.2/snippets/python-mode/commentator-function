@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
 # contributor: SNTagore
 # name: commentator-function
-# key: cmtfunc
-# commentator: SNTagore (sntagore@protonmail.com)
+# key: cmtfun
+# commentator: SNTagore (SNTagore@protonmail.com)
 # expand-env: ((yas-indent-line 'fixed))
 # --
 

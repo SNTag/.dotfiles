@@ -18,22 +18,32 @@
 ;; ====================
 ;; etc
 
-(fset 'yes-or-no-p 'y-or-n-p)  ; simplify yes/no
-(use-package all-the-icons :if *sys/gui*)  ; utility package to collect various Icon Fonts. Enable only in GUI Emacs.
-(setq calendar-week-start-day 1)  ; Calender should start on Monday
-;;(global-set-key (kbd "M-p") 'ace-window)  ; shortkeys
+(fset 'yes-or-no-p 'y-or-n-p)              ; simplify yes/no
+(use-package all-the-icons :if *sys/gui*)  ; utility package to collect various Icon Fonts. Enable only in GUI
+					   ; Emacs.
+(setq frame-inhibit-implied-resize t)      ; DOOM-maintainers: Emacs resizes the (GUI) frame when your newly
+					   ; set font is larger (or smaller) than the system default. This
+					   ; seems to add 0.4-1s to startup.
+(setq calendar-week-start-day 1)           ; Calendar should start on Monday
+;;(global-set-key (kbd "M-p") 'ace-window) ; shortkeys
 (setq save-interprogram-paste-before-kill t)  ; Kill ring set
-(setq case-fold-search t)  ; case-insensitive when searching.  value 'nil' makes it sensitive
+(setq case-fold-search t)                  ; case-insensitive when searching.  value 'nil' makes it sensitive
 
-(setq comint-prompt-read-only t)  ; Prevents deleting shell prompt
-(setq confirm-kill-emacs 'y-or-n-p)  ; requrires confirmation for C-x C-c kill emacs command
+(setq comint-prompt-read-only t)           ; Prevents deleting shell prompt
+(setq confirm-kill-emacs 'y-or-n-p)        ; requires confirmation for C-x C-c kill emacs command
 ;; (when (display-graphic-p)
 ;;  (global-unset-key (kbd "C-x C-c"))
-;;  )  ; unsets the emacs kill command in GUI in case my clumsy fingers press it
-;; (setq x-select-enable-clipboard nil)  ; Prevents contamination of clipboard from deleting text, but also prevents copy/paste to outside emacs...
+;;  )					   ; removes the emacs kill command in GUI in case my clumsy fingers press
+					   ; it
+;; (setq x-select-enable-clipboard nil)	   ; Prevents contamination of clipboard from deleting text, but also
+					   ; prevents copy/paste to outside emacs...
 
-(setq ring-bell-function 'ignore)  ; Turn Off Cursor Alarms
-(global-unset-key (kbd "C-z"))  ; unbind the minimize function
+(setq ring-bell-function 'ignore)          ; Turn Off Cursor Alarms
+(global-unset-key (kbd "C-z"))             ; unbind the minimize function
+(setq initial-major-mode 'fundamental-mode); DOOM-maintainers: I don't need the scratch buffer at startup. I
+					   ; have it a keybind (C-x b *scratch* RET) away if I do. Starting
+					   ; text-mode at startup circumvents a couple startup optimizations,
+					   ; so starting it in fundamental-mode instead helps a bit.
 
 
 ;; ====================
@@ -380,12 +390,22 @@ e.g. Sunday, September 17, 2000."
 (defun borg-secretary-editconfigs ()
   "Opens the README.org file."
   (interactive)
-  (find-file "~/.emacs.d/init.org")
+  (find-file "~/.emacs.d/init.el")
   (find-file "~/.emacs.d/Borg-Collective-Emacs/Hive-Mind-Main.el")
   (find-file "~/.emacs.d/Borg-Collective-Emacs-private/Hive-Mind-Personal.el")
   )
 
 ; (global-set-key (kbd "C-c r") #'borg-secretary-editconfigs)
+
+
+;; ====================
+;; borg-to-org docs
+;;
+;; https://org-babel.readthedocs.io/en/latest/
+
+(defun borg-to-org ()
+  "takes me to the org-docs"
+  )
 
 ;; ;; ====================
 ;; ;; open pdfs with foxit
@@ -478,6 +498,7 @@ e.g. Sunday, September 17, 2000."
 
 (use-package ido)  ; Forgot what it does
 (use-package auto-complete)  ; Forgot what it does
+(use-package helpful)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
