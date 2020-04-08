@@ -24,7 +24,7 @@
 ;; taken from
 ;; https://shrysr.github.io/docs/sr-config/
 
-(use-package ess-smart-underscore)
+;(use-package ess-smart-underscore)
 (use-package ess-R-data-view)
 
 (use-package ess
@@ -136,5 +136,50 @@
 (defun ess-abort ()
   (interactive)
   (kill-process (ess-get-process)))
-(define-key ess-mode-map (kbd "C-c C-a") 'ess-abort)
+;(define-key ess-mode-map (kbd "C-c C-a") 'ess-abort)
 (define-key inferior-ess-mode-map (kbd "C-c C-a") 'ess-abort)
+
+
+;; ====================
+;; margrittr
+
+(global-set-key (kbd "C-S-m") (lambda () (interactive) (insert "%>%")))
+
+
+;; ;; recommended by
+;; ;; https://stackoverflow.com/questions/7502540/make-emacs-ess-follow-r-style-guide
+;; ;;; ESS
+;; (add-hook 'ess-mode-hook
+;;           (lambda ()
+;;             (ess-set-style 'C++ 'quiet)
+;;             ;; Because
+;;             ;;                                 DEF GNU BSD K&R  C++
+;;             ;; ess-indent-level                  2   2   8   5  4
+;;             ;; ess-continued-statement-offset    2   2   8   5  4
+;;             ;; ess-brace-offset                  0   0  -8  -5 -4
+;;             ;; ess-arg-function-offset           2   4   0   0  0
+;;             ;; ess-expression-offset             4   2   8   5  4
+;;             ;; ess-else-offset                   0   0   0   0  0
+;;             ;; ess-close-brace-offset            0   0   0   0  0
+;;             (add-hook 'local-write-file-hooks
+;;                       (lambda ()
+;;                         (ess-nuke-trailing-whitespace)))))
+;; (setq ess-nuke-trailing-whitespace-p 'ask)
+;; ;; or even
+;; ;; (setq ess-nuke-trailing-whitespace-p t)
+;; ;;; Perl
+;; (add-hook 'perl-mode-hook
+;;           (lambda () (setq perl-indent-level 4)))
+
+
+
+
+;; ====================
+;; need to organize this later
+;;
+;; https://emacs.stackexchange.com/questions/41707/disable-smart-underscore-for-good-ess
+
+;(ess-toggle-underscore nil)
+;; (setq ess-smart-S-assign-key ";")
+;; (ess-toggle-S-assign nil)
+;; (ess-toggle-S-assign nil)

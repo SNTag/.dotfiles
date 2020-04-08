@@ -5,9 +5,9 @@
 ;; UI
 
 (setq-default frame-title-format '("TagOS - " user-login-name "@" system-name " - %b"))  ; sets title bar
-(tool-bar-mode -1)  ; tool bar icons present or not.  Value '-1' removes.
-(menu-bar-mode -1)  ; menu bar icons present or not.  Value '-1' removes.
-(setq inhibit-startup-message t)  ; No splash screen please
+(tool-bar-mode -1)		    ; tool bar icons present or not.  Value '-1' removes.
+(menu-bar-mode -1)		    ; menu bar icons present or not.  Value '-1' removes.
+(setq inhibit-startup-message t)    ; No splash screen please
 
 ;; ====================
 ;; user info
@@ -74,7 +74,7 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
 (add-hook 'before-save-hook #'delete-trailing-whitespace-except-current-line)
 
 
-(delete-selection-mode 1)  ; Replace selection on insert
+(delete-selection-mode 1)	; Replace selection on insert
 (setq require-final-newline t)  ; Add a newline automatically at the end of the file upon save.
 
 ;; ====================
@@ -82,11 +82,19 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
 ;;
 ;; trying a system that will hopefully make it easier to handle back ups
 
-(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))  ; New location for backups.
-(setq delete-old-versions t)  ; Silently delete execess backup versions
-(setq kept-old-versions 1000)  ; Only keep the last 1000 backups of a file.
-(setq vc-make-backup-files t)  ; Even version controlled files get to be backed up.
-(setq version-control t)  ; Use version numbers for backup files.
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))	; New location for backups.
+(setq delete-old-versions t)					; Silently delete execess backup versions
+(setq kept-old-versions 1000)					; Only keep the last 1000 backups of a file.
+(setq vc-make-backup-files t)					; Even version controlled files get to be backed up.
+(setq version-control t)					; Use version numbers for backup files.
+
+
+;; ====================
+;; aliases
+;; those functions i use often, but not enough for a dedicated key.
+
+(defalias 'ar 'align-regexp)		      ; to set alignments by symbols
+(defalias 'ma 'markdown-toggle-markup-hiding) ; to toggle markdown markup
 
 
 ;; ====================
@@ -186,7 +194,7 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
   :diminish
   :hook ((prog-mode web-mode nxml-mode) . highlight-indent-guides-mode)
   :custom
-  (highlight-indent-guides-method 'character)
+  (highlight-indent-guides-method 'fill) ; options: fill/column/character
   (highlight-indent-guides-responsive 'top)
   (highlight-indent-guides-delay 0)
   (highlight-indent-guides-auto-character-face-perc 7))
@@ -402,10 +410,28 @@ e.g. Sunday, September 17, 2000."
 ;; borg-to-org docs
 ;;
 ;; https://org-babel.readthedocs.io/en/latest/
+;; https://orgmode.org/org.pdf - for the pdf version
 
 (defun borg-to-org ()
   "takes me to the org-docs"
-  )
+  (interactive)
+    (browse-url "https://orgmode.org/org.html"))
+
+;; ====================
+;; borg-to-ess docs
+
+(defun borg-to-ess ()
+  "takes me to the ess-docs"
+  (interactive)
+  (browse-url "http://ess.r-project.org/ess.pdf"))
+
+;; ====================
+;; borg-to-orgbabel docs
+
+(defun borg-to-orgbabel ()
+  "takes me to the org-babel-docs"
+  (interactive)
+    (browse-url "https://org-babel.readthedocs.io/en/latest/"))
 
 ;; ;; ====================
 ;; ;; open pdfs with foxit
@@ -510,6 +536,14 @@ e.g. Sunday, September 17, 2000."
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; htmlize
+;;
+;; I use it to make iCal from org files
+
+(use-package htmlize)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Programming functions
 ;;
 ;; Functions that will be used to modify programming experience across multiple modes
@@ -519,3 +553,11 @@ e.g. Sunday, September 17, 2000."
 
 (defun my-linum-mode-hook ()
   (linum-mode 1))                       ; adds lines
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; enables emacs config reload
+
+(defun my/reload-emacs-configuration ()
+  (interactive)
+  (load-file "~/.emacs.d/init.el"))

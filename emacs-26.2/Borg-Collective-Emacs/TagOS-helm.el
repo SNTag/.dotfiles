@@ -21,12 +21,12 @@
 ;;
 ;; makes command searches more modern.
 
-(use-package helm-posframe)
-(helm-posframe-enable)
+;; (use-package helm-posframe)
+;; (helm-posframe-enable)
 
-(setq helm-posframe-parameters
-      '((left-fringe . 10)
-        (right-fringe . 10)))
+;; (setq helm-posframe-parameters
+;;       '((left-fringe . 10)
+;;         (right-fringe . 10)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
