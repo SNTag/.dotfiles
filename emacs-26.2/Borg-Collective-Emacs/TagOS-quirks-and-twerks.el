@@ -412,7 +412,7 @@ e.g. Sunday, September 17, 2000."
 ;; https://org-babel.readthedocs.io/en/latest/
 ;; https://orgmode.org/org.pdf - for the pdf version
 
-(defun borg-to-org ()
+(defun borg-to-org-reg ()
   "takes me to the org-docs"
   (interactive)
     (browse-url "https://orgmode.org/org.html"))
@@ -428,7 +428,7 @@ e.g. Sunday, September 17, 2000."
 ;; ====================
 ;; borg-to-orgbabel docs
 
-(defun borg-to-orgbabel ()
+(defun borg-to-org-babel ()
   "takes me to the org-babel-docs"
   (interactive)
     (browse-url "https://org-babel.readthedocs.io/en/latest/"))
@@ -552,8 +552,28 @@ e.g. Sunday, September 17, 2000."
 ;; introduces lines
 
 (defun my-linum-mode-hook ()
-  (linum-mode 1))                       ; adds lines
+  (linum-mode 1)                        ; adds lines
+;  (line-number-mode 1)
+;  (column-number-mode 1)
+  )
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Literate Writing functions
+;;
+;; Functions that will be used to modify programming experience across multiple modes
+
+(defun my-literate-writing-hook ()
+  (linum-mode 0)                        ; adds lines
+  (line-number-mode 1)
+  (column-number-mode 1)
+  )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Mode line modifications
+
+(line-number-mode 1)
+(column-number-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; enables emacs config reload
@@ -561,3 +581,89 @@ e.g. Sunday, September 17, 2000."
 (defun my/reload-emacs-configuration ()
   (interactive)
   (load-file "~/.emacs.d/init.el"))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; FRAME CONTROL
+;;
+;; I came to emacs while learning R in R-studio. I missed the neat
+;; compartmentalization of R-studio, so in comes my frame control!
+;;
+;; in the process of coding, many buffers will pop up and disappear. The
+;; code below attempts to identify buffers that may not be as important
+;; as the frame i'm working on, and open them accordingly. It is dumb,
+;; but I plan to include elisp code that will modify itself based on
+;; the emacs config.
+;;
+;; ex., I start an R console, or a *-woven.md/*-exported.pdf file is generated. A small,
+;; long frame will be opened on the far right that will not disturb my other
+;; frames. It will remain open, and concurrent calls for R help will not
+;; delete previous *R Help* frames.
+;;
+;; customization options here:
+;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Frame-Layouts-with-Side-Windows.html
+
+(setq display-buffer-alist
+      `(
+	   ;; TO THE RIGHT
+		("*R Dired"
+         (display-buffer-reuse-window display-buffer-in-side-window)
+         (side . right)
+         (slot . -1)
+         (window-width . 0.33)
+         (reusable-frames . nil))
+		("*R"
+         (display-buffer-reuse-window display-buffer-in-side-window)
+		 (side . right)
+         (slot . 1)
+         (window-width . 0.33)
+										;	     (width . 0.33)
+										;        (window-width . 0.35)
+         (reusable-frames . nil))
+		("-exported.pdf"
+         (display-buffer-reuse-window display-buffer-in-side-window)
+		 (side . right)
+         (slot . 1)
+         (window-width . 0.33)
+										;	     (width . 0.33)
+										;        (window-width . 0.35)
+         (reusable-frames . nil))
+		("-woven.md"
+         (display-buffer-reuse-window display-buffer-in-side-window)
+    	 (side . right)
+         (slot . 1)
+         (window-width . 0.33)
+										;	     (width . 0.33)
+										;        (window-width . 0.35)
+         (reusable-frames . nil))
+        ("*helm"
+         (display-buffer-reuse-window display-buffer-in-side-window)
+		 (side . right)
+         (slot . 1)
+         (window-width . 0.33)
+										;	     (width . 0.33)
+										;        (window-width . 0.35)
+         (reusable-frames . nil))
+        ("*YASnippet Tables*"
+         (display-buffer-reuse-window display-buffer-in-side-window)
+		 (side . right)
+         (slot . 1)
+         (window-width . 0.33)
+										;	     (width . 0.33)
+										;        (window-width . 0.35)
+         (reusable-frames . nil))
+
+		;; TO THE BOTTOM
+        ("*Help"
+         (display-buffer-reuse-window display-buffer-in-side-window)
+         (side . bottom)
+         (slot . 1)
+         (window-width . 0.33)
+         (reusable-frames . nil))
+		("*company-documentation"
+         (display-buffer-reuse-window display-buffer-in-side-window)
+         (side . bottom)
+         (slot . 1)
+         (window-width . 0.33)
+         (reusable-frames . nil))
+		))

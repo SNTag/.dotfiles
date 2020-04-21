@@ -150,3 +150,16 @@ If failed try to complete the common part with `company-complete-common'"
 ;; ;; extra flyspell
 
 ;; (use-package flyspell-correct)
+
+
+;; ====================
+;; Auto complete
+;;
+;; has nice doc support, but is now obsolete. most sites recommend
+;; moving to other modes.
+
+;; (use-package auto-complete)
+;; ;; (use-package auto-complete-config)
+;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/site-lisp/auto-complete/dict")
+;; (ac-config-default)
+;; (auto-complete-mode)

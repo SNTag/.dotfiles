@@ -30,9 +30,15 @@
 (use-package ess
   :ensure t
   :defer t
-  :mode (("\\.jl\\'" . ess-mode)
-         ("\\.R\\'" . ess-mode)
-         ("\\.r\\'" . ess-mode))
+  :mode (
+         ("\\.[rR]\\'"  . ess-mode)	; R
+      	 ("\\.Rmd\\'" . R-mode)	        ; ??
+	     ("\\.Rnw\\'" . R-mode)
+	 	 ("\\.[rR]profile\\'" . R-mode)	; R profile
+         ("\\.[jJ][lL]\\'" . ess-mode)	; Julia
+	 	 ("NAMESPACE\\'" . R-mode)	; ??
+         ("CITATION\\'" . R-mode)	; ??
+	 )
   :defer 3
   :commands R
   :config
@@ -66,25 +72,88 @@
   ;;   )
   )
 
-;; (message "Loaded ESS configuration")
+;; ====================
+;; FRAME CONTROL
+;;
+;; I came to emacs while learning R in R-studio. I missed the neat
+;; compartmentalization of R-studio, so in comes a form of frame control!
+;;
+;; in the process of coding, many buffers will pop up and disappear. The
+;; code below attempts to identify buffers that may not be as important
+;; as the frame i'm working on, and open them accordingly.
+;;
+;; ex., I start an R console, or a *-woven.md/*-exported.pdf file is generated. A small,
+;; long frame will be opened on the far right that will not disturb my other
+;; frames. It will remain open, and concurrent calls for R help will not
+;; delete previous *R Help* frames.
+;;
+;; customization options here:
+;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Frame-Layouts-with-Side-Windows.html
 
 (setq display-buffer-alist
-      `(("*R Dired"
+      `(
+	   ;; TO THE RIGHT
+		("*R Dired"
          (display-buffer-reuse-window display-buffer-in-side-window)
          (side . right)
          (slot . -1)
          (window-width . 0.33)
          (reusable-frames . nil))
-        ("*R"
-         (display-buffer-reuse-window display-buffer-at-bottom)
-         (window-width . 0.35)
-         (reusable-frames . nil))
-        ("*Help"
+		("*R"
          (display-buffer-reuse-window display-buffer-in-side-window)
-         (side . right)
+		 (side . right)
          (slot . 1)
          (window-width . 0.33)
-         (reusable-frames . nil))))
+										;	     (width . 0.33)
+										;        (window-width . 0.35)
+         (reusable-frames . nil))
+		("-exported.pdf"
+         (display-buffer-reuse-window display-buffer-in-side-window)
+		 (side . right)
+         (slot . 1)
+         (window-width . 0.33)
+										;	     (width . 0.33)
+										;        (window-width . 0.35)
+         (reusable-frames . nil))
+		("-woven.md"
+         (display-buffer-reuse-window display-buffer-in-side-window)
+    	 (side . right)
+         (slot . 1)
+         (window-width . 0.33)
+										;	     (width . 0.33)
+										;        (window-width . 0.35)
+         (reusable-frames . nil))
+        ("*helm"
+         (display-buffer-reuse-window display-buffer-in-side-window)
+		 (side . right)
+         (slot . 1)
+         (window-width . 0.33)
+										;	     (width . 0.33)
+										;        (window-width . 0.35)
+         (reusable-frames . nil))
+        ("*YASnippet Tables*"
+         (display-buffer-reuse-window display-buffer-in-side-window)
+		 (side . right)
+         (slot . 1)
+         (window-width . 0.33)
+										;	     (width . 0.33)
+										;        (window-width . 0.35)
+         (reusable-frames . nil))
+
+		;; TO THE BOTTOM
+        ("*Help"
+         (display-buffer-reuse-window display-buffer-in-side-window)
+         (side . bottom)
+         (slot . 1)
+         (window-width . 0.33)
+         (reusable-frames . nil))
+		("*company-documentation"
+         (display-buffer-reuse-window display-buffer-in-side-window)
+         (side . bottom)
+         (slot . 1)
+         (window-width . 0.33)
+         (reusable-frames . nil))
+		))
 
 
 
@@ -114,16 +183,6 @@
 ;;  '((R . t)))
 
 
-;; ====================
-;; Auto complete
-
-(use-package auto-complete)
-;; (use-package auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/site-lisp/auto-complete/dict")
-(ac-config-default)
-(auto-complete-mode)
-
-
 ;; ;; ====================
 ;; ;; helm-myR
 
@@ -143,7 +202,7 @@
 ;; ====================
 ;; margrittr
 
-(global-set-key (kbd "C-S-m") (lambda () (interactive) (insert "%>%")))
+(global-set-key (kbd "C-S-m") (lambda () (interactive) (insert " %>% ")))
 
 
 ;; ;; recommended by
@@ -183,3 +242,42 @@
 ;; (setq ess-smart-S-assign-key ";")
 ;; (ess-toggle-S-assign nil)
 ;; (ess-toggle-S-assign nil)
+
+
+;; (message "Loaded ESS configuration")
+
+;; ====================
+;; Rmarkdown
+;;
+;; inspired by:
+;; https://stackoverflow.com/questions/16172345/how-can-i-use-emacs-ess-mode-with-r-markdown#16176115
+
+;; (use-package poly-R)
+;; (use-package poly-markdown)
+
+;; (defun rmd-mode ()
+;;   "ESS Markdown mode for rmd files"
+;;   (interactive)
+;;   ;; (setq load-path
+;;   ;;   (append (list "path/to/polymode/" "path/to/polymode/modes/")
+;;   ;;       load-path))
+;;   (require 'poly-R)
+;;   (require 'poly-markdown)
+;;   (poly-markdown+r-mode))
+
+;; (setq load-path
+;;       (append '("/home/sntag/.polymode/polymode/polymode/"  "/home/sntag/.polymode/polmode/poly-markdown/")
+;;               load-path))
+
+(use-package polymode)
+(use-package poly-markdown)
+(use-package poly-R)
+(add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
+(add-to-list 'auto-mode-alist '("\\.Rnw" . poly-markdown+r-mode))
+
+
+(defun what-face (pos)
+  (interactive "d")
+  (let ((face (or (get-char-property (pos) 'read-face-name)
+                  (get-char-property (pos) 'face))))
+    (if face (message "Face: %s" face) (message "No face at %d" pos))))

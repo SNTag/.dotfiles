@@ -7,8 +7,8 @@
 ;; dictionary, company, and yasnippet
 (load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-dictionary-company-yasnippets.el")
 
-;; jupyter-notebook.el
-(load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-jupyter.el")
+;; ein
+(load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-ein.el")
 
 ;; elpy-python
 (load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-python-elpy.el")

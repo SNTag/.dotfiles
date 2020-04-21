@@ -12,4 +12,23 @@ install.packages(c('rzmq','repr','IRkernel','IRdisplay'), repos = c('http://irke
 IRkernel::installspec()
 
 
-install.packages("tidyverse", "rlang", "ggplot2", "cowplot")
+install.packages(c("httr",
+                   "jsonlite",
+                   "lubridate",
+                   "plotly",
+                   "quantmod",
+                   "purrr",
+                   "devtools",
+                   "cowplot",
+                   "ggplot2",
+                   "rlang",
+                   "PortfolioAnalytics",
+                   "PerformanceAnalytics",
+                   "tidyverse",
+                   "reticulate",
+                   "VIM"
+                   ))
+
+## for install rmarkdown
+install.packages(c("knitr"
+                   ))

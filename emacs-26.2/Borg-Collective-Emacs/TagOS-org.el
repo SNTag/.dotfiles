@@ -1,18 +1,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; orgmode
-;; agenda
-;; based on:
+;;
+;; agenda based on:
 ;; https://blog.aaronbieber.com/2016/09/24/an-agenda-for-life-with-org-mode.html
 ;; and
 ;; http://cachestocaches.com/2016/9/my-workflow-org-agenda/
 
-
-;; ====================
-;; ein
-
-(require 'ein)
-(require 'ein-notebook)
-(require 'ein-subpackages)
+;; TODO:[B] a function to close/revert-buffer for all org files opened as a result of agenda view.
 
 
 ;; ====================
@@ -45,7 +39,44 @@
           (alltodo ""
                    ((org-agenda-skip-function
                      '(or (air-org-skip-subtree-if-priority ?A)
-                          (org-agenda-skip-if nil '(scheduled deadline))))))))))
+                          (org-agenda-skip-if nil '(scheduled deadline))))))))
+
+      ("d" "Daily agenda and all TODOs"
+         ((tags "PRIORITY=\"A\""
+                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                 (org-agenda-overriding-header "High-priority unfinished tasks:")))
+          (agenda "" ((org-agenda-ndays 1)))
+          (alltodo ""
+                   ((org-agenda-skip-function '(or (air-org-skip-subtree-if-habit)
+                                                   (air-org-skip-subtree-if-priority ?A)
+                                                   (org-agenda-skip-if nil '(scheduled deadline))))
+                    (org-agenda-overriding-header "ALL normal priority tasks:"))))
+         ((org-agenda-compact-blocks t)))
+
+      ("X" agenda "" nil ("agenda.html" "agenda.ps"))
+       ("Y" alltodo "" nil ("todo.html" "todo.txt" "todo.ps"))
+
+        ("h" "Agenda and Home-related tasks"
+         ((agenda "")
+          (tags-todo "home")
+          (tags "garden"))
+         nil
+         ("~/calendar/views/home.html"))
+
+        ("o" "Agenda and Office-related tasks"
+         ((agenda)
+          (tags-todo "work")
+          (tags "office"))
+         nil
+         ("~/calendar/views/office.ps" "~/calendar/office.ics"))
+
+	        ("C" "Agenda and Critical+Important-related tasks"
+         ((agenda)
+          (tags "important")
+          (tags "critical"))
+         nil
+         ("~/calendar/views/office.ps" "~/calendar/important.ics"))
+	))
 
   (defun air-org-skip-subtree-if-priority (priority)
   "Skip an agenda subtree if it has a priority of PRIORITY.
@@ -65,18 +96,18 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
         subtree-end
       nil)))
 
-  (setq org-agenda-custom-commands
-      '(("d" "Daily agenda and all TODOs"
-         ((tags "PRIORITY=\"A\""
-                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
-                 (org-agenda-overriding-header "High-priority unfinished tasks:")))
-          (agenda "" ((org-agenda-ndays 1)))
-          (alltodo ""
-                   ((org-agenda-skip-function '(or (air-org-skip-subtree-if-habit)
-                                                   (air-org-skip-subtree-if-priority ?A)
-                                                   (org-agenda-skip-if nil '(scheduled deadline))))
-                    (org-agenda-overriding-header "ALL normal priority tasks:"))))
-         ((org-agenda-compact-blocks t)))))
+  ;; (setq org-agenda-custom-commands
+  ;;     '(("d" "Daily agenda and all TODOs"
+  ;;        ((tags "PRIORITY=\"A\""
+  ;;               ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+  ;;                (org-agenda-overriding-header "High-priority unfinished tasks:")))
+  ;;         (agenda "" ((org-agenda-ndays 1)))
+  ;;         (alltodo ""
+  ;;                  ((org-agenda-skip-function '(or (air-org-skip-subtree-if-habit)
+  ;;                                                  (air-org-skip-subtree-if-priority ?A)
+  ;;                                                  (org-agenda-skip-if nil '(scheduled deadline))))
+  ;;                   (org-agenda-overriding-header "ALL normal priority tasks:"))))
+  ;;        ((org-agenda-compact-blocks t)))))
 
   ;; org-stylistic tweaks
   (setq org-hide-leading-stars t)       ; disables stars before heading for all levels
@@ -204,14 +235,14 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 ;; see:
 ;; https://www.reddit.com/r/emacs/comments/elzcel/ann_significant_update_to_orgtanglesync_a_package/
 
-(use-package org-tanglesync
-  :hook ((org-mode . org-tanglesync-mode)
-         ((prog-mode text-mode) . org-tanglesync-watch-mode))
-  :custom
-  (org-tanglesync-watch-files '("conf.org" "myotherconf.org"))
-  :bind
-  (( "C-c M-i" . org-tanglesync-process-buffer-interactive)
-   ( "C-c M-a" . org-tanglesync-process-buffer-automatic)))
+;; (use-package org-tanglesync
+;;   :hook ((org-mode . org-tanglesync-mode)
+;;          ((prog-mode text-mode) . org-tanglesync-watch-mode))
+;;   :custom
+;;   (org-tanglesync-watch-files '("conf.org" "myotherconf.org"))
+;;   :bind
+;;   (( "C-c M-i" . org-tanglesync-process-buffer-interactive)
+;;    ( "C-c M-a" . org-tanglesync-process-buffer-automatic)))
 
 
 ;; ====================
