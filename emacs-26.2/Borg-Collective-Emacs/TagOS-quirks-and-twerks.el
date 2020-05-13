@@ -406,32 +406,64 @@ e.g. Sunday, September 17, 2000."
 ; (global-set-key (kbd "C-c r") #'borg-secretary-editconfigs)
 
 
-;; ====================
-;; borg-to-org docs
-;;
-;; https://org-babel.readthedocs.io/en/latest/
-;; https://orgmode.org/org.pdf - for the pdf version
 
-(defun borg-to-org-reg ()
-  "takes me to the org-docs"
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; quick links
+;;
+;; I need my docs. could be replaced with an org list of bookmarks,
+;; but easy doc access is fun!
+
+;; ====================
+;; org-docs
+(defun borg-to-org-reg () ;; ======================= borg-to-org docs
+  "org-docs"
   (interactive)
     (browse-url "https://orgmode.org/org.html"))
+(defun borg-to-org-babel () ;; ===================== borg-to-orgbabel docs
+  "org-babel-docs"
+  (interactive)
+  (browse-url "https://org-babel.readthedocs.io/en/latest/"))
 
 ;; ====================
-;; borg-to-ess docs
+;; linux-docs
+(defun borg-to-lin-archwiki () ;; ====================== borg-to-archwiki
+  "takes me to the Holy Docs"
+  (interactive)
+  (browse-url "https://wiki.archlinux.org/"))
 
-(defun borg-to-ess ()
-  "takes me to the ess-docs"
+;; ====================
+;; R-docs
+(defun borg-to-R-ess () ;; ========================= borg-to-ess docs
+  "ess-docs"
   (interactive)
   (browse-url "http://ess.r-project.org/ess.pdf"))
+(defun borg-to-R-rmarkdown () ;; =================== borg-to-R-rmarkdown docs
+  "RMarkdown docs"
+  (interactive)
+  (browse-url "https://bookdown.org/yihui/rmarkdown/"))
+(defun borg-to-R-cheatsheets () ;; ================= borg-to-R-cheatsheets docs
+  "RStudio cheatsheets"
+  (interactive)
+  (browse-url "https://rstudio.com/resources/cheatsheets/"))
+(defun borg-to-R-cran () ;; ======================== borg-to-R-cran
+  "R Cran docs"
+  (interactive)
+  (browse-url "https://rdrr.io/find/?repos=cran&page=0&fuzzy_slug="))
+(defun borg-to-R-advancedr () ;; =================== borg-to-R-advancedr
+  "Hadley's advanced guide to R"
+  (interactive)
+  (browse-url "https://adv-r.hadley.nz/"))
+(defun borg-to-R-datascience () ;; =================== borg-to-R-datascience
+  "Hadley's guide to data science"
+  (interactive)
+  (browse-url "https://r4ds.had.co.nz/"))
 
 ;; ====================
-;; borg-to-orgbabel docs
-
-(defun borg-to-org-babel ()
-  "takes me to the org-babel-docs"
+;; wikis
+(defun borg-to-web-investopedia () ;; ================== borg-to-investopedia
+  "investopedia"
   (interactive)
-    (browse-url "https://org-babel.readthedocs.io/en/latest/"))
+  (browse-url "https://www.investopedia.com/"))
 
 ;; ;; ====================
 ;; ;; open pdfs with foxit
@@ -605,14 +637,14 @@ e.g. Sunday, September 17, 2000."
 
 (setq display-buffer-alist
       `(
-	   ;; TO THE RIGHT
-		("*R Dired"
+		;; TO THE RIGHT
+	("*R Dired" ;; ===================
          (display-buffer-reuse-window display-buffer-in-side-window)
          (side . right)
          (slot . -1)
          (window-width . 0.33)
          (reusable-frames . nil))
-		("*R"
+	("*R" ;; =========================
          (display-buffer-reuse-window display-buffer-in-side-window)
 		 (side . right)
          (slot . 1)
@@ -620,7 +652,7 @@ e.g. Sunday, September 17, 2000."
 										;	     (width . 0.33)
 										;        (window-width . 0.35)
          (reusable-frames . nil))
-		("-exported.pdf"
+	("-exported" ;; ==================
          (display-buffer-reuse-window display-buffer-in-side-window)
 		 (side . right)
          (slot . 1)
@@ -628,7 +660,7 @@ e.g. Sunday, September 17, 2000."
 										;	     (width . 0.33)
 										;        (window-width . 0.35)
          (reusable-frames . nil))
-		("-woven.md"
+	("-woven" ;; =====================
          (display-buffer-reuse-window display-buffer-in-side-window)
     	 (side . right)
          (slot . 1)
@@ -636,7 +668,7 @@ e.g. Sunday, September 17, 2000."
 										;	     (width . 0.33)
 										;        (window-width . 0.35)
          (reusable-frames . nil))
-        ("*helm"
+        ("*helm" ;; ==============================
          (display-buffer-reuse-window display-buffer-in-side-window)
 		 (side . right)
          (slot . 1)
@@ -644,7 +676,23 @@ e.g. Sunday, September 17, 2000."
 										;	     (width . 0.33)
 										;        (window-width . 0.35)
          (reusable-frames . nil))
-        ("*YASnippet Tables*"
+        ("*YASnippet Tables*" ;; =================
+         (display-buffer-reuse-window display-buffer-in-side-window)
+		 (side . right)
+         (slot . 1)
+         (window-width . 0.33)
+										;	     (width . 0.33)
+										;        (window-width . 0.35)
+         (reusable-frames . nil))
+	("*polymode export*" ;; ==========
+         (display-buffer-reuse-window display-buffer-in-side-window)
+		 (side . right)
+         (slot . 1)
+         (window-width . 0.33)
+										;	     (width . 0.33)
+										;        (window-width . 0.35)
+         (reusable-frames . nil))
+	("*Org Agenda*" ;; ==========
          (display-buffer-reuse-window display-buffer-in-side-window)
 		 (side . right)
          (slot . 1)
@@ -654,15 +702,15 @@ e.g. Sunday, September 17, 2000."
          (reusable-frames . nil))
 
 		;; TO THE BOTTOM
-        ("*Help"
+        ("*Help" ;; ==============================
          (display-buffer-reuse-window display-buffer-in-side-window)
-         (side . bottom)
+         (side . right)
          (slot . 1)
          (window-width . 0.33)
-         (reusable-frames . nil))
-		("*company-documentation"
+         (reusable-frames . 1))
+	("*company-documentation" ;; =====
          (display-buffer-reuse-window display-buffer-in-side-window)
-         (side . bottom)
+         (side . right)
          (slot . 1)
          (window-width . 0.33)
          (reusable-frames . nil))

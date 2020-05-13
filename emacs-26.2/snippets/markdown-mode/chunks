@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: chunks
+# key: rblk
+# group: RMarkdown
+# commentator: SNTagore (SNTagore@protonmail.com)
+# --
+
+\`\`\`{R${1:}}
+$0
+\`\`\`

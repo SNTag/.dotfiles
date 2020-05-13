@@ -16,7 +16,7 @@
 ;;
 ;; This enables a theme depending on running from terminal or GUI.
 
-(if (display-graphic-p)
-    (load-theme 'leuven)
-    (load-theme 'doom-molokai)
-    )
+;; (if (display-graphic-p)
+;;     (load-theme 'leuven)
+;;     (load-theme 'doom-molokai)
+;;     )

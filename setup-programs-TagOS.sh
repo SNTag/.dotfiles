@@ -42,3 +42,7 @@ yay -S julia-docs
 
 # for some network mapping features
 yay -S nmap
+
+# photo editing
+yay -S darktable
+yay -S rawtherapee

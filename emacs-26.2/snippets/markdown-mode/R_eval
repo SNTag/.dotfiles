@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: R_eval
+# key: Reval
+# group: RMarkdown
+# commentator: SNTagore (SNTagore@protonmail.com)
+# --
+
+echo = ${1:F}, eval = ${2:T}, $0

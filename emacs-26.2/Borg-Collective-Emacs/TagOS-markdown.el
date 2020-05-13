@@ -7,7 +7,7 @@
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
-  :init (setq-default markdown-hide-markup t)  ; Enables hiding of markup.  't' enables, 'f' disables.
+;  :init (setq-default markdown-hide-markup t)  ; Enables hiding of markup.  't' enables, 'f' disables.
   )
 
 (add-hook 'markdown-mode-hook
@@ -21,7 +21,7 @@
 
 
 ;; ;; ====================
-;; ;; markdown + images from clipboard  
+;; ;; markdown + images from clipboard
 ;; ;;
 ;; ;; from https://github.com/rafadc/emacs.d/blob/master/settings.org
 ;; ;; Work in Progress

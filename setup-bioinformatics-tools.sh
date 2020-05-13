@@ -1,6 +1,5 @@
 ##1 My notes
 # add: detect previous installation
-# add: make ~/bin folder if not present
 # update: remove versions of package except current version
 # update: paths when I change any version numbers
 
@@ -8,6 +7,17 @@
 function pause(){
    read -p "==> Please press [enter] to continue..."
 }
+
+function pauseError(){
+   read -p "==> To check the installation, press [enter] and check for errors..."
+}
+
+if [ ! -d "$HOME/bin" ]; then
+    mkdir $HOME/bin
+fi
+if [ ! -d "$HOME/logs" ]; then
+    mkdir $HOME/logs
+fi
 
 ##1 Imaging
 ###2 Master setup
@@ -35,60 +45,65 @@ regtools_installer=""  # not needed
 rseqc_installer=""  # not needed
 bamreadcounts_installer=""  # not needed
 
-grep -q "PATH=~/bin/samtools-" ~/.zshrc || echo PATH=~/bin/samtools-"$samtools_installer":~/bin/bam-readcount/bin:~/bin/hisat2-"$hisat2_installer":~/bin/stringtie-"$stringtie_installer".Linux_x86_64:~/bin/gffcompare-"$gffcompare_installer".Linux_x86_64:~/bin/htseq-release_"$htseqcount_installer"/scripts:~/bin/tophat-"$tophat_installer".Linux_x86_64:~/bin/kallisto_linux-v"$kallisto_installer":~/bin/FastQC:~/bin/flexbar-"$flexbar_installer"-linux:~/bin/regtools/build:/home/ubuntu/bin/bedtools2/bin:$PATH >> ~/.zshrc
+#grep -q "PATH=~/bin/samtools-" ~/.zshrc || echo PATH=~/bin/samtools-"$samtools_installer":~/bin/bam-readcount/bin:~/bin/hisat2-"$hisat2_installer":~/bin/stringtie-"$stringtie_installer".Linux_x86_64:~/bin/gffcompare-"$gffcompare_installer".Linux_x86_64:~/bin/htseq-release_"$htseqcount_installer"/scripts:~/bin/tophat-"$tophat_installer".Linux_x86_64:~/bin/kallisto_linux-v"$kallisto_installer":~/bin/FastQC:~/bin/flexbar-"$flexbar_installer"-linux:~/bin/regtools/build:/home/ubuntu/bin/bedtools2/bin:$PATH >> ~/.zshrc
 
 # <----------------------------------->
 ###2 samtools
-cd ~/bin
+cd $HOME/bin
 wget https://github.com/samtools/samtools/releases/download/"$samtools_installer"/samtools-"$samtools_installer".tar.bz2
 bunzip2 samtools-"$samtools_installer".tar.bz2
 tar -xvf samtools-"$samtools_installer".tar
 cd samtools-"$samtools_installer"
 make
+pauseError			# Checks if system works
 ./samtools
-export SAMTOOLS_ROOT=~/bin/samtools-"$samtools_installer"
-grep -q "export SAMTOOLS_ROOT" ~/.zshrc || echo export SAMTOOLS_ROOT=~/bin/samtools-"$samtools_installer" >> ~/.zshrc
 pause
-rm ~/bin/samtools-"$samtools_installer".tar
+#export SAMTOOLS_ROOT=~/bin/samtools-"$samtools_installer"
+# grep -q "export SAMTOOLS_ROOT" ~/.zshrc || echo export SAMTOOLS_ROOT=~/bin/samtools-"$samtools_installer" >> ~/.zshrc
+rm $HOME/bin/samtools-"$samtools_installer".tar
 
 # <----------------------------------->
 ###2 bam-readcounts
-git clone https://github.com/genome/bam-readcount.git ~/bin/bam-readcount
-cd ~/bin/bam-readcount
-cmake -Wno-dev ~/bin/bam-readcount
+git clone https://github.com/genome/bam-readcount.git $HOME/bin/bam-readcount
+cd $HOME/bin/bam-readcount
+cmake -Wno-dev $HOME/bin/bam-readcount
 make
+pauseError			# Checks if system works
 ./bin/bam-readcount
 pause
 
 # <----------------------------------->
 ###2 Hisat2
-cd ~/bin
+cd $HOME/bin
 wget ftp://ftp.ccb.jhu.edu/pub/infphilo/hisat2/downloads/hisat2-"$hisat2_installer"-Linux_x86_64.zip
 unzip hisat2-"$hisat2_installer"-Linux_x86_64.zip
 cd hisat2-"$hisat2_installer"
+pauseError			# Checks if system works
 ./hisat2
 pause
-rm ~/bin/hisat2-"$hisat2_installer"-Linux_x86_64.zip
+rm $HOME/bin/hisat2-"$hisat2_installer"-Linux_x86_64.zip
 
 # <----------------------------------->
 ###2 StringTie
-cd ~/bin
+cd $HOME/bin
 wget http://ccb.jhu.edu/software/stringtie/dl/stringtie-"$stringtie_installer".Linux_x86_64.tar.gz
 tar -xzvf stringtie-"$stringtie_installer".Linux_x86_64.tar.gz
 cd stringtie-"$stringtie_installer".Linux_x86_64
+pauseError			# Checks if system works
 ./stringtie
 pause
-rm ~/bin/stringtie-"$stringtie_installer".Linux_x86_64.tar.gz
+rm $HOME/bin/stringtie-"$stringtie_installer".Linux_x86_64.tar.gz
 
 # <----------------------------------->
 ###2 gffcompare
-cd ~/bin
+cd $HOME/bin
 wget http://ccb.jhu.edu/software/stringtie/dl/gffcompare-"$gffcompare_installer".Linux_x86_64.tar.gz
 tar -xzvf gffcompare-"$gffcompare_installer".Linux_x86_64.tar.gz
 cd gffcompare-"$gffcompare_installer".Linux_x86_64
+pauseError			# Checks if system works
 ./gffcompare
 pause
-rm ~/bin/gffcompare-"$gffcompare_installer".Linux_x86_64.tar.gz
+rm $HOME/bin/gffcompare-"$gffcompare_installer".Linux_x86_64.tar.gz
 
 # <----------------------------------->
 ###2 htseq-count
@@ -99,87 +114,101 @@ rm ~/bin/gffcompare-"$gffcompare_installer".Linux_x86_64.tar.gz
 # pause
 
 #!! try this installation first
-cd ~/bin
+cd $HOME/bin
 wget https://github.com/simon-anders/htseq/archive/release_"$htseqcount_installer".tar.gz
 tar -zxvf release_"$htseqcount_installer".tar.gz
 cd htseq-release_"$htseqcount_installer"/
-python setup.py install --user
+echo '* Please run the following in the appropiate py env:' >> $HOME/logs/bioinformatics-log.txt
+echo 'python setup.py install' >> $HOME/logs/bioinformatics-log.txt
 chmod +x scripts/htseq-count
-./scripts/htseq-count
-rm ~/bin/release_"$htseqcount_installer".tar.gz
+echo 'if nothing else works, in the appropiate py env:' >> $HOME/logs/bioinformatics-log.txt
+echo 'pip install HTseq' >> $HOME/logs/bioinformatics-log.txt
+echo '<----------------------------------->' >> $HOME/logs/bioinformatics-log.txt
 pause
+rm $HOME/bin/release_"$htseqcount_installer".tar.gz
 
 #!! if nothing else works, 'pip install HTseq'
 
 # <----------------------------------->
 ###2 TopHat
 #!! Note, this tool is currently only installed for the gtf_to_fasta tool used in kallisto section
-cd ~/bin
+cd $HOME/bin
 wget https://ccb.jhu.edu/software/tophat/downloads/tophat-"$tophat_installer".Linux_x86_64.tar.gz
 tar -zxvf tophat-"$tophat_installer".Linux_x86_64.tar.gz
 cd tophat-"$tophat_installer".Linux_x86_64/
+pauseError			# Checks if system works
 ./gtf_to_fasta
 pause
-rm ~/bin/tophat-"$tophat_installer".Linux_x86_64.tar.gz
+rm $HOME/bin/tophat-"$tophat_installer".Linux_x86_64.tar.gz
 
 # <----------------------------------->
 ###2 kallisto
-cd ~/bin
+cd $HOME/bin
 wget https://github.com/pachterlab/kallisto/releases/download/v"$kallisto_installer"/kallisto_linux-v"$kallisto_installer".tar.gz
 tar -zxvf kallisto_linux-v"$kallisto_installer".tar.gz
 cd kallisto/
+pauseError			# Checks if system works
 ./kallisto
 pause
-rm ~/bin/kallisto_linux-v"$kallisto_installer".tar.gz
+echo PATH=~/bin/kallisto_linux-v"$kallisto_installer":'$PATH' >> ~/.zshrc
+#rm $HOME/bin/kallisto_linux-v"$kallisto_installer".tar.gz
 
 # <----------------------------------->
 ###2 FastQC
 #!! In addition to installing on the cloud you should also install FastQC on your own laptop/desktop
-cd ~/bin
+cd $HOME/bin
 wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v"$fastqc_installer".zip --no-check-certificate
 unzip fastqc_v"$fastqc_installer".zip
 cd FastQC/
 chmod 755 fastqc
+pauseError			# Checks if system works
 ./fastqc --help
 pause
-rm ~/bin/fastqc_v"$fastqc_installer".zip
+rm $HOME/bin/fastqc_v"$fastqc_installer".zip
 
 # <----------------------------------->
 ###2 MultiQC
-pip3 install multiqc --user
+echo '* please run the following in the appropiate py env' >> $HOME/logs/bioinformatics-log.txt
+echo 'pip3 install multiqc' >> $HOME/logs/bioinformatics-log.txt
+echo '<----------------------------------->' >> $HOME/logs/bioinformatics-log.txt
+pauseError			# Checks if system works
 multiqc --help
 pause
 
 # <----------------------------------->
 ###2 Picard
-cd ~/bin
+cd $HOME/bin
 wget https://github.com/broadinstitute/picard/releases/download/"$picard_installer"/picard.jar -O picard.jar
-java -jar ~/bin/picard.jar
+java -jar $HOME/bin/picard.jar
 pause
 
 # <----------------------------------->
 ###2 Flexbar
-cd ~/bin
-wget https://github.com/seqan/flexbar/releases/download/v3.4.0/flexbar-"$flexbar_installer"-linux.tar.gz
+cd $HOME/bin
+wget https://github.com/seqan/flexbar/releases/download/v"$flexbar_installer"/flexbar-"$flexbar_installer"-linux.tar.gz
 tar -xzvf flexbar-"$flexbar_installer"-linux.tar.gz
 cd flexbar-"$flexbar_installer"-linux/
+pauseError			# Checks if system works
 ./flexbar
 pause
-rm ~/bin/flexbar-"$flexbar_installer"-linux.tar.gz
+rm $HOME/bin/flexbar-"$flexbar_installer"-linux.tar.gz
 
 # <----------------------------------->
 ###2 Regtools
-git clone https://github.com/griffithlab/regtools ~/bin/regtools
+git clone https://github.com/griffithlab/regtools $HOME/bin/regtools
 cd regtools/
 mkdir build
 cd build/
 cmake ..
 make
+pauseError			# Checks if system works
 ./regtools
 pause
 
 # <----------------------------------->
 ###2 RSeQC
-pip install RSeQC --user
-read_GC.py
+echo '* to install RSeQC, first activate a py-env, then run:' >> $HOME/logs/bioinformatics-log.txt
+echo 'pip install RSeQC' >> $HOME/logs/bioinformatics-log.txt
+echo 'read_GC.py' >> $HOME/logs/bioinformatics-log.txt
+echo '<----------------------------------->' >> $HOME/logs/bioinformatics-log.txt
 pause

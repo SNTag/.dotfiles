@@ -1,0 +1,21 @@
+# -*- mode: snippet -*-
+# name: yaml_header
+# key: yamlheader
+# group: RMarkdown
+# commentator: SNTagore (SNTagore@protonmail.com)
+# --
+
+---
+title: "${1:give the title here}"
+author: SNTag
+date: "'r Sys.Date()'"
+output:
+  html_document:
+    number_sections: true
+    toc: true
+    toc_depth: 3
+    fig_caption: true
+    fig_width: 7
+    fig_height: 4.5
+---
+$0
