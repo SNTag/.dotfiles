@@ -1,6 +1,7 @@
 # -*- mode: snippet -*-
-# name: entry
+# name: journal-entry
 # key: entry_
+# group: journalling
 # --
 #+Title: about
 :properties:

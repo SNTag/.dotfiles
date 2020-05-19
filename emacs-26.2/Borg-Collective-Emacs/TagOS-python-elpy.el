@@ -55,20 +55,6 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; conda variables - STOPPED WORKING ON THIS FOR NOW
-;;
-;; improves compatability with anaconda.
-
-;; (add-to-list 'exec-path "~/anaconda3/bin")
-
-;; (use-package conda
-;;   :ensure t
-;;   :init
-;;   (setq conda-anaconda-home (expand-file-name "~/anaconda3"))
-;;   (setq conda-env-home-directory (expand-file-name "~/anaconda3")))
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; python mypy
 
 (use-package flycheck-mypy)
@@ -78,59 +64,53 @@
 (add-to-list 'flycheck-disabled-checkers 'python-pylint)
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; pyenv mode
-;;
-;; inspired by:
-;; http://rakan.me/emacs/python-dev-with-emacs-and-pyenv/
+;; TEMPORARILY DISABLED PYENV
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;; pyenv mode
+;; ;;
+;; ;; inspired by:
+;; ;; http://rakan.me/emacs/python-dev-with-emacs-and-pyenv/
 
-(use-package pyenv-mode
-  :init
-  (add-to-list 'exec-path "~/.pyenv/shims")
-  (setenv "WORKON_HOME" "~/my_env/bin")
-  :config
-  (pyenv-mode)
-  :bind
-  ("C-x p e" . pyenv-activate-current-project))
-
-
-;; ====================
-;; helps update pyenv project
-
-(defun pyenv-activate-current-project ()
-  "Automatically activates pyenv version if .python-version file exists."
-  (interactive)
-  (let ((python-version-directory (locate-dominating-file (buffer-file-name) ".python-version")))
-    (if python-version-directory
-        (let* ((pyenv-version-path (f-expand ".python-version" python-version-directory))
-               (pyenv-current-version (s-trim (f-read-text pyenv-version-path 'utf-8))))
-          (pyenv-mode-set pyenv-current-version)
-          (message (concat "Setting virtualenv to " pyenv-current-version))))))
+;; (use-package pyenv-mode
+;;   :init
+;;   (add-to-list 'exec-path "~/.pyenv/shims")
+;;   (setenv "WORKON_HOME" "~/my_env/bin")
+;;   :config
+;;   (pyenv-mode)
+;;   :bind
+;;   ("C-x p e" . pyenv-activate-current-project))
 
 
 ;; ;; ====================
-;; ;; sets python-version to global
+;; ;; helps update pyenv project
 
-;; (defvar pyenv-current-version nil nil)
+;; (defun pyenv-activate-current-project ()
+;;   "Automatically activates pyenv version if .python-version file exists."
+;;   (interactive)
+;;   (let ((python-version-directory (locate-dominating-file (buffer-file-name) ".python-version")))
+;;     (if python-version-directory
+;;         (let* ((pyenv-version-path (f-expand ".python-version" python-version-directory))
+;;                (pyenv-current-version (s-trim (f-read-text pyenv-version-path 'utf-8))))
+;;           (pyenv-mode-set pyenv-current-version)
+;;           (message (concat "Setting virtualenv to " pyenv-current-version))))))
 
-;; (defun pyenv-init()
-;;   "Initialize pyenv's current version to the global one."
-;;   (let ((global-pyenv (replace-regexp-in-string "\n" "" (shell-command-to-string "pyenv global"))))
-;;     (message (concat "Setting pyenv version to " global-pyenv))
-;;     (pyenv-mode-set global-pyenv)
-;;     (setq pyenv-current-version global-pyenv)))
 
-;; (add-hook 'after-init-hook 'pyenv-init)
+;; ;; ====================
+;; ;; pyvenv
+;; ;;
+;; ;; sets up my virtual environment for elpy, ein, and babel
 
+;; (use-package pyvenv
+;;   :init
+;;   (pyvenv-activate "~/my_env"))
 
-;; ====================
-;; pyvenv
-;;
-;; sets up my virtual environment for elpy, ein, and babel
-
-(use-package pyvenv
-  :init
-  (pyvenv-activate "~/my_env"))
+;; (use-package virtualenvwrapper)
+;; (venv-initialize-interactive-shells) ;; if you want interactive shell support
+;; (venv-initialize-eshell) ;; if you want eshell support
+;; ;; note that setting `venv-location` is not necessary if you
+;; ;; use the default location (`~/.virtualenvs`), or if the
+;; ;; the environment variable `WORKON_HOME` points to the right place
+;; (setq venv-location "/home/sntag/my_env/bin/activate")
 
 
 ;; ====================

@@ -1,7 +1,8 @@
 # -*- mode: snippet -*-
 # name: cell line MCF10a mC-c9 DLG5
-# contributor: Shayon Tagore <agenttiny@gmail.com>
 # key: mcf10a
+# group: labbook
+# contributor: SNTagore (SNTagore@protonmail.com)
 # --
 
 MCF10a mC-c9 DLG5-$1

@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: R_selfeval
+# key: Rselfeval
+# group: RMarkdown
+# contributor: SNTagore (SNTagore@protonmail.com)
+# --
+
+\`\`\`{R self_running, eval=FALSE, include = FALSE}
+knitr::purl("./${1:something}.Rmd")
+source("./$1.R")
+\`\`\`

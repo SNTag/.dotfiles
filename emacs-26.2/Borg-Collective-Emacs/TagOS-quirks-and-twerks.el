@@ -4,16 +4,17 @@
 ;; ====================
 ;; UI
 
-(setq-default frame-title-format '("TagOS - " user-login-name "@" system-name " - %b"))  ; sets title bar
+(setq-default frame-title-format '("" user-login-name "@" system-name " - %b"))  ; sets title bar
 (tool-bar-mode -1)		    ; tool bar icons present or not.  Value '-1' removes.
 (menu-bar-mode -1)		    ; menu bar icons present or not.  Value '-1' removes.
+(scroll-bar-mode -1); disable scroll-bar
 (setq inhibit-startup-message t)    ; No splash screen please
 
 ;; ====================
 ;; user info
 
 (setq user-full-name "Shayonendra Nath Tagore")
-(setq user-mail-address "shayontagore@gmail.com")
+(setq user-mail-address "SNTagore@protonmail.com")
 
 ;; ====================
 ;; etc
@@ -222,18 +223,17 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
 ;; ====================
 ;; Custom el
 
-(setq custom-file "~/.emacs.d/custom/linux-manjaro-custom.el")
+(setq custom-file "~/.emacs.d/custom/custom.el")
 (load custom-file 'noerror)
 
 ;; ====================
-;; Buffer reloading
-;;
-;; Auto update buffers that change on disk.
-;; disabling most of the recommended components as, to be honest, i don't understand them.  playing it safe.
-
-(global-set-key [f5] '(lambda () (interactive) (revert-buffer nil t nil)))
-;; (global-auto-revert-mode 1)  ; Will be prompted if there are changes that could be lost.
-;; (diminish 'auto-revert-mode)  ; Don't show me the “ARev” marker in the mode line
+;; edit configs
+(defun edit/emacs-configs ()
+  "Opens init and borg hive mind for edits"
+  (interactive)
+  (find-file "~/.emacs.d/init.el")
+  (find-file "~/.emacs.d/Borg-Collective-Emacs/Hive-Mind-Main.el")
+  )
 
 ;; ====================
 ;; ace-window
@@ -251,14 +251,12 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
 
 (use-package diminish)
 
-
 ;; ====================
 ;; unfill
 ;;
 ;; Useful when copy pasting from emacs to outside programs.
 
 (use-package unfill)
-
 (global-set-key (kbd "C-c u") 'unfill-region)
 
 
@@ -354,172 +352,55 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
 ;; taken from:
 ;; https://stackoverflow.com/questions/251908/how-can-i-insert-current-date-and-time-into-a-file-using-emacs
 
-(defun today ()
+(defun time/today ()
   "Insert string for today's date nicely formatted in American style,
 e.g. Sunday, September 17, 2000."
   (interactive)                 ; permit invocation in minibuffer
   (insert (format-time-string "%A, %B %e, %Y")))
-
-(defun today-short ()
+(defun time/today-short ()
   "Insert string for today's date nicely formatted as DD/MM/YY"
   (interactive)                 ; permit invocation in minibuffer
   (insert (format-time-string "%d/%m/%Y")))
-
-
-;; ====================
-;; open file directory
-;;
-;; Used for opening the file manager in the current directory
-
-(defun browse-file-directory ()
-  "Open the current file's directory however the OS would."
-  (interactive)
-  (if default-directory
-      (browse-url-of-file (expand-file-name default-directory))
-    (error "No `default-directory' to open")))
-
-(global-set-key (kbd "C-c o") 'browse-file-directory)
-
-
-;; ====================
-;; README LOADER
-
-(defun borg-secretary-readme ()
-  "opens the read-me if i forget the self-implemented keys"
-  (interactive)
-  (find-file "~/.emacs.d/readme.md")
-  )
-
-(global-set-key (kbd "C-c h") 'borg-secretary-readme)
-
-;; ====================
-;; edit configs
-
-(defun borg-secretary-editconfigs ()
-  "Opens the README.org file."
-  (interactive)
-  (find-file "~/.emacs.d/init.el")
-  (find-file "~/.emacs.d/Borg-Collective-Emacs/Hive-Mind-Main.el")
-  (find-file "~/.emacs.d/Borg-Collective-Emacs-private/Hive-Mind-Personal.el")
-  )
-
-; (global-set-key (kbd "C-c r") #'borg-secretary-editconfigs)
-
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; quick links
-;;
-;; I need my docs. could be replaced with an org list of bookmarks,
-;; but easy doc access is fun!
-
-;; ====================
-;; org-docs
-(defun borg-to-org-reg () ;; ======================= borg-to-org docs
+(defun time/web-timeconverter () ;; =============== today/web-timeconverter
   "org-docs"
   (interactive)
-    (browse-url "https://orgmode.org/org.html"))
-(defun borg-to-org-babel () ;; ===================== borg-to-orgbabel docs
-  "org-babel-docs"
-  (interactive)
-  (browse-url "https://org-babel.readthedocs.io/en/latest/"))
+  (browse-url "https://www.timeanddate.com/worldclock/converter.html?iso=20200519T100000&p1=236&p2=179"))
 
-;; ====================
-;; linux-docs
-(defun borg-to-lin-archwiki () ;; ====================== borg-to-archwiki
-  "takes me to the Holy Docs"
-  (interactive)
-  (browse-url "https://wiki.archlinux.org/"))
-
-;; ====================
-;; R-docs
-(defun borg-to-R-ess () ;; ========================= borg-to-ess docs
-  "ess-docs"
-  (interactive)
-  (browse-url "http://ess.r-project.org/ess.pdf"))
-(defun borg-to-R-rmarkdown () ;; =================== borg-to-R-rmarkdown docs
-  "RMarkdown docs"
-  (interactive)
-  (browse-url "https://bookdown.org/yihui/rmarkdown/"))
-(defun borg-to-R-cheatsheets () ;; ================= borg-to-R-cheatsheets docs
-  "RStudio cheatsheets"
-  (interactive)
-  (browse-url "https://rstudio.com/resources/cheatsheets/"))
-(defun borg-to-R-cran () ;; ======================== borg-to-R-cran
-  "R Cran docs"
-  (interactive)
-  (browse-url "https://rdrr.io/find/?repos=cran&page=0&fuzzy_slug="))
-(defun borg-to-R-advancedr () ;; =================== borg-to-R-advancedr
-  "Hadley's advanced guide to R"
-  (interactive)
-  (browse-url "https://adv-r.hadley.nz/"))
-(defun borg-to-R-datascience () ;; =================== borg-to-R-datascience
-  "Hadley's guide to data science"
-  (interactive)
-  (browse-url "https://r4ds.had.co.nz/"))
-
-;; ====================
-;; wikis
-(defun borg-to-web-investopedia () ;; ================== borg-to-investopedia
-  "investopedia"
-  (interactive)
-  (browse-url "https://www.investopedia.com/"))
 
 ;; ;; ====================
-;; ;; open pdfs with foxit
+;; ;; mu-display-version
 ;; ;;
-;; ;; opens with default program currently, not foxit.
-;; ;; might not be needed. sumatra has an option to open in foxit, can use that.
+;; ;; for diagnostics as described by
+;; ;; http://manuel-uberti.github.io/emacs/2018/05/25/display-version/
 
-;; (use-package openwith)
-;; (openwith-mode t)
-;; (setq openwith-associations '(("\\.pdf\\'" "Foxit Reader.exe" (file))))
+;; (defun mu-os-version ()
+;;   "Call `lsb_release' to retrieve OS version."
+;;   (replace-regexp-in-string
+;;    "Description:\\|[\t\n\r]+" ""
+;;    (shell-command-to-string "lsb_release -d")))
 
+;; (defun mu-gnome-version ()
+;;   "Call `gnome-shell' to retrieve GNOME version."
+;;   (replace-regexp-in-string
+;;    "[\t\n\r]+" ""
+;;    (shell-command-to-string "gnome-terminal --version")))
 
-;; ;; ====================
-;; ;; previous window
-
-;; (defun back-window ()
+;; ;;;###autoload
+;; (defun mu-display-version ()
+;;   "Display Emacs version and system details in a temporary buffer."
 ;;   (interactive)
-;;   (other-frame -1))
-
-;; (global-set-key (kbd "C-c p") 'back-window)
-
-
-;; ====================
-;; mu-display-version
-;;
-;; for diagnostics as described by
-;; http://manuel-uberti.github.io/emacs/2018/05/25/display-version/
-
-(defun mu--os-version ()
-  "Call `lsb_release' to retrieve OS version."
-  (replace-regexp-in-string
-   "Description:\\|[\t\n\r]+" ""
-   (shell-command-to-string "lsb_release -d")))
-
-(defun mu--gnome-version ()
-  "Call `gnome-shell' to retrieve GNOME version."
-  (replace-regexp-in-string
-   "[\t\n\r]+" ""
-   (shell-command-to-string "gnome-shell --version")))
-
-;;;###autoload
-(defun mu-display-version ()
-  "Display Emacs version and system details in a temporary buffer."
-  (interactive)
-  (let ((buffer-name "*version*"))
-    (with-help-window buffer-name
-      (with-current-buffer buffer-name
-        (insert (emacs-version) "\n")
-        (insert "\nRepository revision: " emacs-repository-version "\n")
-        (when (and system-configuration-options
-                   (not (equal system-configuration-options "")))
-          (insert "\nConfigured using:\n"
-                  system-configuration-options))
-        (insert "\n\nOperating system: " (mu--os-version) "\n")
-        (insert "Window system: " (getenv "XDG_SESSION_TYPE") "\n")
-        (insert "Desktop environment: " (mu--gnome-version))))))
+;;   (let ((buffer-name "*version*"))
+;;     (with-help-window buffer-name
+;;       (with-current-buffer buffer-name
+;;         (insert (emacs-version) "\n")
+;;         (insert "\nRepository revision: " emacs-repository-version "\n")
+;;         (when (and system-configuration-options
+;;                    (not (equal system-configuration-options "")))
+;;           (insert "\nConfigured using:\n"
+;;                   system-configuration-options))
+;;         (insert "\n\nOperating system: " (mu--os-version) "\n")
+;;         (insert "Window system: " (getenv "XDG_SESSION_TYPE") "\n")
+;;         (insert "Desktop environment: " (mu--gnome-version))))))
 
 
 ;; ====================
@@ -534,46 +415,73 @@ e.g. Sunday, September 17, 2000."
 ;; ====================
 ;; open external shell
 ;;
-;; Will open, if available, an xfce or konsole terminal.
+;; Will open, if available, an xfce, konsole, or gnome terminal. works on mac.
+;;
+;; WARNING: WILL OPEN MORE THAN ONE TERMINAL IF THEY AVAILABLE.
 ;;
 ;; TODO: [C] i suspect this will open all terminal options if available.  need to make it selective.
 ;;
 ;; keys:
 ;; C-c t  -  open-terminal-in-workdir
 
-(defun open-terminal-in-workdir ()
+(defun sys/open-terminal-in-workdir ()
   (interactive)
-  (call-process-shell-command
+  (call-process-shell-command			; XFCE systems
    (concat "xfce4-terminal --working-directory=" default-directory) nil 0)
-  (call-process-shell-command
-   (concat "konsole --workdir " default-directory) nil 0))
+  (call-process-shell-command			; KDE systems
+   (concat "konsole --workdir " default-directory) nil 0)
+  (call-process-shell-command   		; GNOME systems
+   (concat "gnome-terminal --working-directory=" default-directory) nil 0)
+  (call-process-shell-command   		; Mac systems
+   (concat "open -a Terminal" default-directory) nil 0))
 
-(global-set-key (kbd "C-c t") 'open-terminal-in-workdir)
+(global-set-key (kbd "C-c t") 'sys/open-terminal-in-workdir)
+
+
+;; ====================
+;; open file directory
+;;
+;; Opens directory for current frame
+
+(defun sys/browse-file-directory ()
+  "Open the current file's directory however the OS would."
+  (interactive)
+  (if default-directory
+      (browse-url-of-file (expand-file-name default-directory))
+    (error "No `default-directory' to open")))
+
+(global-set-key (kbd "C-c o") 'sys/browse-file-directory)
+
+
+;; ;; ====================
+;; ;; open pdfs with foxit
+;; ;;
+;; ;; opens with default program currently, not foxit.
+;; ;; might not be needed. sumatra has an option to open in foxit, can use that.
+
+;; (use-package openwith)
+;; (openwith-mode t)
+;; (setq openwith-associations '(("\\.pdf\\'" "Foxit Reader.exe" (file))))
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; extras
-
 (use-package ido)  ; Forgot what it does
 (use-package auto-complete)  ; Forgot what it does
 (use-package helpful)
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; yaml-mode
 ;;
 ;; I don't care enough for this for it to have its own .el
-
 (use-package yaml-mode)
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; htmlize
 ;;
 ;; I use it to make iCal from org files
-
 (use-package htmlize)
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Programming functions
@@ -613,105 +521,3 @@ e.g. Sunday, September 17, 2000."
 (defun my/reload-emacs-configuration ()
   (interactive)
   (load-file "~/.emacs.d/init.el"))
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; FRAME CONTROL
-;;
-;; I came to emacs while learning R in R-studio. I missed the neat
-;; compartmentalization of R-studio, so in comes my frame control!
-;;
-;; in the process of coding, many buffers will pop up and disappear. The
-;; code below attempts to identify buffers that may not be as important
-;; as the frame i'm working on, and open them accordingly. It is dumb,
-;; but I plan to include elisp code that will modify itself based on
-;; the emacs config.
-;;
-;; ex., I start an R console, or a *-woven.md/*-exported.pdf file is generated. A small,
-;; long frame will be opened on the far right that will not disturb my other
-;; frames. It will remain open, and concurrent calls for R help will not
-;; delete previous *R Help* frames.
-;;
-;; customization options here:
-;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Frame-Layouts-with-Side-Windows.html
-
-(setq display-buffer-alist
-      `(
-		;; TO THE RIGHT
-	("*R Dired" ;; ===================
-         (display-buffer-reuse-window display-buffer-in-side-window)
-         (side . right)
-         (slot . -1)
-         (window-width . 0.33)
-         (reusable-frames . nil))
-	("*R" ;; =========================
-         (display-buffer-reuse-window display-buffer-in-side-window)
-		 (side . right)
-         (slot . 1)
-         (window-width . 0.33)
-										;	     (width . 0.33)
-										;        (window-width . 0.35)
-         (reusable-frames . nil))
-	("-exported" ;; ==================
-         (display-buffer-reuse-window display-buffer-in-side-window)
-		 (side . right)
-         (slot . 1)
-         (window-width . 0.33)
-										;	     (width . 0.33)
-										;        (window-width . 0.35)
-         (reusable-frames . nil))
-	("-woven" ;; =====================
-         (display-buffer-reuse-window display-buffer-in-side-window)
-    	 (side . right)
-         (slot . 1)
-         (window-width . 0.33)
-										;	     (width . 0.33)
-										;        (window-width . 0.35)
-         (reusable-frames . nil))
-        ("*helm" ;; ==============================
-         (display-buffer-reuse-window display-buffer-in-side-window)
-		 (side . right)
-         (slot . 1)
-         (window-width . 0.33)
-										;	     (width . 0.33)
-										;        (window-width . 0.35)
-         (reusable-frames . nil))
-        ("*YASnippet Tables*" ;; =================
-         (display-buffer-reuse-window display-buffer-in-side-window)
-		 (side . right)
-         (slot . 1)
-         (window-width . 0.33)
-										;	     (width . 0.33)
-										;        (window-width . 0.35)
-         (reusable-frames . nil))
-	("*polymode export*" ;; ==========
-         (display-buffer-reuse-window display-buffer-in-side-window)
-		 (side . right)
-         (slot . 1)
-         (window-width . 0.33)
-										;	     (width . 0.33)
-										;        (window-width . 0.35)
-         (reusable-frames . nil))
-	("*Org Agenda*" ;; ==========
-         (display-buffer-reuse-window display-buffer-in-side-window)
-		 (side . right)
-         (slot . 1)
-         (window-width . 0.33)
-										;	     (width . 0.33)
-										;        (window-width . 0.35)
-         (reusable-frames . nil))
-
-		;; TO THE BOTTOM
-        ("*Help" ;; ==============================
-         (display-buffer-reuse-window display-buffer-in-side-window)
-         (side . right)
-         (slot . 1)
-         (window-width . 0.33)
-         (reusable-frames . 1))
-	("*company-documentation" ;; =====
-         (display-buffer-reuse-window display-buffer-in-side-window)
-         (side . right)
-         (slot . 1)
-         (window-width . 0.33)
-         (reusable-frames . nil))
-		))

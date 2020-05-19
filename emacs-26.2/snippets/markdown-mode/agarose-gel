@@ -1,7 +1,8 @@
 # -*- mode: snippet -*-
 # name: blank Agarose-gel layout
-# contributor: Shayon Tagore <shayontagore@gmail.com>
 # key: agarose-blank
+# group: labbook
+# contributor: SNTagore (SNTagore@protonmail.com)
 # --
 
 **Agarose-gel Protocol**

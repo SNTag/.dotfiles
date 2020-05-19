@@ -1,12 +1,12 @@
 # -*- mode: snippet -*-
 # name: markdown_intro
-# contributor: SNTagore <agenttiny@gmail.com>
 # key: markdown_intro
+# contributor: SNTagore (SNTagore@protonmail.com)
 # --
 
 ---
-title: Pathway mechanisms for cancer cell migration through CRISPR-KO and scRNA-seq
-subtitle: "PI: Greg Tucker-Kellogg"
+title: "$1"
+subtitle: "$2"
 author:
   - Shayonendra N Tagore, email e0147060@u.nus.edu:
     institute: gtk

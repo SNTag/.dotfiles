@@ -1,7 +1,8 @@
 # -*- mode: snippet -*-
 # name: Protocol: PCR mix
-# contributor: Shayon Tagore <shayontagore@gmail.com>
 # key: PCR-mix
+# group: labbook
+# contributor: SNTagore (SNTagore@protonmail.com)
 # --
 
 **PCR Protocol**

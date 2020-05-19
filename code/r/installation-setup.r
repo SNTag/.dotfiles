@@ -8,8 +8,8 @@ local({r <- getOption("repos")
 # following code sets up ein-R
 # thanks to:
 # http://johnlaudun.org/20151008-more-on-jupyter/
-install.packages(c('rzmq','repr','IRkernel','IRdisplay'), repos = c('http://irkernel.github.io/', getOption('repos')))
-IRkernel::installspec()
+###install.packages(c('rzmq','repr','IRkernel','IRdisplay'), repos = c('http://irkernel.github.io/', getOption('repos')))
+###IRkernel::installspec()
 
 
 install.packages(
@@ -17,6 +17,9 @@ install.packages(
         "httr",
         "jsonlite",
         "lubridate",
+
+        ## Courses
+        "swirl",
 
         ## greater depth
         "purrr",
@@ -53,7 +56,7 @@ install.packages(
 
 ## machine learning
 #devtools::install_github('topepo/caret/pkg/caret')
-devtools::install_github("sfirke/janitor")
+####devtools::install_github("sfirke/janitor")
 #devtools::install_github("ropensci/skimr")
 
 ## for install rmarkdown

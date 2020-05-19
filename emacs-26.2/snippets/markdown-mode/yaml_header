@@ -8,7 +8,7 @@
 ---
 title: "${1:give the title here}"
 author: SNTag
-date: "'r Sys.Date()'"
+date: "'R format(Sys.time(), '%d %B, %Y')'"
 output:
   html_document:
     number_sections: true

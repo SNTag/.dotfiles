@@ -1,6 +1,12 @@
 ;; quirks and twerks
 (load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-quirks-and-twerks.el")
 
+;; frame control
+(load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-frame-control.el")
+
+;; docs/wiki-loader
+(load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-doc-loader.el")
+
 ;; themes
 (load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-themes.el")
 
@@ -31,8 +37,8 @@
 ;; ;; org-babel
 ;; (load-file "~/.dotfiles/emacs-26.2/Borg-Collective/TagOS-literative-programming.el")
 
-;; magit
-(load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-magit.el")
+;; ;; magit
+;; (load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-magit.el")
 
 ;; latex
 (load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-latex.el")

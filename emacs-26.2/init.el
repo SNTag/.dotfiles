@@ -1,4 +1,3 @@
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Emacs - Lets get started!
 
@@ -19,10 +18,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; quirks
 ;;
-;; These are also in the Borg Quirks file.  repeated here to make a nice looking startup from the begining
+;; These are also in the Borg-collective/TagOS-quirks-and-twerks.el file. repeated here to make a nice looking startup from the beginning
 
 (tool-bar-mode -1); tool bar icons present or not.  Value '-1' removes.  Comment out to return tool bar.
 (menu-bar-mode -1); menu bar icons present or not.  Value '-1' removes.  Comment out to return tool bar.
+(scroll-bar-mode -1); disable scroll-bar
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -56,11 +56,9 @@
   "Do we have ripgrep?")
 
 (defconst *python*
-  (executable-find "python")
-  "Do we have python?")
-
-(defconst *python3*
-  (executable-find "python3")
+  (or (executable-find "python3")
+      (and (executable-find "python")
+           (> (length (shell-command-to-string "python --version | grep 'Python 3'")) 0)))
   "Do we have python3?")
 
 (defconst *tr*
@@ -89,7 +87,7 @@
   "Do we have pdflatex?")
 
 (defconst *eaf-env*
-  (and *sys/linux* *sys/gui* *python3*
+  (and *sys/linux* *sys/gui* *python*
        (executable-find "pip")
        (not (equal (shell-command-to-string "pip freeze | grep '^PyQt\\|PyQtWebEngine'") "")))
   "Check basic requirements for EAF to run.")
@@ -169,23 +167,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Begin Borg Assimilation
 
-(use-package virtualenvwrapper)
-(venv-initialize-interactive-shells) ;; if you want interactive shell support
-(venv-initialize-eshell) ;; if you want eshell support
-;; note that setting `venv-location` is not necessary if you
-;; use the default location (`~/.virtualenvs`), or if the
-;; the environment variable `WORKON_HOME` points to the right place
-(setq venv-location "/home/sntag/my_env/bin/activate")
-
 ;; ====================
 ;; dotfiles emacs
 (load-file "~/.emacs.d/Borg-Collective-Emacs/Hive-Mind-Main.el")
 
 ;; ====================
 ;; dropbox files
-
-;; (when (file-directory-p "~/.emacs.d/Borg-Collective-Emacs-private/Hive-Mind-Personal.el")
-;;     (load-file "~/.emacs.d/Borg-Collective-Emacs-private/Hive-Mind-Personal.el")
-;;     )
-
 (load-file "~/.emacs.d/Borg-Collective-Emacs-private/Hive-Mind-Personal.el")

@@ -108,11 +108,11 @@
 ;; ====================
 ;; kill process
 
-(defun ess-abort ()
+(defun ess/ess-abort ()
   (interactive)
   (kill-process (ess-get-process)))
 ;(define-key ess-mode-map (kbd "C-c C-a") 'ess-abort)
-(define-key inferior-ess-mode-map (kbd "C-c C-a") 'ess-abort)
+(define-key inferior-ess-mode-map (kbd "C-c C-a") 'ess/ess-abort)
 
 
 ;; ====================

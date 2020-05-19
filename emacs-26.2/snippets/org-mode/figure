@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: figure
+# name: figure-org2latex
 # key: fig_
 # --
 #+CAPTION: ${1:caption}
