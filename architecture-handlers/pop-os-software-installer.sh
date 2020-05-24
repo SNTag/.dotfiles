@@ -1,10 +1,22 @@
 #!/usr/bin/env bash
+# Designed for Pop OS
 # This script will (hopefully) handle most of my system expectations.
 # I tend to swap systems regularly, this script is meant as a helper script.
 # It will most likely develop outdated components.
 
 sudo apt update
 sudo apt upgrade
+
+## improved power managment
+sudo add-apt-repository ppa:linrunner/tlp
+sudo apt-get updatesudo apt-get install tlp tlp-rdwsudo tlp start
+
+## install all media codecs
+sudo apt-get install ubuntu-restricted-extras -y
+
+## gnome tools
+sudo add-apt-repository universe
+sudo apt install gnome-tweak-tool
 
 ## programming languages
 ### latex
@@ -42,8 +54,23 @@ sudo apt install rawtherapee -y
 sudo apt install wine -y
 sudo apt install mono-complete -y
 
+## disk managment
+sudo apt install gparted
+
 ## terminal ricing
 sudo apt install neofetch -y
+
+sudo apt install autoconf -y
+sudo apt install automake -y
+sudo apt install g++ -y
+sudo apt install gcc -y
+sudo apt install libpng-dev -y
+sudo apt install libpoppler-dev -y
+sudo apt install libpoppler-glib-dev -y
+sudo apt install libpoppler-private-dev -y
+sudo apt install libz-dev -y
+sudo apt install make -y
+sudo apt install pkg-config -y
 
 ## drop-down terminal
 sudo apt install guake -y
@@ -56,11 +83,16 @@ curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
 echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
 
 # Update and install syncthing:
-sudo apt-get update
-sudo apt-get install syncthing
+sudo apt update -y
+sudo apt install syncthing -y
 
 
 
-## syncthing
-yay -S syncthing
-yay -S syncthing-gtk
+## pibakery
+sudo apt-get install kpartx
+sudo apt install npm
+
+git clone https://github.com/davidferguson/pibakery.git ~/bin/pibakery
+cd ~/bin/pibakery
+npm install
+npm start

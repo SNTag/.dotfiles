@@ -57,5 +57,20 @@ yay -S rawtherapee
 yay -S wine
 yay -S wine_gecko
 
+## disk managment
+yay -S gparted-git
+
 ## terminal ricing
 yay -S neofetch-git
+
+## syncthing
+yay -S syncthing
+yay -S syncthing-gtk
+
+## pibakery
+yay -S npm
+
+git clone https://github.com/davidferguson/pibakery.git ~/bin/pibakery
+cd ~/bin/pibakery
+npm install
+npm start
