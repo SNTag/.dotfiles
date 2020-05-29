@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # name: yaml_header
 # key: yamlheader
-# group: RMarkdown
+# group: Rmd chunk
 # commentator: SNTagore (SNTagore@protonmail.com)
 # --
 

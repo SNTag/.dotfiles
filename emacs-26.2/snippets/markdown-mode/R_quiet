@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
-# name: R_eval
-# key: Reval
+# name: R_quiet
+# key: Rquiet
 # group: Rmd chunk
 # commentator: SNTagore (SNTagore@protonmail.com)
 # --
 
-echo = ${1:F}, eval = ${2:T}$0
+warning = ${1:F}, message = ${2:F}$0

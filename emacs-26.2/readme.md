@@ -11,16 +11,18 @@ checking for backwards compatibility and cannot confirm all features will work.
 Feel free to use or take details from this set up. Sources of inspiration are
 mentioned in the code where relevant.
 
-**Build focus:** Focused on developing emacs as what it is: a tool.
+**Build focus:** 
+Focused on developing emacs as what it is: a tool.
 
 I aim to make a minimalist Emacs rich in functionality.
 
 **Understanding my init**
 The Init file hold only tweaks for improving speed during loading and to direct it to the
 Borg-Collective (my nickname for my mode configuration organization). Names of the
-Borg-Collective files indicate what it contains.
+Borg-Collective files indicate what it regulates.
 
-**NOTE** I have noticed a consistent error with emacs regarding file name length. I suspect it to be an error with gcc.
+**NOTE**
+I have noticed a consistent error with emacs regarding file name length. I suspect it to be an error with gcc.
 
 
 ## Main Useage

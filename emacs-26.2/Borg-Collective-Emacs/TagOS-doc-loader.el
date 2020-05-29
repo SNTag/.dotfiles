@@ -57,6 +57,10 @@
   "Hadley's guide to data science"
   (interactive)
   (browse-url "https://r4ds.had.co.nz/"))
+(defun docs/to-R-packages () ;; ==================== docs/to-R-packages
+  "Hadley's guide to R packages"
+  (interactive)
+  (browse-url "https://r-pkgs.org/"))
 
 ;; ====================
 ;; python3

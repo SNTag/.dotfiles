@@ -3,10 +3,10 @@
 # I tend to swap systems regularly, this script is meant as a helper script.
 # It will most likely develop outdated components.
 
-##
+###
 pacman -Syu
 
-## essentials going forward
+### essentials going forward
 ### install git
 sudo pacman -S git
 
@@ -14,10 +14,10 @@ sudo git clone https://aur.archlinux.org/yay.git /usr/local/yay
 cd /usr/local/yay
 makepkg -si
 
-##
+###
 yay -Syu
 
-## programming languages
+### programming languages
 ### latex
 yay -S texlive-most
 yay -S texlive-lang
@@ -38,39 +38,51 @@ yay -S julia			# seems safe to remove blas for openblas
 yay -S gnuplots               # ??? what is this for again ???
 yay -S julia-docs
 
-## for some network mapping features
+### for some network mapping features
 yay -S nmap
 
-## pandoc
+### pandoc
 yay -S pandoc
 yay -S pandoc-citeproc
 yay -S pandoc-crossref
 
-## emacs
+### emacs
 yay -S emacs
 
-## photo editing
+### photo editing
 yay -S darktable
 yay -S rawtherapee
 
-## wine
+### wine
 yay -S wine
 yay -S wine_gecko
 
-## disk managment
+### disk managment
 yay -S gparted-git
 
-## terminal ricing
+### terminal ricing
 yay -S neofetch-git
 
-## syncthing
+### syncthing
 yay -S syncthing
 yay -S syncthing-gtk
 
-## pibakery
+### fonts
+#rm ~/.local/share/fonts/
+unzip ../fonts/* -d ~/.local/share/fonts/
+
+### pibakery
 yay -S npm
 
 git clone https://github.com/davidferguson/pibakery.git ~/bin/pibakery
 cd ~/bin/pibakery
 npm install
 npm start
+
+### tweaks
+#### THESE TWEAKS HAVE NOT BEEN VERIFIED ON ARCH!! DISABLED UNTIL TESTED
+## fstrim
+# sudo systemctl enable fstrim.timer
+
+### backups
+yay -S timeshift

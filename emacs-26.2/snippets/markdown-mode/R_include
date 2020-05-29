@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
 # name: R_include
 # key: Rinclude
-# group: RMarkdown
+# group: Rmd chunk
 # commentator: SNTagore (SNTagore@protonmail.com)
 # --
 
-include = ${1:F}, $0
+include = ${1:F}$0

@@ -7,7 +7,7 @@
 sudo apt update
 sudo apt upgrade
 
-## programming languages
+### programming languages
 # ### latex
 # sudo apt install texlive-full -y
 
@@ -24,7 +24,7 @@ sudo apt install python3-doc -y
 # sudo apt install julia -y
 # sudo apt install julia-doc -y
 
-## for some network mapping features
+### for some network mapping features
 sudo apt install nmap -y
 
 # ## pandoc
@@ -32,7 +32,7 @@ sudo apt install nmap -y
 # sudo apt install pandoc-citeproc -y
 #### MISSING CROSSREF?!
 
-## emacs
+### emacs
 sudo apt install emacs -y
 
 # ## photo editing
@@ -43,10 +43,10 @@ sudo apt install emacs -y
 # sudo apt install wine -y
 # sudo apt install mono-complete -y
 
-## terminal ricing
+### terminal ricing
 sudo apt install neofetch -y
 
-## syncthing
+### syncthing
 # Add the release PGP keys:
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
 
@@ -58,4 +58,4 @@ sudo apt-get update
 sudo apt-get install syncthing
 nano /home/pi/.config/syncthing/config.xml
 
-## crontab handler
+### crontab handler

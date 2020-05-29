@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: formula-latex
+# key: lf>
+# group: Rmd styling
+# commentator: SNTagore (SNTagore@protonmail.com)
+# --
+\\[ ${1:code goes here} \\]$0

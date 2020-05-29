@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
 # name: R_noshow
 # key: Rnoshow
-# group: RMarkdown
+# group: Rmd chunk
 # commentator: SNTagore (SNTagore@protonmail.com)
 # --
 
-echo = ${1:F}, eval = ${2:T}, $0
+echo = ${1:F}, eval = ${2:T}$0

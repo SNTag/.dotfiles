@@ -29,7 +29,7 @@
 	("*R" ;; =========================
          (display-buffer-reuse-window display-buffer-in-side-window)
 		 (side . right)
-         (slot . 1)
+         (slot . -1)
          (window-width . 0.33)
 										;	     (width . 0.33)
 										;        (window-width . 0.35)
@@ -95,6 +95,18 @@
          (window-width . 0.33)
          (reusable-frames . nil))
 	(".pdf" ;; =====
+         (display-buffer-reuse-window display-buffer-in-side-window)
+         (side . right)
+         (slot . 1)
+         (window-width . 0.33)
+         (reusable-frames . nil))
+	("*.yaml" ;; ===================
+         (display-buffer-reuse-window display-buffer-in-side-window)
+         (side . right)
+         (slot . -1)
+         (window-width . 0.33)
+         (reusable-frames . nil))
+	("*.tex" ;; ===================
          (display-buffer-reuse-window display-buffer-in-side-window)
          (side . right)
          (slot . 1)

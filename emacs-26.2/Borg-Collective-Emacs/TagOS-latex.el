@@ -255,3 +255,18 @@
 ;; magic-latex-buffer
 
 (use-package magic-latex-buffer)
+
+
+;; ====================
+;; opening pdfs in pdf-tools
+;;
+;; Use pdf-tools to open PDF files. inspired by:
+;; https://emacs.stackexchange.com/questions/19472/how-to-let-auctex-open-pdf-with-pdf-tools
+
+;; Use pdf-tools to open PDF files.
+(setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+      TeX-source-correlate-start-server t)
+
+;; Update PDF buffers after successful LaTeX runs
+(add-hook 'TeX-after-compilation-finished-functions
+           #'TeX-revert-document-buffer)

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: inline-latex
-# key: <latex
+# key: l>
 # group: styling
 # --
-\\( \\${1} \\)$0
+\\( ${1:code goes here} \\)$0

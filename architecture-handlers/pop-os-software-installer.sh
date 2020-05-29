@@ -7,18 +7,18 @@
 sudo apt update
 sudo apt upgrade
 
-## improved power managment
+### improved power managment
 sudo add-apt-repository ppa:linrunner/tlp
 sudo apt-get updatesudo apt-get install tlp tlp-rdwsudo tlp start
 
-## install all media codecs
+### install all media codecs
 sudo apt-get install ubuntu-restricted-extras -y
 
-## gnome tools
+### gnome tools
 sudo add-apt-repository universe
 sudo apt install gnome-tweak-tool
 
-## programming languages
+### programming languages
 ### latex
 sudo apt install texlive-full -y
 
@@ -35,29 +35,29 @@ sudo apt install python3-doc -y
 sudo apt install julia -y
 sudo apt install julia-doc -y
 
-## for some network mapping features
+### for some network mapping features
 sudo apt install nmap -y
 
-## pandoc
+### pandoc
 sudo apt install pandoc -y
 sudo apt install pandoc-citeproc -y
 #### MISSING CROSSREF?!
 
-## emacs
+### emacs
 sudo apt install emacs -y
 
-## photo editing
+### photo editing
 sudo apt install darktable -y
 sudo apt install rawtherapee -y
 
-## wine
+### wine
 sudo apt install wine -y
 sudo apt install mono-complete -y
 
-## disk managment
+### disk managment
 sudo apt install gparted
 
-## terminal ricing
+### terminal ricing
 sudo apt install neofetch -y
 
 sudo apt install autoconf -y
@@ -72,10 +72,10 @@ sudo apt install libz-dev -y
 sudo apt install make -y
 sudo apt install pkg-config -y
 
-## drop-down terminal
+### drop-down terminal
 sudo apt install guake -y
 
-## syncthing
+### syncthing
 # Add the release PGP keys:
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
 
@@ -88,7 +88,11 @@ sudo apt install syncthing -y
 
 
 
-## pibakery
+### fonts
+#rm ~/.local/share/fonts/
+unzip ../fonts/* -d ~/.local/share/fonts/
+
+### pibakery
 sudo apt-get install kpartx
 sudo apt install npm
 
@@ -96,3 +100,12 @@ git clone https://github.com/davidferguson/pibakery.git ~/bin/pibakery
 cd ~/bin/pibakery
 npm install
 npm start
+
+### tweaks
+## fstrim
+sudo systemctl enable fstrim.timer
+
+### backups
+sudo apt-add-repository -y ppa:teejee2008/ppa
+sudo apt-get update
+sudo apt-get install timeshift
