@@ -2,7 +2,7 @@
 # name: R_eval
 # key: Reval
 # group: Rmd chunk
-# commentator: SNTagore (SNTagore@protonmail.com)
+# author : SNTag (SNTagore@protonmail.com)
 # --
 
 echo = ${1:F}, eval = ${2:T}$0

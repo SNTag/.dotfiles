@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: R_figure
+# key: Rfigure
+# group: Rmd chunk
+# author : SNTag (SNTagore@protonmail.com)llllllllllkklsad j sad ks dflkasd 
+# --
+
+fig.align = ${1:center}, fig.cap = "${2:figure caption here}"$0

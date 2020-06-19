@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: R_appendix
+# key: Rappendix
+# group: Rmd chunk
+# commentator: SNTagore (SNTagore@protonmail.com)
+# --
+
+# Appendix
+
+\`\`\`{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}
+\`\`\`

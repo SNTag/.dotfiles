@@ -1,5 +1,6 @@
 # -*- mode: snippet -*-
-# name: links
-# key: <li
+# name: link
+# key: link>
+# author : SNTag (SNTagore@protonmail.com)
 # --
 [[${1: external_link }][${2: Name of the link}]${0:}

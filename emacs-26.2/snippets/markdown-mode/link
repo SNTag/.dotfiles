@@ -2,6 +2,6 @@
 # name: Link
 # contributor: Peng Deng <dengpeng@gmail.com>
 # modified: SNTag <sntagore@protonmail.com>
-# key: link
+# key: link>
 # --
-[${1:Link Text}](${2:URL} $3 $0
+[${1:Link Text}](${2:URL})$0
