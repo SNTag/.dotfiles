@@ -45,3 +45,14 @@
 
 (use-package markdown-mode+)  ;; markdown-mode-plus
 (use-package markdown-toc)  ;; markdown table of contents
+
+;; ====================
+;; fix Rmarkdown inline code
+;;
+;; normal markdown will break inline code when wrapping.
+;; taken from u/SpacemacsMasterRace:
+;; https://www.reddit.com/r/spacemacs/comments/bcms7m/r_markdown_with_spacemacs/
+(with-eval-after-load 'markdown-mode
+  (add-hook 'fill-nobreak-predicate
+            #'markdown-inline-code-at-point-p)
+)

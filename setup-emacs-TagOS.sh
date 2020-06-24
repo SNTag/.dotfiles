@@ -31,6 +31,7 @@ echo Setting up the Borg Collective.  Resistance is futile.
 
 [[ -d ~/.emacs.d/Borg-Collective-Emacs/ ]] || mkdir -p ~/.emacs.d/Borg-Collective-Emacs
 ln -s ~/.dotfiles/emacs-26.2/Borg-Collective-Emacs/*.el ~/.emacs.d/Borg-Collective-Emacs/
+[[ -f ~/.emacs.d/readme.md ]] || cp ~/.dotfiles/emacs-26.2/readme.md ~/.emacs.d/readme.md
 
 # echo "Fonts =========================================="
 # needs to be modified
@@ -38,12 +39,6 @@ ln -s ~/.dotfiles/emacs-26.2/Borg-Collective-Emacs/*.el ~/.emacs.d/Borg-Collecti
 # [[ -d ~/.local/share/fonts ]] || mkdir -p ~/.local/share/fonts
 
 # ln -s ~/.dotfiles/fonts/* ~/.local/share/fonts/
-
-echo "Code Formatters ================================"
-
-pip3 install black --user  # for python
-rscript ./code/r/installation-formatter.r
-#npm install lua-fmt  # for lua
 
 echo "yasnippets ====================================="
 # future improvements:

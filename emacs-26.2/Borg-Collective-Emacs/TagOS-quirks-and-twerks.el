@@ -30,7 +30,7 @@
 (setq save-interprogram-paste-before-kill t)  ; Kill ring set
 (setq case-fold-search t)                  ; case-insensitive when searching.  value 'nil' makes it sensitive
 
-(setq comint-prompt-read-only t)           ; Prevents deleting shell prompt
+;; (setq comint-prompt-read-only t)           ; Prevents deleting shell prompt ; interferring with closing shiny apps in R
 (setq confirm-kill-emacs 'y-or-n-p)        ; requires confirmation for C-x C-c kill emacs command
 ;; (when (display-graphic-p)
 ;;  (global-unset-key (kbd "C-x C-c"))
@@ -92,11 +92,18 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
 
 ;; ====================
 ;; aliases
-;; those functions i use often, but not enough for a dedicated key.
+;;
+;; Those functions i use often, but not enough for a dedicated key.
+;; Three letters are used for the aliases. If it's good enough for DNA to specify 64 different combinations with four letters,
+;; it's good enough for me with 1.7e4 combinations using a 26 letter alphabet.
 
-(defalias 'ar 'align-regexp)		      ; to set alignments by symbols
-(defalias 'ma 'markdown-toggle-markup-hiding) ; to toggle markdown markup
-
+(defalias 'are 'align-regexp)		       ; Align-RegExp           : to set alignments by symbols
+(defalias 'mmt 'markdown-toggle-markup-hiding) ; Markdown-Markup-Toggle : to toggle markdown markup
+(defalias 'rer 'run-ess-r)		       ; Run-Ess-R              : start an ess-r console
+(defalias 'ydt 'yas-describe-tables)	       ; Yas-Describe-Tables    : runs yas-describe-tables
+(defalias 'odb 'display-buffer)	               ; Open-Display-Buffer    : opens the display buffer if it has been closed.
+(defalias 'otl 'org-toggle-latex-fragment)     ; Org-Toggle-Latex       : toggles org-mode latex fragments
+(defalias 'dib 'display-buffer)                ; DIsplay-Buffer         : reopens shells/consoles/pdfs/help in a side window.
 
 ;; ====================
 ;; smartparens - INTERFERING WITH ELPY (and maybe others) FOR NOW
@@ -234,6 +241,22 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
   (find-file "~/.emacs.d/init.el")
   (find-file "~/.emacs.d/Borg-Collective-Emacs/Hive-Mind-Main.el")
   )
+(defun edit/emacs-quirks ()
+  "Opens the emacs quirks files"
+  (interactive)
+  (find-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-quirks-and-twerks.el")
+  )
+(defun edit/emacs-doc-loader ()
+  "Opens the emacs doc-loader"
+  (interactive)
+  (find-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-doc-loader.el")
+  )
+(defun edit/emacs-frame-control ()
+  "Opens the emacs quirks files"
+  (interactive)
+  (find-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-frame-control.el")
+  )
+
 
 ;; ====================
 ;; ace-window
@@ -435,7 +458,16 @@ e.g. Sunday, September 17, 2000."
   (call-process-shell-command   		; Mac systems
    (concat "open -a Terminal" default-directory) nil 0))
 
+;; development notes:
+;; needs to save the file location as a var, and pass the dir to guake
+(defun sys/open-dropdown-terminal-in-workdir ()
+  (interactive)
+  (call-process-shell-command
+   (concat "guake -e 'cs ./'") nil 0)
+  )
+
 (global-set-key (kbd "C-c t") 'sys/open-terminal-in-workdir)
+(global-set-key (kbd "C-c SPC") 'sys/open-dropdown-terminal-in-workdir)
 
 
 ;; ====================

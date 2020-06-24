@@ -9,10 +9,18 @@
 ;; be as important as the frame i'm working on, and open them
 ;; accordingly. The code is unintelligent, and needs directing.
 ;;
-;; ex., I start an R console, or a *-woven.md/*-exported.pdf file is generated. A small,
-;; long frame will be opened on the far right that will not disturb my other
-;; frames. It will remain open, and concurrent calls for R help will not
+;; ex., I start an R console, or a *-woven.md/*-exported.pdf file is generated.
+;; A small, long frame will be opened on the far right that will not disturb my
+;; other frames. It will remain open, and concurrent calls for R help will not
 ;; delete previous *R Help* frames.
+;;
+;; When calling up multiple frames, static buffers (not edited, for viewing)
+;; will be to the bottom right. Active elements (programming consoles, helm,
+;; etc) will be on the top left.
+;;
+;; To reopen a buffer in the side window, use 'M-x display-buffer' or 'M-x dib' and
+;; select the buffer to open. If the buffer is not in the list, it will open in
+;; a new frame.
 ;;
 ;; customization options here:
 ;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Frame-Layouts-with-Side-Windows.html
@@ -53,7 +61,7 @@
         ("*helm" ;; ==============================
          (display-buffer-reuse-window display-buffer-in-side-window)
 		 (side . right)
-         (slot . 1)
+         (slot . -1)
          (window-width . 0.33)
 										;	     (width . 0.33)
 										;        (window-width . 0.35)
@@ -112,4 +120,10 @@
          (slot . 1)
          (window-width . 0.33)
          (reusable-frames . nil))
+	;; ("*compilation*" ;; ===================
+        ;;  (display-buffer-reuse-window display-buffer-in-side-window)
+        ;;  (side . right)
+        ;;  (slot . 1)
+        ;;  (window-width . 0.33)
+        ;;  (reusable-frames . nil))
 		))

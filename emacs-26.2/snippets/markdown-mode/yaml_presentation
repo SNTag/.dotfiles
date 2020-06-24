@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: yaml_presentation
+# key: yamlpresentation
+# group: Rmd chunk
+# author : SNTag (SNTagore@protonmail.com)
+# --
+
+---
+title: "${1:give the title here}"
+author: "${2:SNTag}"
+subtitle: "${3:snappy one-liner here}"
+date: "\`r format(Sys.time(), '%d %B, %Y')\`"
+output:
+  beamer_presentation
+---
+$0

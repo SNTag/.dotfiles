@@ -57,6 +57,7 @@
   (setq comint-scroll-to-bottom-on-input t)
   (setq comint-scroll-to-bottom-on-output t)
   (setq comint-move-point-for-output t)
+;;  (setq comint-prompt-read-only 0)
   )
 
 (add-hook 'ess-mode-hook 'my-linum-mode-hook) ; Introduces lines
@@ -119,6 +120,7 @@
 ;; margrittr
 
 (global-set-key (kbd "C-S-m") (lambda () (interactive) (insert " %>% ")))
+(global-set-key (kbd "C-S-.") (lambda () (interactive) (insert " %in% ")))
 
 
 ;; ;; recommended by

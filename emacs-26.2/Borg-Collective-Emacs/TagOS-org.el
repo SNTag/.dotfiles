@@ -30,6 +30,19 @@
 	 ("\C-c j" . gs-helm-org-link-to-contact))
   :config
   ;; org-functions
+
+  ;; ====================
+  ;; Org-agenda-custom commands
+  ;;
+  ;; quick links to organize HOW to display the agenda.
+  ;; c - simple agenda view
+  ;; d - daily agenda and all TODOs
+  ;; e - experimental : do today https://www.reddit.com/r/emacs/comments/gqsz8u/weekly_tipstricketc_thread/
+  ;; E - experimental : do today v2
+  ;; X
+  ;; Y
+  ;; o - Agenda and office-related tasks
+  ;; C - Agenda and critical+important-related tasks
   (setq org-agenda-custom-commands
       '(("c" "Simple agenda view"
          ((tags "PRIORITY=\"A\""
@@ -52,6 +65,20 @@
                                                    (org-agenda-skip-if nil '(scheduled deadline))))
                     (org-agenda-overriding-header "ALL normal priority tasks:"))))
          ((org-agenda-compact-blocks t)))
+
+      ("e" "Do today"
+         ;; Show all todos and everything due today.
+         ((agenda "" (
+                      ;; Limits the agenda to a single day
+                      (org-agenda-span 1)
+                      ))
+	  (todo "TODO")))
+
+     ("E" "Do today"
+         ((tags-todo "+TODO=\"TODO\"+DEADLINE<=\"<today>\""
+                 ((org-agenda-overriding-header "Deadline today")))
+         (tags-todo "+TODO=\"TODO\"+DEADLINE=\"\""
+                 ((org-agenda-overriding-header "No deadline")))))
 
       ("X" agenda "" nil ("agenda.html" "agenda.ps"))
        ("Y" alltodo "" nil ("todo.html" "todo.txt" "todo.ps"))
@@ -120,6 +147,9 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
    'org-babel-load-languages
    '((python . t)(ein . t)(ipython . t)(shell . t)(R . t))
    )
+
+  ;; Scale latex fragment previews up, 1.0 scale is barely legible. u/gkayaalp
+  (plist-put org-format-latex-options :scale 1.5)
 )
 
 

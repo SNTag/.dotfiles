@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: yaml_presentation
-# key: yamlpresentation
+# name: yaml_header
+# key: yamlheader
 # group: Rmd chunk
 # author : SNTag (SNTagore@protonmail.com)
 # --
@@ -8,9 +8,16 @@
 ---
 title: "${1:give the title here}"
 author: "${2:SNTag}"
-subtitle: "${3:snappy one-liner here}"
 date: "\`r format(Sys.time(), '%d %B, %Y')\`"
 output:
-  beamer_presentation
+  html_document:
+    css: style.css
+    number_sections: ${3:false}
+    toc: ${4:false}
+    toc_depth: 3
+    fig_caption: true
+    fig_width: 7
+    fig_height: 4
+    includes:
+      in_header: my_header.tex
 ---
-$0

@@ -11,7 +11,7 @@ checking for backwards compatibility and cannot confirm all features will work.
 Feel free to use or take details from this set up. Sources of inspiration are
 mentioned in the code where relevant.
 
-**Build focus:** 
+**Build focus:**
 Focused on developing emacs as what it is: a tool.
 
 I aim to make a minimalist Emacs rich in functionality.
@@ -48,19 +48,48 @@ Literate emacs seems like a great way to make configs accessible to others. Ther
 files that I have used as inspiration for this config, but I cannot adopt it myself just yet. There
 are too many gaps in my knowledge, and I need the room to make a non-linear mess. My current
 approach of isolating modes into many individually loaded files, while inefficient, acts as a way of
-compartmentalizing the code. It's been great to learn from.
+compartmentalizing the code. It's been great to learn from, and makes it easy to edit. And importantly,
+its helping me break the temptation of constantly modifying my system.
+
+Not much is lost by my approach. I make a point of adding descriptions for any important lines, cite
+sources/inspiration/copyed from, and mention occasionally how to change it.
 
 
 ## Requires
-- xfce4 or konsole (see Borg-Collective/SNTag-quirks-and-twerks.el > defun borg/open-terminal-in-workdir) **NOTE** complications from using both.
+- xfce4, konsole, or gnome-terminal (see Borg-Collective/SNTag-quirks-and-twerks.el > defun borg/open-terminal-in-workdir) **NOTE** complications from using both.
 - multi-term installed from git to ~/.emacs/site-elisp/
 - aweshell installed from git to ~/.emacs/site-elisp/
 
 
 # Outline
 
+Emacs is not an operating system. I leave a good deal of functions to those designed to do them to
+reduce the work on my part. ex, web links, terminal work.
+
+## Major differences to most emacs versions
+### Frame control
+I came emacs from Rstudio, which has a wonderful way of displaying multiple frames with distinct
+purposes. I attempted to replicate that here through the file 'TagOS-frame-control.el'. It will open
+most shells, references (help, documentation, pdfs, yaml, etc), and helm in a sidebar.
+
+### links to documentation
+I keep emacs to doing what it does best (editing files), and leave anything of potential conflict to the system's
+default programs. ex, my links to various documents. It's not a complete list, but I have unique
+links in the format of 'docs/to-X' which will open the default online documentation in your default
+web browser. For example, I need help with org (docs/to-org-manual) or ess (docs/to-R-ess). I type
+the relevant command, and it will open in firefox.
 
 ## Current keybinds: User/Init Defined
+A number of custom bindings/functions for this version of emacs are bunched under certain categories:
+sys  - system (OS) functions.
+edit - emacs config files to edit
+docs - documentation links
+ency - encyclopedia links
+time - time functions/formatting
+my   - functions to wrap things together
+etc
+these functions are called through M-x category/the-function. ex, docs/to-org-reg
+
 
 ### unbound!
 C-z - **suspend-frame** -- Just getting annoying <br />
@@ -99,6 +128,7 @@ C-c m	 - **compile**					     -- Useful for Makefile commands.<br />
 C-x g	 - **magit-status**			    	 -- calls magit status.<br />
 C-c t	 - **sys/open-terminal-in-workdir**	 -- opens terminal (xfce4-terminal, konsole, gnome-terminal) **WARNING** will open multiple terminals on systems with more than one. **WARNING** may not function on your system without adjustments.
 C-c o    - **sys/browse-file-directory**	 -- Opens directory for current frame.
+C-c SPC	 - **sys/open-dropdown-terminal-in-workdir**	 -- **IN DEVELOPMENT** opens drop-down terminal in the working dir of current file. Works only with guake right now.
 
 ### Org-mode
 C-c a	 - **org-agenda**					 -- calls org agenda.<br />
@@ -134,22 +164,29 @@ default browser.
 **docs/to-R-advancedr**					-- Hadley's advanced guide to R <br />
 **docs/to-R-datascience**				-- Hadley's guide to data science <br />
 **docs/to-python-docs**					-- python3-documentation <br />
-**wiki/to-web-wikipedia**				-- wikipedia <br />
+**ency/to-web-wikipedia**				-- wikipedia <br />
 
 ### edit/files
 links to rapidly open emacs files to edit.
 
-**edit/emacs-config**	 -- opens Hive-Mind files <br />
+**edit/emacs-config**	  -- opens Hive-Mind files <br />
+**edit/emacs-quirks**     -- Opens the emacs quirks files <br />
+**edit/emacs-doc-loader** -- Opens the emacs doc-loader <br />
 
 ### time/commands
-**time/today**				 -- enters todays date <br />
-**time/today-short**		 -- pastes date as DD/MM/YY <br />
-**time/web-timeconverter     -- opens a url to timeanddate for easy timezone conversions <br />
+**time/today**			       -- enters todays date <br />
+**time/today-short**	  	   -- pastes date as DD/MM/YY <br />
+**time/web-timeconverter**     -- opens a url to timeanddate for easy timezone conversions <br />
 
 ### defalias
 commands I use often but not enough to deserve it's own hotkey.
-ar - **align-regexp**                  -- aligns paragraphs by a symbol
-ma - **Markdown-toggle-markup-hiding** -- toggles markup. makes it easier to edit sometimes. I never remember its hotkey.
+are - align-regexp 						-- Align-RegExp           : to set alignments by symbols
+mmt - markdown-toggle-markup-hiding 	-- Markdown-Markup-Toggle : to toggle markdown markup
+rer - run-ess-r 						-- Run-Ess-R              : start an ess-r console
+ydt - yas-describe-tables 				-- Yas-Describe-Tables    : runs yas-describe-tables
+odb - display-buffer 					-- Open-Display-Buffer    : opens the display buffer if it has been closed.
+otl - org-toggle-latex-fragment			-- Org-Toggle-Latex       : toggles org-mode latex fragments
+dib - display-buffer                    -- DIsplay-Buffer         : reopens shells/consoles/pdfs/help in a side window.
 
 
 ## Custom commands

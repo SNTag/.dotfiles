@@ -22,7 +22,7 @@
 
 ;; ====================
 ;; org-docs
-(defun docs/to-org-reg () ;; ======================= docs/to-org docs
+(defun docs/to-org-manual () ;; ==================== docs/to-org docs
   "org-docs"
   (interactive)
     (browse-url "https://orgmode.org/org.html"))
@@ -61,6 +61,18 @@
   "Hadley's guide to R packages"
   (interactive)
   (browse-url "https://r-pkgs.org/"))
+(defun docs/to-R-caret () ;; ======================= docs/to-R-caret
+  "R documentation to caret"
+  (interactive)
+  (browse-url "https://topepo.github.io/caret/index.html"))
+(defun docs/to-R-bookdown () ;; ======================= docs/to-R-bookdown
+  "R documentation to writing R books"
+  (interactive)
+  (browse-url "https://bookdown.org/yihui/bookdown/"))
+(defun docs/to-R-blogdown () ;; ======================= docs/to-R-blogdown
+  "R documentation to writing R blogs"
+  (interactive)
+  (browse-url "https://bookdown.org/yihui/blogdown/"))
 
 ;; ====================
 ;; python3
@@ -70,32 +82,50 @@
   (browse-url "https://docs.python.org/3/index.html"))
 
 ;; ====================
-;; wikis
-(defun wiki/to-web-wikipedia () ;; ================= wiki/to-web-wikipedia
+;; emacs
+(defun docs/to-emacs-all-docs () ;; ================ docs/to-python-docs
+  "emacs-documentation"
+  (interactive)
+  (browse-url "https://www.gnu.org/software/emacs/manual/"))
+(defun docs/to-emacs-docs () ;; ==================== docs/to-python-docs
+  "emacs-documentation"
+  (interactive)
+  (browse-url "https://www.gnu.org/software/emacs/manual/html_node/emacs/index.html"))
+
+;; ====================
+;; latex
+(defun docs/to-latex-ctan () ;; ==================== docs/to-latex-ctan
+  "emacs-documentation"
+  (interactive)
+  (browse-url "https://ctan.org/"))
+
+;; ====================
+;; encyclopedia
+(defun ency/to-web-wikipedia () ;; ================= ency/to-web-wikipedia
   "wikipedia"
   (interactive)
   (browse-url "https://www.investopedia.com/"))
-(defun wiki/to-web-investopedia () ;; ============== wiki/to-web-investopedia
+(defun ency/to-web-investopedia () ;; ============== ency/to-web-investopedia
   "investopedia"
   (interactive)
   (browse-url "https://www.investopedia.com/"))
-(defun wiki/to-web-archwiki () ;; ================== wiki/to-web-archwiki
+(defun ency/to-web-archwiki () ;; ================== ency/to-web-archwiki
   "takes me to the Holy Docs"
   (interactive)
   (browse-url "https://wiki.archlinux.org/"))
-(defun wiki/to-web-github () ;; ==================== wiki/to-web-github
+(defun ency/to-web-github () ;; ==================== ency/to-web-github
   "github"
   (interactive)
   (browse-url "https://github.com/"))
-(defun wiki/to-web-stackoverflow () ;; ============= wiki/to-web-stackoverflow
+(defun ency/to-web-stackoverflow () ;; ============= ency/to-web-stackoverflow
   "stack-overflow"
   (interactive)
   (browse-url "https://stackoverflow.com/"))
-(defun wiki/to-web-ebertreviews () ;; ===================== wiki/to-web-ebertreviews
+(defun ency/to-web-ebertreviews () ;; ============== ency/to-web-ebertreviews
   "ebert movie-reviews"
   (interactive)
   (browse-url "https://www.rogerebert.com/reviews"))
-(defun wiki/to-web-imdb () ;; ===================== wiki/to-web-imdb
-  "movie wiki"
+(defun ency/to-web-imdb () ;; ====================== ency/to-web-imdb
+  "movie encyclopedia"
   (interactive)
   (browse-url "https://www.imdb.com/"))
