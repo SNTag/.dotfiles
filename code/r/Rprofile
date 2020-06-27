@@ -1,0 +1,39 @@
+library(magrittr)
+
+#' myAlarm
+#'
+#' Custom alarm function. I use it when a long process is happening in the console.
+mA <- function() {system("notify-send 'R notification' 'R has completed a task' --icon=dialog-information")}
+#mA <- function() {system("xdg-open ~/random.mp3")}
+
+#' mvBlogPost
+#'
+#' Used to move my blog posts from dropbox into my blog. Will convert
+#' files into html automatically.
+mvBlogPost <-
+    function(blog_post) {
+        file.copy(from = blog_post, to = "~/Documents/blog-hugo/content/post/")
+        system(
+            paste(
+                "rename -f 's/\\.Rmd$/\\.html/' $HOME/Documents/blog-hugo/content/post/",
+                blog_post,
+                sep = ""
+            ))
+    }
+
+
+## Not set up properly yet
+# ## This avoids having to interactively select the mirror
+# ## during each R session.
+# ## Change to reflect the closest CRAN mirror to you.
+# options(repos=c("http://cran.univ-lyon1.fr/","http://cran.r-project.org"))
+# if(interactive()){
+#   ## Open a new cairo device in the bottom right.
+#   ## This avoids having to move/resize the plot window for each session.
+#   require(grDevices)
+#   X11.options(type="cairo")
+#   x11(xpos=-1,ypos=-1)
+# }
+
+options(prompt="> ")
+options(continue="... ")
