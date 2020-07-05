@@ -22,9 +22,11 @@ echo Setting up fundamental Emacs.d files
 echo For items difficult to symlink
 ln -s $DIR/emacs-26.2/snippets/* ~/.emacs.d/snippets/
 
+echo installing init
+ln -s $DIR/emacs-26.2/init.el ~/.emacs.d/
 
-echo Cleaning
-[[ -d ~/emacs-26.2 ]] && rm -r ~/emacs-26.2
+# echo Cleaning
+# [[ -d ~/emacs-26.2 ]] && rm -r ~/emacs-26.2
 
 echo "Emacs: personalization ========================="
 
