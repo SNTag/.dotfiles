@@ -73,6 +73,10 @@
   "R documentation to writing R blogs"
   (interactive)
   (browse-url "https://bookdown.org/yihui/blogdown/"))
+(defun docs/to-R-tidytext () ;; ======================= docs/to-R-tidytext
+  "R documentation to tidytext"
+  (interactive)
+  (browse-url "https://www.tidytextmining.com/ngrams.html"))
 
 ;; ====================
 ;; python3

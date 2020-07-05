@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# author : SNTag (SNTagore@protonmail.com)
+# name: readRDS
+# key: read>
+# group : library handlers
+# --
+
+readRDS("${1:object name here}.rds")

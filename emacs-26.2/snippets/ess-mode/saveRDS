@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# author : SNTag (SNTagore@protonmail.com)
+# name: saveRDS
+# key: save>
+# group : library handlers
+# --
+
+saveRDS(${1:"object name here"}, "$1.rds")
