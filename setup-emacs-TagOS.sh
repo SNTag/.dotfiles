@@ -9,6 +9,8 @@
 ## FUTURE IMPROVEMENTS:
 ## - make it able to detect script location, so that dotfiles can be anywhere in the system
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 echo 'Emacs general stuff============================='
 
 echo Setting up fundamental Emacs.d files
@@ -18,8 +20,7 @@ echo Setting up fundamental Emacs.d files
 
 
 echo For items difficult to symlink
-#$ I will assume theres some sort of confusion when running linkDotFile on earlier commands.  will figure it out later.
-ln -s ~/.dotfiles/emacs-26.2/snippets/* ~/.emacs.d/snippets/
+ln -s $DIR/emacs-26.2/snippets/* ~/.emacs.d/snippets/
 
 
 echo Cleaning
@@ -30,18 +31,18 @@ echo "Emacs: personalization ========================="
 echo Setting up the Borg Collective.  Resistance is futile.
 
 [[ -d ~/.emacs.d/Borg-Collective-Emacs/ ]] || mkdir -p ~/.emacs.d/Borg-Collective-Emacs
-ln -s ~/.dotfiles/emacs-26.2/Borg-Collective-Emacs/*.el ~/.emacs.d/Borg-Collective-Emacs/
-[[ -f ~/.emacs.d/readme.md ]] || cp ~/.dotfiles/emacs-26.2/readme.md ~/.emacs.d/readme.md
+ln -s $DIR/emacs-26.2/Borg-Collective-Emacs/*.el ~/.emacs.d/Borg-Collective-Emacs/
+[[ -f ~/.emacs.d/readme.md ]] || cp $DIR/emacs-26.2/readme.md ~/.emacs.d/readme.md
 
 # echo "Fonts =========================================="
 # needs to be modified
 
 [[ -d ~/.local/share/fonts ]] || mkdir -p ~/.local/share/fonts
-cp ~/.dotfiles/fonts/helveticaneue.zip ~/.local/share/fonts/
+cp $DIR/fonts/helveticaneue.zip ~/.local/share/fonts/
 unzip ~/.local/share/fonts/helveticaneue.zip
 rm ~/.local/share/fonts/helveticaneue.zip
 
-# ln -s ~/.dotfiles/fonts/* ~/.local/share/fonts/
+# ln -s $DIR/fonts/* ~/.local/share/fonts/
 
 echo "yasnippets ====================================="
 # future improvements:
@@ -49,15 +50,15 @@ echo "yasnippets ====================================="
 # - make git ignore the files made through the following lines
 
 ##### PROGRAMMING
-ln -s ~/.dotfiles/emacs-26.2/snippets/programming-snippets/* ~/.dotfiles/emacs-26.2/snippets/ess-mode/
-ln -s ~/.dotfiles/emacs-26.2/snippets/programming-snippets/* ~/.dotfiles/emacs-26.2/snippets/python-mode/
-ln -s ~/.dotfiles/emacs-26.2/snippets/programming-snippets/* ~/.dotfiles/emacs-26.2/snippets/lisp-mode/
-ln -s ~/.dotfiles/emacs-26.2/snippets/programming-snippets/* ~/.dotfiles/emacs-26.2/snippets/ruby-mode/
-ln -s ~/.dotfiles/emacs-26.2/snippets/programming-snippets/* ~/.dotfiles/emacs-26.2/snippets/sh-mode/
+ln -s $DIR/emacs-26.2/snippets/programming-snippets/* $DIR/emacs-26.2/snippets/ess-mode/
+ln -s $DIR/emacs-26.2/snippets/programming-snippets/* $DIR/emacs-26.2/snippets/python-mode/
+ln -s $DIR/emacs-26.2/snippets/programming-snippets/* $DIR/emacs-26.2/snippets/lisp-mode/
+ln -s $DIR/emacs-26.2/snippets/programming-snippets/* $DIR/emacs-26.2/snippets/ruby-mode/
+ln -s $DIR/emacs-26.2/snippets/programming-snippets/* $DIR/emacs-26.2/snippets/sh-mode/
 
 ##### Writing
-ln -s ~/.dotfiles/emacs-26.2/snippets/writing-snippets/* ~/.dotfiles/emacs-26.2/snippets/org-mode/
-ln -s ~/.dotfiles/emacs-26.2/snippets/writing-snippets/* ~/.dotfiles/emacs-26.2/snippets/markdown-mode/
-ln -s ~/.dotfiles/emacs-26.2/snippets/writing-snippets/* ~/.dotfiles/emacs-26.2/snippets/text-mode/
+ln -s $DIR/emacs-26.2/snippets/writing-snippets/* $DIR/emacs-26.2/snippets/org-mode/
+ln -s $DIR/emacs-26.2/snippets/writing-snippets/* $DIR/emacs-26.2/snippets/markdown-mode/
+ln -s $DIR/emacs-26.2/snippets/writing-snippets/* $DIR/emacs-26.2/snippets/text-mode/
 
 echo ========================================== FINISHING
