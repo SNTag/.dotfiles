@@ -38,11 +38,7 @@ ln -s $DIR/emacs-26.2/Borg-Collective-Emacs/*.el ~/.emacs.d/Borg-Collective-Emac
 # needs to be modified
 
 [[ -d ~/.local/share/fonts ]] || mkdir -p ~/.local/share/fonts
-cp $DIR/fonts/helveticaneue.zip ~/.local/share/fonts/
-unzip ~/.local/share/fonts/helveticaneue.zip
-rm ~/.local/share/fonts/helveticaneue.zip
-
-# ln -s $DIR/fonts/* ~/.local/share/fonts/
+unzip -u $DIR/fonts/helveticaneue.zip -d ~/.local/share/fonts/
 
 echo "yasnippets ====================================="
 # future improvements:

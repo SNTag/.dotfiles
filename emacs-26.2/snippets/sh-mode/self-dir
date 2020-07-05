@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# author : SNTag (SNTagore@protonmail.com)
+# name : selfdir
+# key: selfdir
+# group : sh-mode
+# --
+
+DIR="$( cd "\$( dirname "\${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+$0

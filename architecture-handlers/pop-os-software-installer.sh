@@ -24,8 +24,33 @@ sudo apt install texlive-full -y
 
 ### R
 sudo apt install libcurl4-openssl-dev libssl-dev -y  # pre-requisites
-sudo apt -y install r-base -y 		       # installs R itself
+
+## install R from source
+## inspiredfrom here:
+## https://docs.rstudio.com/resources/install-r-source/
+pkgver=3.6.3
+wget "https://cran.r-project.org/src/base/R-${pkgver%%.*}/R-${pkgver}.tar.gz" -P ~/Documents
+cd ~/Documents
+tar -xzf R-${pkgver}.tar.gz
+cd ./R-${pkgver}
+./configure \
+    --prefix=/opt/R/${pkgver} \
+    --enable-memory-profiling \
+    --enable-R-shlib \
+    --with-blas \
+    --with-lapack
+make
+sudo make install
+sudo ln -s /opt/R/${pkgver}/bin/R /usr/local/bin/R
+sudo ln -s /opt/R/${pkgver}/bin/Rscript /usr/local/bin/Rscript
+
+# sudo apt -y install r-base -y 		       # installs R itself
 Rscript ~/.dotfiles/code/r/installation-setup.r -y
+
+## Rstudio
+## see this site for the link:
+## https://rstudio.com/products/rstudio/download/#download
+## or use the code in dotfiles/code/r/rstudio-installer.sh
 
 ### python3
 sudo apt install python3-pip -y

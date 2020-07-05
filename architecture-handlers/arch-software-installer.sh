@@ -26,7 +26,30 @@ yay -S texlive-most-doc
 yay -S pandoc
 
 ### R
-yay -S r
+## installs R from source.
+## inspired by the aur package for R:
+## https://git.archlinux.org/svntogit/packages.git/tree/trunk/PKGBUILD?h=packages/r
+pkgver=3.6.3
+wget "https://cran.r-project.org/src/base/R-${pkgver%%.*}/R-${pkgver}.tar.gz" -P ~/Documents
+cd ~/Documents
+tar -xzf R-${pkgver}.tar.gz
+cd ./R-${pkgver}
+./configure  --prefix=/usr \
+             --libdir=/usr/lib \
+             --sysconfdir=/etc/R \
+             --datarootdir=/usr/share \
+             rsharedir=/usr/share/R/ \
+             rincludedir=/usr/include/R/ \
+             rdocdir=/usr/share/doc/R/ \
+             --with-x \
+             --enable-R-shlib \
+             --with-lapack \
+             --with-blas \
+             F77=gfortran \
+             LIBnn=lib
+make
+sudo make install
+
 yay -S tk 			# Needed for interactive package installation
 
 ### python3
@@ -62,6 +85,9 @@ yay -S gparted-git
 
 ### terminal ricing
 yay -S neofetch-git
+
+### redshift
+yay -S redshit-gtk-git
 
 ### syncthing
 yay -S syncthing
