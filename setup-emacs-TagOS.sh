@@ -36,7 +36,10 @@ ln -s ~/.dotfiles/emacs-26.2/Borg-Collective-Emacs/*.el ~/.emacs.d/Borg-Collecti
 # echo "Fonts =========================================="
 # needs to be modified
 
-# [[ -d ~/.local/share/fonts ]] || mkdir -p ~/.local/share/fonts
+[[ -d ~/.local/share/fonts ]] || mkdir -p ~/.local/share/fonts
+cp ~/.dotfiles/fonts/helveticaneue.zip ~/.local/share/fonts/
+unzip ~/.local/share/fonts/helveticaneue.zip
+rm ~/.local/share/fonts/helveticaneue.zip
 
 # ln -s ~/.dotfiles/fonts/* ~/.local/share/fonts/
 
