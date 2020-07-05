@@ -17,6 +17,10 @@ makepkg -si
 ###
 yay -Syu
 
+
+### zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 ### programming languages
 ### latex
 yay -S texlive-most

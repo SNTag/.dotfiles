@@ -7,6 +7,9 @@
 sudo apt update
 sudo apt upgrade
 
+### zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 ### improved power managment
 sudo add-apt-repository ppa:linrunner/tlp
 sudo apt-get updatesudo apt-get install tlp tlp-rdwsudo tlp start
