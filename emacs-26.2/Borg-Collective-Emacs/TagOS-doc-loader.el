@@ -65,15 +65,15 @@
   "R documentation to caret"
   (interactive)
   (browse-url "https://topepo.github.io/caret/index.html"))
-(defun docs/to-R-bookdown () ;; ======================= docs/to-R-bookdown
+(defun docs/to-R-bookdown () ;; ==================== docs/to-R-bookdown
   "R documentation to writing R books"
   (interactive)
   (browse-url "https://bookdown.org/yihui/bookdown/"))
-(defun docs/to-R-blogdown () ;; ======================= docs/to-R-blogdown
+(defun docs/to-R-blogdown () ;; ==================== docs/to-R-blogdown
   "R documentation to writing R blogs"
   (interactive)
   (browse-url "https://bookdown.org/yihui/blogdown/"))
-(defun docs/to-R-tidytext () ;; ======================= docs/to-R-tidytext
+(defun docs/to-R-tidytext () ;; ==================== docs/to-R-tidytext
   "R documentation to tidytext"
   (interactive)
   (browse-url "https://www.tidytextmining.com/ngrams.html"))
@@ -133,3 +133,20 @@
   "movie encyclopedia"
   (interactive)
   (browse-url "https://www.imdb.com/"))
+
+
+;; ====================
+;; emails
+
+(defun emails/to-protonmail () ;; ================== emails/to-protonmail
+  "emails protonmail"
+  (interactive)
+  (browse-url "https://protonmail.com/"))
+(defun emails/to-nus-webmail () ;; ================= emails/to-nus-webmail
+  "emails nus webmail"
+  (interactive)
+  (browse-url "https://exchange.nus.edu.sg/owa/auth/logon.aspx?url=https://exchange.nus.edu.sg/owa/&reason=0"))
+(defun emails/to-gmail () ;; ======================= emails/to-gmail
+  "emails gmail"
+  (interactive)
+  (browse-url "https://www.gmail.com"))
