@@ -36,12 +36,6 @@ echo Setting up the Borg Collective.  Resistance is futile.
 ln -s $DIR/emacs-26.2/Borg-Collective-Emacs/*.el ~/.emacs.d/Borg-Collective-Emacs/
 [[ -f ~/.emacs.d/readme.md ]] || cp $DIR/emacs-26.2/readme.md ~/.emacs.d/readme.md
 
-# echo "Fonts =========================================="
-# needs to be modified
-
-[[ -d ~/.local/share/fonts ]] || mkdir -p ~/.local/share/fonts
-unzip -u $DIR/fonts/helveticaneue.zip -d ~/.local/share/fonts/
-
 echo "yasnippets ====================================="
 # future improvements:
 # - make ln take multiple output arguments

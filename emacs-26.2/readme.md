@@ -55,12 +55,6 @@ Not much is lost by my approach. I make a point of adding descriptions for any i
 sources/inspiration/copyed from, and mention occasionally how to change it.
 
 
-## Requires
-- xfce4, konsole, or gnome-terminal (see Borg-Collective/SNTag-quirks-and-twerks.el > defun borg/open-terminal-in-workdir) **NOTE** complications from using both.
-- multi-term installed from git to ~/.emacs/site-elisp/
-- aweshell installed from git to ~/.emacs/site-elisp/
-
-
 # Outline
 
 Emacs is not an operating system. I leave a good deal of functions to those designed to do them to
@@ -78,6 +72,19 @@ default programs. ex, my links to various documents. It's not a complete list, b
 links in the format of 'docs/to-X' which will open the default online documentation in your default
 web browser. For example, I need help with org (docs/to-org-manual) or ess (docs/to-R-ess). I type
 the relevant command, and it will open in firefox.
+
+## Installation
+
+In the home directory for this git repo, there is a file 'setup-emacs-TagOS.sh'. It was written for
+linux. The script will set up a specific flavor of emacs, not install emacs itself. It will set up
+the init file, transfer snippets, and install the borg-collective.
+
+## Requires
+- xfce4, konsole, or gnome-terminal (see Borg-Collective/SNTag-quirks-and-twerks.el > defun borg/open-terminal-in-workdir) **NOTE** complications from having multiple terminals installed.
+- multi-term installed from git to ~/.emacs/site-elisp/
+- aweshell installed from git to ~/.emacs/site-elisp/
+- aspell-en **EXPECT LONG FILE LOADING/EMACS INIT TIME WITHOUT THIS**
+
 
 ## Current keybinds: User/Init Defined
 A number of custom bindings/functions for this version of emacs are bunched under certain categories:
@@ -200,8 +207,6 @@ dib - display-buffer                    -- DIsplay-Buffer         : reopens shel
 ## Backup Configuration
 Default behaviour of emacs is to save backups to the same place as the file being edited. This has
 been changed to "~/.emacs.d/backups", and will save up to the last 1000 backups of a file.
-
-
 
 # Other details
 

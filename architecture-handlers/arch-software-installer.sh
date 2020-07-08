@@ -93,6 +93,9 @@ yay -S neofetch-git
 ### redshift
 yay -S redshit-gtk-git
 
+### aspell
+yay -S aspell-en
+
 ### syncthing
 yay -S syncthing
 yay -S syncthing-gtk
