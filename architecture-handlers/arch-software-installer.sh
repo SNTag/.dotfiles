@@ -3,6 +3,8 @@
 # I tend to swap systems regularly, this script is meant as a helper script.
 # It will most likely develop outdated components.
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 ###
 pacman -Syu
 

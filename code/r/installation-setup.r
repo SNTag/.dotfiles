@@ -17,6 +17,7 @@ install.packages(
         "httr",
         "jsonlite",
         "lubridate",
+        "magrittr",
 
         ## Courses
         "swirl",
@@ -51,7 +52,10 @@ install.packages(
         "sjmisc",
         "skimr",
         "tidyverse",
-        "vtreat"
+        "vtreat",
+
+        ## document creation
+        "rticles"
     ))
 
 ## machine learning

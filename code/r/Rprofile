@@ -1,4 +1,12 @@
-library(magrittr)
+### INTRODUCTION ===================================
+## This rprofile has elements taken from:
+## https://gettinggeneticsdone.blogspot.com/2013/07/customize-rprofile.html
+## https://www.r-bloggers.com/fun-with-rprofile-and-customizing-r-startup/
+
+## Don't ask me for my CRAN mirror every time
+options("repos" = c(CRAN = "http://cran.rstudio.com/"))
+
+### FUNCTIONS ======================================
 
 #' myAlarm
 #'
@@ -35,5 +43,72 @@ mvBlogPost <-
 #   x11(xpos=-1,ypos=-1)
 # }
 
+
+### ENV ============================================
+## Create a new invisible environment for all the functions to go in so it doesn't clutter your workspace.
+.env <- new.env()
+
+## List objects and classes (from @_inundata, mod by ateucher)
+.env$lsa <- function() {
+{
+    obj_type <- function(x) class(get(x, envir = .GlobalEnv)) # define environment
+    foo = data.frame(sapply(ls(envir = .GlobalEnv), obj_type))
+    foo$object_name = rownames(foo)
+    names(foo)[1] = "class"
+    names(foo)[2] = "object"
+    return(unrowname(foo))
+}
+
+## List all functions in a package (also from @_inundata)
+.env$lsp <-function(package, all.names = FALSE, pattern) {
+    package <- deparse(substitute(package))
+    ls(
+        pos = paste("package", package, sep = ":"),
+        all.names = all.names,
+        pattern = pattern
+    )
+}
+
+## ht==headtail, i.e., show the first and last 10 items of an object
+.env$ht <- function(d) rbind(head(d,10),tail(d,10))
+
+## Attach all the variables above
+attach(.env)
+
+
+### CONFIG =========================================
+## pipe (%>%) is ready on start
+library(magrittr)
+
+## reconfigure prompt
 options(prompt="> ")
 options(continue="... ")
+
+
+## disable tk menu
+options(menu.graphics=FALSE)
+
+## allows tab completion of packages in library
+utils::rc.settings(ipck=TRUE)
+
+## colouring in terminals
+if(Sys.getenv("TERM") == "xterm-256color")
+  library("colorout")
+
+.First <- function(){
+  if(interactive()){
+    library(utils)
+    timestamp(,prefix=paste("##------ [",getwd(),"] ",sep=""))
+
+  }
+}
+
+.Last <- function(){
+  if(interactive()){
+    hist_file <- Sys.getenv("R_HISTFILE")
+    if(hist_file=="") hist_file <- "~/.RHistory"
+    savehistory(hist_file)
+  }
+}
+
+message("n*** Successfully loaded .Rprofile ***n")

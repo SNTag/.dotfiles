@@ -14,7 +14,7 @@ sudo apt upgrade
 ### R
 sudo apt install libcurl4-openssl-dev libssl-dev -y  # pre-requisites
 sudo apt -y install r-base -y 		       # installs R itself
-Rscript ~/.dotfiles/code/r/installation-setup.r -y
+Rscript $DIR/code/r/installation-setup.r -y
 
 ### python3
 sudo apt install python3-pip -y
