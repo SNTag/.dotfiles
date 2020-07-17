@@ -18,6 +18,9 @@ install.packages(
         "jsonlite",
         "lubridate",
         "magrittr",
+        "pacman",
+        "Hmisc",
+        "forcats",
 
         ## Courses
         "swirl",
@@ -62,6 +65,14 @@ install.packages(
 #devtools::install_github('topepo/caret/pkg/caret')
 ####devtools::install_github("sfirke/janitor")
 #devtools::install_github("ropensci/skimr")
+
+
+## For bioinformatics
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("edgeR")
+
 
 ## for install rmarkdown
 install.packages(c("knitr"

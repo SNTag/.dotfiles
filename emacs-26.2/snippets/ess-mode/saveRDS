@@ -5,4 +5,4 @@
 # group : library handlers
 # --
 
-saveRDS(${1:"object name here"}, "$1.rds")
+saveRDS("${1:object name here}", "$1.rds")

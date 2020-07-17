@@ -77,6 +77,15 @@
   "R documentation to tidytext"
   (interactive)
   (browse-url "https://www.tidytextmining.com/ngrams.html"))
+(defun docs/to-R-Hands-On-Programming () ;; ======== docs/to-R-Hands-On-Programming
+  "R documentation to tidytext"
+  (interactive)
+  (browse-url "https://rstudio-education.github.io/hopr/index.html"))
+(defun docs/to-R-bioconductor () ;; ======== docs/to-R-bioconductor
+  "R bioconductor"
+  (interactive)
+  (browse-url "https://bioconductor.org/"))
+
 
 ;; ====================
 ;; python3

@@ -51,6 +51,7 @@
   (setq ess-use-flymake +1)
   (setq ess-use-company t)
   (setq ess-history-file "~/.Rhistory")
+  (setenv "R_PROFILE_USER" "~/.Rprofile")
   (setq ess-use-ido t)
   (setq ess-roxy-hide-show-p t)
   ;;(speedbar-add-supported-extension ".R")
