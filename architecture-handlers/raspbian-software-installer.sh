@@ -6,6 +6,7 @@
 
 sudo apt update
 sudo apt upgrade
+sudo apt install git
 
 ### programming languages
 # ### latex
@@ -14,11 +15,15 @@ sudo apt upgrade
 ### R
 sudo apt install libcurl4-openssl-dev libssl-dev -y  # pre-requisites
 sudo apt -y install r-base -y 		       # installs R itself
-Rscript $DIR/code/r/installation-setup.r -y
+Rscript ~/.dotfiles/code/r/installation-setup.r -y
 
 ### python3
 sudo apt install python3-pip -y
 sudo apt install python3-doc -y
+sudo apt install python3-virtualenv
+mkdir ~/.python-venv/
+virtualenv ~/.python-venv/common-enviroment
+activate ~/.python-venv/common-enviroment/bin/activate
 
 # ### julia
 # sudo apt install julia -y
@@ -56,6 +61,6 @@ echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sourc
 # Update and install syncthing:
 sudo apt-get update
 sudo apt-get install syncthing
-nano /home/pi/.config/syncthing/config.xml
+#nano /home/pi/.config/syncthing/config.xml
 
 ### crontab handler

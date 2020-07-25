@@ -4,8 +4,6 @@
 # I tend to swap systems regularly, this script is meant as a helper script.
 # It will most likely develop outdated components.
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-
 sudo apt update
 sudo apt upgrade
 
@@ -50,7 +48,7 @@ sudo ln -s /opt/R/${pkgver}/bin/R /usr/local/bin/R
 sudo ln -s /opt/R/${pkgver}/bin/Rscript /usr/local/bin/Rscript
 
 # sudo apt -y install r-base -y 		       # installs R itself
-Rscript $DIR/code/r/installation-setup.r -y
+Rscript ~/.dotfiles/code/r/installation-setup.r -y
 
 ## Rstudio
 ## see this site for the link:
@@ -60,6 +58,10 @@ Rscript $DIR/code/r/installation-setup.r -y
 ### python3
 sudo apt install python3-pip -y
 sudo apt install python3-doc -y
+sudo apt install python3-virtualenv
+mkdir ~/.python-venv/
+virtualenv ~/.python-venv/common-enviroment
+activate ~/.python-venv/common-enviroment/bin/activate
 
 ### julia
 sudo apt install julia -y

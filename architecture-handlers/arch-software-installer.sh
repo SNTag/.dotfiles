@@ -3,8 +3,6 @@
 # I tend to swap systems regularly, this script is meant as a helper script.
 # It will most likely develop outdated components.
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-
 ###
 pacman -Syu
 
@@ -61,6 +59,10 @@ yay -S tk 			# Needed for interactive package installation
 ### python3
 yay -S python
 yay -S python-docs
+python-virtualenv
+mkdir ~/.python-venv/
+virtualenv ~/.python-venv/common-enviroment
+activate ~/.python-venv/common-enviroment/bin/activate
 
 ### julia
 yay -S julia			# seems safe to remove blas for openblas
@@ -95,9 +97,6 @@ yay -S neofetch-git
 ### redshift
 yay -S redshit-gtk-git
 
-### aspell
-yay -S aspell-en
-
 ### syncthing
 yay -S syncthing
 yay -S syncthing-gtk
@@ -108,9 +107,11 @@ unzip ../fonts/* -d ~/.local/share/fonts/
 
 ### pibakery
 yay -S npm
+yay -S electron
+yay -S gconf
 
-git clone https://github.com/davidferguson/pibakery.git ~/bin/pibakery
-cd ~/bin/pibakery
+git clone https://github.com/davidferguson/pibakery.git ~/.bin/pibakery
+cd ~/.bin/pibakery
 npm install
 npm start
 
