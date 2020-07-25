@@ -1,0 +1,23 @@
+### For use on Arch systems
+
+alias clearPacmanLock="sudo rm /var/lib/pacman/db.lck"
+
+alias myDrives="cs /media"
+alias myStorage="cs /media/storageSite/"
+
+###################################################################################################
+# swapping caps-lock and ctrl
+
+# https://www.youtube.com/watch?v=qPG5UrqOLUk
+alias swapKeys="setxkbmap -option ctrl:swapcaps"
+setxkbmap -option ctrl:swapcaps
+###################################################################################################
+### file managers
+
+## universal
+alias folder="xdg-open ./"
+
+## manager specific
+alias dolphin="dolphin . &"
+alias thunar="thunar . &"
+alias nautilus="nautilus . &"

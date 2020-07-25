@@ -1,0 +1,5 @@
+# for use with pandoc
+
+#alias beamering="pandoc --pdf-engine=lualatex --template=template.latex -t beamer -o slides.pdf 01-Main.md"
+alias beamering="pandoc --pdf-engine=lualatex -t beamer -o slides.pdf 01-Main.md"
+alias resumeing="pandoc --pdf-engine=lualatex -o trial-something.pdf cv_4.tex"

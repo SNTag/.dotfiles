@@ -1,0 +1,8 @@
+###################################################################################################
+# Raspberry Pi related functions
+
+# taken from here:
+# https://superuser.com/questions/872151/how-to-find-raspberry-pi-on-network
+# arguments:
+# -d for deluxe (finds only raspberry pi ip)
+alias raspPiFinder="bash $MYSTORAGE/projects/scripts/raspPiInteraction/raspPiFinder.sh"

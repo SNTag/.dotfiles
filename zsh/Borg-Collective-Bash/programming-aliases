@@ -1,0 +1,4 @@
+alias myPyEnv="source ~/my_env/bin/activate"
+export JULIA_PKG_SERVER=pkg.julialang.org
+
+alias avDataKeeping="cs $MYSTORAGE/my_journal/portfolio/playground/data-keeping/ ; Rscript ./data-keeping.R"

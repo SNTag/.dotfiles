@@ -1,0 +1,57 @@
+###################################################################################################
+# Locations
+    #### Notes:
+    #### Try implementing this solution to cd:
+    #### https://stackoverflow.com/questions/17958567/how-to-make-an-alias-for-a-long-path
+export myDropbox=$MYSTORAGE
+export myJournal=$MYSTORAGE/my_journal/
+export myWork=$MYSTORAGE/work_journal/gtk_journal/
+export myProjects=$MYSTORAGE/projects/
+export myScripts=$MYSTORAGE/projects/scripts/
+export myDownloads=$HOME/Downloads/
+export myPictures=$HOME/Pictures/
+export myPrograms=$HOME/Programs/
+export myDocuments=$HOME/Documents/
+export thesisWork=$MYSTORAGE/work_journal/gtk_journal/resources/QE_paper-Shayon/md-masters_thesis
+export maintainScripts=$MYSTORAGE/projects/scripts/system-set-up
+export myCustomization=$MYSTORAGE/journal_etc/linux-customization
+
+#### temp locations
+export myCoursera=$MYSTORAGE/journal_etc/self-study/coursera/
+export jobSearch=$MYSTORAGE/journal_etc/files/career/2019/
+
+
+## These commands were used for QE documents
+export myThesisfolder=$MYSTORAGE/latex\ journal/resources/QE_paper-Shayon
+# export myQEpresentation=$MYSTORAGE/latex journal/resources/QE_paper-Shayon/QE-presentation conditional pass
+
+
+
+
+
+
+#### if above approach fails, try this:
+
+# alias myDropbox="cs $MYSTORAGE"
+# alias myJournal="cs $MYSTORAGE/my_journal/"
+# alias myWork="cs $MYSTORAGE/work_journal/gtk_journal/"
+# alias myProjects="cs $MYSTORAGE/projects/"
+# alias myScripts="cs $MYSTORAGE/projects/scripts/"
+# alias myDownloads="cs $HOME/Downloads/"
+# alias myPictures="cs $HOME/Pictures/"
+# alias myPrograms="cs $HOME/Programs/"
+# alias myDocuments="cs $HOME/Documents/"
+# alias thesisWork='"$MYSTORAGE/work_journal/gtk_journal/resources/QE_paper-Shayon/md-masters_thesis"'
+# alias maintainScripts="cs $MYSTORAGE/projects/scripts/system-set-up"
+# alias myCustomization="cs $MYSTORAGE/journal_etc/linux-customization"
+# alias myBlog="cs $HOME/Documents/harappun-files-v1.1/_posts"
+
+# #### temp locations
+# alias myCoursera="cs $MYSTORAGE/journal_etc/self-study/coursera/"
+# alias jobSearch="cs $MYSTORAGE/journal_etc/files/career/2019/"
+
+
+# ## These commands were used for QE documents
+# alias myThesisfolder="cs $MYSTORAGE/latex\ journal/resources/QE_paper-Shayon"
+# # alias myQEpresentation="cs '$MYSTORAGE/latex journal/resources/QE_paper-Shayon/QE-presentation conditional pass'"
+alias myNetPass="less $myDropbox/netpass.txt"
