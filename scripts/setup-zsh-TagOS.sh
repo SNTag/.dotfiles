@@ -31,7 +31,7 @@ else
     echo "### copying zsh_TagOS"
     echo "###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------"
     if [ ! -f ~/.zsh_TagOS ]; then
-        ln -s ${DIR}/zsh_TagOS $dest/.zsh_TagOS
+        ln -s ${DIR}/zsh_TagOS ${dest}/.zsh_TagOS
     fi
 
     [ -f ~/.zsh_TagOS ] && echo existsTagOS
