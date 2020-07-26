@@ -1,7 +1,0 @@
-alias cpPics='function _cpPics(){ cp "$1" ~/Documents/harappun-files-v1.1/images/};_cpPics'
-
-function mvBlogPost() {
-  arg1=$1
-  cp ./$1 ~/Documents/blog-hugo/content/post/
-  rename -f 's/\.Rmd$/\.html/' $HOME/Documents/blog-hugo/content/post/$1
-}

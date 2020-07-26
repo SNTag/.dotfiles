@@ -34,12 +34,12 @@ sudo apt install r-base
 
 
 # sudo apt -y install r-base -y 		       # installs R itself
-Rscript ~/.dotfiles/code/r/installation-setup.r -y
+Rscript ~/.dotfiles/programming-languages/r/installation-setup.r -y
 
 ## Rstudio
 ## see this site for the link:
 ## https://rstudio.com/products/rstudio/download/#download
-## or use the code in dotfiles/code/r/rstudio-installer.sh
+## or use the code in dotfiles/programming-languages/r/rstudio-installer.sh
 
 ### emacs
 sudo apt install emacs -y

@@ -1,5 +1,0 @@
-###################################################################################################
-# Camera
-
-#alias photoCopy="mv -iv PATH_TO_THUMB/9016-4EF8/DCIM/100CANON/* ./"
-##alias photoCopyTesting="find PATH_TO_THUMB/9016-4EF8/DCIM/ '*.jpg' -exec mv -vi {} ##$MYSTORAGE/journal_etc/photography/photoStorage/photo\ library/"
