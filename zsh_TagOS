@@ -64,7 +64,9 @@ termCount() {
 ### swapping caps-lock and ctrl
 # https://www.youtube.com/watch?v=qPG5UrqOLUk
 alias swapKeys="setxkbmap -option ctrl:swapcaps"
-setxkbmap -option ctrl:swapcaps
+if type "setxkbmap" > /dev/null; then
+  setxkbmap -option ctrl:swapcaps
+fi
 
 ###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
 ### modifying pre-existing commands
