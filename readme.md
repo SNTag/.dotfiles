@@ -33,6 +33,10 @@ The following has not been fully automated:
 - To setup architecture (rudimentary/common software, some fonts, tweaks) for either debian or arch based, run the appropiate file in '/architecture-handlers'
 - Programming languages are set up through scripts under '/programming-languages/
 
+## setup
+
+emacs is not an OS, but I do use it as an interface.
+
 
 Acknowledgments
 ===============

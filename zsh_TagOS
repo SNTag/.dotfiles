@@ -15,6 +15,7 @@ if [ -d ~/.cache/wal ]; then
     source ~/.cache/wal/colors-tty.sh;
 fi
 
+
 ###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
 ### NEOFETCH Starting message
 if [ -f /usr/bin/neofetch ]; then
@@ -32,6 +33,11 @@ fi
 ### universal-aliases
 ###################################################################################################
 ###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
+### modifying pre-existing commands
+alias ls='ls --color -h --group-directories-first'
+
+
+###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
 ### Universal commands
 ## quick list drives
 alias drives='df -h'
@@ -43,11 +49,9 @@ alias la='ls -al'
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 ##
 alias install_texts="fc-cache -f -v"
-## for sourcing my bash files
-alias sZshrc='source ~/.zshrc'
-alias sBashAliases='source ~/.bash_aliases'
 ## flameshot - snipping tool
 alias snipping="flameshot gui -p ~/Pictures/ -d 2500"
+
 
 ###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
 ### time functions
@@ -55,22 +59,22 @@ alias snipping="flameshot gui -p ~/Pictures/ -d 2500"
 alias alarmTone="vlc /media/music/Christopher\ Tin\ -\ Sogno\ di\ Volare\ \(The\ Dream\ of\ Flight\)\ \(Civilization\ VI\ Main\ Theme\).mp3 && date"
 alias alarmTime="termdown --no-figlet -T"
 
-## complicated
+## functions
 termCount() {
     alarmTime "$1" "$2" && alarmTone
 }
 
-###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
-### swapping caps-lock and ctrl
-# https://www.youtube.com/watch?v=qPG5UrqOLUk
-alias swapKeys="setxkbmap -option ctrl:swapcaps"
-if type "setxkbmap" > /dev/null; then
-  setxkbmap -option ctrl:swapcaps
-fi
 
 ###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
-### modifying pre-existing commands
-alias ls='ls --color -h --group-directories-first'
+### swapping caps-lock and ctrl
+## https://www.youtube.com/watch?v=qPG5UrqOLUk
+alias swapKeys="setxkbmap -option ctrl:swapcaps"
+## if setxkbmap exists, swap caps-ctrl.
+## required for a functional zsh on headerless systems (ex, raspberry pi)
+if type "setxkbmap" > /dev/null; then
+    setxkbmap -option ctrl:swapcaps
+fi
+
 
 ###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
 ### General functions
@@ -84,19 +88,33 @@ function cs () {
 ###################################################################################################
 ### programming-aliases
 ###################################################################################################
+###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
+### python
 alias myPyEnv="source ~/my_env/bin/activate"
-export JULIA_PKG_SERVER=pkg.julialang.org
+
 
 ###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
-### R-scripts
-alias avDataKeeping="cs $MYSTORAGE/my_journal/portfolio/playground/data-keeping/ ; Rscript ./data-keeping.R"
+### julia
+export JULIA_PKG_SERVER=pkg.julialang.org
+
+
+###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
+### R
+# alias avDataKeeping="cs $MYSTORAGE/my_journal/portfolio/playground/data-keeping/ ; Rscript ./data-keeping.R"
 
 ###################################################################################################
-### Arch-aliases
+### Architecture specific
 ###################################################################################################
-### For use on Arch systems
+###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
+### Arch systems
 alias clearPacmanLock="sudo rm /var/lib/pacman/db.lck"
-alias myDrives="cs /media"
+alias archDrives="cs /media"
+
+
+###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
+### debian
+debDrives="cs /media/${whoami}/"
+
 
 ###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
 ### file managers
@@ -111,25 +129,20 @@ alias nautilus="nautilus . &"
 ###################################################################################################
 ### emacs
 ###################################################################################################
-#alias e="emacs"
-#alias emacs="emacs -nw "
+## DOCUMENTATION
+## following commands require the emacsclient. Client is not started here.
 
-#emacs --daemon &
 ### For rapid use emacs
 alias ce="emacsclient -t"
 
 ### For opening an emacs programming GUI
 alias cep="emacsclient -nc"
 
+###################################################################################################
+### organization
+###################################################################################################
 ### For updating Org-monthly agenda details.
 alias updateOrgMonthly="bash $MYSTORAGE/my_journal/linux-customization/scripts/org-monthly_auto.sh"
-
-###################################################################################################
-### pandoc-aliases
-###################################################################################################
-#alias beamering="pandoc --pdf-engine=lualatex --template=template.latex -t beamer -o slides.pdf 01-Main.md"
-alias beamering="pandoc --pdf-engine=lualatex -t beamer -o slides.pdf 01-Main.md"
-alias resumeing="pandoc --pdf-engine=lualatex -o trial-something.pdf cv_4.tex"
 
 ###################################################################################################
 ### location-aliases
@@ -140,18 +153,18 @@ export myWork=$MYSTORAGE/work_journal/gtk_journal/
 export myThesisfolder=$MYSTORAGE/latex\ journal/resources/QE_paper-Shayon
 # export myQEpresentation=$MYSTORAGE/latex journal/resources/QE_paper-Shayon/QE-presentation conditional pass
 
-alias myNetPass="less $MYSTORAGE/net.txt"
+alias myNet="less $MYSTORAGE/net.txt"
 
 ###################################################################################################
 ### pi-aliases
 ###################################################################################################
 ###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
 ### Raspberry Pi related functions
-
-# taken from here:
-# https://superuser.com/questions/872151/how-to-find-raspberry-pi-on-network
-# arguments:
-# -d for deluxe (finds only raspberry pi ip)
+## Very handy in finding raspberry pi ip, or any other ips on the network.
+## taken from here:
+## https://superuser.com/questions/872151/how-to-find-raspberry-pi-on-network
+## arguments:
+## -d for deluxe (finds only raspberry pi ip)
 alias raspPiFinder="bash $MYSTORAGE/projects/scripts/raspPiInteraction/raspPiFinder.sh"
 
 ###################################################################################################
@@ -164,10 +177,18 @@ alias raspPiFinder="bash $MYSTORAGE/projects/scripts/raspPiInteraction/raspPiFin
 ###################################################################################################
 ### document-templates
 ###################################################################################################
+###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
+### rapid fire template generation
 alias genCoverLetter="cp $MYSTORAGE/projects/templates/letters/coverletter/* ./"
 alias genSimpleRmd="cp $MYSTORAGE/projects/templates/rmd/simple-template/* ./"
 
-### for notes
+### aliases
+alias mafo="make && folder"
+
+
+###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
+### functions
+## for notes
 ## Will take a file, move it to my permanent storage, and save it there
 ## Will then symlink the file there to the current position.
 ## Used to deal with dropbox handling of symlinks and to make
@@ -177,7 +198,12 @@ function symNote(){
     ln -s $MYSTORAGE/org-files/notes/${1} ./
 }
 
-alias mafo="make && folder"
+
+###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
+### pandoc-aliases
+#alias beamering="pandoc --pdf-engine=lualatex --template=template.latex -t beamer -o slides.pdf 01-Main.md"
+alias beamering="pandoc --pdf-engine=lualatex -t beamer -o slides.pdf 01-Main.md"
+alias resumeing="pandoc --pdf-engine=lualatex -o trial-something.pdf cv_4.tex"
 
 ###################################################################################################
 ### blog
