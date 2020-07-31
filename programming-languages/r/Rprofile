@@ -1,3 +1,5 @@
+#!/usr/bin/env Rscript
+?shQuote
 ### INTRODUCTION ===================================
 ## This rprofile has elements taken from:
 ## https://gettinggeneticsdone.blogspot.com/2013/07/customize-rprofile.html
@@ -13,6 +15,18 @@ options("repos" = c(CRAN = "http://cran.rstudio.com/"))
 #' Custom alarm function. I use it when a long process is happening in the console.
 mA <- function() {system("notify-send 'R notification' 'R has completed a task' --icon=dialog-information")}
 #mA <- function() {system("xdg-open ~/random.mp3")}
+
+#' mySlackAlert
+#'
+#' Custom Slack Alarm function. I use it when a long process is happening in the console.
+#' the key was made as described here:
+#' https://api.slack.com/messaging/webhooks
+#' key is made available through .Renviron
+mSA <- function(msg = "an ess notification upon script completion", key = "sl.wk") {
+    key <- Sys.getenv(key)
+    system(paste("curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"", msg, "\"}' https://hooks.slack.com/services/", key, sep = "" ))
+    print("")
+}
 
 #' mvBlogPost
 #'
