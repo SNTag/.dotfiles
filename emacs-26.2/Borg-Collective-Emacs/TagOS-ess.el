@@ -23,7 +23,6 @@
 ;;
 ;; taken from
 ;; https://shrysr.github.io/docs/sr-config/
-
 ;(use-package ess-smart-underscore)
 (use-package ess-R-data-view)
 
@@ -51,7 +50,7 @@
   (setq ess-use-flymake +1)
   (setq ess-use-company t)
   (setq ess-history-file "~/.Rhistory")
-  (setenv "R_PROFILE_USER" "~/.Rprofile")
+;  (setenv "R_PROFILE_USER" "~/.Rprofile")
   (setq ess-use-ido t)
   (setq ess-roxy-hide-show-p t)
   ;;(speedbar-add-supported-extension ".R")
@@ -74,6 +73,7 @@
   ;;   )
   )
 
+(setenv "R_PROFILE_USER" "~/.Rprofile")
 
 ;; ;; ====================
 ;; ;; Help menu
@@ -193,10 +193,3 @@
 (use-package poly-R)
 (add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
 (add-to-list 'auto-mode-alist '("\\.Rnw" . poly-markdown+r-mode))
-
-
-(defun what-face (pos)
-  (interactive "d")
-  (let ((face (or (get-char-property (pos) 'read-face-name)
-                  (get-char-property (pos) 'face))))
-    (if face (message "Face: %s" face) (message "No face at %d" pos))))

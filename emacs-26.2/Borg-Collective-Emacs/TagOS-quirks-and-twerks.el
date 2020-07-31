@@ -235,6 +235,8 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
 
 ;; ====================
 ;; edit configs
+;;
+;; mostly bloatware below, but it makes it easy to edit my configs and i like it.
 (defun edit/emacs-configs ()
   "Opens init and borg hive mind for edits"
   (interactive)
@@ -245,6 +247,11 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
   "Opens the emacs quirks files"
   (interactive)
   (find-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-quirks-and-twerks.el")
+  )
+(defun edit/emacs-ess ()
+  "Opens the emacs ess"
+  (interactive)
+  (find-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-ess.el")
   )
 (defun edit/emacs-doc-loader ()
   "Opens the emacs doc-loader"
