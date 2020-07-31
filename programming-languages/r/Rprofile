@@ -50,7 +50,6 @@ mvBlogPost <-
 
 ## List objects and classes (from @_inundata, mod by ateucher)
 .env$lsa <- function() {
-{
     obj_type <- function(x) class(get(x, envir = .GlobalEnv)) # define environment
     foo = data.frame(sapply(ls(envir = .GlobalEnv), obj_type))
     foo$object_name = rownames(foo)

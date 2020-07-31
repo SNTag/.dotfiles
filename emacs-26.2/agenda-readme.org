@@ -1,0 +1,16 @@
+#+TITLE: org readme guide
+
+* description
+this is a guide to help me remember how to work with org.  It is extensive enough that I need a personal manual to learn the features I care about.
+
+
+* keys
+** Captures
+*** [C-c c] - capture templates
+** Agenda view
+*** [C-c a] - org-agenda
+This is the modified agenda view (9 day week, covering my monthly-org for 2 years)
+
+* Agenda
+
+** Formating

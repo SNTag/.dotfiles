@@ -34,6 +34,9 @@
 ;; org-mode
 (load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-org.el")
 
+;; org-agenda
+(load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-org.el")
+
 ;; ;; org-babel
 ;; (load-file "~/.dotfiles/emacs-26.2/Borg-Collective/TagOS-literative-programming.el")
 
@@ -51,3 +54,10 @@
 
 ;; helm-bibtex
 (load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-pdf.el")
+
+;; for some personal configurations that are only useful in graphics mode.
+(if (file-exists-p "~/.emacs.d/custom/personal-configs.el")
+    (if (display-graphic-p)
+	(load-file "~/.emacs.d/custom/personal-configs.el")
+      )
+  )

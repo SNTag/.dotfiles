@@ -169,8 +169,4 @@
 
 ;; ====================
 ;; dotfiles emacs
-(load-file "~/.emacs.d/Borg-Collective-Emacs/Hive-Mind-Main.el")
-
-;; ====================
-;; dropbox files
-(load-file "~/.emacs.d/Borg-Collective-Emacs-private/Hive-Mind-Personal.el")
+(load-file "~/.emacs.d/Borg-Collective-Emacs/Hive-Mind.el")
