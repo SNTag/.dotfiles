@@ -35,7 +35,7 @@
 (load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-org.el")
 
 ;; org-agenda
-(load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-org.el")
+; (load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-org.el")
 
 ;; ;; org-babel
 ;; (load-file "~/.dotfiles/emacs-26.2/Borg-Collective/TagOS-literative-programming.el")
