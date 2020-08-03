@@ -82,12 +82,48 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
 ;; Automatic backup
 ;;
 ;; trying a system that will hopefully make it easier to handle back ups
+;; @ntc1 suggested using the code under 'force-backup-of-buffer'. seeing how it is like.
+;; https://stackoverflow.com/questions/151945/how-do-i-control-how-emacs-makes-backup-files#151946
 
-(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))	; New location for backups.
-(setq delete-old-versions t)					; Silently delete execess backup versions
-(setq kept-old-versions 1000)					; Only keep the last 1000 backups of a file.
-(setq vc-make-backup-files t)					; Even version controlled files get to be backed up.
-(setq version-control t)					; Use version numbers for backup files.
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups/per-save"))	; New location for backups.
+      backup-by-copying t					; don't clobber symlinks
+      delete-old-versions t					; Silently delete execess backup versions
+      kept-old-versions 1000					; Only keep the last 1000 backups of a file.
+      vc-make-backup-files t					; Even version controlled files get to be backed up.
+      version-control t 					; Use version numbers for backup files.
+      delete-by-moving-to-trash t
+      )
+
+(defun force-backup-of-buffer ()
+  ;; Make a special "per session" backup at the first save of each
+  ;; emacs session.
+  (when (not buffer-backed-up)
+    ;; Override the default parameters for per-session backups.
+    (let ((backup-directory-alist '(("" . "~/.emacs.d/backup/per-session")))
+          (kept-new-versions 3))
+      (backup-buffer)))
+  ;; Make a "per save" backup on each save.  The first save results in
+  ;; both a per-session and a per-save backup, to keep the numbering
+  ;; of per-save backups consistent.
+  (let ((buffer-backed-up nil))
+    (backup-buffer)))
+
+(add-hook 'before-save-hook  'force-backup-of-buffer)
+
+
+;; ====================
+;; sensitive-mode
+;;
+;; minor mode that prevents the backup system from over-sharing sensitive information.
+;; taken from:
+;; https://stackoverflow.com/questions/151945/how-do-i-control-how-emacs-makes-backup-files#151946
+
+(setq auto-mode-alist
+      (append
+       (list
+        '("\\.\\(vcf\\|gpg\\)$" . sensitive-minor-mode)
+        )
+       auto-mode-alist))
 
 
 ;; ====================

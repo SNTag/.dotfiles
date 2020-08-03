@@ -1,32 +1,29 @@
 # .emacs.d-config
 
 
-Works best on Linux. For Windows-emacs, my old code snippets are in
-[windows-elisp-snippets.md](./windows-elisp-snippets.md) (see below: 'customization based on system
-OS').
+Built for linux.
 
-Consistently used on emacs 26. As I am usually using the latest most stable emacs, I'm rarely
-checking for backwards compatibility and cannot confirm all features will work.
+Used in emacs 26.
 
 Feel free to use or take details from this set up. Sources of inspiration are
 mentioned in the code where relevant.
 
 **Build focus:**
-Focused on developing emacs as what it is: a tool.
+emacs is not an OS, but I do use it as an interface.
 
-I aim to make a minimalist Emacs rich in functionality.
+I aim to make a minimalist Emacs rich in functionality. It has to have quick fire access to those
+tools and documents I refer to often
 
 **Understanding my init**
 The Init file hold only tweaks for improving speed during loading and to direct it to the
 Borg-Collective (my nickname for my mode configuration organization). Names of the
-Borg-Collective files indicate what it regulates.
+Borg-Collective files indicate what its for.
 
 **NOTE**
-I have noticed a consistent error with emacs regarding file name length. I suspect it to be an error with gcc.
+I have noticed a consistent error across OS regarding file name length in emacs. I suspect it to be some conflict error with gcc.
 
 
 ## Main Useage
-
 This config is built around my use of:
   - Markdown (markdown-mode, poly-R)
   - Pandoc (pandoc-mode)
@@ -37,28 +34,23 @@ This config is built around my use of:
   - Navigation (helm-buffers-list)
   - Zotero (helm-bibtex and minimal zotxt)
   - git (magit-mode)
-  - latex (AucTeX [**NOTE**: I do not use latex mode often and rely on pandoc through a makefile and
-    knitr. Latex-mode remains in the system in case of future use.])
+  - latex (AucTeX)
 
 Where possible, I have added notations describing that system.
 
 
 ## Why I don't use a literate emacs file (yet)
 Literate emacs seems like a great way to make configs accessible to others. There are many literate
-files that I have used as inspiration for this config, but I cannot adopt it myself just yet. There
-are too many gaps in my knowledge, and I need the room to make a non-linear mess. My current
-approach of isolating modes into many individually loaded files, while inefficient, acts as a way of
-compartmentalizing the code. It's been great to learn from, and makes it easy to edit. And importantly,
-its helping me break the temptation of constantly modifying my system.
-
-Not much is lost by my approach. I make a point of adding descriptions for any important lines, cite
-sources/inspiration/copyed from, and mention occasionally how to change it.
+files that I have used as inspiration for this config, but I cannot bring myself to adopt it. I've
+become entrenched in a system where in-built commands enable editing of specific modes. ex,
+'edit/emacs-ess' enables editing of my ess mode. It's helpful to not fall into the pit of endless
+improvements. The literative approach is great for building a well-rounded system, but the
+temptation is too high to get lost in the larger picture instead of getting things done.
 
 
 # Outline
-
 Emacs is not an operating system. I leave a good deal of functions to those designed to do them to
-reduce the work on my part. ex, web links, terminal work.
+reduce the work on my part. ex, web links, bash, etc.
 
 ## Major differences to most emacs versions
 ### Frame control
@@ -74,7 +66,6 @@ web browser. For example, I need help with org (docs/to-org-manual) or ess (docs
 the relevant command, and it will open in firefox.
 
 ## Installation
-
 In the home directory for this git repo, there is a file 'setup-emacs-TagOS.sh'. It was written for
 linux. The script will set up a specific flavor of emacs, not install emacs itself. It will set up
 the init file, transfer snippets, and install the borg-collective.
@@ -179,6 +170,7 @@ links to rapidly open emacs files to edit.
 **edit/emacs-config**	  -- opens Hive-Mind files <br />
 **edit/emacs-quirks**     -- Opens the emacs quirks files <br />
 **edit/emacs-doc-loader** -- Opens the emacs doc-loader <br />
+**edit/emacs-ess**        -- Opens the emacs ess configs <br />
 
 ### time/commands
 **time/today**			       -- enters todays date <br />
@@ -208,28 +200,30 @@ dib - display-buffer                    -- DIsplay-Buffer         : reopens shel
 Default behaviour of emacs is to save backups to the same place as the file being edited. This has
 been changed to "~/.emacs.d/backups", and will save up to the last 1000 backups of a file.
 
+configuration for the backup system under "TagOS-quirks.el".
+
 # Other details
 
 ## Borg-Collective
 Styled after the Star-Trek Borgs (like several packages on git), my emacs files and commands are
-organized in a system I like to call the Borg-Collective. Like the Borg, my emacs absorbs features of
-interest and implements it. Albeit in a far less malicious way.
+organized in a system I like to call the Borg-Collective. Like the Borg, my emacs assimilates files
+and implements them. Albeit in a far less malicious way.
 
 In the folder 'Borg-collective', the file 'Hive-mind' is used to let emacs know where to find all my lisp files of
 interest. Each file in the collective is written for a specific major or minor mode. This has helped in
 separating my code into neat digestible chunks, compared to the single massive init that I had
 previously (see 'Why I don't use a literate emacs file (yet)').
 
+## Personal customizations/playground
+I have left a file open for random/testing/personal customization under
+".emacs.d/custom/personal-configs.el". Some code that I am playing with, or unique code snippets,
+are shuffled to there.
+
 ## Frame control
-I came to emacs from Rstudio, and miss the controlled use of frames. I have implemented (roughly) a
+I came to emacs from Rstudio and miss the controlled use of frames. I have implemented (roughly) a
 way of frame control, which assigns frames I do not want to concern myself with (or pay most of my
 attention to) to a frame on the far left, 1/3 of the screen. See
 [TagOS-frame-control.el](./Borg-Collective-Emacs/TagOS-frame-control.el).
-
-## Customization based on system OS
-**NOTE** I originally made my emacs config for windows. However, I have since switched to linux
-full-time, which call for different emacs coding in places. The code snippets I thought were
-of interest has been re-allocated to [windows-elisp-snippets.md](./windows-elisp-snippets.md).
 
 ## credits
 Reddit has been a big help. It is darned useful.

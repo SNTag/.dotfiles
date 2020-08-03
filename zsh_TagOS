@@ -54,18 +54,6 @@ alias snipping="flameshot gui -p ~/Pictures/ -d 2500"
 
 
 ###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
-### time functions
-## simple
-alias alarmTone="vlc /media/music/Christopher\ Tin\ -\ Sogno\ di\ Volare\ \(The\ Dream\ of\ Flight\)\ \(Civilization\ VI\ Main\ Theme\).mp3 && date"
-alias alarmTime="termdown --no-figlet -T"
-
-## functions
-termCount() {
-    alarmTime "$1" "$2" && alarmTone
-}
-
-
-###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
 ### swapping caps-lock and ctrl
 ## https://www.youtube.com/watch?v=qPG5UrqOLUk
 alias swapKeys="setxkbmap -option ctrl:swapcaps"
@@ -139,16 +127,44 @@ alias ce="emacsclient -t"
 alias cep="emacsclient -nc"
 
 ###################################################################################################
-### organization
+### staying organized
 ###################################################################################################
-### For updating Org-monthly agenda details.
+###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
+### general functions
+## For updating Org-monthly agenda details.
 alias updateOrgMonthly="bash $MYSTORAGE/my_journal/linux-customization/scripts/org-monthly_auto.sh"
+
+
+###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
+### time functions
+## simple
+alias alarmTone="vlc /media/music/Christopher\ Tin\ -\ Sogno\ di\ Volare\ \(The\ Dream\ of\ Flight\)\ \(Civilization\ VI\ Main\ Theme\).mp3 && date"
+alias alarmTime="termdown --no-figlet -T"
+
+## functions
+termCount() {
+    alarmTime "$1" "$2" && alarmTone
+}
+
+
+###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
+### notifications
+## myAlarm
+## where $1 : message
+## where $2 : message title
+mA() {
+    notify-send "${2}" "${1}" --icon=dialog-information
+}
+## not sharing .Renviron due to its sensitive nature.
+source ~/.Renviron
+## mySlackAlert
+mSA() {
+    curl -X POST -H 'Content-type: application/json' --data "{'text':'${1}'}" https://hooks.slack.com/services/"${2}"
+}
 
 ###################################################################################################
 ### location-aliases
 ###################################################################################################
-export myWork=$MYSTORAGE/work_journal/gtk_journal/
-
 ### These commands were used for QE documents
 export myThesisfolder=$MYSTORAGE/latex\ journal/resources/QE_paper-Shayon
 # export myQEpresentation=$MYSTORAGE/latex journal/resources/QE_paper-Shayon/QE-presentation conditional pass
@@ -166,24 +182,37 @@ alias myNet="less $MYSTORAGE/net.txt"
 ## arguments:
 ## -d for deluxe (finds only raspberry pi ip)
 alias raspPiFinder="bash $MYSTORAGE/projects/scripts/raspPiInteraction/raspPiFinder.sh"
+alias temp='sudo /opt/vc/bin/vcgencmd measure_temp'
+alias clock='vcgencmd measure_clock arm'
+alias volt='vcgencmd measure_volts'
 
 ###################################################################################################
 ### camera-aliases
 ###################################################################################################
-# Camera
+###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
+### moving/saving photos
 #alias photoCopy="mv -iv PATH_TO_THUMB/9016-4EF8/DCIM/100CANON/* ./"
-##alias photoCopyTesting="find PATH_TO_THUMB/9016-4EF8/DCIM/ '*.jpg' -exec mv -vi {} $MYSTORAGE/journal_etc/photography/photoStorage/photo\ library/"
+#alias photoCopyTesting="find PATH_TO_THUMB/9016-4EF8/DCIM/ '*.jpg' -exec mv -vi {} $MYSTORAGE/journal_etc/photography/photoStorage/photo\ library/"
 
 ###################################################################################################
 ### document-templates
 ###################################################################################################
 ###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
-### rapid fire template generation
+### Document handlers
+## rapid fire template generation
 alias genCoverLetter="cp $MYSTORAGE/projects/templates/letters/coverletter/* ./"
 alias genSimpleRmd="cp $MYSTORAGE/projects/templates/rmd/simple-template/* ./"
+alias genShinyApp="cp $MYSTORAGE/projects/templates/rmd/shiny-app/* ./"
 
-### aliases
+
+## aliases
 alias mafo="make && folder"
+
+
+### pandoc-aliases
+#alias beamering="pandoc --pdf-engine=lualatex --template=template.latex -t beamer -o slides.pdf 01-Main.md"
+alias beamering="pandoc --pdf-engine=lualatex -t beamer -o slides.pdf 01-Main.md"
+alias resumeing="pandoc --pdf-engine=lualatex -o trial-something.pdf cv_4.tex"
 
 
 ###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
@@ -198,20 +227,15 @@ function symNote(){
     ln -s $MYSTORAGE/org-files/notes/${1} ./
 }
 
-
-###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
-### pandoc-aliases
-#alias beamering="pandoc --pdf-engine=lualatex --template=template.latex -t beamer -o slides.pdf 01-Main.md"
-alias beamering="pandoc --pdf-engine=lualatex -t beamer -o slides.pdf 01-Main.md"
-alias resumeing="pandoc --pdf-engine=lualatex -o trial-something.pdf cv_4.tex"
-
 ###################################################################################################
 ### blog
 ###################################################################################################
-alias cpPics='function _cpPics(){ cp "$1" ~/Documents/harappun-files-v1.1/images/};_cpPics'
+###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
+### lets make life easier
+#alias cpPics='function _cpPics(){ cp "$1" ~/Documents/harappun-files-v1.1/images/};_cpPics'
 
-function mvBlogPost() {
-  arg1=$1
-  cp ./$1 ~/Documents/blog-hugo/content/post/
-  rename -f 's/\.Rmd$/\.html/' $HOME/Documents/blog-hugo/content/post/$1
-}
+# function mvBlogPost() {
+#   arg1=$1
+#   cp ./$1 ~/Documents/blog-hugo/content/post/
+#   rename -f 's/\.Rmd$/\.html/' $HOME/Documents/blog-hugo/content/post/$1
+# }

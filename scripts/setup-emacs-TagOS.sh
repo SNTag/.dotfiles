@@ -2,7 +2,8 @@
 ## This is a messy approach, but gets the job done, with tweaks to get
 ## into MY emacs faster. Will setup access to my
 ## emacs-flavour, with packages installed fresh. See
-## '/emacs-26.2/readme.md' for more details.
+## '/emacs-26.2/readme.md' for more details. A peripheral script NOT
+## IN THIS GIT is called to install some private settings.
 ##
 ## FUTURE IMPROVEMENTS:
 ## - see if it can be compressed further
@@ -20,9 +21,6 @@ ln -s $DIR/emacs-26.2/snippets/* ~/.emacs.d/snippets/
 
 echo installing init
 ln -s $DIR/emacs-26.2/init.el ~/.emacs.d/
-
-echo getting agenda-readme
-ln -s $DIR/emacs-26.2/agenda-readme.org ~/.emacs.d/
 
 echo "Emacs: personalization ========================="
 

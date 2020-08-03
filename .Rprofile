@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-?shQuote
+
 ### INTRODUCTION ===================================
 ## This rprofile has elements taken from:
 ## https://gettinggeneticsdone.blogspot.com/2013/07/customize-rprofile.html
