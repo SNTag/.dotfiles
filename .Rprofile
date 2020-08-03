@@ -105,8 +105,8 @@ options(menu.graphics=FALSE)
 utils::rc.settings(ipck=TRUE)
 
 ## colouring in terminals
-if(Sys.getenv("TERM") == "xterm-256color")
-  library("colorout")
+## if(Sys.getenv("TERM") == "xterm-256color")
+##   library("colorout")
 
 .First <- function(){
   if(interactive()){

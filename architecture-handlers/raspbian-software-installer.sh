@@ -33,6 +33,8 @@ sudo make install
 sudo ln -s /opt/R/${pkgver}/bin/R /usr/local/bin/R
 sudo ln -s /opt/R/${pkgver}/bin/Rscript /usr/local/bin/Rscript
 
+pip-3 install --user radian
+
 ### python3
 sudo apt install python3-pip -y
 sudo apt install python3-doc -y

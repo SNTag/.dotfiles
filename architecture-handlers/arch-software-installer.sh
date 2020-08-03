@@ -56,6 +56,8 @@ sudo make install
 
 yay -S tk 			# Needed for interactive package installation
 
+pip-3 install --user radian
+
 ### python3
 yay -S python
 yay -S python-docs

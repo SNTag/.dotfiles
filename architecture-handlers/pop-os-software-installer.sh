@@ -50,6 +50,8 @@ sudo ln -s /opt/R/${pkgver}/bin/Rscript /usr/local/bin/Rscript
 # sudo apt -y install r-base -y 		       # installs R itself
 Rscript ~/.dotfiles/programming-languages/r/installation-setup.r -y
 
+pip3 install --user radian
+
 ## Rstudio
 ## see this site for the link:
 ## https://rstudio.com/products/rstudio/download/#download

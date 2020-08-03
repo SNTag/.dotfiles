@@ -6,6 +6,10 @@ function linkDotfile {
   dest="${HOME}/${1}"
   dateStr=$(date +%Y-%m-%d-%H%M)
 
+  echo "###<<<<<<<<<<<<<<<<<<<<<<<------------------------------------------"
+  echo "### installing ${1}"
+  echo "###<<<<<<<<<<<<<<<<<<<<<<<------------------------------------------"
+
   if [ -h ~/${1} ]; then
     # Existing symlink
     echo "Removing existing symlink: ${dest}"
@@ -28,3 +32,5 @@ function linkDotfile {
 
 #linkDotfile .zsh_TagOS
 linkDotfile .gitconfig
+linkDotfile .Rprofile
+linkDotfile .radian_profile
