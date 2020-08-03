@@ -29,13 +29,9 @@ The following has not been fully automated:
 
 - emacs: run '/scripts/setup-emacs-TagOS.sh'
 - bioinformatic software: run '/scripts/setup-bioinformatics-tools.sh'
-- zsh: run '/scripts/setup-zsh-TagOS.sh'
+- zsh: recommended to run '/scripts/setup-zsh-TagOS.sh'. Some modifications to '/scripts/setup-etc-TagOS.sh' would do the same job.
 - To setup architecture (rudimentary/common software, some fonts, tweaks) for either debian or arch based, run the appropiate file in '/architecture-handlers'
 - Programming languages are set up through scripts under '/programming-languages/
-
-## setup
-
-emacs is not an OS, but I do use it as an interface.
 
 
 Acknowledgments
