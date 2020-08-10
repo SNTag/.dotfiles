@@ -89,6 +89,7 @@ export JULIA_PKG_SERVER=pkg.julialang.org
 ###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
 ### R
 # alias avDataKeeping="cs $MYSTORAGE/my_journal/portfolio/playground/data-keeping/ ; Rscript ./data-keeping.R"
+alias r="radian"
 
 ###################################################################################################
 ### Architecture specific
@@ -207,6 +208,7 @@ alias genShinyApp="cp $MYSTORAGE/projects/templates/rmd/shiny-app/* ./"
 
 ## aliases
 alias mafo="make && folder"
+alias mafoe="make && folder && exit"
 
 
 ### pandoc-aliases

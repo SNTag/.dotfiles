@@ -60,10 +60,6 @@ pip3 install --user radian
 ### python3
 sudo apt install python3-pip -y
 sudo apt install python3-doc -y
-sudo apt install python3-virtualenv
-mkdir ~/.python-venv/
-virtualenv ~/.python-venv/common-enviroment
-activate ~/.python-venv/common-enviroment/bin/activate
 
 ### julia
 sudo apt install julia -y

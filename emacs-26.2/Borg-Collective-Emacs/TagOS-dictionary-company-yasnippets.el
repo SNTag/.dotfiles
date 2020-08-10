@@ -66,7 +66,7 @@
   (company-begin-commands '(self-insert-command))
   (company-require-match 'never)
   (company-global-modes '(not shell-mode eaf-mode))  ; Don't use company in the following modes
-  (company-idle-delay 0.5)    ; Trigger completion almost immediately.
+  (company-idle-delay 0.1)    ; Trigger completion almost immediately.
   (company-show-numbers t)    ; Number the candidates (use M-1, M-2 etc to select completions).
   :config
   (unless *clangd* (delete 'company-clang company-backends))

@@ -299,6 +299,16 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
   (interactive)
   (find-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-frame-control.el")
   )
+(defun edit/emacs-org-mode ()
+  "edits emacs org-mode config"
+  (interactive)
+  (find-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-org.el")
+  )
+(defun edit/personal-configs ()
+  "some personal configs for stuff outside the dotfiles"
+  (interactive)
+  (find-file "~/.emacs.d/custom/personal-configs.el")
+  )
 
 
 ;; ====================

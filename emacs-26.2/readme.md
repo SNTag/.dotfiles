@@ -12,7 +12,7 @@ mentioned in the code where relevant.
 emacs is not an OS, but I do use it as an interface.
 
 I aim to make a minimalist Emacs rich in functionality. It has to have quick fire access to those
-tools and documents I refer to often
+tools and documents I refer to often, and does not seek to replace basic functions available in linux.
 
 **Understanding my init**
 The Init file hold only tweaks for improving speed during loading and to direct it to the

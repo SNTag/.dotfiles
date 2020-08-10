@@ -65,6 +65,10 @@
   "R documentation to caret"
   (interactive)
   (browse-url "https://topepo.github.io/caret/index.html"))
+;; (defun docs/to-R-tidymodels () ;; ================== docs/to-R-tidymodels
+;;   "R tidymodels"
+;;   (interactive)
+;;   (browse-url ""))
 (defun docs/to-R-bookdown () ;; ==================== docs/to-R-bookdown
   "R documentation to writing R books"
   (interactive)

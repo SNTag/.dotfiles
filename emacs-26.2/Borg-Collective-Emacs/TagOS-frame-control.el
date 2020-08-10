@@ -96,6 +96,12 @@
          (slot . 1)
          (window-width . 0.33)
          (reusable-frames . 1))
+	("*ess-describe*" ;; ==============================
+         (display-buffer-reuse-window display-buffer-in-side-window)
+         (side . right)
+         (slot . 1)
+         (window-width . 0.33)
+         (reusable-frames . 1))
 	("*company-documentation" ;; =====
          (display-buffer-reuse-window display-buffer-in-side-window)
          (side . right)

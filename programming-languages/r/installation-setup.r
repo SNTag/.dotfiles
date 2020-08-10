@@ -21,9 +21,13 @@ install.packages(
         "pacman",
         "Hmisc",
         "forcats",
+        "readr",                    # handling csv
+
+        ## datasets
+        "palmerpenguins",           # good replacement for iris data
 
         ## Courses
-        "swirl",
+        "swirl", # number of courses make use of this
 
         ## greater depth
         "purrr",
@@ -34,12 +38,14 @@ install.packages(
         "Rmisc",
         "VIM",
         "shiny",
+        "corrr",
 
         ## plotting
         "highcharter",
         "plotly",
         "ggplot2",
         "cowplot",
+        "ggpubr",
 
         ## investing
         "tibbletime",
@@ -49,13 +55,15 @@ install.packages(
         "quantmod",
 
         ## machine learning
-        "caret",
-        "janitor",
-        "readr",
+        "caret",                    # machine learning framework
+        "mlr3",                     # machine learning framework
+        "janitor",                  # cleaning data
         "sjmisc",
         "skimr",
-        "tidyverse",
         "vtreat",
+        "tidymodels", # machine learning framework (caret 2.0)
+        "kknn",   # k-nearest neighbour regression package
+        "ranger", # linear regression package
 
         ## document creation
         "rticles"

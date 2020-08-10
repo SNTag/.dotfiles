@@ -29,6 +29,14 @@
 	 ("\C-c c" . org-capture)
 	 ("\C-c j" . gs-helm-org-link-to-contact))
   :config
+
+  ;; org-stylistic tweaks
+  (setq org-hide-leading-stars t)       ; disables stars before heading for all levels
+  (setq org-hide-emphasis-markers t)    ; For hiding markup elements.
+  (setq org-use-sub-superscripts '{})   ; prevents _ from always being read as subscript during org-export
+  (setq org-startup-indented t)         ; org document indentation
+  (setq org-adapt-indentation nil)	; see https://explog.in/notes/writingsetup.html
+ 
   ;; org-functions
 
   ;; ====================
@@ -135,12 +143,6 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   ;;                                                  (org-agenda-skip-if nil '(scheduled deadline))))
   ;;                   (org-agenda-overriding-header "ALL normal priority tasks:"))))
   ;;        ((org-agenda-compact-blocks t)))))
-
-  ;; org-stylistic tweaks
-  (setq org-hide-leading-stars t)       ; disables stars before heading for all levels
-  (setq org-hide-emphasis-markers t)    ; For hiding markup elements.
-  (setq org-use-sub-superscripts '{})   ; prevents _ from always being read as subscript during org-export
-  (setq org-startup-indented t)         ; org document indentation
 
   ;; org-babel settings
   (org-babel-do-load-languages
