@@ -284,6 +284,11 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
   (interactive)
   (find-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-quirks-and-twerks.el")
   )
+(defun edit/emacs-themes ()
+  "Opens the emacs themes files"
+  (interactive)
+  (find-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-themes.el")
+  )
 (defun edit/emacs-ess ()
   "Opens the emacs ess"
   (interactive)

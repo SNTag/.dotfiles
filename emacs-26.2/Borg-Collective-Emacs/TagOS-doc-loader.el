@@ -97,6 +97,11 @@
   "python3-documentation"
   (interactive)
   (browse-url "https://docs.python.org/3/index.html"))
+(defun docs/to-python-hitchikers-guide () ;; ======= docs/to-python-hitchikers-guide
+  "python3-documentation"
+  (interactive)
+  (browse-url "https://docs.python-guide.org/"))
+
 
 ;; ====================
 ;; emacs

@@ -130,7 +130,7 @@ If failed try to complete the common part with `company-complete-common'"
                 clojure-mode-hook
                 python-mode-hook
                 js-mode-hook
-                R-mode-hook))
+                ess-r-mode-hook))
   (add-hook mode
             '(lambda ()
                (flyspell-prog-mode))))
