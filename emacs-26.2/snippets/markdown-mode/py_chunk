@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: Py chunk
+# key: pyblk
+# group: Py chunk
+# commentator: SNTagore (SNTagore@protonmail.com)
+# --
+
+<<${1:}>>=
+$0
+
+@

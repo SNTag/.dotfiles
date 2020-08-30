@@ -5,6 +5,12 @@
 ## replace sdX* in the first line of code below with the drive number of interested.
 ## For example, I want to mount all partitions under sda. replace sdX* with sda*
 
+## guide:
+## 1. replace 'drivenum' with your drive partition details.
+## 2. replace username with your own.
+## 3. replace finalpath with the folder name you want to mount too on the desktop.
+
+
 # improvements to make:
 # - detect if drive already added in /etc/enviroment and /etc/fstab
 # - make first partition i="" instead of i="0" or i="1"
@@ -23,7 +29,7 @@ do
     finaldrivepath="/home/$username/$finalpath$i/"
     filetype="ext4"
     sudo echo "$devdrivepath    $drivepath    $filetype    defaults    0    0" >> /etc/fstab
-    sudo echo "MYDISK$i='$drivepath'">> /etc/enviroment
+    sudo echo "MYDISK$i='$drivepath'">> /etc/environment
 
     i=$((i+1))
 done < ~/UUID-list.txt

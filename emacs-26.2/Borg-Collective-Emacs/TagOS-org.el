@@ -21,7 +21,6 @@
   (add-hook 'org-mode-hook 'org-indent-mode)
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'text-mode-hook 'turn-off-auto-fill)
-;;  (setq org-agenda-files '("D:/Dropbox/agenda/"))
   :diminish visual-line-mode
   :diminish org-indent-mode
   :defer t
@@ -36,7 +35,7 @@
   (setq org-use-sub-superscripts '{})   ; prevents _ from always being read as subscript during org-export
   (setq org-startup-indented t)         ; org document indentation
   (setq org-adapt-indentation nil)	; see https://explog.in/notes/writingsetup.html
- 
+
   ;; org-functions
 
   ;; ====================
@@ -156,13 +155,6 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 
 ;; ====================
-;; Org-mode tweaks
-
-;; (setq org-hide-emphasis-markers t)  ;; For hiding markup elements.
-;; (setq org-use-sub-superscripts '{})  ;; prevents _ from always being read as subscript during org-export
-
-
-;; ====================
 ;; org-mode export
 
 ;; markdown
@@ -191,6 +183,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
     (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
 
 (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
+
 
 ;; ====================
 ;; org-mode link copy
@@ -328,3 +321,16 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   ;; Initialize
   (anki-editor-reset-cloze-number)
   )
+
+
+;; ====================
+;; ical-export
+;;
+;; aim is for automated ics export for multiple files. code in
+;; personal-configs for development
+;;
+;; enabling exports to ical
+;; https://www.reddit.com/r/emacs/comments/e03ar7/using_org_export_functionality_programmatically/
+;;
+;; extra info (not included below)
+;; https://emacs.stackexchange.com/questions/14893/org-mode-integration-with-google-calendar

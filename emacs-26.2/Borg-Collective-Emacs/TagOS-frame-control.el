@@ -34,6 +34,14 @@
          (slot . -1)
          (window-width . 0.33)
          (reusable-frames . nil))
+  	("*Python" ;; =========================
+         (display-buffer-reuse-window display-buffer-in-side-window)
+		 (side . right)
+         (slot . -1)
+         (window-width . 0.33)
+										;	     (width . 0.33)
+										;        (window-width . 0.35)
+         (reusable-frames . nil))
 	("*R" ;; =========================
          (display-buffer-reuse-window display-buffer-in-side-window)
 		 (side . right)
@@ -103,6 +111,12 @@
          (window-width . 0.33)
          (reusable-frames . 1))
 	("*company-documentation" ;; =====
+         (display-buffer-reuse-window display-buffer-in-side-window)
+         (side . right)
+         (slot . 1)
+         (window-width . 0.33)
+         (reusable-frames . nil))
+	("*Python Doc*" ;; =====
          (display-buffer-reuse-window display-buffer-in-side-window)
          (side . right)
          (slot . 1)

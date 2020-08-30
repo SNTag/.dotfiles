@@ -17,7 +17,7 @@
 (load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-ein.el")
 
 ;; elpy-python
-(load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-python-elpy.el")
+;(load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-python-elpy.el")
 
 ;; bash
 (load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-bash.el")
@@ -28,8 +28,11 @@
 ;; julia
 (load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-julia.el")
 
-;; elpy-python
+;; markdown
 (load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-markdown.el")
+
+;; polymode
+(load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-polymode.el")
 
 ;; org-mode
 (load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-org.el")

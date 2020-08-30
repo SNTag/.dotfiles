@@ -39,6 +39,8 @@ pip-3 install --user radian
 sudo apt install python3-pip -y
 sudo apt install python3-doc -y
 sudo apt install python3-virtualenv
+sudo apt install python3-crontab
+sudo apt install python3-pyenv
 mkdir ~/.python-venv/
 virtualenv ~/.python-venv/common-enviroment
 activate ~/.python-venv/common-enviroment/bin/activate

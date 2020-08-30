@@ -90,6 +90,9 @@ sudo apt install gparted
 ### terminal ricing
 sudo apt install neofetch -y
 
+### dropbox
+sudo apt install nautilus-dropbox
+
 sudo apt install autoconf -y
 sudo apt install automake -y
 sudo apt install g++ -y

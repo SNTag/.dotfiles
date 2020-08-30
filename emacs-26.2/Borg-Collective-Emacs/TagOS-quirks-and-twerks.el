@@ -557,7 +557,7 @@ e.g. Sunday, September 17, 2000."
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; extras
-(use-package ido)  ; Forgot what it does
+;(use-package ido)  ; Forgot what it does
 (use-package auto-complete)  ; Forgot what it does
 (use-package helpful)
 

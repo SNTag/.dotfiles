@@ -134,6 +134,7 @@ alias cep="emacsclient -nc"
 ### general functions
 ## For updating Org-monthly agenda details.
 alias updateOrgMonthly="bash $MYSTORAGE/my_journal/linux-customization/scripts/org-monthly_auto.sh"
+alias updateIcal="bash $MYSTORAGE/projects/calendar-app/clean-ics.sh"
 
 
 ###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
@@ -154,14 +155,28 @@ termCount() {
 ## where $1 : message
 ## where $2 : message title
 mA() {
-    notify-send "${2}" "${1}" --icon=dialog-information
+   notify-send "${2}" "${1}" --icon=dialog-information
 }
 ## not sharing .Renviron due to its sensitive nature.
 source ~/.Renviron
+
 ## mySlackAlert
 mSA() {
     curl -X POST -H 'Content-type: application/json' --data "{'text':'${1}'}" https://hooks.slack.com/services/"${2}"
 }
+
+###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
+### directory managment
+## these functions are used to rapidly change file-names as needed.
+## https://stackoverflow.com/questions/2709458/how-to-replace-spaces-in-file-names-using-a-bash-script
+
+removeWhiteSpace() {
+     mv "$1" "${1// /_}"
+ }
+
+removeUnderScores() {
+     mv "$1" "${1//_/ }"
+ }
 
 ###################################################################################################
 ### location-aliases

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: chunks
+# name: R chunk
 # key: rblk
 # group: Rmd chunk
 # commentator: SNTagore (SNTagore@protonmail.com)

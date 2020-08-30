@@ -165,31 +165,3 @@
 
 ;; (message "Loaded ESS configuration")
 
-;; ====================
-;; Rmarkdown
-;;
-;; inspired by:
-;; https://stackoverflow.com/questions/16172345/how-can-i-use-emacs-ess-mode-with-r-markdown#16176115
-
-;; (use-package poly-R)
-;; (use-package poly-markdown)
-
-;; (defun rmd-mode ()
-;;   "ESS Markdown mode for rmd files"
-;;   (interactive)
-;;   ;; (setq load-path
-;;   ;;   (append (list "path/to/polymode/" "path/to/polymode/modes/")
-;;   ;;       load-path))
-;;   (require 'poly-R)
-;;   (require 'poly-markdown)
-;;   (poly-markdown+r-mode))
-
-;; (setq load-path
-;;       (append '("/home/sntag/.polymode/polymode/polymode/"  "/home/sntag/.polymode/polmode/poly-markdown/")
-;;               load-path))
-
-(use-package polymode)
-(use-package poly-markdown)
-(use-package poly-R)
-(add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
-(add-to-list 'auto-mode-alist '("\\.Rnw" . poly-markdown+r-mode))
