@@ -289,10 +289,25 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
   (interactive)
   (find-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-themes.el")
   )
+(defun edit/emacs-python ()
+  "Opens the emacs python"
+  (interactive)
+  (find-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-python-elpy.el")
+  )
 (defun edit/emacs-ess ()
   "Opens the emacs ess"
   (interactive)
   (find-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-ess.el")
+  )
+(defun edit/emacs-polymode ()
+  "Opens the emacs polymode"
+  (interactive)
+  (find-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-polymode.el")
+  )
+(defun edit/emacs-frontend ()
+  "Opens the emacs frontend"
+  (interactive)
+  (find-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-helm.el")
   )
 (defun edit/emacs-doc-loader ()
   "Opens the emacs doc-loader"

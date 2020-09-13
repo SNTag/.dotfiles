@@ -157,13 +157,18 @@ termCount() {
 mA() {
    notify-send "${2}" "${1}" --icon=dialog-information
 }
+
+alias quickAlarm="mA 'done' 'done'"
+
 ## not sharing .Renviron due to its sensitive nature.
-source ~/.Renviron
+source ~/.Pyenviron
 
 ## mySlackAlert
 mSA() {
     curl -X POST -H 'Content-type: application/json' --data "{'text':'${1}'}" https://hooks.slack.com/services/"${2}"
 }
+
+quickSA="mSA 'notify' $sl_wk"
 
 ###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
 ### directory managment

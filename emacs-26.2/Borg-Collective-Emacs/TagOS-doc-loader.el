@@ -93,7 +93,7 @@
 
 ;; ====================
 ;; python3
-(defun docs/to-python-docs () ;; =================== docs/to-python-docs
+(defun docs/to-python-documentation () ;; ========== docs/to-python-documentation
   "python3-documentation"
   (interactive)
   (browse-url "https://docs.python.org/3/index.html"))
@@ -101,6 +101,10 @@
   "python3-documentation"
   (interactive)
   (browse-url "https://docs.python-guide.org/"))
+(defun docs/to-python-pypi-package-index () ;; ===== docs/to-python-pypi-package-index
+  "python3-documentation"
+  (interactive)
+  (browse-url "https://pypi.org/"))
 
 
 ;; ====================

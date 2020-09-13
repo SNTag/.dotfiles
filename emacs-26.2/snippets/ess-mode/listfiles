@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# author : SNTag (SNTagore@protonmail.com)
+# name: list files
+# key: listfiles
+# group : quick code
+# --
+
+files <- list.files(pattern = "\\\\.txt$")
+$0

@@ -39,13 +39,12 @@ This config is built around my use of:
 Where possible, I have added notations describing that system.
 
 
-## Why I don't use a literate emacs file (yet)
+## Why I don't use a literate emacs file
 Literate emacs seems like a great way to make configs accessible to others. There are many literate
 files that I have used as inspiration for this config, but I cannot bring myself to adopt it. I've
-become entrenched in a system where in-built commands enable editing of specific modes. ex,
-'edit/emacs-ess' enables editing of my ess mode. It's helpful to not fall into the pit of endless
-improvements. The literative approach is great for building a well-rounded system, but the
-temptation is too high to get lost in the larger picture instead of getting things done.
+become entrenched in a system where in-built commands help edit specific components of my config on
+the fly. ex, 'edit/emacs-ess' enables editing of my ess mode. It's helpful to not fall into the pit
+of endless improvements by focusing only on what I need at the moment.
 
 
 # Outline
@@ -64,6 +63,14 @@ default programs. ex, my links to various documents. It's not a complete list, b
 links in the format of 'docs/to-X' which will open the default online documentation in your default
 web browser. For example, I need help with org (docs/to-org-manual) or ess (docs/to-R-ess). I type
 the relevant command, and it will open in firefox.
+
+### in-built commands
+I have a series of in-built commands to help navigate my configs. I have organized the commands into 'families':
+
+"edit/*" - opens various emacs configs. for example, I need to edit the python system; 'edit/emacs-python'
+"docs/*" - handy links to the documentations I use most often.
+"my/"    - special and very small family. mostly used to direct emacs itself to do things.
+"open/*" - hard-links to files i use. poor approach, but it works. mostly kept in personal-configs
 
 ## Installation
 In the home directory for this git repo, there is a file 'setup-emacs-TagOS.sh'. It was written for

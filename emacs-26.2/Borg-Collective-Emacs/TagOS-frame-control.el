@@ -42,6 +42,14 @@
 										;	     (width . 0.33)
 										;        (window-width . 0.35)
          (reusable-frames . nil))
+	;; ("*Org Src " ;; =========================
+    ;;      (display-buffer-reuse-window display-buffer-in-side-window)
+	;; 	 (side . right)
+    ;;      (slot . 1)
+    ;;      (window-width . 0.33)
+	;; 									;	     (width . 0.33)
+	;; 									;        (window-width . 0.35)
+    ;;      (reusable-frames . nil))
 	("*R" ;; =========================
          (display-buffer-reuse-window display-buffer-in-side-window)
 		 (side . right)
@@ -132,6 +140,12 @@
          (display-buffer-reuse-window display-buffer-in-side-window)
          (side . right)
          (slot . -1)
+         (window-width . 0.33)
+         (reusable-frames . nil))
+	("*Warnings*" ;; ===================
+         (display-buffer-reuse-window display-buffer-in-side-window)
+         (side . right)
+         (slot . 1)
          (window-width . 0.33)
          (reusable-frames . nil))
 	("*.tex" ;; ===================

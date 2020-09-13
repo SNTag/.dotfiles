@@ -8,4 +8,5 @@
 \`\`\`{R self_running, eval=FALSE, include = FALSE}
 knitr::purl("./${1:something}.Rmd")
 source("./$1.R")
+
 \`\`\`

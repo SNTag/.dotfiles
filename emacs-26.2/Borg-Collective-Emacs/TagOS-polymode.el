@@ -50,7 +50,7 @@
 (defcustom pm-inner/noweb-python
   (clone pm-inner/noweb
          :name "noweb-python"
-         :mode 'elpy-mode)
+         :mode 'python-mode)
   "Noweb for Python"
   :group 'poly-innermodes
   :type 'object)
@@ -60,3 +60,15 @@
 
 (add-to-list 'auto-mode-alist '("\\.pymd" . poly-pweave-mode))
 (add-to-list 'auto-mode-alist '("\\.pmd" . poly-pweave-mode))
+
+
+
+      (defun python-shell-send-chunk ()
+        "Send chunk under cursor via Python `comint' REPL.
+See `pm-eval-from-here' and `python-shell-send-region'"
+        (interactive)
+        (let ((span (pm-get-innermost-span nil t)))
+          (when (eq (nth 0 span) 'body)
+            (python-shell-send-region-echo
+             (1+ (nth 1 span)) (1- (nth 2 span))))
+          ))

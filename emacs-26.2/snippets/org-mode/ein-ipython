@@ -1,8 +1,9 @@
 # -*- mode: snippet -*-
 # name: ein ipython
 # key: einpy_
-# group: programming
+# group: blocks
 # --
 #+BEGIN_SRC ${1:ein-python} :session ${2:localhost} :tangle ${3:yes} :results ${4:drawer}
 $0
+
 #+END_SRC

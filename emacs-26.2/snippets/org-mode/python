@@ -1,8 +1,9 @@
 # -*- mode: snippet -*-
-# name: python
-# key: py_
-# group: programming
+# name: python blk
+# key: pblk
+# group: blocks
 # --
 #+BEGIN_SRC python :session ${1:none} :results ${2:output} :tangle ${3:yes} :comments ${4:no}
 $0
+
 #+END_SRC

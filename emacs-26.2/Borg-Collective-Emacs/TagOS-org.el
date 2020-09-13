@@ -35,6 +35,7 @@
   (setq org-use-sub-superscripts '{})   ; prevents _ from always being read as subscript during org-export
   (setq org-startup-indented t)         ; org document indentation
   (setq org-adapt-indentation nil)	; see https://explog.in/notes/writingsetup.html
+  (setq org-src-window-setup 'split-window-right)
 
   ;; org-functions
 

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: babel tangle
+# key: tg
+# group: babel
+# --
+:tangle ./${1:random.txt}

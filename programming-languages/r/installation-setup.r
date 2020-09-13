@@ -90,3 +90,7 @@ install.packages(c("knitr"
 ## For themes
 devtools::install_github('cttobin/ggthemr')
 devtools::install_github('bbc/bbplot')
+
+
+## For scheduling
+pacman::p_load_gh("bnosac/cronR")
