@@ -73,6 +73,8 @@
   ;;   )
   )
 
+(use-package ess-view-data)
+
 (setenv "R_PROFILE_USER" "~/.Rprofile")
 
 ;; ;; ====================
@@ -164,4 +166,3 @@
 
 
 ;; (message "Loaded ESS configuration")
-

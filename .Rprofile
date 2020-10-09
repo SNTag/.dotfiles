@@ -22,7 +22,7 @@ mA <- function() {system("notify-send 'R notification' 'R has completed a task' 
 #' the key was made as described here:
 #' https://api.slack.com/messaging/webhooks
 #' key is made available through .Renviron
-mSA <- function(msg = "an ess notification upon script completion", key = "sl.wk") {
+mSA <- function(msg = "an R notification", key = "sl_wk") {
     key <- Sys.getenv(key)
     system(paste("curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"", msg, "\"}' https://hooks.slack.com/services/", key, sep = "" ))
     print("")

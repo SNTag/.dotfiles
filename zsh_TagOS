@@ -158,7 +158,7 @@ mA() {
    notify-send "${2}" "${1}" --icon=dialog-information
 }
 
-alias quickAlarm="mA 'done' 'done'"
+alias qA="mA 'done' 'done'"
 
 ## not sharing .Renviron due to its sensitive nature.
 source ~/.Pyenviron
