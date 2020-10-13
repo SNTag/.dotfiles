@@ -8,7 +8,7 @@
 ---
 title: "${1:give the title here}"
 author: "${2:SNTag}"
-date: "\`r format(Sys.time(), '%d %B, %Y')\`"
+date: "\`r as.POSIXct(Sys.time(), format='%F')\`"
 layout: post
 categories:
 - ${3:blog}

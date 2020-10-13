@@ -5,8 +5,8 @@
 # It will most likely develop outdated components.
 
 sudo apt update
-sudo apt upgrade
-sudo apt install git
+sudo apt upgrade -y
+sudo apt install git -y
 
 ### programming languages
 # ### latex
@@ -17,42 +17,43 @@ sudo apt install git
 ## with-x=no, may need fix for various setting failures. see here 	https://stackoverflow.com/questions/54102869/during-startup-warning-message-setting-lc-ctype-failed-on-windows
 sudo apt install libcurl4-openssl-dev libssl-dev -y
 pkgver=3.6.3
-wget "https://cran.r-project.org/src/base/R-${pkgver%%.*}/R-${pkgver}.tar.gz" -P ~/Documents
-cd ~/Documents
-tar -xzf R-${pkgver}.tar.gz
-cd ./R-${pkgver}
-./configure \
-    --prefix=/opt/R/${pkgver} \
-    --enable-memory-profiling \
-    --enable-R-shlib \
-    --with-blas \
-    --with-lapack \
-    --with-x=no
-make
-sudo make install
-sudo ln -s /opt/R/${pkgver}/bin/R /usr/local/bin/R
-sudo ln -s /opt/R/${pkgver}/bin/Rscript /usr/local/bin/Rscript
-
-pip-3 install --user radian
+if [[ ! -f /usr/local/bin/Rscript ]]; then
+    echo "============== setting up R"
+    wget -N "https://cran.r-project.org/src/base/R-${pkgver%%.*}/R-${pkgver}.tar.gz" -P ~/Documents
+    cd ~/Documents
+    tar -xzf R-${pkgver}.tar.gz
+    cd ./R-${pkgver}
+    ./configure \
+        --prefix=/opt/R/${pkgver} \
+        --enable-memory-profiling \
+        --enable-R-shlib \
+        --with-blas \
+        --with-lapack \
+        --with-x=no
+    make
+    sudo make install
+    sudo ln -s /opt/R/${pkgver}/bin/R /usr/local/bin/R
+    sudo ln -s /opt/R/${pkgver}/bin/Rscript /usr/local/bin/Rscript
+fi
+Rscript ~/.dotfiles/programming-languages/r/installation-setup.r -y
 
 ### python3
 sudo apt install python3-pip -y
 sudo apt install python3-doc -y
-sudo apt install python3-virtualenv
-sudo apt install python3-crontab
-sudo apt install python3-pyenv
+sudo apt install python3-virtualenv -y
+sudo apt install python3-crontab -y
+sudo apt install python3-pyenv -y
 mkdir ~/.python-venv/
 virtualenv ~/.python-venv/common-enviroment
 activate ~/.python-venv/common-enviroment/bin/activate
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
 
 # ### julia
 # sudo apt install julia -y
 # sudo apt install julia-doc -y
 
-### R
-sudo apt install libcurl4-openssl-dev libssl-dev -y  # pre-requisites
-sudo apt -y install r-base -y 		       # installs R itself
-Rscript ~/.dotfiles/programming-languages/r/installation-setup.r -y
+### radian
+pip-3 install --user radian
 
 ### for some network mapping features
 sudo apt install nmap -y
@@ -76,6 +77,9 @@ sudo apt install emacs -y
 ### terminal ricing
 sudo apt install neofetch -y
 
+### picard musicbrainz
+sudo apt install picard
+
 ### setting up folders
 mkdir ~/Documents
 mkdir ~/Downloads
@@ -88,8 +92,8 @@ curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
 echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
 
 # Update and install syncthing:
-sudo apt-get update
-sudo apt-get install syncthing
+sudo apt update
+sudo apt install syncthing -y
 #nano /home/pi/.config/syncthing/config.xml
 
 ### crontab handler

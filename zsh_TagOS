@@ -168,7 +168,7 @@ mSA() {
     curl -X POST -H 'Content-type: application/json' --data "{'text':'${1}'}" https://hooks.slack.com/services/"${2}"
 }
 
-quickSA="mSA 'notify' $sl_wk"
+alias quickSA="mSA 'notify' $sl_wk"
 
 ###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------
 ### directory managment

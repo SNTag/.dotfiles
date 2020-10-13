@@ -34,29 +34,30 @@ yay -S pandoc
 ## inspired by the aur package for R:
 ## https://git.archlinux.org/svntogit/packages.git/tree/trunk/PKGBUILD?h=packages/r
 pkgver=3.6.3
-wget "https://cran.r-project.org/src/base/R-${pkgver%%.*}/R-${pkgver}.tar.gz" -P ~/Documents
-cd ~/Documents
-tar -xzf R-${pkgver}.tar.gz
-cd ./R-${pkgver}
-./configure  --prefix=/usr \
-             --libdir=/usr/lib \
-             --sysconfdir=/etc/R \
-             --datarootdir=/usr/share \
-             rsharedir=/usr/share/R/ \
-             rincludedir=/usr/include/R/ \
-             rdocdir=/usr/share/doc/R/ \
-             --with-x \
-             --enable-R-shlib \
-             --with-lapack \
-             --with-blas \
-             F77=gfortran \
-             LIBnn=lib
-make
-sudo make install
+if [[ ! -f /usr/local/bin/Rscript ]]; then
+    echo "============== setting up R"
+    wget -N "https://cran.r-project.org/src/base/R-${pkgver%%.*}/R-${pkgver}.tar.gz" -P ~/Documents
+    cd ~/Documents
+    tar -xzf R-${pkgver}.tar.gz
+    cd ./R-${pkgver}
+    ./configure  --prefix=/usr \
+                 --libdir=/usr/lib \
+                 --sysconfdir=/etc/R \
+                 --datarootdir=/usr/share \
+                 rsharedir=/usr/share/R/ \
+                 rincludedir=/usr/include/R/ \
+                 rdocdir=/usr/share/doc/R/ \
+                 --with-x \
+                 --enable-R-shlib \
+                 --with-lapack \
+                 --with-blas \
+                 F77=gfortran \
+                 LIBnn=lib
+    make
+    sudo make install
+fi
 
 yay -S tk 			# Needed for interactive package installation
-
-pip-3 install --user radian
 
 ### python3
 yay -S python
@@ -70,6 +71,9 @@ activate ~/.python-venv/common-enviroment/bin/activate
 yay -S julia			# seems safe to remove blas for openblas
 yay -S gnuplots               # ??? what is this for again ???
 yay -S julia-docs
+
+### radian
+pip-3 install --user radian
 
 ### for some network mapping features
 yay -S nmap
@@ -95,6 +99,9 @@ yay -S gparted-git
 
 ### terminal ricing
 yay -S neofetch-git
+
+### picard musicbrainz
+yay -S picard-git
 
 ### redshift
 yay -S redshit-gtk-git

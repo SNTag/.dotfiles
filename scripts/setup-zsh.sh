@@ -17,7 +17,7 @@ else
     echo "###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------"
 
     ## Code if not found
-    sudo apt install zsh
+    sudo apt install zsh -y
     ## taken from:
     ## https://stackoverflow.com/questions/13648780/run-a-shell-script-in-new-terminal-from-current-terminal
     if [ ! -t 0 ]; then # script is executed outside the terminal?
@@ -30,9 +30,6 @@ else
     echo "###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------"
     echo "### copying zsh_TagOS"
     echo "###<<<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------------------------------"
-    if [ ! -f ~/.zsh_TagOS ]; then
-        ln -s ${DIR}/zsh_TagOS $dest/.zsh_TagOS
-    fi
 
     [ -f ~/.zsh_TagOS ] && echo existsTagOS
     echo "source ~/.zsh_TagOS" >> ~/.zshrc

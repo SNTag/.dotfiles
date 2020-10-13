@@ -12,14 +12,14 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 ### improved power managment
 sudo add-apt-repository ppa:linrunner/tlp
-sudo apt-get updatesudo apt-get install tlp tlp-rdwsudo tlp start
+sudo apt-get updatesudo apt-get install tlp tlp-rdwsudo tlp start -y
 
 ### install all media codecs
-sudo apt-get install ubuntu-restricted-extras -y
+sudo apt install ubuntu-restricted-extras -y
 
 ### gnome tools
 sudo add-apt-repository universe
-sudo apt install gnome-tweak-tool
+sudo apt install gnome-tweak-tool -y
 
 ### programming languages
 ### latex
@@ -32,25 +32,24 @@ sudo apt install libcurl4-openssl-dev libssl-dev -y  # pre-requisites
 ## inspiredfrom here:
 ## https://docs.rstudio.com/resources/install-r-source/
 pkgver=3.6.3
-wget "https://cran.r-project.org/src/base/R-${pkgver%%.*}/R-${pkgver}.tar.gz" -P ~/Documents
-cd ~/Documents
-tar -xzf R-${pkgver}.tar.gz
-cd ./R-${pkgver}
-./configure \
-    --prefix=/opt/R/${pkgver} \
-    --enable-memory-profiling \
-    --enable-R-shlib \
-    --with-blas \
-    --with-lapack
-make
-sudo make install
-sudo ln -s /opt/R/${pkgver}/bin/R /usr/local/bin/R
-sudo ln -s /opt/R/${pkgver}/bin/Rscript /usr/local/bin/Rscript
-
-# sudo apt -y install r-base -y 		       # installs R itself
+if [[ ! -f /usr/local/bin/Rscript ]]; then
+    echo "============== setting up R"
+    wget -N "https://cran.r-project.org/src/base/R-${pkgver%%.*}/R-${pkgver}.tar.gz" -P ~/Documents
+    cd ~/Documents
+    tar -xzf R-${pkgver}.tar.gz
+    cd ./R-${pkgver}
+    ./configure \
+        --prefix=/opt/R/${pkgver} \
+        --enable-memory-profiling \
+        --enable-R-shlib \
+        --with-blas \
+        --with-lapack
+    make
+    sudo make install
+    sudo ln -s /opt/R/${pkgver}/bin/R /usr/local/bin/R
+    sudo ln -s /opt/R/${pkgver}/bin/Rscript /usr/local/bin/Rscript
+fi
 Rscript ~/.dotfiles/programming-languages/r/installation-setup.r -y
-
-pip3 install --user radian
 
 ## Rstudio
 ## see this site for the link:
@@ -60,10 +59,20 @@ pip3 install --user radian
 ### python3
 sudo apt install python3-pip -y
 sudo apt install python3-doc -y
+sudo apt install python3-virtualenv -y
+sudo apt install python3-crontab -y
+sudo apt install python3-pyenv -y
+mkdir ~/.python-venv/
+virtualenv ~/.python-venv/common-enviroment
+activate ~/.python-venv/common-enviroment/bin/activate
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
 
 ### julia
 sudo apt install julia -y
 sudo apt install julia-doc -y
+
+### radian
+pip-3 install --user radian
 
 ### for some network mapping features
 sudo apt install nmap -y
@@ -72,9 +81,6 @@ sudo apt install nmap -y
 sudo apt install pandoc -y
 sudo apt install pandoc-citeproc -y
 #### MISSING CROSSREF?!
-
-### emacs
-sudo apt install emacs -y
 
 ### photo editing
 sudo apt install darktable -y
@@ -85,13 +91,16 @@ sudo apt install wine -y
 sudo apt install mono-complete -y
 
 ### disk managment
-sudo apt install gparted
+sudo apt install gparted -y
 
 ### terminal ricing
 sudo apt install neofetch -y
 
+### picard musicbrainz
+sudo apt install picard
+
 ### dropbox
-sudo apt install nautilus-dropbox
+sudo apt install nautilus-dropbox -y
 
 sudo apt install autoconf -y
 sudo apt install automake -y
@@ -126,8 +135,8 @@ sudo apt install syncthing -y
 unzip ../fonts/* -d ~/.local/share/fonts/
 
 ### pibakery
-sudo apt-get install kpartx
-sudo apt install npm
+sudo apt install kpartx -y
+sudo apt install npm -y
 
 git clone https://github.com/davidferguson/pibakery.git ~/bin/pibakery
 cd ~/bin/pibakery
@@ -140,5 +149,5 @@ sudo systemctl enable fstrim.timer
 
 ### backups
 sudo apt-add-repository -y ppa:teejee2008/ppa
-sudo apt-get update
-sudo apt-get install timeshift
+sudo apt update
+sudo apt install timeshift -y

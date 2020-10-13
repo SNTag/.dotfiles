@@ -34,3 +34,7 @@ function linkDotfile {
 linkDotfile .gitconfig
 linkDotfile .Rprofile
 linkDotfile .radian_profile
+linkDotfile Picard.ini
+sudo mv picard.ini ${HOME}/.config/MusicBrainz
+linkDotfile abcde.conf
+sudo mv abcde.conf /etc/
