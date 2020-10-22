@@ -30,7 +30,7 @@ function linkDotfile {
   ln -s ${DIR}/${1} ${dest}
 }
 
-#linkDotfile .zsh_TagOS
+linkDotfile .zsh_TagOS
 linkDotfile .gitconfig
 linkDotfile .Rprofile
 linkDotfile .radian_profile
