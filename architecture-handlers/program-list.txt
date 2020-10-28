@@ -1,0 +1,11 @@
+git
+libcurl4-openssl-dev
+libssl-dev
+python3-pip
+python3-doc
+python3-virtualenv
+python3-crontab
+nmap
+emacs
+neofetch
+picard

@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: bash chunk
+# key: bblk
+# group: bash
+# commentator: SNTagore (SNTagore@protonmail.com)
+# --
+
+\`\`\`{bash${1:}}
+$0
+
+\`\`\`
