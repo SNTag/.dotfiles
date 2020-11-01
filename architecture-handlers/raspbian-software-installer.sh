@@ -25,10 +25,21 @@ function installer {
   fi
 }
 
-for i in $(cat ./program-list-pi.txt)
-do
-  installer $i
-done
+installer git			# needed
+installer libcurl4-openssl-dev	# installing R
+installer libssl-dev
+installer python3-pip		# installing python requirements
+installer python3-doc
+installer python3-virtualenv
+installer python3-crontab
+installer nmap			# networking
+installer emacs			# work-tool
+installer picard
+installer neofetch		# ricing
+installer pandoc		# pandoc
+installer pandoc-citeproc
+installer darktable		# photography
+installer rawtherapee
 
 ### programming languages
   # ### latex
@@ -96,22 +107,47 @@ sudo apt update
 installer syncthing -y
 #nano /home/pi/.config/syncthing/config.xml
 
-### program installer a number of program are installed with a simple
-## 'apt install' from the txt file program-list-debian.txt. Programs
-## requiring a more complicated installation are guided in the rest of
-## this script.
-function installer {
-  which $1 &> /dev/null
+### program installer
+## To make my life tougher (and potentially faster), this script below
+## handles installation of programs. To pass multiple arguments,
+## surrond them in quotations. Programs requiring a more complicated
+## installation are guided in the rest of this script.
 
-  if [ $? -ne 0 ]; then
-    echo "Installing: ${1}..."
-    sudo apt install -y $1
-  else
-    echo "Already installed: ${1}"
-  fi
+function installer {
+  my_array=($(echo $1 | tr " " "\n"))
+  for i in "${my_array[@]}"
+  do
+    echo "$i"
+    which $i &> /dev/null
+
+    if [ $? -ne 0 ]; then
+      echo "Installing: ${?}..."
+      sudo apt install -y $?
+    else
+      echo "Already installed: ${?}"
+    fi
+  done
 }
 
-for i in $(cat ./program-list-debian.txt)
-do
-  installer $i
-done
+installer git			# useful
+installer libcurl4-openssl-dev	# installing R
+installer libssl-dev
+installer ubuntu-restricted-extras # media codecs
+installer texlive-full		   # latex
+installer "python3-pip python3-doc python3-virtualenv python3-crontab" 		   # python requirements
+installer julia			# julia
+installer julia-doc
+installer nmap			# networking
+installer emacs			# work-tool
+installer picard
+installer nautilus-dropbox
+installer neofetch		# ricing
+installer pandoc		# pandoc
+installer pandoc-citeproc
+installer "darktable rawtherapee"		# photography
+installer gparted		# tooling
+installer popsicle		# SD card
+installer guake			# drop-down terminal
+installer "wine mono-complete"			# compatibility
+installer "autoconf automake g++ gcc libpng-dev libpoppler-dev libpoppler-glib-dev libpoppler-private-dev libz-dev make pkg-config" # fixing pdf-tools
+installer "build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git" # ensure compatibility to install pyenv
