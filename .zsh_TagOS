@@ -202,7 +202,7 @@ alias myNet="less $MYSTORAGE/net.txt"
 ## https://superuser.com/questions/872151/how-to-find-raspberry-pi-on-network
 ## arguments:
 ## -d for deluxe (finds only raspberry pi ip)
-alias raspPiFinder="bash $MYSTORAGE/projects/scripts/raspPiInteraction/raspPiFinder.sh"
+alias raspPiFinder="bash ~/.dotfiles/scripts/raspPiFinder.sh"
 alias temp='sudo /opt/vc/bin/vcgencmd measure_temp'
 alias clock='vcgencmd measure_clock arm'
 alias volt='vcgencmd measure_volts'
