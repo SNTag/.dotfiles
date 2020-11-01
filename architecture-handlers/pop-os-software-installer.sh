@@ -7,6 +7,45 @@
 sudo apt update
 sudo apt upgrade
 
+function installer {
+  my_array=($(echo $1 | tr " " "\n"))
+  for i in "${my_array[@]}"
+  do
+    echo "$i"
+    which $i &> /dev/null
+
+    if [ $? -ne 0 ]; then
+      echo "Installing: ${?}..."
+      sudo apt install -y $?
+    else
+      echo "Already installed: ${?}"
+    fi
+  done
+}
+
+installer git                 # useful
+installer libcurl4-openssl-dev        # installing R
+installer libssl-dev
+installer ubuntu-restricted-extras # media codecs
+installer texlive-full                   # latex
+installer "python3-pip python3-doc python3-virtualenv python3-crontab"                   # python requirements
+installer julia                       # julia
+installer julia-doc
+installer nmap                        # networking
+installer emacs                       # work-tool
+installer picard
+installer nautilus-dropbox
+installer neofetch            # ricing
+installer pandoc              # pandoc
+installer pandoc-citeproc
+installer "darktable rawtherapee"             # photography
+installer gparted             # tooling
+installer popsicle            # SD card
+installer guake                       # drop-down terminal
+installer "wine mono-complete"                        # compatibility
+installer "autoconf automake g++ gcc libpng-dev libpoppler-dev libpoppler-glib-dev libpoppler-private-dev libz-dev make pkg-config" # fixing pdf-tools
+installer "build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-op"
+
 # ### zsh
 # sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
