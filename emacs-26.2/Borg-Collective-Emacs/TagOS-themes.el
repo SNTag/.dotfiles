@@ -6,9 +6,9 @@
 ;; ====================
 ;; Ensuring themes, icons are available
 
-(use-package leuven-theme)
 (use-package doom-themes)
 (use-package all-the-icons)
+(use-package leuven-theme)
 
 
 ;; ====================

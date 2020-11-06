@@ -277,7 +277,7 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
   "Opens init and borg hive mind for edits"
   (interactive)
   (find-file "~/.emacs.d/init.el")
-  (find-file "~/.emacs.d/Borg-Collective-Emacs/Hive-Mind-Main.el")
+  (find-file "~/.emacs.d/Borg-Collective-Emacs/Hive-Mind.el")
   )
 (defun edit/emacs-quirks ()
   "Opens the emacs quirks files"

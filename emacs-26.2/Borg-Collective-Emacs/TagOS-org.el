@@ -36,6 +36,8 @@
   (setq org-startup-indented t)         ; org document indentation
   (setq org-adapt-indentation nil)	; see https://explog.in/notes/writingsetup.html
   (setq org-src-window-setup 'split-window-right)
+  (setq org-startup-folded t)		; startup folded
+  (setq org-adapt-indentation nil)	; indent text along with heading. https://orgmode.org/manual/Clean-View.html
 
   ;; org-functions
 

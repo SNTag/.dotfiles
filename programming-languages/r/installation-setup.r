@@ -22,6 +22,7 @@ install.packages(
         "Hmisc",
         "forcats",
         "readr",                    # handling csv
+        "pins",                     # handy when working with online data
 
         ## datasets
         "palmerpenguins",           # good replacement for iris data

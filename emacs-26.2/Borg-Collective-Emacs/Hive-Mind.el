@@ -43,8 +43,8 @@
 ;; ;; org-babel
 ;; (load-file "~/.dotfiles/emacs-26.2/Borg-Collective/TagOS-literative-programming.el")
 
-;; ;; magit
-;; (load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-magit.el")
+;; magit
+(load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-magit.el")
 
 ;; latex
 (load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-latex.el")
