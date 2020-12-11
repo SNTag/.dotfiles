@@ -13,6 +13,7 @@ sudo apt install -y libxpm-dev
 sudo apt install -y libgiftiio-dev
 sudo apt install -y libgif-dev
 sudo apt install -y libncurses-dev
+sudo apt install -y libgnutls28-dev
 ./configure
 make
 make install

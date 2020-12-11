@@ -28,8 +28,8 @@ do
     devdrivepath="/dev/$drivenum$i"
     finaldrivepath="/home/$username/$finalpath$i/"
     filetype="ext4"
-    sudo echo "$devdrivepath    $drivepath    $filetype    defaults    0    0" >> /etc/fstab
-    sudo echo "MYDISK$i='$drivepath'">> /etc/environment
+    sudo echo "$devdrivepath    $drivepath    $filetype    defaults    0    0" |sudo tee -a /etc/fstab
+    sudo echo "MYDISK$i='$drivepath'" | sudo tee -a /etc/environment
 
     i=$((i+1))
 done < ~/UUID-list.txt
