@@ -44,7 +44,14 @@
 ;; (load-file "~/.dotfiles/emacs-26.2/Borg-Collective/TagOS-literative-programming.el")
 
 ;; magit
-(load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-magit.el")
+;;
+;; When i run emacs on windows, it is without admin privilege. This
+;; causes problems with git, so just diabling magit on windows.
+;; inspired by:
+;; https://blog.ramdoot.in/emacs-how-to-share-the-same-init-file-between-linux-and-windows-10d6fbd441c0
+;(load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-magit.el")
+(if (eq system-type 'gnu/linux)
+    (load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-magit.el"))
 
 ;; latex
 (load-file "~/.emacs.d/Borg-Collective-Emacs/TagOS-latex.el")
