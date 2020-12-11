@@ -8,7 +8,9 @@
 
 (use-package doom-themes)
 (use-package all-the-icons)
-(use-package leuven-theme)
+(use-package leuven-theme
+  :config
+  (load-theme 'leuven t))
 
 
 ;; ====================
