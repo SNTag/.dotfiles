@@ -8,6 +8,7 @@ sudo apt upgrade
 # useful
 sudo apt install -y libcurl4-openssl-dev                                       # installing R
 sudo apt install -y libssl-dev
+sudo apt install -y vlc                                                        # media-player
 sudo apt install -y ubuntu-restricted-extras                                   # media codecs
 sudo apt install -y texlive-full                                               # latex
 sudo apt install -y python3-pip python3-doc python3-virtualenv python3-crontab # python requirements
@@ -21,13 +22,15 @@ sudo apt install -y nautilus-dropbox
 sudo apt install -y neofetch zsh                                               # ricing
 sudo apt install -y pandoc                                                     # pandoc
 sudo apt install -y pandoc-citeproc
-sudo apt install -y darktable rawtherapee                                      # photography
+sudo apt install -y darktable rawtherapee inkscape gimp                        # photography
+sudo apt install -y npm			                                 # static site programming
+sudo apt install -y akregator korganizer                                       # kde tool suit
 sudo apt install -y gparted                                                    # tooling
 sudo apt install -y popsicle                                                   # SD card
 sudo apt install -y guake                                                      # drop-down terminal
 sudo apt install -y wine mono-complete                                         # compatibility
 sudo add-apt-repository universe                                               # gnome tools
-sudo apt install -y gnome-tweak-tool
+sudo apt install -y gnome-tweak-tool flameshot
 sudo apt install -y libnotify-bin                                              # notifications
 sudo apt install -y autoconf automake g++ gcc libpng-dev libpoppler-dev libpoppler-glib-dev libpoppler-private-dev libz-dev make pkg-config # fixing pdf-tools
 sudo apt install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git # ensure compatibility to install pyenv
@@ -81,6 +84,7 @@ sudo apt install -y neofetch		# ricing
 sudo apt install -y pandoc		# pandoc
 sudo apt install -y pandoc-citeproc
 sudo apt install -y darktable rawtherapee		# photography
+sudo apt install -y htop		# extras
 sudo apt install -y gparted		# tooling
 sudo apt install -y popsicle		# SD card
 sudo apt install -y guake			# drop-down terminal

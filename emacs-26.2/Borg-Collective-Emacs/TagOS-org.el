@@ -149,7 +149,11 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   ;; org-babel settings
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((python . t)(ein . t)(ipython . t)(shell . t)(R . t))
+   '((python . t)
+     (ein . t)
+     ;(ipython . t)
+     (shell . t)
+     (R . t))
    )
 
   ;; Scale latex fragment previews up, 1.0 scale is barely legible. u/gkayaalp
