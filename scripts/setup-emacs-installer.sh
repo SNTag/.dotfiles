@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+#
+#Used to setup emacs from scratch.
+
 ### emacs
 emacs_version="27.1"
 [ ! -d ${HOME}/bin/emacs/ ] && mkdir ${HOME}/bin/emacs
