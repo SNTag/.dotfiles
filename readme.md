@@ -1,18 +1,17 @@
 Intro
 =====
 
-This is a collection of my dotfiles. I swap systems often (usually between pop-OS and manjaro), so
-this is streamlined for those distros. I have quit ricing. I got too caught up in details that just
-get in the way of doing things. There are better hobbies to have.  My dotfiles are now written with
-a minimalist approach in mind.
+This is a collection of my dotfiles. I'm frequently reinstalling my system and
+don't want to waste my time getting my configs back. My dotfiles are written in
+such a way to get those important systems back.
 
 This dotfile handles my:
 
 - rudimentary/common software
 - bioinformatic software
-- emacs
+- emacs (my original and my literate doom configs)
 - some fonts
-- tweaks
+- tweaks (quickly adding removable drives, etc)
 - zsh
 
 

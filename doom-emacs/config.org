@@ -1,0 +1,547 @@
+#+TITLE: Doom-emacs config
+
+:properties:
+:tangle:  ~/.doom.d/config.el
+:end:
+
+* About
+This is my doom emacs config. A literate config is needed when desgning doom-emacs configs.
+
+** starter
+
+This is the original details the auto-generated file comes with.
+
+#+begin_src org
+;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+
+;; Place your private configuration here! Remember, you do not need to run 'doom
+;; sync' after modifying this file!
+
+
+;; Some functionality uses this to identify you, e.g. GPG configuration, email
+;; clients, file templates and snippets.
+(setq user-full-name "John Doe"
+      user-mail-address "john@doe.com")
+
+;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
+;; are the three important ones:
+;;
+;; + `doom-font'
+;; + `doom-variable-pitch-font'
+;; + `doom-big-font' -- used for `doom-big-font-mode'; use this for
+;;   presentations or streaming.
+;;
+;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
+;; font string. You generally only need these two:
+;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
+;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
+
+;; There are two ways to load a theme. Both assume the theme is installed and
+;; available. You can either set `doom-theme' or manually load a theme with the
+;; `load-theme' function. This is the default:
+;(setq doom-theme 'doom-one)
+(load-theme `leuven t)
+
+;; If you use `org' and don't want your org files in the default location below,
+;; change `org-directory'. It must be set before org loads!
+(setq org-directory "~/org/")
+
+;; This determines the style of line numbers in effect. If set to `nil', line
+;; numbers are disabled. For relative line numbers, set this to `relative'.
+(setq display-line-numbers-type t)
+
+
+;; Here are some additional functions/macros that could help you configure Doom:
+;;
+;; - `load!' for loading external *.el files relative to this one
+;; - `use-package!' for configuring packages
+;; - `after!' for running code after a package has loaded
+;; - `add-load-path!' for adding directories to the `load-path', relative to
+;;   this file. Emacs searches the `load-path' when you load packages with
+;;   `require' or `use-package'.
+;; - `map!' for binding new keys
+;;
+;; To get information about any of these functions/macros, move the cursor over
+;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
+;; This will open documentation for it, including demos of how they are used.
+;;
+;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
+;; they are implemented.
+
+
+#+end_src
+
+* My General Config
+** The odd configs
+
+#+begin_src org
+;; ====================
+;; Quirks
+(setq save-interprogram-paste-before-kill t)
+
+;; ====================
+;; ace-window
+(global-set-key (kbd "M-l") 'ace-window)
+
+;; ====================
+;; helm
+(global-set-key (kbd "C-c C-s") 'helm-buffers-list)
+(global-set-key (kbd "C-c C-f") 'helm-find-files)
+
+;; ====================
+;; flycheck
+(setq flycheck-check-syntax-automatically '(new-line))
+
+;; ====================
+;; aliases
+;;
+;; Those functions i use often, but not enough for a dedicated key.
+;; Three letters are used for the aliases. If it's good enough for DNA to specify 64 different combinations with four letters,
+;; it's good enough for me with 1.7e4 combinations using a 26 letter alphabet.
+(defalias 'are 'align-regexp)		       ; Align-RegExp           : to set alignments by symbols
+(defalias 'mmt 'markdown-toggle-markup-hiding) ; Markdown-Markup-Toggle : to toggle markdown markup
+(defalias 'rer 'run-ess-r)		       ; Run-Ess-R              : start an ess-r console
+(defalias 'rpy 'run-python)		       ; Run-PYthon              : start an python console
+(defalias 'ydt 'yas-describe-tables)	       ; Yas-Describe-Tables    : runs yas-describe-tables
+(defalias 'odb 'display-buffer)	               ; Open-Display-Buffer    : opens the display buffer if it has been closed.
+(defalias 'otl 'org-toggle-latex-fragment)     ; Org-Toggle-Latex       : toggles org-mode latex fragments
+(defalias 'dib 'display-buffer)                ; DIsplay-Buffer         : reopens shells/consoles/pdfs/help in a side window.
+
+#+end_src
+
+** doc-loader
+
+I like have 'shortcuts' to common documents.
+
+#+begin_src org
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; doc-loader
+;; ====================
+;; emacs
+(defun docs/to-emacs-yasnippetsquickquide () ;; ==== docs/to-emacs-yasnippetsquickguide
+  "yasnippets quick guide"
+  (interactive)
+  (browse-url "https://joaotavora.github.io/yasnippet/snippet-development.html"))
+(defun docs/to-emacs-all-docs () ;; ================ docs/to-python-docs
+  "emacs-documentation"
+  (interactive)
+  (browse-url "https://www.gnu.org/software/emacs/manual/"))
+(defun docs/to-emacs-docs () ;; ==================== docs/to-python-docs
+  "emacs-documentation"
+  (interactive)
+  (browse-url "https://www.gnu.org/software/emacs/manual/html_node/emacs/index.html"))
+(defun edit/personal-configs ()
+  "some personal configs for stuff outside the dotfiles"
+  (interactive)
+  (find-file "~/.doom.d/config.el")
+  )
+
+;; ====================
+;; org-docs
+(defun docs/to-org-manual () ;; ==================== docs/to-org docs
+  "org-docs"
+  (interactive)
+    (browse-url "https://orgmode.org/org.html"))
+(defun docs/to-org-babel () ;; ===================== docs/to-orgbabel docs
+  "org-babel-docs"
+  (interactive)
+  (browse-url "https://org-babel.readthedocs.io/en/latest/"))
+
+;; ====================
+;; R-docs
+(defun docs/to-R-ess () ;; ========================= docs/to-ess docs
+  "ess-docs"
+  (interactive)
+  (browse-url "http://ess.r-project.org/ess.pdf"))
+(defun docs/to-R-rmarkdown () ;; =================== docs/to-R-rmarkdown docs
+  "RMarkdown docs"
+  (interactive)
+  (browse-url "https://bookdown.org/yihui/rmarkdown/"))
+(defun docs/to-R-cheatsheets () ;; ================= docs/to-R-cheatsheets docs
+  "RStudio cheatsheets"
+  (interactive)
+  (browse-url "https://rstudio.com/resources/cheatsheets/"))
+(defun docs/to-R-cran () ;; ======================== docs/to-R-cran
+  "R Cran docs"
+  (interactive)
+  (browse-url "https://rdrr.io/find/?repos=cran&page=0&fuzzy_slug="))
+(defun docs/to-R-advancedr () ;; =================== docs/to-R-advancedr
+  "Hadley's advanced guide to R"
+  (interactive)
+  (browse-url "https://adv-r.hadley.nz/"))
+(defun docs/to-R-datascience () ;; ================= docs/to-R-datascience
+  "Hadley's guide to data science"
+  (interactive)
+  (browse-url "https://r4ds.had.co.nz/"))
+(defun docs/to-R-packages () ;; ==================== docs/to-R-packages
+  "Hadley's guide to R packages"
+  (interactive)
+  (browse-url "https://r-pkgs.org/"))
+(defun docs/to-R-caret () ;; ======================= docs/to-R-caret
+  "R documentation to caret"
+  (interactive)
+  (browse-url "https://topepo.github.io/caret/index.html"))
+;; (defun docs/to-R-tidymodels () ;; ================== docs/to-R-tidymodels
+;;   "R tidymodels"
+;;   (interactive)
+;;   (browse-url ""))
+(defun docs/to-R-bookdown () ;; ==================== docs/to-R-bookdown
+  "R documentation to writing R books"
+  (interactive)
+  (browse-url "https://bookdown.org/yihui/bookdown/"))
+(defun docs/to-R-blogdown () ;; ==================== docs/to-R-blogdown
+  "R documentation to writing R blogs"
+  (interactive)
+  (browse-url "https://bookdown.org/yihui/blogdown/"))
+(defun docs/to-R-tidytext () ;; ==================== docs/to-R-tidytext
+  "R documentation to tidytext"
+  (interactive)
+  (browse-url "https://www.tidytextmining.com/ngrams.html"))
+(defun docs/to-R-Hands-On-Programming () ;; ======== docs/to-R-Hands-On-Programming
+  "R documentation to tidytext"
+  (interactive)
+  (browse-url "https://rstudio-education.github.io/hopr/index.html"))
+(defun docs/to-R-bioconductor () ;; ======== docs/to-R-bioconductor
+  "R bioconductor"
+  (interactive)
+  (browse-url "https://bioconductor.org/"))
+
+;; ====================
+;; python3
+(defun docs/to-python-documentation () ;; ========== docs/to-python-documentation
+  "python3-documentation"
+  (interactive)
+  (browse-url "https://docs.python.org/3/index.html"))
+(defun docs/to-python-hitchikers-guide () ;; ======= docs/to-python-hitchikers-guide
+  "python3-documentation"
+  (interactive)
+  (browse-url "https://docs.python-guide.org/"))
+(defun docs/to-python-pypi-package-index () ;; ===== docs/to-python-pypi-package-index
+  "python3-documentation"
+  (interactive)
+  (browse-url "https://pypi.org/"))
+
+;; ====================
+;; latex
+(defun docs/to-latex-ctan () ;; ==================== docs/to-latex-ctan
+  "emacs-documentation"
+  (interactive)
+  (browse-url "https://ctan.org/"))
+
+;; ====================
+;; emails
+(defun emails/to-protonmail () ;; ================== emails/to-protonmail
+  "emails protonmail"
+  (interactive)
+  (browse-url "https://protonmail.com/"))
+(defun emails/to-nus-webmail () ;; ================= emails/to-nus-webmail
+  "emails nus webmail"
+  (interactive)
+  (browse-url "https://exchange.nus.edu.sg/owa/auth/logon.aspx?url=https://exchange.nus.edu.sg/owa/&reason=0"))
+(defun emails/to-gmail () ;; ======================= emails/to-gmail
+  "emails gmail"
+  (interactive)
+  (browse-url "https://www.gmail.com"))
+
+;; ;; for some personal configurations that are only useful in graphics mode.
+;; (if (file-exists-p "~/.emacs.d/custom/personal-configs.el")
+;;     (if (display-graphic-p)
+;; 	(load-file "~/.emacs.d/custom/personal-configs.el")
+;;       )
+;;   )
+
+#+end_src
+
+** Custom functions
+
+#+begin_src org
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; functions
+;; ====================
+;; unfill
+;;
+;; Useful when copy pasting from emacs to outside programs.
+(global-set-key (kbd "C-c u") 'unfill-region)
+
+;; ====================
+;; insert date and time
+;;
+;; taken from:
+;; https://stackoverflow.com/questions/251908/how-can-i-insert-current-date-and-time-into-a-file-using-emacs
+(defun time/today ()
+  "Insert string for today's date nicely formatted in American style,
+e.g. Sunday, September 17, 2000."
+  (interactive)                 ; permit invocation in minibuffer
+  (insert (format-time-string "%A, %B %e, %Y")))
+(defun time/today-short ()
+  "Insert string for today's date nicely formatted as DD/MM/YY"
+  (interactive)                 ; permit invocation in minibuffer
+  (insert (format-time-string "%d/%m/%Y")))
+(defun time/web-timeconverter () ;; =============== today/web-timeconverter
+  "org-docs"
+  (interactive)
+  (browse-url "https://www.timeanddate.com/worldclock/converter.html?iso=20200519T100000&p1=236&p2=179"))
+
+;; ====================
+;; open external shell
+;;
+;; Will open, if available, an xfce, konsole, or gnome terminal. works on mac.
+;;
+;; WARNING: WILL OPEN MORE THAN ONE TERMINAL IF THEY AVAILABLE.
+;;
+;; TODO: [C] i suspect this will open all terminal options if available.  need to make it selective.
+;;
+;; keys:
+;; C-c t  -  open-terminal-in-workdir
+(defun sys/open-terminal-in-workdir ()
+  (interactive)
+  (call-process-shell-command			; XFCE systems
+   (concat "xfce4-terminal --working-directory=" default-directory) nil 0)
+  (call-process-shell-command			; KDE systems
+   (concat "konsole --workdir " default-directory) nil 0)
+  (call-process-shell-command   		; GNOME systems
+   (concat "gnome-terminal --working-directory=" default-directory) nil 0)
+  (call-process-shell-command   		; Mac systems
+   (concat "open -a Terminal" default-directory) nil 0))
+
+;; development notes:
+;; needs to save the file location as a var, and pass the dir to guake
+(defun sys/open-dropdown-terminal-in-workdir ()
+  (interactive)
+  (call-process-shell-command
+   (concat "guake -e 'cs ./'") nil 0)
+  )
+
+(global-set-key (kbd "C-c t") 'sys/open-terminal-in-workdir)
+(global-set-key (kbd "C-c SPC") 'sys/open-dropdown-terminal-in-workdir)
+
+;; ====================
+;; open file directory
+;;
+;; Opens directory for current frame
+(defun sys/browse-file-directory ()
+  "Open the current file's directory however the OS would."
+  (interactive)
+  (if default-directory
+      (browse-url-of-file (expand-file-name default-directory))
+    (error "No `default-directory' to open")))
+
+(global-set-key (kbd "C-c o") 'sys/browse-file-directory)
+
+#+end_src
+
+** File-loader
+
+'Shortcutes' to common documents that I use.
+
+#+begin_src org
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; File-loader
+;; ====================
+;; journals
+(defun open/journal ()
+  "opens my nav files"
+  (interactive)
+  (find-file "~/MyDisk/files/org-files/journal.org")
+  )
+
+(defun open/system-guide ()
+  "opens my fresh-install master file"
+  (interactive)
+;  (find-file "~/MyDisk/files/system-critical/fresh-installation-checklist.org")
+  (find-file "~/MyDisk/files/system-critical/system.org")
+  )
+
+;; ====================
+;; opening files controlling my org
+(defun open/org-monthly-auto ()
+  "opens my org-mode files"
+  (interactive)
+  (find-file "/home/sntag/MyDisk/files/projects/org-monthly/org-monthly-auto.sh")
+  )
+
+;; ====================
+;; R openers
+(defun open/R-packages-installation ()
+  "opens my R packages to install"
+  (interactive)
+  (find-file "~/.dotfiles/programming-languages/r/installation-setup.r")
+  )
+(defun open/R-rprofile ()
+  "opens my R profile"
+  (interactive)
+  (find-file "~/.Rprofile")
+  )
+
+;; ====================
+;; Python openers
+(defun open/python-eink-calendar ()
+  "opens my python eink-calendar project"
+  (interactive)
+  (find-file "~/MyDisk/files/projects/eink-calendar/readme.py")
+  )
+
+
+
+;; ====================
+;; Deprecated files
+(defun open-dep/thesis-edits ()
+  "opens my thesis edits"
+  (interactive)
+  (find-file "~/MyDisk/files/work_journal/gtk_journal/resources/QE_paper-Shayon/md-masters_thesis/thesis_edits.org")
+  )
+
+;; ====================
+;; job search
+(defun open-dep/job-files ()
+  "opens my job files"
+  (interactive)
+  (delete-other-windows)
+  (find-file "~/MyDisk/files/org-files/life/job-search.org")
+  (find-file "~/MyDisk/files/my_journal/files/career/2019/files/Generic-letter/generic_letter-v2/01-letter.md")
+  (split-window-right)
+  (windmove-right)
+  (find-file "~/MyDisk/files/my_journal/files/career/2019/files/Generic-letter/generic_letter-v2/00-metadata2.yaml")
+  (split-window-below)
+  (windmove-down)
+  (find-file "~/MyDisk/files/my_journal/files/career/resume/resume-wetlab-2020-05-31/resume.tex")
+  (windmove-left)
+  )
+
+(defun open/job-files-plain ()
+  "opens my job files"
+  (interactive)
+  (find-file "~/MyDisk/files/org-files/life/job-search.org")
+  (find-file "~/MyDisk/files/my_journal/files/career/2019/files/Generic-letter/generic_letter-v2/01-letter.md")
+  (find-file "~/MyDisk/files/my_journal/files/career/2019/files/Generic-letter/generic_letter-v2/00-metadata2.yaml")
+  (find-file "~/MyDisk/files/my_journal/files/career/resume/resume-wetlab-2020-05-31/resume.tex")
+  )
+
+;; ====================
+;; github
+(defun open/github-sntag () ;; ===================== open/github-sntag
+  "yasnippets quick guide"
+  (interactive)
+  (browse-url "https://github.com/SNTag/"))
+
+
+;; ====================
+;; stock-profiles
+(defun open-dep/portfolio () ;; ===================== open/github-sntag
+  "opens my portfolio info"
+  (interactive)
+  (find-file "/home/sntag/Documents/stock-bot/stock-bot.R")
+  (find-file "/home/sntag/MyDisk/files/my_journal/portfolio/analysis-2020-07/market-journal.org")
+  )
+
+
+;; ====================
+;; raspberry-pi-configs/journal
+(defun open/raspberry-pi-journal () ;; ===================== open/github-sntag
+  "opens my raspberry-pi configs/journal"
+  (interactive)
+  (find-file "/home/sntag/MyDisk/files/projects/raspberry-custom-images/journal-rpi-image.org")
+  )
+
+#+end_src
+
+** Org-configs
+
+#+begin_src org
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; org
+(setq org-startup-folded t)                     ; startup folded
+(setq org-hide-leading-stars t)                 ; disables stars before heading for all levels
+(setq org-hide-emphasis-markers t)              ; For hiding markup elements.
+(setq org-use-sub-superscripts '{})             ; prevents _ from always being read as subscript during org-export
+(setq org-startup-indented t)                   ; org document indentation
+(setq org-adapt-indentation nil)                ; see https://explog.in/notes/writingsetup.html
+;(setq org-src-window-setup 'split-window-right)
+(setq org-startup-folded t)                     ; startup folded
+(setq org-adapt-indentation nil)                ; indent text along with heading. https://orgmode.org/manual/Clean-View.html
+
+
+
+
+(defun my-restart-python-console ()
+  "Restart python console before evaluate buffer or region to avoid various uncanny conflicts, like not reloding modules even when they are changed"
+  (interactive)
+  (kill-process "Python")
+  (sleep-for 0.05)
+  (kill-buffer "*Python*")
+  (elpy-shell-send-region-or-buffer))
+
+#+end_src
+
+** Helm-Tramp
+
+#+begin_src org
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; helm-tramp
+;; see https://www.gtrun.org/post/config/
+;; https://github.com/masasam/emacs-helm-tramp
+
+;; (use-package! helm-tramp
+;;   :config
+;;   (setq tramp-default-method "sshx")
+;;   (setq make-backup-files nil)
+;;   (setq create-lockfiles nil)
+;;   (setq helm-tramp-custom-connections '(/sshx:gtrun@10.220.170.112:/home/gtrun
+;;                                         /sshx:gtrun@10.220.170.112:/home/gtrun/.config/nixpkgs
+;;                                         /sshx:test@10.220.170.134:/home/test/))
+;;   (add-hook 'helm-tramp-pre-command-hook '(lambda () ;;(global-aggressive-indent-mode 0)
+;;                      (projectile-mode 0)
+;;                      ;;(editorconfig-mode 0)
+;;              ))
+;;   (add-hook 'helm-tramp-quit-hook '(lambda () ;;(global-aggressive-indent-mode 1)
+;;                   (projectile-mode 1)
+;;                   ;;(editorconfig-mode 1)
+;;             ))
+;; )
+
+#+end_src
+
+* Programming configs
+** R-setup
+
+Taken from [[https://dotdoom.rgoswami.me/config.html][rgoswami's literate config]]
+
+*** R Markdown
+
+#+begin_src org
+;; Load
+(use-package! poly-R
+:config
+(map! (:localleader
+      :map polymode-mode-map
+      :desc "Export"   "e" 'polymode-export
+      :desc "Errors" "$" 'polymode-show-process-buffer
+      :desc "Weave" "w" 'polymode-weave
+      ;; (:prefix ("n" . "Navigation")
+      ;;   :desc "Next" "n" . 'polymode-next-chunk
+      ;;   :desc "Previous" "N" . 'polymode-previous-chunk)
+      ;; (:prefix ("c" . "Chunks")
+      ;;   :desc "Narrow" "n" . 'polymode-toggle-chunk-narrowing
+      ;;   :desc "Kill" "k" . 'polymode-kill-chunk
+      ;;   :desc "Mark-Extend" "m" . 'polymode-mark-or-extend-chunk)
+      ))
+  )
+
+#+end_src
+
+*** Rorg
+
+#+begin_src org
+(use-package! poly-org
+:config
+(add-to-list 'auto-mode-alist '("\\.org" . org-mode))
+(add-to-list 'auto-mode-alist '("\\.Rorg" . poly-org-mode))
+(map! (:localleader
+      :map polymode-mode-map
+      :desc "Export"   "E" 'polymode-export
+      :desc "Errors" "$" 'polymode-show-process-buffer
+      :desc "Weave" "w" 'polymode-weave
+      ))
+  )
+
+#+end_src

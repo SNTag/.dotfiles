@@ -1,5 +1,10 @@
 # .emacs.d-config
 
+This config is my original emacs setup. I am very proud of what I built here,
+and it helped me learn a lot about emacs. But I am not a programmer by trade,
+and don't want to spend all of my free time building emacs up. I've moved to
+doom-emacs for my main system, and only use this config for hobby systems. I'm
+leaving my configs here for anyone interested.
 
 Built for linux.
 
@@ -9,18 +14,26 @@ Feel free to use or take details from this set up. Sources of inspiration are
 mentioned in the code where relevant.
 
 **Build focus:**
+
 emacs is not an OS, but I do use it as an interface.
 
-I aim to make a minimalist Emacs rich in functionality. It has to have quick fire access to those
-tools and documents I refer to often, and does not seek to replace basic functions available in linux.
+I aim to make a minimalist Emacs rich in functionality. It has to have quick
+fire access to those tools and documents I refer to often, and does not seek to
+replace basic functions available in linux.
 
-**Understanding my init**
-The Init file hold only tweaks for improving speed during loading and to direct it to the
-Borg-Collective (my nickname for my mode configuration organization). Names of the
-Borg-Collective files indicate what its for.
+This file serves to log what features are in my emacs and how to use them. I
+frequently forget what I myself have added.
+
+**Understanding my init** 
+
+The Init file hold only tweaks for improving speed during loading and to direct
+it to the Borg-Collective (my nickname for my mode configuration organization).
+Names of the Borg-Collective files indicate what its for.
 
 **NOTE**
-I have noticed a consistent error across OS regarding file name length in emacs. I suspect it to be some conflict error with gcc.
+
+I have noticed a consistent error across OS regarding file name length in emacs.
+I suspect it to be some conflict error with gcc.
 
 
 ## Main Useage
